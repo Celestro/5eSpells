@@ -1,4 +1,4 @@
-new entry "Boomingblade_Passive_2"
+new entry "Boomingblade_Passive"
 type "PassiveData"
 data "DisplayName" "Booming Blade"
 data "Description" "If target willingly moves before the end of their turn, they take 1d8 thunder damage."
