@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Public",
+    "\\Public\\5eSpells",
+    "\\Public\\5eSpells\\Content",
+    "\\Public\\5eSpells\\Content\\Scripts",
+    "\\Public\\5eSpells\\Content\\Scripts\\[PAK]_GameScripts",
+    "\\Public\\5eSpells\\DefaultValues",
+    "\\Public\\5eSpells\\Lists",
+    "\\Public\\5eSpells\\RootTemplates",
+    "\\Public\\5eSpells\\Scripts",
+    "\\Public\\5eSpells\\Scripts\\Game"
+  ],
+  "SelectedNode": "\\Public\\5eSpells\\Stats\\Generated\\Data\\Spell_Shout_5eSpells.txt",
+  "PreviewInSolutionExplorer": false
+}
