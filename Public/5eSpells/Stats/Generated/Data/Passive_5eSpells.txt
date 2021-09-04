@@ -27,7 +27,6 @@ data "Properties" "IsToggled;ToggledDefaultAddToHotbar;ToggledDefaultOn"
 data "StatsFunctors" "UseActionResource(SELF, ReactionActionPoint,1);RemoveStatus(SELF,SHIELD_APPLY)"
 data "StatsFunctorContext" "OnAttacked"
 data "ToggleOnFunctors" "ApplyStatus(SHIELD_TOGGLE,100,-1)"
-data "ToggleOffFunctors" "RemoveStatus(SHIELD_TOGGLE)"
 
 new entry "AbsorbElements_Acid"
 type "PassiveData"
