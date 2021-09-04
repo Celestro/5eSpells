@@ -1,0 +1,725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="0" minor="0" revision="0" build="602" />
+	<region id="Templates">
+		<node id="Templates">
+			<children>
+				<node id="GameObjects">
+					<attribute id="AiHint" type="31" value="3cae4ff5-e9c0-485b-95b6-83f8610981a7" />
+					<attribute id="Archetype" type="22" value="ranged" />
+					<attribute id="BloodSurfaceType" type="22" value="SurfaceMud" />
+					<attribute id="CharacterVisualResourceID" type="22" value="c782be1a-319c-15b9-319a-208adbce3312" />
+					<attribute id="DisplayName" type="28" handle="hf250d53cg16b8g4d8fga959g081b825eadf6" version="1" />
+					<attribute id="Icon" type="22" value="c782be1a-319c-15b9-319a-208adbce3312-_(Icon_Imp)" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="MapKey" type="22" value="410a0dc0-e137-4347-bf31-c50247351efd" />
+					<attribute id="Name" type="23" value="" />
+					<attribute id="ParentTemplateId" type="22" value="a3db5896-d711-46fc-b3ed-0d950a2186fa" />
+					<attribute id="ReadinessFlags" type="5" value="12" />
+					<attribute id="Stats" type="22" value="Dust_Devil" />
+					<attribute id="Type" type="22" value="character" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855925" />
+					<children>
+						<node id="GameMaster" />
+						<node id="LocomotionParams" />
+						<node id="OnDeathActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="4" value="10" />
+									<children>
+										<node id="Attributes">
+											<attribute id="Animation" type="22" value="" />
+											<attribute id="CellAtGrow" type="4" value="2" />
+											<attribute id="ExternalCauseAsSurfaceOwner" type="19" value="True" />
+											<attribute id="GrowTimer" type="6" value="0.4" />
+											<attribute id="LifeTime" type="6" value="-1" />
+											<attribute id="SurfaceType" type="22" value="SurfaceMud" />
+											<attribute id="Timeout" type="6" value="0" />
+											<attribute id="TotalCells" type="4" value="3" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="Scripts">
+							<children>
+								<node id="Script">
+									<attribute id="UUID" type="22" value="8bd594fd-385a-48d3-b5aa-a7c556f33c62" />
+									<children>
+										<node id="Parameters">
+											<children>
+												<node id="Parameter">
+													<attribute id="MapKey" type="22" value="HardcoreOnly" />
+													<attribute id="Type" type="4" value="1" />
+													<attribute id="Value" type="23" value="0" />
+												</node>
+												<node id="Parameter">
+													<attribute id="MapKey" type="22" value="casterLevel" />
+													<attribute id="Type" type="4" value="1" />
+													<attribute id="Value" type="23" value="-1" />
+												</node>
+												<node id="Parameter">
+													<attribute id="MapKey" type="22" value="projectileSpell" />
+													<attribute id="Type" type="4" value="9" />
+													<attribute id="Value" type="23" value="Projectile_MephitExplosion_Mud" />
+												</node>
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="AnubisConfigName" type="22" value="DefaultCharacter" />
+					<attribute id="BloodSurfaceType" type="22" value="SurfaceNone" />
+					<attribute id="CharacterVisualResourceID" type="22" value="27cba5d0-c1bd-6d03-843f-8f1921aace1c" />
+					<attribute id="DisplayName" type="28" handle="395581f6-e613-49ee-9311-5de834fe8cd7" version="1" />
+					<attribute id="GeneratePortrait" type="23" value="Icon_Hand_Mage" />
+					<attribute id="Icon" type="22" value="27cba5d0-c1bd-6d03-843f-8f1921aace1c-_(Icon_Hand_Mage)" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="MapKey" type="22" value="52f9cad8-3ffd-41ec-861d-a5049a654e5b" />
+					<attribute id="Name" type="23" value="" />
+					<attribute id="ParentTemplateId" type="22" value="29ad5160-21d6-4e0b-9073-4fdee590f62f" />
+					<attribute id="PhysicsTemplate" type="22" value="f172a961-4819-4951-9bb8-3e642bae1bdc" />
+					<attribute id="Race" type="31" value="8317a985-dcd7-4758-1db1-b3a6179b030b" />
+					<attribute id="SoundInitEvent" type="22" value="53a5a5a9-d9e1-8375-28e2-c5958cf15df6" />
+					<attribute id="Stats" type="22" value="SpiritualWeapon" />
+					<attribute id="Type" type="22" value="character" />
+					<attribute id="VisualTemplate" type="22" value="61373d65-ebc1-dde3-1ae8-79b1be4a8976" />
+					<attribute id="VocalAlertResourceID" type="22" value="d15a14e5-5dfa-0d96-25d7-0081b8cd0421" />
+					<attribute id="VocalAnticipationResourceID" type="22" value="00000000-0000-0000-0000-000000000000" />
+					<attribute id="VocalAttackResourceID" type="22" value="c8a68232-435d-f478-8c20-5ad96978eee0" />
+					<attribute id="VocalDeathResourceID" type="22" value="a38d0bed-fc96-72bc-db2f-f4591b9e9da5" />
+					<attribute id="VocalDodgeResourceID" type="22" value="ac6d1602-8977-effe-728a-e62e81ef573b" />
+					<attribute id="VocalExhaustedResourceID" type="22" value="ed3ad74b-2168-18df-b92e-17de4641015b" />
+					<attribute id="VocalPainResourceID" type="22" value="ce17ccba-f180-2f0c-65f1-cca1f7f250c7" />
+					<attribute id="VocalRelaxedResourceID" type="22" value="c43dd3fa-ca31-65ff-5d3c-dc6787a05898" />
+					<attribute id="VocalSpawnResourceID" type="22" value="09d940ec-8ff1-0b91-0653-2ace30324b64" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115196665790677" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.5790528" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.2553226 0.2830342 0.6158179" />
+									<attribute id="Min" type="12" value="-0.1930139 0.003981382 -0.8236369" />
+									<attribute id="Radius" type="6" value="0.3833166" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.5790528" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.2553226 0.2830342 0.6158179" />
+									<attribute id="Min" type="12" value="-0.1930139 0.003981382 -0.8236369" />
+									<attribute id="Radius" type="6" value="0.3833166" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="2" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.5790528" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.1276613 0.2830342 0.307909" />
+									<attribute id="Min" type="12" value="-0.09650695 0.003981382 -0.4118184" />
+									<attribute id="Radius" type="6" value="0.1916583" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="0" />
+								</node>
+							</children>
+						</node>
+						<node id="GameMaster" />
+						<node id="LocomotionParams" />
+						<node id="OnDeathActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="4" value="26" />
+									<children>
+										<node id="Attributes">
+											<attribute id="ActivateSoundEvent" type="22" value="237960ee-0fb5-2983-c860-948ac910b2c9" />
+											<attribute id="Animation" type="22" value="" />
+											<attribute id="PlayOnHUD" type="19" value="False" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="SkillList">
+							<children>
+								<node id="Skill">
+									<attribute id="AIFlags" type="3" value="0" />
+									<attribute id="CasualExplorer" type="19" value="True" />
+									<attribute id="Classic" type="19" value="True" />
+									<attribute id="FallbackStartRound" type="4" value="-1" />
+									<attribute id="HonorHardcore" type="19" value="True" />
+									<attribute id="LearningStrategy" type="1" value="0" />
+									<attribute id="MinimumImpact" type="4" value="0" />
+									<attribute id="OnlyCastOnSelf" type="19" value="False" />
+									<attribute id="ScoreModifier" type="6" value="1" />
+									<attribute id="Skill" type="22" value="Target_SpiritualWeapon_Attack" />
+									<attribute id="SpellCastingAbility" type="5" value="0" />
+									<attribute id="StartRound" type="4" value="0" />
+									<attribute id="TacticianHardcore" type="19" value="True" />
+									<children>
+										<node id="SourceConditions">
+											<attribute id="MaximumHealthPercentage" type="4" value="100" />
+											<attribute id="MinimumHealthPercentage" type="4" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+										<node id="TargetConditions">
+											<attribute id="MaximumHealthPercentage" type="4" value="100" />
+											<attribute id="MinimumHealthPercentage" type="4" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="Tags">
+							<children>
+								<node id="Tag">
+									<attribute id="Object" type="31" value="26c78224-a4c1-43e4-43b9-e7751bfa41fa" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="AnubisConfigName" type="22" value="DefaultCharacter" />
+					<attribute id="BloodSurfaceType" type="22" value="SurfaceNone" />
+					<attribute id="CharacterVisualResourceID" type="22" value="27cba5d0-c1bd-6d03-843f-8f1921aace1c" />
+					<attribute id="DisplayName" type="28" handle="395581f6-e613-49ee-9311-5de834fe8cd7" version="1" />
+					<attribute id="GeneratePortrait" type="23" value="Icon_Hand_Mage" />
+					<attribute id="Icon" type="22" value="27cba5d0-c1bd-6d03-843f-8f1921aace1c-_(Icon_Hand_Mage)" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="MapKey" type="22" value="6db18d12-7b6f-47cc-b823-7d6acf97a2fa" />
+					<attribute id="Name" type="23" value="" />
+					<attribute id="ParentTemplateId" type="22" value="29ad5160-21d6-4e0b-9073-4fdee590f62f" />
+					<attribute id="PhysicsTemplate" type="22" value="f172a961-4819-4951-9bb8-3e642bae1bdc" />
+					<attribute id="Race" type="31" value="8317a985-dcd7-4758-1db1-b3a6179b030b" />
+					<attribute id="SoundInitEvent" type="22" value="53a5a5a9-d9e1-8375-28e2-c5958cf15df6" />
+					<attribute id="Stats" type="22" value="SpiritualWeapon_Sorcerer" />
+					<attribute id="Type" type="22" value="character" />
+					<attribute id="VisualTemplate" type="22" value="61373d65-ebc1-dde3-1ae8-79b1be4a8976" />
+					<attribute id="VocalAlertResourceID" type="22" value="d15a14e5-5dfa-0d96-25d7-0081b8cd0421" />
+					<attribute id="VocalAnticipationResourceID" type="22" value="00000000-0000-0000-0000-000000000000" />
+					<attribute id="VocalAttackResourceID" type="22" value="c8a68232-435d-f478-8c20-5ad96978eee0" />
+					<attribute id="VocalDeathResourceID" type="22" value="a38d0bed-fc96-72bc-db2f-f4591b9e9da5" />
+					<attribute id="VocalDodgeResourceID" type="22" value="ac6d1602-8977-effe-728a-e62e81ef573b" />
+					<attribute id="VocalExhaustedResourceID" type="22" value="ed3ad74b-2168-18df-b92e-17de4641015b" />
+					<attribute id="VocalPainResourceID" type="22" value="ce17ccba-f180-2f0c-65f1-cca1f7f250c7" />
+					<attribute id="VocalRelaxedResourceID" type="22" value="c43dd3fa-ca31-65ff-5d3c-dc6787a05898" />
+					<attribute id="VocalSpawnResourceID" type="22" value="09d940ec-8ff1-0b91-0653-2ace30324b64" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115196665790677" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.5790528" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.2553226 0.2830342 0.6158179" />
+									<attribute id="Min" type="12" value="-0.1930139 0.003981382 -0.8236369" />
+									<attribute id="Radius" type="6" value="0.3833166" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.5790528" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.2553226 0.2830342 0.6158179" />
+									<attribute id="Min" type="12" value="-0.1930139 0.003981382 -0.8236369" />
+									<attribute id="Radius" type="6" value="0.3833166" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="2" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.5790528" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.1276613 0.2830342 0.307909" />
+									<attribute id="Min" type="12" value="-0.09650695 0.003981382 -0.4118184" />
+									<attribute id="Radius" type="6" value="0.1916583" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="0" />
+								</node>
+							</children>
+						</node>
+						<node id="GameMaster" />
+						<node id="LocomotionParams" />
+						<node id="OnDeathActions">
+							<children>
+								<node id="Action">
+									<attribute id="ActionType" type="4" value="26" />
+									<children>
+										<node id="Attributes">
+											<attribute id="ActivateSoundEvent" type="22" value="237960ee-0fb5-2983-c860-948ac910b2c9" />
+											<attribute id="Animation" type="22" value="" />
+											<attribute id="PlayOnHUD" type="19" value="False" />
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="SkillList">
+							<children>
+								<node id="Skill">
+									<attribute id="AIFlags" type="3" value="0" />
+									<attribute id="CasualExplorer" type="19" value="True" />
+									<attribute id="Classic" type="19" value="True" />
+									<attribute id="FallbackStartRound" type="4" value="-1" />
+									<attribute id="HonorHardcore" type="19" value="True" />
+									<attribute id="LearningStrategy" type="1" value="0" />
+									<attribute id="MinimumImpact" type="4" value="0" />
+									<attribute id="OnlyCastOnSelf" type="19" value="False" />
+									<attribute id="ScoreModifier" type="6" value="1" />
+									<attribute id="Skill" type="22" value="Target_SpiritualWeapon_Attack" />
+									<attribute id="SpellCastingAbility" type="5" value="0" />
+									<attribute id="StartRound" type="4" value="0" />
+									<attribute id="TacticianHardcore" type="19" value="True" />
+									<children>
+										<node id="SourceConditions">
+											<attribute id="MaximumHealthPercentage" type="4" value="100" />
+											<attribute id="MinimumHealthPercentage" type="4" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+										<node id="TargetConditions">
+											<attribute id="MaximumHealthPercentage" type="4" value="100" />
+											<attribute id="MinimumHealthPercentage" type="4" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="Tags">
+							<children>
+								<node id="Tag">
+									<attribute id="Object" type="31" value="26c78224-a4c1-43e4-43b9-e7751bfa41fa" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="CameraOffset" type="12" value="0 0 0" />
+					<attribute id="DecalMaterial" type="22" value="b279a93b-4833-40e6-85ac-75766f22dffc" />
+					<attribute id="DisplayName" type="28" handle="h7cd66ac3gb0c4g45cdgbd1dgdaf5c72f316d" version="0" />
+					<attribute id="Flag" type="4" value="0" />
+					<attribute id="GroupID" type="5" value="0" />
+					<attribute id="HasGameplayValue" type="19" value="False" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="MapKey" type="22" value="6aae26a5-77a6-4281-8cea-74f16a151485" />
+					<attribute id="MaterialType" type="1" value="4" />
+					<attribute id="Name" type="23" value="SurfaceDaggersCloud" />
+					<attribute id="ParentTemplateId" type="22" value="" />
+					<attribute id="PhysicsTemplate" type="22" value="" />
+					<attribute id="Scale" type="6" value="1" />
+					<attribute id="Summon" type="22" value="cabefda4-6839-44e7-8e5e-7c1942fc13ca" />
+					<attribute id="SurfaceCategory" type="1" value="15" />
+					<attribute id="Type" type="22" value="surface" />
+					<attribute id="VisualTemplate" type="22" value="" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855894" />
+					<children>
+						<node id="FX" />
+						<node id="InstanceVisual" />
+						<node id="IntroFX" />
+						<node id="LayerList">
+							<children>
+								<node id="Layers" />
+							</children>
+						</node>
+						<node id="StatusData">
+							<children>
+								<node id="StatusData">
+									<attribute id="AffectedByRoll" type="19" value="False" />
+									<attribute id="ApplyToCharacters" type="19" value="True" />
+									<attribute id="ApplyToItems" type="19" value="False" />
+									<attribute id="ApplyTypes" type="1" value="11" />
+									<attribute id="Chance" type="6" value="1" />
+									<attribute id="Duration" type="6" value="-1" />
+									<attribute id="Force" type="19" value="False" />
+									<attribute id="KeepAlive" type="19" value="True" />
+									<attribute id="OnlyOncePerTurn" type="19" value="False" />
+									<attribute id="Remove" type="19" value="False" />
+									<attribute id="StatusId" type="22" value="DAGGERS_CLOUD" />
+									<attribute id="VanishOnApply" type="19" value="False" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="AiPathColor" type="12" value="1 1 0" />
+					<attribute id="CameraOffset" type="12" value="0 0 0" />
+					<attribute id="DecalMaterial" type="22" value="91d0b92e-0ed9-67c3-6a2c-219dc06ceb65" />
+					<attribute id="DefaultLifeTime" type="6" value="12" />
+					<attribute id="Description" type="28" handle="h26d7f157ge313g4aa4g9b3eg9f543626d280" version="3" />
+					<attribute id="DisplayName" type="28" handle="haf0c6ea5gbdbbg4b31g81f5gd7a42302faa6" version="1" />
+					<attribute id="FadeInSpeed" type="6" value="1" />
+					<attribute id="FadeOutSpeed" type="6" value="5" />
+					<attribute id="Flag" type="4" value="0" />
+					<attribute id="GroupID" type="5" value="0" />
+					<attribute id="HasGameplayValue" type="19" value="False" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="MapKey" type="22" value="4431b14a-f85c-4230-9881-fe06d58f863c" />
+					<attribute id="MaterialType" type="1" value="9" />
+					<attribute id="Name" type="23" value="SurfaceWaterFrozen" />
+					<attribute id="OnEnterDistanceOverride" type="6" value="1" />
+					<attribute id="OnMoveDistanceOverride" type="6" value="4" />
+					<attribute id="ParentTemplateId" type="22" value="" />
+					<attribute id="PhysicsOpenTemplate" type="22" value="" />
+					<attribute id="PhysicsTemplate" type="22" value="" />
+					<attribute id="RollConditions" type="23" value="Character() and not SavingThrow(Ability.Dexterity,12)" />
+					<attribute id="Scale" type="6" value="1" />
+					<attribute id="ShootThroughType" type="27" value="-1" />
+					<attribute id="Summon" type="22" value="bd8d5043-5cf7-427c-8dfc-829b7c6065d2" />
+					<attribute id="SurfaceCategory" type="1" value="7" />
+					<attribute id="Type" type="22" value="surface" />
+					<attribute id="VisualTemplate" type="22" value="" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855932" />
+					<children>
+						<node id="FX" />
+						<node id="InstanceVisual" />
+						<node id="IntroFX" />
+						<node id="StatusData">
+							<children>
+								<node id="StatusData">
+									<attribute id="AffectedByRoll" type="19" value="False" />
+									<attribute id="ApplyToCharacters" type="19" value="True" />
+									<attribute id="ApplyToItems" type="19" value="False" />
+									<attribute id="ApplyTypes" type="1" value="11" />
+									<attribute id="Chance" type="6" value="1" />
+									<attribute id="Duration" type="6" value="6" />
+									<attribute id="Force" type="19" value="False" />
+									<attribute id="KeepAlive" type="19" value="True" />
+									<attribute id="OnlyOncePerTurn" type="19" value="False" />
+									<attribute id="Remove" type="19" value="False" />
+									<attribute id="StatusId" type="22" value="DIFFICULT_TERRAIN" />
+									<attribute id="VanishOnApply" type="19" value="False" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="AnubisConfigName" type="22" value="SPL_DancingLights" />
+					<attribute id="DisplayName" type="28" handle="h5ff99e33g9f85g4463g9026g6622608667c4" version="1" />
+					<attribute id="IsInspector" type="19" value="False" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="LoopSound" type="22" value="b74990cb-221f-72c7-5673-8404c9114ce5" />
+					<attribute id="MapKey" type="22" value="2064328c-a090-454f-b3b8-b488bbe64567" />
+					<attribute id="Name" type="23" value="" />
+					<attribute id="ParentTemplateId" type="22" value="e40d1292-1da8-4c8f-b1dc-213cfdd4e135" />
+					<attribute id="PhysicsTemplate" type="22" value="0239fd57-8416-3578-6701-cfd6fb222305" />
+					<attribute id="ReadinessFlags" type="5" value="128" />
+					<attribute id="SoundAttenuation" type="2" value="25" />
+					<attribute id="Stats" type="22" value="OBJ_GenericImmutableObject" />
+					<attribute id="Tooltip" type="1" value="0" />
+					<attribute id="Type" type="22" value="item" />
+					<attribute id="VisualTemplate" type="22" value="f34da265-aea5-dcc5-c075-9901d7ea0fe7" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115196665790670" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="2.249353" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.0850952 2.128518 0.078182" />
+									<attribute id="Min" type="12" value="-0.1063483 0 -0.1142941" />
+									<attribute id="Radius" type="6" value="0.5695793" />
+									<attribute id="Shape" type="1" value="1" />
+									<attribute id="Type" type="1" value="1" />
+								</node>
+							</children>
+						</node>
+						<node id="GameMaster" />
+						<node id="OnUsePeaceActions" />
+						<node id="ScriptOverrides">
+							<children>
+								<node id="ScriptOverrides" />
+							</children>
+						</node>
+						<node id="Scripts" />
+						<node id="Tags">
+							<children>
+								<node id="Tag">
+									<attribute id="Object" type="31" value="292e7f29-ff10-462d-e98b-dd9489d1ea70" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="AnubisConfigName" type="22" value="ORI_Gale_MagicItem" />
+					<attribute id="Description" type="28" handle="heff75456g0e80g41d0gb654g4c245e370d99" version="3" />
+					<attribute id="DisplayName" type="28" handle="ha48138a7g8fefg4965gad9bgb80b257df30c" version="1" />
+					<attribute id="EquipSound" type="22" value="c0c9b3e7-b3bc-2cbc-9de5-0a148cb098cc" />
+					<attribute id="Icon" type="22" value="Item_UNI_PLA_WPN_SwordOfJustice" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="MapKey" type="22" value="5d83528a-6978-4988-a740-c68ae861fda0" />
+					<attribute id="Name" type="23" value="" />
+					<attribute id="ParentTemplateId" type="22" value="1a2a58b7-4bd5-44d5-b1fe-8cd7e5b53def" />
+					<attribute id="Race" type="27" value="-1" />
+					<attribute id="ReadinessFlags" type="5" value="128" />
+					<attribute id="Stats" type="22" value="WPN_DarkBlade" />
+					<attribute id="Type" type="22" value="item" />
+					<attribute id="UnequipSound" type="22" value="f69d46c0-213b-038a-5281-9533b61dca7b" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855928" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.0783766" />
+									<attribute id="Max" type="12" value="0.0793875 0.03607 0.163658" />
+									<attribute id="Min" type="12" value="-0.0793875 -0.015371 -0.804635" />
+									<attribute id="Radius" type="6" value="0.2330765" />
+									<attribute id="Shape" type="1" value="1" />
+									<attribute id="Type" type="1" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.0783766" />
+									<attribute id="Max" type="12" value="0.158775 0.03607 0.327316" />
+									<attribute id="Min" type="12" value="-0.158775 -0.015371 -1.60927" />
+									<attribute id="Radius" type="6" value="0.466153" />
+									<attribute id="Shape" type="1" value="1" />
+									<attribute id="Type" type="1" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.0783766" />
+									<attribute id="Max" type="12" value="0.158775 0.03607 0.327316" />
+									<attribute id="Min" type="12" value="-0.158775 -0.015371 -1.60927" />
+									<attribute id="Radius" type="6" value="0.466153" />
+									<attribute id="Shape" type="1" value="1" />
+									<attribute id="Type" type="1" value="2" />
+								</node>
+							</children>
+						</node>
+						<node id="GameMaster" />
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="AnubisConfigName" type="22" value="DefaultMonster" />
+					<attribute id="BloodType" type="22" value="Red" />
+					<attribute id="CharacterVisualResourceID" type="22" value="baa20049-2ec2-07a7-b4d6-02a38b25d6ac" />
+					<attribute id="Flag" type="4" value="0" />
+					<attribute id="GeneratePortrait" type="23" value="Icon_Dragon" />
+					<attribute id="Icon" type="22" value="baa20049-2ec2-07a7-b4d6-02a38b25d6ac-_(Icon_Dragon)" />
+					<attribute id="IsLootable" type="19" value="True" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="LightID" type="22" value="782d9d58-f4c5-4500-a16e-b81d737bcc53" />
+					<attribute id="MapKey" type="22" value="e9370b4c-9e35-4221-b2ec-ca8cee4d78c2" />
+					<attribute id="Name" type="23" value="" />
+					<attribute id="ParentTemplateId" type="22" value="29ad5160-21d6-4e0b-9073-4fdee590f62f" />
+					<attribute id="PhysicsTemplate" type="22" value="3c6193a8-3a1a-c40e-1e69-f2c98682bd38" />
+					<attribute id="Race" type="31" value="eed2c9e5-d1b4-4010-c499-960e9893a067" />
+					<attribute id="Scale" type="6" value="0.2" />
+					<attribute id="Stats" type="22" value="Dragon_AdultRed" />
+					<attribute id="Type" type="22" value="character" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855919" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="5.397603" />
+									<attribute id="Max" type="12" value="17.09584 5.662447 14.59563" />
+									<attribute id="Min" type="12" value="-17.09584 -0.06285524 -7.787262" />
+									<attribute id="Radius" type="6" value="4.0214" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="0" />
+								</node>
+							</children>
+						</node>
+						<node id="GameMaster" />
+						<node id="LocomotionParams" />
+						<node id="PickingPhysics">
+							<children>
+								<node id="PickingPhysicsTemplates">
+									<attribute id="MapKey" type="22" value="CharacterDeadPicking" />
+									<attribute id="MapValue" type="22" value="4ddf2cdf-7ee2-1248-3780-0c36ee5e21b3" />
+								</node>
+								<node id="PickingPhysicsTemplates">
+									<attribute id="MapKey" type="22" value="CharacterSittingPicking" />
+									<attribute id="MapValue" type="22" value="0221b6a7-3aff-f8c6-e6c3-6733f879ffdb" />
+								</node>
+								<node id="PickingPhysicsTemplates">
+									<attribute id="MapKey" type="22" value="CharacterLyingPicking" />
+									<attribute id="MapValue" type="22" value="95087e30-7b8a-61f3-09df-f5db2fb26313" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="CanFight" type="19" value="True" />
+					<attribute id="CanJoinCombat" type="19" value="False" />
+					<attribute id="CharacterVisualResourceID" type="22" value="ebb41d69-cb6c-f66a-120b-0b1497346e0f" />
+					<attribute id="DisplayName" type="28" handle="37723395-de46-4120-8191-28e6506cbc93" version="1" />
+					<attribute id="Flag" type="4" value="0" />
+					<attribute id="GeneratePortrait" type="23" value="Icon_Cat" />
+					<attribute id="Icon" type="22" value="ebb41d69-cb6c-f66a-120b-0b1497346e0f-_(Icon_Cat)" />
+					<attribute id="LadderAttachSpeed" type="6" value="3" />
+					<attribute id="LadderDetachSpeed" type="6" value="2.5" />
+					<attribute id="LadderLoopSpeed" type="6" value="3" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="LightID" type="22" value="bb752c7c-d272-42d6-8b3e-618f0827ff1c" />
+					<attribute id="MapKey" type="22" value="53a91f29-c687-43c2-912d-495488305bea" />
+					<attribute id="Name" type="23" value="" />
+					<attribute id="ParentTemplateId" type="22" value="071800ad-d4d9-4a63-82a7-4e786ab19449" />
+					<attribute id="PhysicsTemplate" type="22" value="ed00afe4-1929-aac2-00d4-c94a97fc1f51" />
+					<attribute id="ReadinessFlags" type="5" value="12" />
+					<attribute id="SpotSneakers" type="19" value="False" />
+					<attribute id="Stats" type="22" value="HealingSpirit" />
+					<attribute id="Type" type="22" value="character" />
+					<attribute id="VisualTemplate" type="22" value="85e8361a-a965-fc2a-096f-cf02b76c7395" />
+					<attribute id="VocalAlertResourceID" type="22" value="8a5b1ba6-2d03-2df8-1768-59b5bc4845c4" />
+					<attribute id="VocalAngryResourceID" type="22" value="d06ce699-0f9e-3deb-cad8-213a67832b3d" />
+					<attribute id="VocalAttackResourceID" type="22" value="8f17c3e4-175d-82dc-8856-235898fc4fef" />
+					<attribute id="VocalAwakeResourceID" type="22" value="e52a7726-7a6d-d041-0198-f91b098d8d7b" />
+					<attribute id="VocalBoredResourceID" type="22" value="b4d6ca63-295b-fe95-287d-8de04472e9cf" />
+					<attribute id="VocalDeathResourceID" type="22" value="99415859-c436-12c9-7aab-6d9b31791376" />
+					<attribute id="VocalDodgeResourceID" type="22" value="5c7ba56a-ad29-9d04-98cb-d4c604df52c2" />
+					<attribute id="VocalExhaustedResourceID" type="22" value="3b465f30-99c8-bb1b-e599-940958e0aa02" />
+					<attribute id="VocalFallResourceID" type="22" value="bbc7443f-38ee-373d-a3b2-a9b262dffe26" />
+					<attribute id="VocalInitiativeResourceID" type="22" value="d62ecdd7-1245-ffc9-3db8-b9c188d4f756" />
+					<attribute id="VocalPainResourceID" type="22" value="55af8501-1460-8502-bf11-c76bc4318814" />
+					<attribute id="VocalRebornResourceID" type="22" value="dd98f8a0-4d25-b67b-7215-394739cfa640" />
+					<attribute id="VocalRelaxedResourceID" type="22" value="2a7e72c7-6c23-81b5-c7b9-36a38d5b89d8" />
+					<attribute id="VocalSnoreResourceID" type="22" value="2aa7ee3e-3f8e-ef10-a8b2-a1956495e44a" />
+					<attribute id="VocalSpawnResourceID" type="22" value="dd98f8a0-4d25-b67b-7215-394739cfa640" />
+					<attribute id="VocalWeakResourceID" type="22" value="bbc7443f-38ee-373d-a3b2-a9b262dffe26" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855946" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.55" />
+									<attribute id="Max" type="12" value="0.4497561 1.232693 0.648643" />
+									<attribute id="Min" type="12" value="-0.4297561 0.02078807 -0.790434" />
+									<attribute id="Radius" type="6" value="0.35" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.75" />
+									<attribute id="Max" type="12" value="0.4497561 1.232693 0.648643" />
+									<attribute id="Min" type="12" value="-0.4297561 0.02078807 -0.790434" />
+									<attribute id="Radius" type="6" value="0.35" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="2" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.75" />
+									<attribute id="Max" type="12" value="0.4497561 1.232693 0.648643" />
+									<attribute id="Min" type="12" value="-0.4297561 0.02078807 -0.790434" />
+									<attribute id="Radius" type="6" value="0.175" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="0" />
+								</node>
+							</children>
+						</node>
+						<node id="FootStepInfos">
+							<children>
+								<node id="FootStepInfo">
+									<attribute id="FootBoneName" type="22" value="Dummy_L_Foot_01" />
+									<attribute id="FootHearingEffectName" type="23" value="" />
+									<attribute id="FootPrintEffectName" type="23" value="" />
+									<attribute id="FootScuffEventName" type="22" value="Movement_Scuff" />
+									<attribute id="FootSlideEffectName" type="23" value="" />
+									<attribute id="FootSmearEffectName" type="23" value="" />
+									<attribute id="FootSoundEventName" type="22" value="Movement_Footstep" />
+									<attribute id="Name" type="23" value="Footstep_Front_Left" />
+								</node>
+								<node id="FootStepInfo">
+									<attribute id="FootBoneName" type="22" value="Dummy_R_Foot_01" />
+									<attribute id="FootHearingEffectName" type="23" value="" />
+									<attribute id="FootPrintEffectName" type="23" value="" />
+									<attribute id="FootScuffEventName" type="22" value="Movement_Scuff" />
+									<attribute id="FootSlideEffectName" type="23" value="" />
+									<attribute id="FootSmearEffectName" type="23" value="" />
+									<attribute id="FootSoundEventName" type="22" value="Movement_Footstep" />
+									<attribute id="Name" type="23" value="Footstep_Front_Right" />
+								</node>
+								<node id="FootStepInfo">
+									<attribute id="FootBoneName" type="22" value="Dummy_L_Foot_02" />
+									<attribute id="FootHearingEffectName" type="23" value="" />
+									<attribute id="FootPrintEffectName" type="23" value="" />
+									<attribute id="FootScuffEventName" type="22" value="Movement_Scuff" />
+									<attribute id="FootSlideEffectName" type="23" value="" />
+									<attribute id="FootSmearEffectName" type="23" value="" />
+									<attribute id="FootSoundEventName" type="22" value="Movement_Footstep" />
+									<attribute id="Name" type="23" value="Footstep_Back_Left" />
+								</node>
+								<node id="FootStepInfo">
+									<attribute id="FootBoneName" type="22" value="Dummy_R_Foot_02" />
+									<attribute id="FootHearingEffectName" type="23" value="" />
+									<attribute id="FootPrintEffectName" type="23" value="" />
+									<attribute id="FootScuffEventName" type="22" value="Movement_Scuff" />
+									<attribute id="FootSlideEffectName" type="23" value="" />
+									<attribute id="FootSmearEffectName" type="23" value="" />
+									<attribute id="FootSoundEventName" type="22" value="Movement_Footstep" />
+									<attribute id="Name" type="23" value="Footstep_Back_Right" />
+								</node>
+							</children>
+						</node>
+						<node id="GameMaster" />
+						<node id="LocomotionParams">
+							<attribute id="MovementAcceleration" type="6" value="12" />
+							<attribute id="WorldClimbingBlendspace_DownA" type="22" value="575b6b01-b21a-62ff-7883-433fe47bf23a" />
+							<attribute id="WorldClimbingBlendspace_DownB" type="22" value="4a6f8da3-6276-967f-8f1a-13f41c17c949" />
+							<attribute id="WorldClimbingBlendspace_DownBHeight" type="6" value="0.9" />
+							<attribute id="WorldClimbingBlendspace_UpA" type="22" value="b566ed99-b547-2b59-7c7e-7ab982e9675b" />
+							<attribute id="WorldClimbingBlendspace_UpB" type="22" value="6944f681-0d92-8f01-8c1d-f76e5505d236" />
+							<attribute id="WorldClimbingBlendspace_UpBHeight" type="6" value="0.9" />
+						</node>
+						<node id="PickingPhysics">
+							<children>
+								<node id="PickingPhysicsTemplates">
+									<attribute id="MapKey" type="22" value="CharacterSittingPicking" />
+									<attribute id="MapValue" type="22" value="" />
+								</node>
+								<node id="PickingPhysicsTemplates">
+									<attribute id="MapKey" type="22" value="CharacterLyingPicking" />
+									<attribute id="MapValue" type="22" value="" />
+								</node>
+								<node id="PickingPhysicsTemplates">
+									<attribute id="MapKey" type="22" value="CharacterDeadPicking" />
+									<attribute id="MapValue" type="22" value="b21eb173-37e9-7cc4-153f-b925826f6e4a" />
+								</node>
+							</children>
+						</node>
+						<node id="Tags">
+							<children>
+								<node id="Tag">
+									<attribute id="Object" type="31" value="a7d28634-e3bf-40c3-8c8d-dae1acf474ad" />
+								</node>
+							</children>
+						</node>
+						<node id="TradeTreasures">
+							<children>
+								<node id="TreasureItem">
+									<attribute id="Object" type="22" value="Empty" />
+								</node>
+							</children>
+						</node>
+						<node id="Treasures">
+							<children>
+								<node id="TreasureItem">
+									<attribute id="Object" type="22" value="Empty" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

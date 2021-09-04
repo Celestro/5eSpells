@@ -1,0 +1,8 @@
+new entry "CURSE_SKIPPED_TURN"
+type "StatusData"
+data "StatusType" "INCAPACITATED"
+data "DisplayName" "Curse: Skip Turn"
+data "Description" "Your turn has been spent doing nothing due to your Curse."
+data "Icon" "Spell_Enchantment_Bane"
+data "StatusGroups" "SG_Cursed;SG_Incapacitated;SG_Condition"
+data "OnApplyFunctors" "BreakConcentration()"
