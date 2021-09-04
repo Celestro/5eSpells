@@ -1,8 +1,0 @@
-{
-    "RequiredVersion": 1,
-    "ModTable": "5eSpells",
-    "FeatureFlags": [
-        "Osiris",
-        "Lua"
-    ]
-}
