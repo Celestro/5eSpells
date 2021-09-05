@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="0" build="51" />
+	<region id="TextureBank">
+		<node id="TextureBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="10b8d5a8-c07e-4822-9e74-34bf22692833" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="Icons_5e_Spells" />
+					<attribute id="SRGB" type="bool" value="True" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Textures/Icons/Icons_5e_Spells.dds" />
+					<attribute id="Streaming" type="bool" value="True" />
+					<attribute id="Template" type="FixedString" value="Icons_Items" />
+					<attribute id="Type" type="int32" value="0" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855912" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>
