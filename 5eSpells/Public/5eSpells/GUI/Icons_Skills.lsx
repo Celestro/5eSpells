@@ -66,23 +66,23 @@
                     <attribute id="U2" type="float" value="0.28125"/> 
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
-                </node>				
-				
-                <node id="IconUV"> These are placeholder names for unused spaces on the map with pre-existing coordinates
-                    <attribute id="MapKey" type="FixedString" value="your_icon_name_here4"/> 
+                </node>	
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="Spell_Necromancy_TollTheDead"/> 
                     <attribute id="U1" type="float" value="0.28125"/> 
                     <attribute id="U2" type="float" value="0.3125"/> 
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
-                </node>				
+                </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="your_icon_name_here5"/> 
+                    <attribute id="MapKey" type="FixedString" value="Spell_Transmutation_Gust"/> 
                     <attribute id="U1" type="float" value="0.3125"/> 
                     <attribute id="U2" type="float" value="0.34375"/> 
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
-                </node>				
-                <node id="IconUV">
+                </node>
+
+                <node id="IconUV"> These are placeholder names for unused spaces on the map with pre-existing coordinates
                     <attribute id="MapKey" type="FixedString" value="your_icon_name_here6"/> 
                     <attribute id="U1" type="float" value="0.34375"/> 
                     <attribute id="U2" type="float" value="0.375"/> 
