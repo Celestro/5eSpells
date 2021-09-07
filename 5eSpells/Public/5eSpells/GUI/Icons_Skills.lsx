@@ -81,22 +81,23 @@
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
                 </node>
-
-                <node id="IconUV"> These are placeholder names for unused spaces on the map with pre-existing coordinates
-                    <attribute id="MapKey" type="FixedString" value="your_icon_name_here6"/> 
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="Spell_Transmutation_MoldEarth_Destroy"/> 
                     <attribute id="U1" type="float" value="0.34375"/> 
                     <attribute id="U2" type="float" value="0.375"/> 
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
-                </node>				
+                </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="your_icon_name_here7"/> 
+                    <attribute id="MapKey" type="FixedString" value="Spell_Conjuration_Infestation"/> 
                     <attribute id="U1" type="float" value="0.375"/> 
                     <attribute id="U2" type="float" value="0.40625"/> 
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
-                </node>				
-                <node id="IconUV">
+                </node>
+                
+
+                <node id="IconUV"> These are placeholder names for unused spaces on the map with pre-existing coordinates
                     <attribute id="MapKey" type="FixedString" value="your_icon_name_here8"/> 
                     <attribute id="U1" type="float" value="0.40625"/> 
                     <attribute id="U2" type="float" value="0.4375"/> 
@@ -165,5 +166,5 @@
                 </node>
             </children>
         </node>
-    </region>				  				
+    </region>
 </save>
