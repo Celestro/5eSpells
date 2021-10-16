@@ -750,67 +750,6 @@ THEN
 	CharacterApplyStatus(_Source,BREAKCONCENTRATION,0)
 ENDIF
 
-EVENT Blink
-VARS
-CHARACTER:_Character
-CHARACTER:_Source
-INT:_Result
-
-ON
-	OnTurnEnded(_Character,_)
-ACTIONS
-IF	"c1"
-	CharacterHasStatus(_Character,BLINK)
-THEN
-	GetRandomBetween(_Result,1,20)
-	IF "(c1|c2|c3|c4|c5|c6|c7|c8|c9|c10)"		
-		IsEqual(_Result,11)
-		IsEqual(_Result,12)
-		IsEqual(_Result,13)
-		IsEqual(_Result,14)
-		IsEqual(_Result,15)
-		IsEqual(_Result,16)
-		IsEqual(_Result,17)
-		IsEqual(_Result,18)
-		IsEqual(_Result,19)
-		IsEqual(_Result,20)
-	THEN
-		CharacterApplyStatus(_Character,BANISHED,1)
-	ENDIF
-ENDIF
-
-EVENT BlinkRemoval
-VARS
-CHARACTER:_Character
-
-ON
-	OnSpellCast(_Character,Target_Blink_Activate)
-ACTIONS
-	CharacterRemoveStatus(_Character,BLINK_ACTIVATE)
-
-EVENT ThunderStep
-VARS
-CHARACTER:_Character
-
-ON
-	OnSpellCast(_Character,Target_ThunderStep)
-ACTIONS
-	IterateCharactersNear(_Character, FLOAT:30.0, "ThunderStep")
-	CharacterRemoveStatus(_Character,THUNDER_STEP_OWNER)
-
-EVENT ThunderStep_Continued
-VARS
-CHARACTER:_Character
-
-ON
-	OnIterateCharacter(_Character, "ThunderStep")
-ACTIONS
-IF	"c1"
-	CharacterHasStatus(_Character,THUNDER_STEP)
-THEN
-	CharacterRemoveStatus(_Character,THUNDER_STEP)
-ENDIF
-
 EVENT GustOfWind_Zone_Push
 VARS
 CHARACTER:_Character
