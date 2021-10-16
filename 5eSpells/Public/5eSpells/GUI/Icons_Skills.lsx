@@ -110,38 +110,38 @@
                     <attribute id="V2" type="float" value="0.03125"/> 
                 </node>	
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="Spell_Conjuration_CloudOfDaggers"/> 
+                    <attribute id="MapKey" type="FixedString" value="Spell_Transmutation_MoldEarth_Destroy"/> 
                     <attribute id="U1" type="float" value="0.46875"/> 
                     <attribute id="U2" type="float" value="0.5"/> 
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
                 </node>
-
-
-
-
-
-                <node id="IconUV">  These are placeholder names for unused spaces on the map with pre-existing coordinates
-                    <attribute id="MapKey" type="FixedString" value="your_icon_name_here11"/> 
+                <node id="IconUV">
+                    <attribute id="MapKey" type="FixedString" value="Spell_Transmutation_ShapeWater"/> 
                     <attribute id="U1" type="float" value="0.5"/> 
                     <attribute id="U2" type="float" value="0.53125"/> 
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
-                </node>				
+                </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="your_icon_name_here12"/> 
+                    <attribute id="MapKey" type="FixedString" value="Spell_Evocation_ChaosBolt"/> 
                     <attribute id="U1" type="float" value="0.53125"/> 
                     <attribute id="U2" type="float" value="0.5625"/> 
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
-                </node>	
+                </node>
 				<node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="your_icon_name_here13"/> 
+                    <attribute id="MapKey" type="FixedString" value="Spell_Necromancy_CauseFear"/> 
                     <attribute id="U1" type="float" value="0.5625"/> 
                     <attribute id="U2" type="float" value="0.59375"/> 
                     <attribute id="V1" type="float" value="0.0"/> 
                     <attribute id="V2" type="float" value="0.03125"/> 
                 </node>	
+				
+				
+				
+				
+				
 				<node id="IconUV">
                     <attribute id="MapKey" type="FixedString" value="your_icon_name_here14"/> 
                     <attribute id="U1" type="float" value="0.59375"/> 
