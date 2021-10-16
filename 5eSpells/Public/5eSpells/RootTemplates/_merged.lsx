@@ -149,7 +149,7 @@
 						<node id="SkillList">
 							<children>
 								<node id="Skill">
-									<attribute id="AIFlags" type="3" value="0" />
+									<attribute id="AIFlags" type="1" value="0" />
 									<attribute id="CasualExplorer" type="19" value="True" />
 									<attribute id="Classic" type="19" value="True" />
 									<attribute id="FallbackStartRound" type="4" value="-1" />
@@ -191,73 +191,99 @@
 					</children>
 				</node>
 				<node id="GameObjects">
-					<attribute id="AnubisConfigName" type="22" value="DefaultCharacter" />
+					<attribute id="AiHint" type="31" value="00000000-0000-0000-0000-000000000000" />
+					<attribute id="Archetype" type="22" value="base" />
 					<attribute id="BloodSurfaceType" type="22" value="SurfaceNone" />
-					<attribute id="CharacterVisualResourceID" type="22" value="27cba5d0-c1bd-6d03-843f-8f1921aace1c" />
-					<attribute id="DisplayName" type="28" handle="395581f6-e613-49ee-9311-5de834fe8cd7" version="1" />
-					<attribute id="GeneratePortrait" type="23" value="Icon_Hand_Mage" />
-					<attribute id="Icon" type="22" value="27cba5d0-c1bd-6d03-843f-8f1921aace1c-_(Icon_Hand_Mage)" />
+					<attribute id="CameraOffset" type="12" value="0 0 0" />
+					<attribute id="CanBeMoved" type="19" value="True" />
+					<attribute id="CanBePickedUp" type="19" value="True" />
+					<attribute id="CoverAmount" type="1" value="0" />
+					<attribute id="Description" type="28" handle="h048aa075gff02g4a87g91f3gef22fe295b70" version="1" />
+					<attribute id="DisplayName" type="28" handle="h53a4178fg4ab0g4c36gbab1g2cd87c693f3e" version="1" />
+					<attribute id="DropSound" type="22" value="f55dc72a-13b8-6e3d-7500-559a5d1f3031" />
+					<attribute id="EquipmentTypeID" type="31" value="f85002a2-8e0e-4a49-0faa-2ef57d983a3a" />
+					<attribute id="Faction" type="31" value="376e33c4-dd15-4c46-86a5-d88721b4c7a0" />
+					<attribute id="Flag" type="4" value="0" />
+					<attribute id="GroupID" type="5" value="0" />
+					<attribute id="HasGameplayValue" type="19" value="False" />
+					<attribute id="Icon" type="22" value="Item_WPN_HUM_Longsword_A_1" />
+					<attribute id="InventoryMoveSound" type="22" value="f55dc72a-13b8-6e3d-7500-559a5d1f3031" />
+					<attribute id="IsInspector" type="19" value="True" />
 					<attribute id="LevelName" type="22" value="" />
-					<attribute id="MapKey" type="22" value="6db18d12-7b6f-47cc-b823-7d6acf97a2fa" />
+					<attribute id="LevelOverride" type="4" value="-1" />
+					<attribute id="LoopSound" type="22" value="" />
+					<attribute id="MapKey" type="22" value="7d947fd3-7cf8-40b6-aeb8-ad2ea25f5df8" />
+					<attribute id="MeshProxy" type="22" value="" />
 					<attribute id="Name" type="23" value="" />
-					<attribute id="ParentTemplateId" type="22" value="29ad5160-21d6-4e0b-9073-4fdee590f62f" />
-					<attribute id="PhysicsTemplate" type="22" value="f172a961-4819-4951-9bb8-3e642bae1bdc" />
-					<attribute id="Race" type="31" value="8317a985-dcd7-4758-1db1-b3a6179b030b" />
-					<attribute id="SoundInitEvent" type="22" value="53a5a5a9-d9e1-8375-28e2-c5958cf15df6" />
-					<attribute id="Stats" type="22" value="SpiritualWeapon_Sorcerer" />
-					<attribute id="Type" type="22" value="character" />
-					<attribute id="VisualTemplate" type="22" value="61373d65-ebc1-dde3-1ae8-79b1be4a8976" />
-					<attribute id="VocalAlertResourceID" type="22" value="d15a14e5-5dfa-0d96-25d7-0081b8cd0421" />
-					<attribute id="VocalAnticipationResourceID" type="22" value="00000000-0000-0000-0000-000000000000" />
-					<attribute id="VocalAttackResourceID" type="22" value="c8a68232-435d-f478-8c20-5ad96978eee0" />
-					<attribute id="VocalDeathResourceID" type="22" value="a38d0bed-fc96-72bc-db2f-f4591b9e9da5" />
-					<attribute id="VocalDodgeResourceID" type="22" value="ac6d1602-8977-effe-728a-e62e81ef573b" />
-					<attribute id="VocalExhaustedResourceID" type="22" value="ed3ad74b-2168-18df-b92e-17de4641015b" />
-					<attribute id="VocalPainResourceID" type="22" value="ce17ccba-f180-2f0c-65f1-cca1f7f250c7" />
-					<attribute id="VocalRelaxedResourceID" type="22" value="c43dd3fa-ca31-65ff-5d3c-dc6787a05898" />
-					<attribute id="VocalSpawnResourceID" type="22" value="09d940ec-8ff1-0b91-0653-2ace30324b64" />
-					<attribute id="_OriginalFileVersion_" type="32" value="144115196665790677" />
+					<attribute id="ParentTemplateId" type="22" value="" />
+					<attribute id="PhysicsOpenTemplate" type="22" value="" />
+					<attribute id="PhysicsTemplate" type="22" value="cd4a8a69-8f43-bfe1-5998-5831c52ffd19" />
+					<attribute id="PickupSound" type="22" value="28ea7a9f-b66a-3410-7985-d7cd5cb896f0" />
+					<attribute id="RecieveDecal" type="19" value="False" />
+					<attribute id="SoundInitEvent" type="22" value="" />
+					<attribute id="Stats" type="22" value="WPN_ShadowBlade" />
+					<attribute id="Tooltip" type="1" value="2" />
+					<attribute id="TreasureOnDestroy" type="19" value="False" />
+					<attribute id="Type" type="22" value="item" />
+					<attribute id="VisualTemplate" type="22" value="91a755e7-f02c-19cd-8d61-3da7192a8396" />
+					<attribute id="WalkThrough" type="19" value="True" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855930" />
 					<children>
 						<node id="Bounds">
 							<children>
 								<node id="Bound">
-									<attribute id="Height" type="6" value="0.5790528" />
-									<attribute id="IsIgnoringScale" type="19" value="False" />
-									<attribute id="Max" type="12" value="0.2553226 0.2830342 0.6158179" />
-									<attribute id="Min" type="12" value="-0.1930139 0.003981382 -0.8236369" />
-									<attribute id="Radius" type="6" value="0.3833166" />
-									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Height" type="6" value="0.163168" />
+									<attribute id="Max" type="12" value="0.053427 0.071978 0.1393785" />
+									<attribute id="Min" type="12" value="-0.053427 -0.047119 -0.487034" />
+									<attribute id="Radius" type="6" value="0.212115" />
+									<attribute id="Shape" type="1" value="1" />
+									<attribute id="Type" type="1" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.163168" />
+									<attribute id="Max" type="12" value="0.106854 0.071978 0.278757" />
+									<attribute id="Min" type="12" value="-0.106854 -0.047119 -0.974068" />
+									<attribute id="Radius" type="6" value="0.42423" />
+									<attribute id="Shape" type="1" value="1" />
 									<attribute id="Type" type="1" value="1" />
 								</node>
 								<node id="Bound">
-									<attribute id="Height" type="6" value="0.5790528" />
-									<attribute id="IsIgnoringScale" type="19" value="False" />
-									<attribute id="Max" type="12" value="0.2553226 0.2830342 0.6158179" />
-									<attribute id="Min" type="12" value="-0.1930139 0.003981382 -0.8236369" />
-									<attribute id="Radius" type="6" value="0.3833166" />
-									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Height" type="6" value="0.163168" />
+									<attribute id="Max" type="12" value="0.106854 0.071978 0.278757" />
+									<attribute id="Min" type="12" value="-0.106854 -0.047119 -0.974068" />
+									<attribute id="Radius" type="6" value="0.42423" />
+									<attribute id="Shape" type="1" value="1" />
 									<attribute id="Type" type="1" value="2" />
-								</node>
-								<node id="Bound">
-									<attribute id="Height" type="6" value="0.5790528" />
-									<attribute id="IsIgnoringScale" type="19" value="False" />
-									<attribute id="Max" type="12" value="0.1276613 0.2830342 0.307909" />
-									<attribute id="Min" type="12" value="-0.09650695 0.003981382 -0.4118184" />
-									<attribute id="Radius" type="6" value="0.1916583" />
-									<attribute id="Shape" type="1" value="2" />
-									<attribute id="Type" type="1" value="0" />
 								</node>
 							</children>
 						</node>
-						<node id="GameMaster" />
-						<node id="LocomotionParams" />
-						<node id="OnDeathActions">
+						<node id="Equipment">
+							<attribute id="EquipmentSlots" type="5" value="0" />
+							<children>
+								<node id="LongHair" />
+								<node id="ParentRace" />
+								<node id="ShortHair" />
+								<node id="Visuals" />
+							</children>
+						</node>
+						<node id="GameMaster">
+							<attribute id="GameMasterSpawnSubSection" type="28" handle="hcad0f914g2bfbg4c79g9d95ge09dd79cc580" version="1" />
+						</node>
+						<node id="InventoryList">
+							<children>
+								<node id="InventoryItem">
+									<attribute id="Object" type="22" value="Empty" />
+								</node>
+							</children>
+						</node>
+						<node id="ItemList" />
+						<node id="OnDestroyActions">
 							<children>
 								<node id="Action">
 									<attribute id="ActionType" type="4" value="26" />
 									<children>
 										<node id="Attributes">
-											<attribute id="ActivateSoundEvent" type="22" value="237960ee-0fb5-2983-c860-948ac910b2c9" />
+											<attribute id="ActivateSoundEvent" type="22" value="3ea82655-5140-4287-9ab8-794559f182d3" />
 											<attribute id="Animation" type="22" value="" />
 											<attribute id="PlayOnHUD" type="19" value="False" />
 										</node>
@@ -265,96 +291,9 @@
 								</node>
 							</children>
 						</node>
-						<node id="SkillList">
-							<children>
-								<node id="Skill">
-									<attribute id="AIFlags" type="3" value="0" />
-									<attribute id="CasualExplorer" type="19" value="True" />
-									<attribute id="Classic" type="19" value="True" />
-									<attribute id="FallbackStartRound" type="4" value="-1" />
-									<attribute id="HonorHardcore" type="19" value="True" />
-									<attribute id="LearningStrategy" type="1" value="0" />
-									<attribute id="MinimumImpact" type="4" value="0" />
-									<attribute id="OnlyCastOnSelf" type="19" value="False" />
-									<attribute id="ScoreModifier" type="6" value="1" />
-									<attribute id="Skill" type="22" value="Target_SpiritualWeapon_Attack" />
-									<attribute id="SpellCastingAbility" type="5" value="0" />
-									<attribute id="StartRound" type="4" value="0" />
-									<attribute id="TacticianHardcore" type="19" value="True" />
-									<children>
-										<node id="SourceConditions">
-											<attribute id="MaximumHealthPercentage" type="4" value="100" />
-											<attribute id="MinimumHealthPercentage" type="4" value="0" />
-											<children>
-												<node id="Tags" />
-											</children>
-										</node>
-										<node id="TargetConditions">
-											<attribute id="MaximumHealthPercentage" type="4" value="100" />
-											<attribute id="MinimumHealthPercentage" type="4" value="0" />
-											<children>
-												<node id="Tags" />
-											</children>
-										</node>
-									</children>
-								</node>
-							</children>
-						</node>
-						<node id="Tags">
-							<children>
-								<node id="Tag">
-									<attribute id="Object" type="31" value="26c78224-a4c1-43e4-43b9-e7751bfa41fa" />
-								</node>
-							</children>
-						</node>
-					</children>
-				</node>
-				<node id="GameObjects">
-					<attribute id="CameraOffset" type="12" value="0 0 0" />
-					<attribute id="DecalMaterial" type="22" value="b279a93b-4833-40e6-85ac-75766f22dffc" />
-					<attribute id="DisplayName" type="28" handle="h7cd66ac3gb0c4g45cdgbd1dgdaf5c72f316d" version="0" />
-					<attribute id="Flag" type="4" value="0" />
-					<attribute id="GroupID" type="5" value="0" />
-					<attribute id="HasGameplayValue" type="19" value="False" />
-					<attribute id="LevelName" type="22" value="" />
-					<attribute id="MapKey" type="22" value="6aae26a5-77a6-4281-8cea-74f16a151485" />
-					<attribute id="MaterialType" type="1" value="4" />
-					<attribute id="Name" type="23" value="SurfaceDaggersCloud" />
-					<attribute id="ParentTemplateId" type="22" value="" />
-					<attribute id="PhysicsTemplate" type="22" value="" />
-					<attribute id="Scale" type="6" value="1" />
-					<attribute id="Summon" type="22" value="cabefda4-6839-44e7-8e5e-7c1942fc13ca" />
-					<attribute id="SurfaceCategory" type="1" value="15" />
-					<attribute id="Type" type="22" value="surface" />
-					<attribute id="VisualTemplate" type="22" value="" />
-					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855894" />
-					<children>
-						<node id="FX" />
-						<node id="InstanceVisual" />
-						<node id="IntroFX" />
-						<node id="LayerList">
-							<children>
-								<node id="Layers" />
-							</children>
-						</node>
-						<node id="StatusData">
-							<children>
-								<node id="StatusData">
-									<attribute id="AffectedByRoll" type="19" value="False" />
-									<attribute id="ApplyToCharacters" type="19" value="True" />
-									<attribute id="ApplyToItems" type="19" value="False" />
-									<attribute id="ApplyTypes" type="1" value="11" />
-									<attribute id="Chance" type="6" value="1" />
-									<attribute id="Duration" type="6" value="-1" />
-									<attribute id="Force" type="19" value="False" />
-									<attribute id="KeepAlive" type="19" value="True" />
-									<attribute id="OnlyOncePerTurn" type="19" value="False" />
-									<attribute id="Remove" type="19" value="False" />
-									<attribute id="StatusId" type="22" value="DAGGERS_CLOUD" />
-									<attribute id="VanishOnApply" type="19" value="False" />
-								</node>
-							</children>
-						</node>
+						<node id="OnUsePeaceActions" />
+						<node id="ScriptConfigGlobalParameters" />
+						<node id="Scripts" />
 					</children>
 				</node>
 				<node id="GameObjects">
@@ -715,6 +654,216 @@
 								<node id="TreasureItem">
 									<attribute id="Object" type="22" value="Empty" />
 								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="AnubisConfigName" type="22" value="SPL_FlamingSphere" />
+					<attribute id="Archetype" type="22" value="melee" />
+					<attribute id="CanClimbLadders" type="19" value="False" />
+					<attribute id="CharacterVisualResourceID" type="22" value="d1a077a9-bd74-f796-8c7d-0ea68ab1ab86" />
+					<attribute id="DisableEquipping" type="19" value="True" />
+					<attribute id="DisplayName" type="28" handle="h41611a1bgbe6dg4563g8bbfgbe0b444f8b31" version="2" />
+					<attribute id="Icon" type="22" value="Portrait_Creature_FlamingSphere" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="MapKey" type="22" value="f5bd5831-94cd-409c-b50b-cab4bf51df0d" />
+					<attribute id="Name" type="23" value="" />
+					<attribute id="ParentTemplateId" type="22" value="29ad5160-21d6-4e0b-9073-4fdee590f62f" />
+					<attribute id="PhysicsTemplate" type="22" value="28175d52-2abe-228c-b0f0-d21d151746c9" />
+					<attribute id="Race" type="31" value="24dfab7b-7d7e-4df9-23aa-1272efb48089" />
+					<attribute id="SoundMovementStartEvent" type="22" value="b781f7a2-eb20-dd4f-6bed-c951e2481cab" />
+					<attribute id="SoundMovementStopEvent" type="22" value="742d824f-6274-f732-664e-7f38745b10ce" />
+					<attribute id="Stats" type="22" value="FlamingSphere_2" />
+					<attribute id="Type" type="22" value="character" />
+					<attribute id="VocalDeathResourceID" type="22" value="b919b755-17af-54fd-5248-e71c33347c89" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115196665790675" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="1.5" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.7504505 1.501341 0.7504505" />
+									<attribute id="Min" type="12" value="-0.7504505 0.0004398823 -0.7504505" />
+									<attribute id="Radius" type="6" value="0.75" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="1.5" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.7504505 1.501341 0.7504505" />
+									<attribute id="Min" type="12" value="-0.7504505 0.0004398823 -0.7504505" />
+									<attribute id="Radius" type="6" value="0.75" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="2" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="1.5" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.7504505 1.501341 0.7504505" />
+									<attribute id="Min" type="12" value="-0.7504505 0.0004398823 -0.7504505" />
+									<attribute id="Radius" type="6" value="0.65" />
+									<attribute id="Shape" type="1" value="2" />
+									<attribute id="Type" type="1" value="0" />
+								</node>
+							</children>
+						</node>
+						<node id="GameMaster" />
+						<node id="LocomotionParams">
+							<attribute id="MovementTiltToRemap" type="22" value="96c488d7-4982-c2d8-2855-ccad860239d8" />
+							<attribute id="TurningNodeAngle" type="6" value="0" />
+							<attribute id="TurningNodeOffset" type="6" value="0" />
+							<attribute id="WorldClimbingBlendspace_DownA" type="22" value="1cd55755-bc55-767c-b32f-2f73fd6621d1" />
+							<attribute id="WorldClimbingBlendspace_UpA" type="22" value="7ab0010a-dc6e-89d8-f19d-1c26bfaec304" />
+							<attribute id="WorldClimbingSpeed" type="6" value="12" />
+						</node>
+						<node id="SkillList">
+							<children>
+								<node id="Skill">
+									<attribute id="AIFlags" type="1" value="0" />
+									<attribute id="CasualExplorer" type="19" value="True" />
+									<attribute id="Classic" type="19" value="True" />
+									<attribute id="FallbackStartRound" type="4" value="-1" />
+									<attribute id="HonorHardcore" type="19" value="True" />
+									<attribute id="LearningStrategy" type="1" value="0" />
+									<attribute id="MinimumImpact" type="4" value="0" />
+									<attribute id="OnlyCastOnSelf" type="19" value="False" />
+									<attribute id="ScoreModifier" type="6" value="1" />
+									<attribute id="Skill" type="22" value="Projectile_Jump_FlamingSphere" />
+									<attribute id="SpellCastingAbility" type="1" value="0" />
+									<attribute id="StartRound" type="4" value="0" />
+									<attribute id="TacticianHardcore" type="19" value="True" />
+									<children>
+										<node id="SourceConditions">
+											<attribute id="MaximumHealthPercentage" type="4" value="100" />
+											<attribute id="MinimumHealthPercentage" type="4" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+										<node id="TargetConditions">
+											<attribute id="MaximumHealthPercentage" type="4" value="100" />
+											<attribute id="MinimumHealthPercentage" type="4" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+									</children>
+								</node>
+								<node id="Skill">
+									<attribute id="AIFlags" type="1" value="0" />
+									<attribute id="CasualExplorer" type="19" value="True" />
+									<attribute id="Classic" type="19" value="True" />
+									<attribute id="FallbackStartRound" type="4" value="-1" />
+									<attribute id="HonorHardcore" type="19" value="True" />
+									<attribute id="LearningStrategy" type="1" value="0" />
+									<attribute id="MinimumImpact" type="4" value="0" />
+									<attribute id="OnlyCastOnSelf" type="19" value="False" />
+									<attribute id="ScoreModifier" type="6" value="1" />
+									<attribute id="Skill" type="22" value="Target_FlamingSphere_Ram_2" />
+									<attribute id="SpellCastingAbility" type="1" value="0" />
+									<attribute id="StartRound" type="4" value="0" />
+									<attribute id="TacticianHardcore" type="19" value="True" />
+									<children>
+										<node id="SourceConditions">
+											<attribute id="MaximumHealthPercentage" type="4" value="100" />
+											<attribute id="MinimumHealthPercentage" type="4" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+										<node id="TargetConditions">
+											<attribute id="MaximumHealthPercentage" type="4" value="100" />
+											<attribute id="MinimumHealthPercentage" type="4" value="0" />
+											<children>
+												<node id="Tags" />
+											</children>
+										</node>
+									</children>
+								</node>
+							</children>
+						</node>
+						<node id="Tags">
+							<children>
+								<node id="Tag">
+									<attribute id="Object" type="31" value="26c78224-a4c1-43e4-43b9-e7751bfa41fa" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="CanBeMoved" type="19" value="True" />
+					<attribute id="CanShootThrough" type="19" value="False" />
+					<attribute id="Description" type="28" handle="h8c592bb8g07cdg4dc6g9befg360966cff095" version="1" />
+					<attribute id="DisplayName" type="28" handle="0c684636-31ce-4d8a-8055-1abd42ed8b37" version="1" />
+					<attribute id="DropSound" type="22" value="60717912-45d2-444a-20ca-6b6593cf5a5b" />
+					<attribute id="Fadeable" type="19" value="True" />
+					<attribute id="HierarchyOnlyFade" type="19" value="True" />
+					<attribute id="Icon" type="22" value="Item_LOOT_Camp_Pack" />
+					<attribute id="InventoryMoveSound" type="22" value="60717912-45d2-444a-20ca-6b6593cf5a5b" />
+					<attribute id="InventoryType" type="1" value="0" />
+					<attribute id="LevelName" type="22" value="" />
+					<attribute id="MapKey" type="22" value="7ca3588a-4270-4044-ace7-b633a55aecf2" />
+					<attribute id="Name" type="23" value="" />
+					<attribute id="Opacity" type="6" value="0.225" />
+					<attribute id="ParentTemplateId" type="22" value="c9e45e5a-f089-480b-ab3a-7f5f76dccc3b" />
+					<attribute id="PhysicsTemplate" type="22" value="10843f29-968f-372c-b60d-9ccd186f584a" />
+					<attribute id="PickupSound" type="22" value="0ac47d4b-43db-5d53-fd99-1b3e1c6afe37" />
+					<attribute id="ReadinessFlags" type="5" value="128" />
+					<attribute id="Scale" type="6" value="0.48" />
+					<attribute id="Stats" type="22" value="OBJ_FoodAndWater" />
+					<attribute id="Tooltip" type="1" value="2" />
+					<attribute id="Type" type="22" value="item" />
+					<attribute id="VisualTemplate" type="22" value="6e43e938-58c3-0de4-5be9-e28ea45b06de" />
+					<attribute id="_OriginalFileVersion_" type="32" value="144115198813274112" />
+					<attribute id="maxStackAmount" type="4" value="99" />
+					<children>
+						<node id="Bounds">
+							<children>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.6087919" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.2567602 0.6033353 0.2349709" />
+									<attribute id="Min" type="12" value="-0.3629047 -0.005456626 -0.1704552" />
+									<attribute id="Radius" type="6" value="0.3098325" />
+									<attribute id="Shape" type="1" value="1" />
+									<attribute id="Type" type="1" value="0" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.6087919" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.2567602 0.6033353 0.2349709" />
+									<attribute id="Min" type="12" value="-0.3629047 -0.005456626 -0.1704552" />
+									<attribute id="Radius" type="6" value="0.3098325" />
+									<attribute id="Shape" type="1" value="1" />
+									<attribute id="Type" type="1" value="1" />
+								</node>
+								<node id="Bound">
+									<attribute id="Height" type="6" value="0.6087919" />
+									<attribute id="IsIgnoringScale" type="19" value="False" />
+									<attribute id="Max" type="12" value="0.2567602 0.6033353 0.2349709" />
+									<attribute id="Min" type="12" value="-0.3629047 -0.005456626 -0.1704552" />
+									<attribute id="Radius" type="6" value="0.3098325" />
+									<attribute id="Shape" type="1" value="1" />
+									<attribute id="Type" type="1" value="2" />
+								</node>
+							</children>
+						</node>
+						<node id="InventoryList">
+							<children>
+								<node id="InventoryItem">
+									<attribute id="Object" type="22" value="Empty" />
+								</node>
+							</children>
+						</node>
+						<node id="OnDestroyActions" />
+						<node id="OnUsePeaceActions" />
+						<node id="ScriptOverrides">
+							<children>
+								<node id="ScriptOverrides" />
 							</children>
 						</node>
 					</children>
