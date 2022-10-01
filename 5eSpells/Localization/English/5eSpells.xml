@@ -2,4 +2,49 @@
   <content contentuid="395581f6-e613-49ee-9311-5de834fe8cd7" version="1">Spiritual Weapon</content>
   <content contentuid="6d9c4d1a-ffa6-4057-85e9-b7fb1ee9c568" version="1">Daylight</content>
   <content contentuid="37723395-de46-4120-8191-28e6506cbc93" version="1">Healing Spirit</content>
+  <content contentuid="0c684636-31ce-4d8a-8055-1abd42ed8b37" version="1">Food and Water</content>
+  <content contentuid="0a68e3d4-b48a-48dd-bbfa-9d7a9af1fb25" version="1">This weapon is made of shadows, solidifed and given shape through the power of the Weave.</content>
+  <content contentuid="d3f24984-a6a2-40c3-9924-4cc9eb581959" version="1">Shadow Blade</content>
+  <content contentuid="6e0fb4ec-097f-46f3-ac8d-54c5d6a1e5c4" version="1">Dust Devil</content>
+  <content contentuid="hf39ea75eg908ag4f11gb8d4gf5bda6177a3d" version="2">Eat this berry to regain 1 &lt;LSTag Tooltip="HitPoint"&gt;Hit Points&lt;/LSTag&gt;. &lt;i&gt;Plump and juicy, this berry exudes a soothing, sweet smell.&lt;/i&gt;</content>
+  <content contentuid="h64652503g229ag4f9ag819cg8d9411c66209" version="1">Create a cloud of magical darkness to Heavily Obscure and Blind creatures within from a chosen point or infuse an object with emanating darkness.</content>
+  <content contentuid="e5a403da-d011-411d-9861-376608135a8d" version="1">Gust of Wind</content>
+  <content contentuid="h967f2daeg8870g49dfgbff9g7c3a00df4305" version="1">You have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; when using this Spell on creatures wearing metal armour. This spell deals [1] at 5th level, [2] at 11th level and [3] at 17th level.</content>
+  <content contentuid="he2c1c7ccg7b0cg4348gbd24gd585efb43e06" version="1">Bolster yourself or an ally with valour and health.&lt;br&gt;&lt;br&gt;The target can no longer be &lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;Frightened&lt;/LSTag&gt; and gains Temporary Hit Points equal to your spellcasting ability modifier each turn.</content>
+  <content contentuid="h84fac665g901ag4c0ag857agfbaed9592795" version="1">Bolster 2 allies with valour and health.&lt;br&gt;&lt;br&gt;They become &lt;LSTag Tooltip="Immune"&gt;Immune&lt;/LSTag&gt; to being &lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;Frightened&lt;/LSTag&gt; and gain Temporary Hit Points equal to your spellcasting ability modifier each turn.</content>
+  <content contentuid="hcb933390g800dg41b2g8dfcg90f47bcbaa3f" version="2">On a successful save, the target still takes half damage. This attack deals an additional [1] for each slot level used above 3rd on the Flaming Sphere.</content>
+  <content contentuid="h6a469040g927fg4012ga694ge8f3dc43577d" version="6">Bolster yourself with a necromantic facsimile of life to gain 1d4 + 4 &lt;LSTag Tooltip="TemporaryHitPoints"&gt;Temporary Hit Points&lt;/LSTag&gt;.</content>
+
+  <content contentuid="h12f09fceg624ag477cgb44bg139179bd9465" version="3">Bolster yourself with a necromantic facsimile of life to gain 1d4 + 9 &lt;LSTag Tooltip="TemporaryHitPoints"&gt;Temporary Hit Points&lt;/LSTag&gt;.</content>
+  <content contentuid="h182fee83g1c2eg40e5gb672g94387289f847" version="2">Gained 1d4 + 4 &lt;LSTag Tooltip="TemporaryHitPoints"&gt;Temporary Hit Points&lt;/LSTag&gt;.</content>
+  <content contentuid="ha859f74fgf678g4745gb474g601b8399f6e3" version="1">Gained 1d4 + 9 &lt;LSTag Tooltip="TemporaryHitPoints"&gt;Temporary Hit Points&lt;/LSTag&gt;.</content>
+  <content contentuid="hadd72be3g59f6g4c55g8df1ga7fc9589a54b" version="2">Plant Growth</content>
+  <content contentuid="hfc9eece6gb913g4bd6g9ef7gbb888cf2136f" version="3">Extra difficult terrain - spend 4x &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; when moving.</content>
+  <content contentuid="h40baaab8g04d4g4ab8gb877g2fcb1fc7d35a" version="1">Black Tentacles</content>
+  <content contentuid="h37d6c70cgcccbg40f2g926fgd4dd9ab28562" version="1">Difficult terrain - &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; is halved and creatures may take 3d6 Bludgeoning damage each turn and be Restrained.</content>
+  <content contentuid="4e4e794e-6b1e-40e1-b2ad-bfd426967c31" version="1">Hunger of Hadar</content>
+  <content contentuid="hd8f1368egaf40g4e7cg9a1fge3094286c7e4" version="2">Conjure ten magical berries for yourself or a companion. Creatures who eat a berry regain [1].</content>
+  <content contentuid="aef5f671-2755-4e48-984b-a92d0aac419c" version="2">Bestial Spirit of Air</content>
+  <content contentuid="72a09460-ce2d-48b2-8f89-d7ebfa388cee" version="2">Bestial Spirit of Land</content>
+  <content contentuid="h19acb846g9b95g402egbf92g24d1a3a7d9f9" version="1">Hurl a sphere of energy that deals [1].</content>
+  <content contentuid="h244761acg78d0g466fg92b2gbeb6e322b081" version="2">Hurl a sphere of energy that deals [1].</content>
+  <content contentuid="h487a736dgdca8g4175ga3d3g22cea0bbd9f9" version="1">Hurl a sphere of energy that deals [1].</content>
+  <content contentuid="h9ebff45bg8d4bg4074gb735gaafbb06d6d32" version="3">Hurl a sphere of energy. &lt;br&gt;&lt;br&gt;It deals 3d8 Thunder damage, or 2d8 Acid, Cold, Fire, Lightning or poison damage.</content>
+  <content contentuid="hb2768dccg5275g4d0dg8e9dg1ca7b657310a" version="2">Hurl a sphere of energy that deals [1].</content>
+  <content contentuid="he66e7983gb642g424eg9d7cgabd3fe48bd05" version="2">Hurl a sphere of energy that deals [1].</content>
+  <content contentuid="h19acb846g9b95g402egbf92g24d1a3a7d9f9" version="1">Hurl a sphere of energy that deals [1].</content>
+  <content contentuid="h3c804d34g56e4g4e60g8ec1ge6e8a81660c5" version="1">Create a cloud of dense fog to Heavily Obscure and Blind creatures within.</content>
+  <content contentuid="eadc5c99-bb5e-4847-9582-67cfa647845e" version="1">Cloudkill</content>
+  <content contentuid="8c82f3bc-6a84-44fe-93ee-3042e4bf07f8" version="1">Wall of Stone</content>
+  <content contentuid="1041f2df-59c1-431d-8058-6d3d7421a3ed" version="1">Guardian of Faith</content>
+  <content contentuid="23c7aa11-9985-40d1-818e-8ea2c5354a4b" version="1">Fire Elemental</content>
+  <content contentuid="12ecb521-e19d-4bea-977a-6ecc48ef1df7" version="1">Earth Elemental</content>
+  <content contentuid="9668954d-a22f-476b-bcff-f16994aadedf" version="1">Air Elemental</content>
+  <content contentuid="218798fd-fc4c-42b2-912b-cb055170c7c6" version="1">Water Elemental</content>
+  <content contentuid="a7327c66-4713-4ec7-97de-665b84f00577" version="1">Grasping Vine</content>
+  <content contentuid="62e5bae3-3cd6-4977-a10c-8ea37b9b003a" version="1">Maddening Darkness</content>
+  <content contentuid="43c787dd-bf8b-4042-b2d2-947ea6e966d8" version="1">This bow shoots forth a bolt of lightning.</content>
+  <content contentuid="5d99218e-d918-4682-affb-37b0ea072ae5" version="1">Lightning Arrow</content>
+  <content contentuid="8f7b58a4-61b1-4912-a569-c7bdb80bf73b" version="1">Shadowspawn</content>
+  <content contentuid="a75d496a-c0b0-4f8a-8176-a2a55c93ce47" version="1">Draconic Spirit</content>
 </contentList>
