@@ -47,4 +47,16 @@
   <content contentuid="5d99218e-d918-4682-affb-37b0ea072ae5" version="1">Lightning Arrow</content>
   <content contentuid="8f7b58a4-61b1-4912-a569-c7bdb80bf73b" version="1">Shadowspawn</content>
   <content contentuid="a75d496a-c0b0-4f8a-8176-a2a55c93ce47" version="1">Draconic Spirit</content>
+  <content contentuid="92b9a85e-5d79-4a5f-9b9c-28037fb8189c" version="1">Aether Storm</content>
+  <content contentuid="6651021e-0474-4968-a12d-1d3db631a357" version="1">Conjure an additional familiar per level.</content>
+  <content contentuid="1b745f89-847b-4dc3-91b2-40ed12a08414" version="1">Summon gains [1] to AC, [2] and deal an additional [1] damage on attacks per level.</content>
+  <content contentuid="81c4fbae-fce7-4f36-a494-6055379ffee8" version="1">Spell range increases by [1] per level.</content>
+  <content contentuid="92fbd2bf-1d0f-4a2b-aac7-9a1baa809620" version="1">Target deals an additional 1d6 damage of the chosen damage type per level.</content>
+  <content contentuid="952ea4b1-2bca-4299-9516-92d2b1ef4852" version="1">Deals an additional 1d6 damage of a random type per level.</content>
+  <content contentuid="445cff2b-2785-40ec-a648-ea3addb363fe" version="1">Target repeats saving throw each time it takes damage.</content>
+  <content contentuid="bade8726-7366-4a88-8d13-65e0ba89ca4d" version="1">Shard still explodes.</content>
+  <content contentuid="61cafcd2-c06b-4ed8-af89-e98639e629b7" version="1">Arrow still explodes.</content>
+  <content contentuid="677ff2e6-6860-4880-bfcf-394867d9fe80" version="1">Creates two more meteors per level.</content>
+  <content contentuid="38ebe1d1-ea04-49fa-96ab-0b45964ad0b5" version="1">Summon gains [1] to AC, [2] and deal an additional [1] damage on attacks per level and can make a number of attacks equal to half spell's level.</content>
+  <content contentuid="0a16cd16-72fe-461d-8656-1ce7f9d0663b" version="1">Call Lightning</content>
 </contentList>
