@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="6" build="405"/>
+    <region id="CharacterCreationPassiveAppearances">
+        <node id="root">
+            <children>
+                <node id="CharacterCreationPassiveAppearance">
+                    <attribute id="Passive" type="FixedString" value="GuardianOfNature_PrimalBeast"/>
+                    <attribute id="UUID" type="guid" value="383f0d45-c56d-48e3-89e2-83b8193ee03e"/>
+                    <children>
+                        <node id="AccessorySetUUIDs">
+                            <attribute id="Object" type="guid" value="afafde41-0ba6-4a18-bcea-8566e681e0d1"/>
+                        </node>
+                        <node id="AccessorySetUUIDs">
+                            <attribute id="Object" type="guid" value="35d29909-58ef-4dad-9d1d-c4230033f0be"/>
+                        </node>
+                        <node id="AccessorySetUUIDs">
+                            <attribute id="Object" type="guid" value="9c1bc199-d2f9-460a-a177-3deef5f20160"/>
+                        </node>
+                        <node id="AccessorySetUUIDs">
+                            <attribute id="Object" type="guid" value="7f77d692-69a1-42f0-8cc1-886e8b8b3f3e"/>
+                        </node>
+                        <node id="AccessorySetUUIDs">
+                            <attribute id="Object" type="guid" value="e2bc7e6d-59ab-4d7a-8edd-d7b635fc9254"/>
+                        </node>
+                        <node id="AccessorySetUUIDs">
+                            <attribute id="Object" type="guid" value="f73c803d-7b7e-4703-9004-382b8c588b70"/>
+                        </node>
+                    </children>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>
