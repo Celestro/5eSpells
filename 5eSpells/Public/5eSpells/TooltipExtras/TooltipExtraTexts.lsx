@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="8" build="612"/>
+    <region id="TooltipExtraTexts">
+        <node id="root">
+            <children>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipExtraTexts_EnemiesAbound"/>
+                    <attribute id="UUID" type="guid" value="79c43674-3859-4b0c-bf0f-63ff10d7637e"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipExtraTexts_IceKnife"/>
+                    <attribute id="UUID" type="guid" value="eb8d4cab-c280-4946-987c-3404e8287c93"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipExtraTexts_LightningArrow"/>
+                    <attribute id="UUID" type="guid" value="e63499d3-dad7-4b32-8861-6d259dbafd25"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>

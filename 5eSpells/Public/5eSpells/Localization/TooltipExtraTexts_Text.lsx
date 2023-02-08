@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="8" build="612" />
+	<region id="TranslatedStringKeys">
+		<node id="TranslatedStringKeys">
+			<children>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" type="TranslatedString" handle="445cff2b-2785-40ec-a648-ea3addb363fe" version="1" />
+					<attribute id="UUID" type="FixedString" value="5eSpells_TooltipExtraTexts_EnemiesAbound" />
+					<attribute id="Speaker" type="FixedString" value="" />
+					<attribute id="ExtraData" type="LSString" value="" />
+					<attribute id="Stub" type="bool" value="True" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" type="TranslatedString" handle="bade8726-7366-4a88-8d13-65e0ba89ca4d" version="1" />
+					<attribute id="UUID" type="FixedString" value="5eSpells_TooltipExtraTexts_IceKnife" />
+					<attribute id="Speaker" type="FixedString" value="" />
+					<attribute id="ExtraData" type="LSString" value="" />
+					<attribute id="Stub" type="bool" value="True" />
+				</node>
+				<node id="TranslatedStringKey">
+					<attribute id="Content" type="TranslatedString" handle="61cafcd2-c06b-4ed8-af89-e98639e629b7" version="1" />
+					<attribute id="UUID" type="FixedString" value="5eSpells_TooltipExtraTexts_LightningArrow" />
+					<attribute id="Speaker" type="FixedString" value="" />
+					<attribute id="ExtraData" type="LSString" value="" />
+					<attribute id="Stub" type="bool" value="True" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

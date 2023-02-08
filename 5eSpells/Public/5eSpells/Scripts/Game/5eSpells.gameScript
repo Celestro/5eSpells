@@ -1,82 +1,651 @@
+INIT
+    EXTERN CHARACTERTEMPLATE:%charSpawn=eddf2b83-21d3-4d6f-b958-c30f00dbbb92
+    CHARACTER:%char
+    CHARACTER:%owner
+    FLOAT:%WardingBondHP = 1.0
+    FLOAT:%LifeTransferenceHP = 1.0
+    FLOAT:%VampiricTouchHP = 1.0
+
 EVENTS
 
-EVENT AbsorbElements_Acid
+EVENT CharacterMageHandOwner
 VARS
-CHARACTER:_Character
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	FLOAT3:_pos
+	CHARACTER:_Summon
 ON
-	OnCharacterStatusApplied(_Character,ACIDDAMAGE)
+	FetchCharacterApplyStatusData(_Character, MAGE_HAND_OWNER)
 ACTIONS
-IF	"c1"
-	CharacterHasStatus(_Character,ABSORB_ELEMENTS)
+    IF "c1"
+		GetPosition(_Character,_pos)
+	THEN
+	    SpawnCharacter(_Summon,"eddf2b83-21d3-4d6f-b958-c30f00dbbb92",_pos,1)
+	ENDIF
+	Set(_Result,MAGE_HAND_OWNER)
+	RETURN(_RemoveList,_Result,null)
+
+EVENT CharacterMageHandOwnerInvisible
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	FLOAT3:_pos
+ON
+	FetchCharacterApplyStatusData(_Character, MAGE_HAND_OWNER_INVISIBLE)
+ACTIONS
+    IF "c1"
+		GetPosition(_Character,_pos)
+	THEN
+	    CharacterRemoveStatus(%owner, MAGE_HAND_OWNER)
+	    CharacterRemoveStatus(%owner, MAGE_HAND_OWNER_INVISIBLE)
+	    Set(%owner, _Character)
+	    CharacterEvent(%char, "ForceStopDialog")
+	    CharacterDestroy(%char)
+	    SpawnCharacter(%char,%charSpawn,_pos,1)
+	    CharacterApplyStatus(%char,INVISIBLE,-1,1)
+	ENDIF
+	Set(_Result,MAGE_HAND_OWNER_INVISIBLE)
+	RETURN(_RemoveList,_Result,null)
+
+EVENT CharacterMageHandExpired
+VARS
+	CHARACTER:_Character
+	LIST<STATUS>:_RemoveList
+	STATUS:_Result
+	FLOAT3:_pos
+ON
+	FetchCharacterApplyStatusData(_Character, MAGE_HAND_OWNER_REMOVED)
+ACTIONS
+    IF "c1"
+		GetPosition(_Character,_pos)
+	THEN
+	    CharacterEvent(%char, "ForceStopDialog")
+	    IterateItemsInInventory(%char, "SummonDied")
+	    CharacterDestroy(%char)
+	    Set(%char,null)
+        Set(%owner,null)
+	ENDIF
+	Set(_Result,MAGE_HAND_OWNER_REMOVED)
+	RETURN(_RemoveList,_Result,null)
+	
+EVENT IterateSummonDied
+VARS
+    ITEM:_IteratedItem=null
+ON
+    OnIterateItem(_IteratedItem, "SummonDied")
+ACTIONS
+    IF "c1"
+        IsStoryItem(_IteratedItem)
+    THEN
+        ItemToInventory(_IteratedItem,%owner,1)
+    ENDIF
+
+EVENT RitualCasting_Ceremony
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Target_Ceremony")
+	CharacterHasStatus(_Character,CEREMONY_RITUAL)
 THEN
-	CharacterApplyStatus(_Character,ABSORB_ELEMENTS_ACID,2)
+	CharacterApplyStatus(_Character,CEREMONY_RITUAL,-1)
 ENDIF
 
-EVENT AbsorbElements_Cold
+EVENT RitualCasting_DetectMagic
 VARS
-CHARACTER:_Character
+	CHARACTER:_Character
 ON
-	OnCharacterStatusApplied(_Character,COLDDAMAGE)
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
 ACTIONS
-IF	"c1"
-	CharacterHasStatus(_Character,ABSORB_ELEMENTS)
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Shout_DetectMagic")
+	CharacterHasStatus(_Character,DETECT_MAGIC_RITUAL)
 THEN
-	CharacterApplyStatus(_Character,ABSORB_ELEMENTS_COLD,2)
+	CharacterApplyStatus(_Character,DETECT_MAGIC_RITUAL,-1)
 ENDIF
 
-EVENT AbsorbElements_Fire
+EVENT RitualCasting_FindFamiliar
 VARS
-CHARACTER:_Character
+	CHARACTER:_Character
 ON
-	OnCharacterStatusApplied(_Character,FIREDAMAGE)
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
 ACTIONS
-IF	"c1"
-	CharacterHasStatus(_Character,ABSORB_ELEMENTS)
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Target_FindFamiliar")
+	CharacterHasStatus(_Character,FIND_FAMILIAR_RITUAL)
 THEN
-	CharacterApplyStatus(_Character,ABSORB_ELEMENTS_FIRE,2)
+	CharacterApplyStatus(_Character,FIND_FAMILIAR_RITUAL,-1)
 ENDIF
 
-EVENT AbsorbElements_Lightning
+EVENT RitualCasting_SpeakWithAnimals
 VARS
-CHARACTER:_Character
+	CHARACTER:_Character
 ON
-	OnCharacterStatusApplied(_Character,LIGHTNINGDAMAGE)
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
 ACTIONS
-IF	"c1"
-	CharacterHasStatus(_Character,ABSORB_ELEMENTS)
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Shout_SpeakWithAnimals")
+	CharacterHasStatus(_Character,SPEAK_WITH_ANIMALS_RITUAL)
 THEN
-	CharacterApplyStatus(_Character,ABSORB_ELEMENTS_LIGHTNING,2)
+	CharacterApplyStatus(_Character,SPEAK_WITH_ANIMALS_RITUAL,-1)
 ENDIF
 
-EVENT AbsorbElements_Thunder
+EVENT RitualCasting_UnseenServant
 VARS
-CHARACTER:_Character
+	CHARACTER:_Character
 ON
-	OnCharacterStatusApplied(_Character,THUNDERDAMAGE)
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
 ACTIONS
-IF	"c1"
-	CharacterHasStatus(_Character,ABSORB_ELEMENTS)
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Target_UnseenServant")
+	CharacterHasStatus(_Character,UNSEEN_SERVANT_RITUAL)
 THEN
-	CharacterApplyStatus(_Character,ABSORB_ELEMENTS_THUNDER,2)
+	CharacterApplyStatus(_Character,UNSEEN_SERVANT_RITUAL,-1)
 ENDIF
 
-EVENT IceKnife_Explode
+EVENT RitualCasting_Silence
 VARS
-CHARACTER:_Character
-
+	CHARACTER:_Character
 ON
-	OnCharacterStatusApplied(_Character,ICE_KNIFE)
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
 ACTIONS
-	ExplodeAt(_Character,Projectile_IceKnife_Explode)
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Target_Silence")
+	CharacterHasStatus(_Character,SILENCE_RITUAL)
+THEN
+	CharacterApplyStatus(_Character,SILENCE_RITUAL,-1)
+ENDIF
 
-EVENT IceKnife_Explode2
+EVENT RitualCasting_WaterWalk
 VARS
-CHARACTER:_Character
-
+	CHARACTER:_Character
 ON
-	OnCharacterStatusApplied(_Character,ICE_KNIFE2)
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
 ACTIONS
-	ExplodeAt(_Character,Projectile_IceKnife_2_Explode)
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Shout_WaterWalk")
+	CharacterHasStatus(_Character,WATER_WALK_RITUAL)
+THEN
+	CharacterApplyStatus(_Character,WATER_WALK_RITUAL,-1)
+ENDIF
+
+EVENT RitualCasting_FeignDeath
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Target_FeignDeath")
+	CharacterHasStatus(_Character,FEIGN_DEATH_RITUAL)
+THEN
+	CharacterApplyStatus(_Character,FEIGN_DEATH_RITUAL,-1)
+ENDIF
+
+EVENT RitualCasting_CommuneWithNature
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Shout_CommuneWithNature")
+	CharacterHasStatus(_Character,COMMUNE_WITH_NATURE_RITUAL)
+THEN
+	CharacterApplyStatus(_Character,COMMUNE_WITH_NATURE_RITUAL,-1)
+ENDIF
+
+EVENT RitualCasting_RarysTelepathicBond
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"c1&!c2"
+	CharacterHasSpell(_Character,"Target_RarysTelepathicBond")
+	CharacterHasStatus(_Character,TELEPATHIC_BOND_RITUAL)
+THEN
+	CharacterApplyStatus(_Character,TELEPATHIC_BOND_RITUAL,-1)
+ENDIF
+
+EVENT RitualCasting_Ceremony_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Target_Ceremony")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,CEREMONY_RITUAL)
+ENDIF
+
+EVENT RitualCasting_DetectMagic_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Shout_DetectMagic")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,DETECT_MAGIC_RITUAL)
+ENDIF
+
+EVENT RitualCasting_FindFamiliar_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Target_FindFamiliar")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,FIND_FAMILIAR_RITUAL)
+ENDIF
+
+EVENT RitualCasting_SpeakWithAnimals_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Shout_SpeakWithAnimals")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,SPEAK_WITH_ANIMALS_RITUAL)
+ENDIF
+
+EVENT RitualCasting_UnseenServant_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Target_UnseenServant")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,UNSEEN_SERVANT_RITUAL)
+ENDIF
+
+EVENT RitualCasting_Silence_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Target_Silence")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,SILENCE_RITUAL)
+ENDIF
+
+EVENT RitualCasting_WaterWalk_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Shout_WaterWalk")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,WATER_WALK_RITUAL)
+ENDIF
+
+EVENT RitualCasting_FeignDeath_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Target_FeignDeath")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,FEIGN_DEATH_RITUAL)
+ENDIF
+
+EVENT RitualCasting_CommuneWithNature_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Shout_CommuneWithNature")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,COMMUNE_WITH_NATURE_RITUAL)
+ENDIF
+
+EVENT RitualCasting_RarysTelepathicBond_Remove
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character)
+	OnCharacterVitalityChanged(_Character, _)
+	OnSight(_Character)
+	OnItemEquipped(_Character,_)
+	OnItemUnequipped(_Character,_)
+ACTIONS
+IF	"!c1&c2"
+	CharacterHasSpell(_Character,"Target_RarysTelepathicBond")
+	IsTagged(_Character,"BARD")
+THEN
+	CharacterRemoveStatus(_Character,TELEPATHIC_BOND_RITUAL)
+ENDIF
+
+EVENT MageHandItemGive
+VARS
+	CHARACTER:_Character
+	CHARACTER:_MageHand
+	ITEM:_Item
+ON
+	OnCharacterStatusApplied(_Character,RETRIEVE)
+ACTIONS
+IF	"c1&c2&c3"
+	CharacterGetStatusSourceCharacter(_Character,RETRIEVE,_MageHand)
+	CharacterHasStatus(_MageHand,MAGE_HAND_RETRIEVE)
+	CharacterGetStatusSourceItem(_MageHand, MAGE_HAND_RETRIEVE, _Item)
+THEN
+	ItemToInventory(_Item,_Character)
+	ItemRemoveStatus(_Item,ITEM_INVISIBILITY_AURA)
+ENDIF
+
+EVENT VampiricTouchSetHP
+VARS
+	CHARACTER:_Character
+	FLOAT:_HP
+	STRING: _Text
+	FIXEDSTRING: _Disp
+ON
+	OnCharacterStatusAttempt(_Character, "VAMPIRIC_TOUCH_HEAL")
+ACTIONS
+	IF	"c1"
+		CharacterGetStat(_HP, _Character, VitalityPoints)
+	THEN
+		Set(%VampiricTouchHP, _HP)
+	ENDIF
+
+EVENT VampiricTouchSetSource
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+	FLOAT:_HP
+	STRING: _Text
+	FIXEDSTRING: _Disp
+ON
+	OnCharacterStatusApplied(_Character, "VAMPIRIC_TOUCH_HEAL")
+ACTIONS
+	IF	"c1"
+		CharacterGetStatusSourceCharacter(_Character,"VAMPIRIC_TOUCH_HEAL",_Source)
+	THEN
+		SetVar(_Character,"Source",_Source)
+	ENDIF
+
+EVENT VampiricTouchHeal
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+	FLOAT:_HP
+	FLOAT:_MaxHP
+	FLOAT:_CalculatedHP
+	INT:_IntofCalculatedHP
+	FLOAT:_SourceHP
+	FLOAT:_SourceMaxHP
+	FLOAT:_CalculatedSourceHP
+	STRING: _Text
+	FIXEDSTRING: _Disp
+ON
+	OnCharacterStatusRemoved(_Character, "VAMPIRIC_TOUCH_HEAL")
+ACTIONS
+	IF "c1&c2&c3&c4"
+		CharacterGetStat(_HP, _Character, VitalityPoints)
+		GetVar(_Source,_Character,"Source")
+		CharacterGetStat(_SourceHP, _Source, VitalityPoints)
+		CharacterGetStat(_SourceMaxHP, _Source, VitalityMax)
+	THEN
+		Set(_CalculatedHP, %VampiricTouchHP)
+		Subtract(_CalculatedHP, _HP)
+		//Cast(_Text, _CalculatedHP)
+		//Cast(_Disp, _Text)
+		//StatusText(_Character, _Disp)
+		Divide(_CalculatedHP, 2)
+		Add(_CalculatedHP, _SourceHP)
+		Divide(_CalculatedHP, _SourceMaxHP)
+		SetHealth(_Source, _CalculatedHP)
+	ENDIF
+
+EVENT LifeTransferenceSetHP
+VARS
+	CHARACTER:_Character
+	FLOAT:_HP
+	STRING: _Text
+	FIXEDSTRING: _Disp
+ON
+	OnCharacterStatusAttempt(_Character, "LIFE_TRANSFERENCE_TECHNICAL")
+	OnCharacterStatusAttempt(_Character, "LIFE_TRANSFERENCE_TECHNICAL_4")
+	OnCharacterStatusAttempt(_Character, "LIFE_TRANSFERENCE_TECHNICAL_5")
+	OnCharacterStatusAttempt(_Character, "LIFE_TRANSFERENCE_TECHNICAL_6")
+	OnCharacterStatusAttempt(_Character, "LIFE_TRANSFERENCE_TECHNICAL_7")
+	OnCharacterStatusAttempt(_Character, "LIFE_TRANSFERENCE_TECHNICAL_8")
+	OnCharacterStatusAttempt(_Character, "LIFE_TRANSFERENCE_TECHNICAL_9")
+ACTIONS
+	IF	"c1"
+		CharacterGetStat(_HP, _Character, VitalityPoints)
+	THEN
+		Set(%LifeTransferenceHP, _HP)
+	ENDIF
+
+EVENT LifeTransferenceChangeinHP
+VARS
+	CHARACTER:_Character
+	FLOAT:_HP
+	FLOAT:_MaxHP
+	FLOAT:_CalculatedHP
+	INT:_IntofCalculatedHP
+	FLOAT:_SourceHP
+	FLOAT:_SourceMaxHP
+	FLOAT:_CalculatedSourceHP
+	STRING: _Text
+	FIXEDSTRING: _Disp
+ON
+	OnCharacterStatusRemoved(_Character, "LIFE_TRANSFERENCE_TECHNICAL")
+	OnCharacterStatusRemoved(_Character, "LIFE_TRANSFERENCE_TECHNICAL_4")
+	OnCharacterStatusRemoved(_Character, "LIFE_TRANSFERENCE_TECHNICAL_5")
+	OnCharacterStatusRemoved(_Character, "LIFE_TRANSFERENCE_TECHNICAL_6")
+	OnCharacterStatusRemoved(_Character, "LIFE_TRANSFERENCE_TECHNICAL_7")
+	OnCharacterStatusRemoved(_Character, "LIFE_TRANSFERENCE_TECHNICAL_8")
+	OnCharacterStatusRemoved(_Character, "LIFE_TRANSFERENCE_TECHNICAL_9")
+ACTIONS
+	IF "c1"
+		CharacterGetStat(_HP, _Character, VitalityPoints)
+	THEN
+		Set(_CalculatedHP, %LifeTransferenceHP)
+		Subtract(_CalculatedHP, _HP)
+		Set(%LifeTransferenceHP, _CalculatedHP)
+	ENDIF
+
+EVENT LifeTransferenceTarget
+VARS
+	CHARACTER:_Character
+	FLOAT:_HP
+	FLOAT:_MaxHP
+	FLOAT:_CalculatedHP
+	FLOAT:_SourceHP
+	FLOAT:_SourceMaxHP
+	FLOAT:_CalculatedSourceHP
+	STRING: _Text
+	FIXEDSTRING: _Disp
+ON
+	OnCharacterStatusRemoved(_Character, "LIFE_TRANSFERENCE")
+ACTIONS
+	IF "c1&c2"
+		CharacterGetStat(_SourceHP, _Character, VitalityPoints)
+		CharacterGetStat(_SourceMaxHP, _Character, VitalityMax)
+	THEN
+		Set(_CalculatedHP, %LifeTransferenceHP)
+		//Cast(_Text, _CalculatedHP)
+		//Cast(_Disp, _Text)
+		//StatusText(_Character, _Disp)
+		Multiply(_CalculatedHP, 2)
+		Add(_CalculatedHP, _SourceHP)
+		Divide(_CalculatedHP, _SourceMaxHP)
+		SetHealth(_Character, _CalculatedHP)
+	ENDIF
+
+EVENT WardingBondSetHP
+VARS
+	CHARACTER:_Character
+	FLOAT:_HP
+ON
+	OnCharacterStatusApplied(_Character, "WARDING_BOND")
+ACTIONS
+	IF	"c1&c2"
+		CharacterGetStatusSourceCharacter(_Character, "WARDING_BOND", _Source)
+		CharacterGetStat(_HP, _Character, Vitality)
+	THEN
+		Set(%WardingBondHP, _HP)
+		CharacterApplyStatus(_Source, "WARDING_BOND_CASTER", -1)
+	ENDIF
+
+EVENT WardingBondChangeinHP
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+	FLOAT:_HP
+	FLOAT:_MaxHP
+	FLOAT:_CalculatedHP
+	INT:_IntofCalculatedHP
+	FLOAT:_SourceHP
+	FLOAT:_SourceMaxHP
+	FLOAT:_CalculatedSourceHP
+ON
+	OnCharacterVitalityChanged(_Character, _HP)
+ACTIONS
+	IF "c1"
+		CharacterHasStatus(_Character, "WARDING_BOND")
+	THEN
+		IF "c1"
+			IsGreaterThen(_HP, %WardingBondHP)
+		THEN
+			Set(%WardingBondHP, _HP)
+		ELIF "c1&c2"
+			IsLessThen(_HP, %WardingBondHP)
+			CharacterGetStatusSourceCharacter(_Character, "WARDING_BOND", _Source)
+		THEN
+			IF "c1&c2&c3"
+				CharacterGetStat(_MaxHP, _Character, VitalityMax)
+				CharacterGetStat(_SourceHP, _Source, Vitality)
+				CharacterGetStat(_SourceMaxHP, _Source, VitalityMax)
+			THEN
+				Set(_CalculatedHP, %WardingBondHP)
+				Subtract(_CalculatedHP, _HP)
+				Multiply(_CalculatedHP, _MaxHP)
+				Add(_CalculatedHP, 0.5)
+				Set(_IntofCalculatedHP, INT: 0)
+				Add(_IntofCalculatedHP, _CalculatedHP)
+				Set(_CalculatedSourceHP, _SourceHP)
+				Multiply(_CalculatedSourceHP, _SourceMaxHP)
+				Subtract(_CalculatedSourceHP, _IntofCalculatedHP)
+				Add(_CalculatedSourceHP, 0.5)
+				Set(_IntofCalculatedHP, INT: 0)
+				Add(_IntofCalculatedHP, _CalculatedSourceHP)
+				Set(_CalculatedSourceHP, FLOAT: 0)
+				Add(_CalculatedSourceHP, _IntofCalculatedHP)
+				Divide(_CalculatedSourceHP, _SourceMaxHP)
+				SetHealth(_Source, _CalculatedSourceHP)
+				Set(%WardingBondHP, _HP)
+			ENDIF
+		ENDIF
+	ENDIF
 
 EVENT Heroism_Proc
 VARS
@@ -87,7 +656,7 @@ FLOAT:_Cha
 FLOAT:_Wis
 
 ON
-	OnCharacterStatusApplied(_Character,HEROISM)
+	OnCharacterStatusApplied(_Character,HEROISM_TEMP_HP)
 ACTIONS
 IF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
@@ -99,9 +668,9 @@ IF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Int,12)
 	IsEqual(_Int,13)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_1,10)
+	CharacterApplyStatus(_Character,HEROISM_1,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -110,9 +679,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Int,14)
 	IsEqual(_Int,15)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_2,10)
+	CharacterApplyStatus(_Character,HEROISM_2,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -121,9 +690,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Int,16)
 	IsEqual(_Int,17)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_3,10)
+	CharacterApplyStatus(_Character,HEROISM_3,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -132,9 +701,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Int,18)
 	IsEqual(_Int,19)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_4,10)
+	CharacterApplyStatus(_Character,HEROISM_4,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -143,64 +712,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Int,20)
 	IsEqual(_Int,21)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_5,10)
+	CharacterApplyStatus(_Character,HEROISM_5,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Int,_Cha)
-	IsGreaterThen(_Int,_Wis)
-	IsEqual(_Int,22)
-	IsEqual(_Int,23)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_6,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Int,_Cha)
-	IsGreaterThen(_Int,_Wis)
-	IsEqual(_Int,24)
-	IsEqual(_Int,25)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_7,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Int,_Cha)
-	IsGreaterThen(_Int,_Wis)
-	IsEqual(_Int,26)
-	IsEqual(_Int,27)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_8,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Int,_Cha)
-	IsGreaterThen(_Int,_Wis)
-	IsEqual(_Int,28)
-	IsEqual(_Int,29)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_9,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Int,_Cha)
-	IsGreaterThen(_Int,_Wis)
-	IsEqual(_Int,30)
-	IsEqual(_Int,31)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_10,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -209,9 +723,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Cha,12)
 	IsEqual(_Cha,13)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_1,10)
+	CharacterApplyStatus(_Character,HEROISM_1,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -220,9 +734,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Cha,14)
 	IsEqual(_Cha,15)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_2,10)
+	CharacterApplyStatus(_Character,HEROISM_2,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -231,9 +745,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Cha,16)
 	IsEqual(_Cha,17)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_3,10)
+	CharacterApplyStatus(_Character,HEROISM_3,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -242,9 +756,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Cha,18)
 	IsEqual(_Cha,19)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_4,10)
+	CharacterApplyStatus(_Character,HEROISM_4,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -253,64 +767,20 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Cha,20)
 	IsEqual(_Cha,21)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_5,10)
+	CharacterApplyStatus(_Character,HEROISM_5,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Cha,_Int)
-	IsGreaterThen(_Cha,_Wis)
-	IsEqual(_Cha,22)
-	IsEqual(_Cha,23)
+	IsGreaterThen(_Wis,_Int)
+	IsGreaterThen(_Wis,_Cha)
+	IsEqual(_Wis,12)
+	IsEqual(_Wis,13)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_6,10)
+	CharacterApplyStatus(_Character,HEROISM_1,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Cha,_Int)
-	IsGreaterThen(_Cha,_Wis)
-	IsEqual(_Cha,24)
-	IsEqual(_Cha,25)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_7,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Cha,_Int)
-	IsGreaterThen(_Cha,_Wis)
-	IsEqual(_Cha,26)
-	IsEqual(_Cha,27)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_8,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Cha,_Int)
-	IsGreaterThen(_Cha,_Wis)
-	IsEqual(_Cha,28)
-	IsEqual(_Cha,29)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_9,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Cha,_Int)
-	IsGreaterThen(_Cha,_Wis)
-	IsEqual(_Cha,30)
-	IsEqual(_Cha,31)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_10,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -319,9 +789,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Wis,14)
 	IsEqual(_Wis,15)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_2,10)
+	CharacterApplyStatus(_Character,HEROISM_2,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -330,9 +800,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Wis,16)
 	IsEqual(_Wis,17)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_3,10)
+	CharacterApplyStatus(_Character,HEROISM_3,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -341,9 +811,9 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Wis,18)
 	IsEqual(_Wis,19)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_4,10)
+	CharacterApplyStatus(_Character,HEROISM_4,1)
 ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
+	CharacterGetStatusSourceCharacter(_Character,HEROISM_TEMP_HP,_Source)
 	CharacterGetStat(_Int,_Source,Intelligence)
 	CharacterGetStat(_Cha,_Source,Charisma)
 	CharacterGetStat(_Wis,_Source,Wisdom)
@@ -352,80 +822,7 @@ ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
 	IsEqual(_Wis,20)
 	IsEqual(_Wis,21)
 THEN
-	CharacterApplyStatus(_Character,HEROISM_5,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Wis,_Int)
-	IsGreaterThen(_Wis,_Cha)
-	IsEqual(_Wis,22)
-	IsEqual(_Wis,23)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_6,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Wis,_Int)
-	IsGreaterThen(_Wis,_Cha)
-	IsEqual(_Wis,24)
-	IsEqual(_Wis,25)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_7,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Wis,_Int)
-	IsGreaterThen(_Wis,_Cha)
-	IsEqual(_Wis,26)
-	IsEqual(_Wis,27)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_8,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Wis,_Int)
-	IsGreaterThen(_Wis,_Cha)
-	IsEqual(_Wis,28)
-	IsEqual(_Wis,29)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_9,10)
-ELIF	"c1&c2&c3&c4&c5&c6&(c7|c8)"
-	CharacterGetStatusSourceCharacter(_Character,HEROISM,_Source)
-	CharacterGetStat(_Int,_Source,Intelligence)
-	CharacterGetStat(_Cha,_Source,Charisma)
-	CharacterGetStat(_Wis,_Source,Wisdom)
-	IsGreaterThen(_Wis,_Int)
-	IsGreaterThen(_Wis,_Cha)
-	IsEqual(_Wis,30)
-	IsEqual(_Wis,31)
-THEN
-	CharacterApplyStatus(_Character,HEROISM_10,10)
-ENDIF
-
-EVENT DustDevil_Projectile
-VARS
-CHARACTER:_Character
-CHARACTER:_Source
-CHARACTER:_Owner
-
-ON
-	OnTurnEnded(_Character)
-ACTIONS
-IF	"c1&c2&c3&c4"
-	CharacterHasStatus(_Character,DUST_DEVIL)
-	CharacterGetStatusSourceCharacter(_Character,DUST_DEVIL,_Source)
-	CharacterHasStatus(_Source,DUST_DEVIL_TARGET)
-	CharacterGetStatusSourceCharacter(_Source,DUST_DEVIL_TARGET,_Owner)
-THEN
-	ShootLocalProjectileAt(Projectile_DustDevil_Explosion,_Owner,FLOAT3:{0;3.0;0},_Character)
+	CharacterApplyStatus(_Character,HEROISM_5,1)
 ENDIF
 
 EVENT MindSpike_Application
@@ -511,23 +908,18 @@ THEN
 	CharacterApplyStatus(_Character,SNEAKING,-1)
 ENDIF
 
-EVENT SpiritualWeapon_Casting
+EVENT SpiritualWeapon_FirstTurn
 VARS
-CHARACTER:_Character
-
+	CHARACTER:_Character
+	CHARACTER:_Source
 ON
-	OnSpellCast(_Character,Target_SpiritualWeapon)
+	OnCharacterStatusApplied(_Character,SPIRITUAL_WEAPON_MOVE)
 ACTIONS
-	CharacterApplyStatus(_Character,SPIRITUAL_WEAPON_AURA,10)
-
-EVENT SpiritualWeapon
-VARS
-CHARACTER:_Character
-
-ON
-	OnCharacterStatusRemoved(_Character,SPIRITUAL_WEAPON_DIE)
-ACTIONS
-	CharacterDie(_Character)
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_MOVE,_Source)
+THEN
+	TeleportTo(_Character, _Source)
+ENDIF
 
 EVENT SpiritualWeapon_Scaling
 VARS
@@ -539,60 +931,156 @@ FLOAT:_Cha
 ON
 	OnCharacterStatusApplied(_Character,SPIRITUAL_WEAPON_TETHERED)
 ACTIONS
-IF	"c1&c2&c3&(c4|c5)&!c6"
+IF	"c1&c2&c3&c4"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"CLERIC")
+	CharacterGetStat(_Wis,_Source,Wisdom)
+	IsEqual(_Wis,11)
+THEN
+	CharacterApplyStatus(_Character,WIS1,-1)
+ELIF	"c1&c2&c3&c4"
 	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
 	IsTagged(_Source,"CLERIC")
 	CharacterGetStat(_Wis,_Source,Wisdom)
 	IsEqual(_Wis,12)
-	IsEqual(_Wis,13)
-	CharacterHasStatus(_Character,WIS2)
 THEN
 	CharacterApplyStatus(_Character,WIS2,-1)
-ELIF	"c1&c2&c3&(c4|c5)&!c6"
+ELIF	"c1&c2&c3&c4"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"CLERIC")
+	CharacterGetStat(_Wis,_Source,Wisdom)
+	IsEqual(_Wis,13)
+THEN
+	CharacterApplyStatus(_Character,WIS3,-1)
+ELIF	"c1&c2&c3&c4"
 	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
 	IsTagged(_Source,"CLERIC")
 	CharacterGetStat(_Wis,_Source,Wisdom)
 	IsEqual(_Wis,14)
-	IsEqual(_Wis,15)
-	CharacterHasStatus(_Character,WIS4)
 THEN
 	CharacterApplyStatus(_Character,WIS4,-1)
-ELIF	"c1&c2&c3&(c4|c5)&!c6"
+ELIF	"c1&c2&c3&c4"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"CLERIC")
+	CharacterGetStat(_Wis,_Source,Wisdom)
+	IsEqual(_Wis,15)
+THEN
+	CharacterApplyStatus(_Character,WIS4,-1)
+ELIF	"c1&c2&c3&c4"
 	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
 	IsTagged(_Source,"CLERIC")
 	CharacterGetStat(_Wis,_Source,Wisdom)
 	IsEqual(_Wis,16)
-	IsEqual(_Wis,17)
-	CharacterHasStatus(_Character,WIS6)
 THEN
 	CharacterApplyStatus(_Character,WIS6,-1)
-ELIF	"c1&c2&c3&(c4|c5)&!c6"
+ELIF	"c1&c2&c3&c4"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"CLERIC")
+	CharacterGetStat(_Wis,_Source,Wisdom)
+	IsEqual(_Wis,17)
+THEN
+	CharacterApplyStatus(_Character,WIS7,-1)
+ELIF	"c1&c2&c3&c4"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"CLERIC")
+	CharacterGetStat(_Wis,_Source,Wisdom)
+	IsEqual(_Wis,18)
+THEN
+	CharacterApplyStatus(_Character,WIS8,-1)
+ELIF	"c1&c2&c3&c4"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"CLERIC")
+	CharacterGetStat(_Wis,_Source,Wisdom)
+	IsEqual(_Wis,19)
+THEN
+	CharacterApplyStatus(_Character,WIS9,-1)
+ELIF	"c1&c2&c3&c4"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"CLERIC")
+	CharacterGetStat(_Wis,_Source,Wisdom)
+	IsEqual(_Wis,20)
+THEN
+	CharacterApplyStatus(_Character,WIS10,-1)
+ELIF	"c1&(c2|c3)&c4&c5"
 	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
 	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
+	CharacterGetStat(_Cha,_Source,Charisma)
+	IsEqual(_Cha,11)
+THEN
+	CharacterApplyStatus(_Character,CHA1,-1)
+ELIF	"c1&(c2|c3)&c4&c5"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
 	CharacterGetStat(_Cha,_Source,Charisma)
 	IsEqual(_Cha,12)
-	IsEqual(_Cha,13)
-	CharacterHasStatus(_Character,CHA2)
 THEN
 	CharacterApplyStatus(_Character,CHA2,-1)
-ELIF	"c1&c2&c3&(c4|c5)&!c6"
+ELIF	"c1&(c2|c3)&c4&c5"
 	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
 	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
+	CharacterGetStat(_Cha,_Source,Charisma)
+	IsEqual(_Cha,13)
+THEN
+	CharacterApplyStatus(_Character,CHA3,-1)
+ELIF	"c1&(c2|c3)&c4&c5"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
 	CharacterGetStat(_Cha,_Source,Charisma)
 	IsEqual(_Cha,14)
-	IsEqual(_Cha,15)
-	CharacterHasStatus(_Character,CHA4)
 THEN
 	CharacterApplyStatus(_Character,CHA4,-1)
-ELIF	"c1&c2&c3&(c4|c5)&!c6"
+ELIF	"c1&(c2|c3)&c4&c5"
 	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
 	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
+	CharacterGetStat(_Cha,_Source,Charisma)
+	IsEqual(_Cha,15)
+THEN
+	CharacterApplyStatus(_Character,CHA5,-1)
+ELIF	"c1&(c2|c3)&c4&c5"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
 	CharacterGetStat(_Cha,_Source,Charisma)
 	IsEqual(_Cha,16)
-	IsEqual(_Cha,17)
-	CharacterHasStatus(_Character,CHA6)
 THEN
 	CharacterApplyStatus(_Character,CHA6,-1)
+ELIF	"c1&(c2|c3)&c4&c5"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
+	CharacterGetStat(_Cha,_Source,Charisma)
+	IsEqual(_Cha,17)
+THEN
+	CharacterApplyStatus(_Character,CHA7,-1)
+ELIF	"c1&(c2|c3)&c4&c5"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
+	CharacterGetStat(_Cha,_Source,Charisma)
+	IsEqual(_Cha,18)
+THEN
+	CharacterApplyStatus(_Character,CHA8,-1)
+ELIF	"c1&(c2|c3)&c4&c5"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
+	CharacterGetStat(_Cha,_Source,Charisma)
+	IsEqual(_Cha,19)
+THEN
+	CharacterApplyStatus(_Character,CHA9,-1)
+ELIF	"c1&(c2|c3)&c4&c5"
+	CharacterGetStatusSourceCharacter(_Character,SPIRITUAL_WEAPON_TETHERED,_Source)
+	IsTagged(_Source,"SORCERER")
+	IsTagged(_Source,"BARD")
+	CharacterGetStat(_Cha,_Source,Charisma)
+	IsEqual(_Cha,20)
+THEN
+	CharacterApplyStatus(_Character,CHA10,-1)
 ENDIF
 
 EVENT ChaosBolt_RandomProjectile
@@ -721,6 +1209,447 @@ ACTIONS
 		CharacterApplyStatus(_Character,CHAOS_BOLT_2_ADDITIONAL,1)
 	ENDIF
 
+EVENT ChaosBolt_RandomProjectile_3
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_3)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,CHAOS_BOLT_3,_Source)
+THEN
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_3_Acid, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_3_Cold, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,3)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_3_Fire, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,4)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_3_Force, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,5)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_3_Lightning, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,6)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_3_Poison, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,7)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_3_Psychic, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,8)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_3_Thunder, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ENDIF
+ENDIF
+
+EVENT ChaosBolt_CasterSubsequentAttack_3
+VARS
+CHARACTER:_Character
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_3_OWNER)
+ACTIONS
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,CHAOS_BOLT_3_ADDITIONAL,1)
+	ENDIF
+
+EVENT ChaosBolt_RandomProjectile_4
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_4)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,CHAOS_BOLT_4,_Source)
+THEN
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_4_Acid, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_4_Cold, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,3)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_4_Fire, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,4)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_4_Force, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,5)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_4_Lightning, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,6)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_4_Poison, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,7)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_4_Psychic, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,8)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_4_Thunder, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ENDIF
+ENDIF
+
+EVENT ChaosBolt_CasterSubsequentAttack_4
+VARS
+CHARACTER:_Character
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_4_OWNER)
+ACTIONS
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,CHAOS_BOLT_4_ADDITIONAL,1)
+	ENDIF
+
+EVENT ChaosBolt_RandomProjectile_5
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_5)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,CHAOS_BOLT_5,_Source)
+THEN
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_5_Acid, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_5_Cold, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,3)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_5_Fire, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,4)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_5_Force, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,5)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_5_Lightning, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,6)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_5_Poison, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,7)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_5_Psychic, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,8)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_5_Thunder, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ENDIF
+ENDIF
+
+EVENT ChaosBolt_CasterSubsequentAttack_5
+VARS
+CHARACTER:_Character
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_5_OWNER)
+ACTIONS
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,CHAOS_BOLT_5_ADDITIONAL,1)
+	ENDIF
+	
+EVENT ChaosBolt_RandomProjectile_6
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_6)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,CHAOS_BOLT_6,_Source)
+THEN
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_6_Acid, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_6_Cold, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,3)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_6_Fire, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,4)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_6_Force, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,5)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_6_Lightning, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,6)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_6_Poison, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,7)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_6_Psychic, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,8)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_6_Thunder, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ENDIF
+ENDIF
+
+EVENT ChaosBolt_CasterSubsequentAttack_6
+VARS
+CHARACTER:_Character
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_6_OWNER)
+ACTIONS
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,CHAOS_BOLT_6_ADDITIONAL,1)
+	ENDIF
+	
+EVENT ChaosBolt_RandomProjectile_7
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_7)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,CHAOS_BOLT_7,_Source)
+THEN
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_7_Acid, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_7_Cold, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,3)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_7_Fire, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,4)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_7_Force, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,5)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_7_Lightning, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,6)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_7_Poison, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,7)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_7_Psychic, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,8)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_7_Thunder, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ENDIF
+ENDIF
+
+EVENT ChaosBolt_CasterSubsequentAttack_7
+VARS
+CHARACTER:_Character
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_7_OWNER)
+ACTIONS
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,CHAOS_BOLT_7_ADDITIONAL,1)
+	ENDIF
+	
+EVENT ChaosBolt_RandomProjectile_8
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_8)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,CHAOS_BOLT_8,_Source)
+THEN
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_8_Acid, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_8_Cold, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,3)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_8_Fire, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,4)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_8_Force, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,5)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_8_Lightning, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,6)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_8_Poison, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,7)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_8_Psychic, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,8)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_8_Thunder, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ENDIF
+ENDIF
+
+EVENT ChaosBolt_CasterSubsequentAttack_8
+VARS
+CHARACTER:_Character
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_8_OWNER)
+ACTIONS
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,CHAOS_BOLT_8_ADDITIONAL,1)
+	ENDIF
+	
+EVENT ChaosBolt_RandomProjectile_9
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_9)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,CHAOS_BOLT_9,_Source)
+THEN
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_9_Acid, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_9_Cold, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,3)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_9_Fire, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,4)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_9_Force, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,5)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_9_Lightning, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,6)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_9_Poison, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,7)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_9_Psychic, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ELIF "c1"		
+		IsEqual(_Result,8)
+	THEN
+		ShootLocalProjectileAt(Projectile_ChaosBolt_9_Thunder, _Source, {0.0;1.0;0.0}, _Character, -1, _Source)
+	ENDIF
+ENDIF
+
+EVENT ChaosBolt_CasterSubsequentAttack_9
+VARS
+CHARACTER:_Character
+INT:_Result
+
+ON
+	OnCharacterStatusApplied(_Character,CHAOS_BOLT_9_OWNER)
+ACTIONS
+	GetRandomBetween(_Result,1,8)
+	IF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,CHAOS_BOLT_9_ADDITIONAL,1)
+	ENDIF
+
 EVENT EnemiesAbound
 VARS
 CHARACTER:_Character
@@ -736,6 +1665,25 @@ ACTIONS
 		CharacterApplyStatus(_Character,ENEMIES_ABOUND_ALLY,1)
 	ENDIF
 
+EVENT EnemiesAboundTurn
+VARS
+CHARACTER:_Character
+INT:_Result
+
+ON
+	OnTurnEnded(_Character)
+ACTIONS
+IF	"c1"
+	CharacterHasStatus(_Character,ENEMIES_ABOUND)
+THEN
+	GetRandomBetween(_Result,1,2)
+	IF "c1"
+		IsEqual(_Result,1)
+	THEN
+		CharacterApplyStatus(_Character,ENEMIES_ABOUND_ALLY,1)
+	ENDIF
+ENDIF
+
 EVENT EnemiesAbound_EndOfCombat
 VARS
 CHARACTER:_Character
@@ -748,55 +1696,6 @@ IF "c1&c2"
 	CharacterGetStatusSourceCharacter(_Character,ENEMIES_ABOUND,_Source)
 THEN
 	CharacterApplyStatus(_Source,BREAKCONCENTRATION,0)
-ENDIF
-
-EVENT GustOfWind_Zone_Push
-VARS
-CHARACTER:_Character
-CHARACTER:_Source
-
-ON
-    OnTurn(_Character)
-	OnTurnEnded(_Character)
-ACTIONS
-IF    "c1&c2&c3"
-    CharacterHasStatus(_Character,GUST_OF_WIND)
-    CharacterHasStatus(_Character,GUST_OF_WIND_PROC)
-    CharacterGetStatusSourceCharacter(_Character,GUST_OF_WIND_PROC,_Source)
-THEN
-    ShootLocalProjectileAt(Projectile_GustOfWind, _Source, {0.0;1.0;0.0}, _Character, INT:-1, _Source)
-ENDIF
-
-EVENT GustOfWind_SurfaceRemoval
-VARS
-CHARACTER:_Character
-CHARACTER:_Source
-INT:_TURNS
-FLOAT3:_Result
-
-ON
-    OnCharacterStatusRemoved(_Character,GUST_DIRECTION_CHANGE)
-ACTIONS
-IF    "c1"
-    FindSurface(_Result, _Character, FLOAT:0.0, FLOAT:50.0, SurfaceConfusionCloud)
-THEN
-    CreateSurfaceAt(_Result, SurfaceNone, FLOAT:20.0, -1)
-ENDIF
-
-EVENT GustOfWind_SurfaceRemoval_BONUS
-VARS
-CHARACTER:_Character
-CHARACTER:_Source
-INT:_TURNS
-FLOAT3:_Result
-
-ON
-    OnSpellCast(_Character,Zone_GustOfWind_DirectionChange)
-ACTIONS
-IF    "c1"
-    FindSurface(_Result, _Character, FLOAT:0.0, FLOAT:50.0, SurfaceConfusionCloud)
-THEN
-    CreateSurfaceAt(_Result, SurfaceNone, FLOAT:20.0, -1)
 ENDIF
 
 EVENT Daylight
@@ -831,15 +1730,15 @@ ACTIONS
 	IF "c1"
 		IsEqual(_Result,1)
 	THEN
-		CharacterApplyStatus(_Character,MIND_WHIP_ACTION,100,1)
+		CharacterApplyStatus(_Character,MIND_WHIP_ACTION,1)
 	ELIF "c1"
 		IsEqual(_Result,2)
 	THEN
-		CharacterApplyStatus(_Character,MIND_WHIP_BONUSACTION,100,1)
+		CharacterApplyStatus(_Character,MIND_WHIP_BONUSACTION,1)
 	ELIF "c1"
 		IsEqual(_Result,3)
 	THEN
-		CharacterApplyStatus(_Character,MIND_WHIP_MOVE,100,1)
+		CharacterApplyStatus(_Character,MIND_WHIP_MOVE,1)
 	ENDIF
 
 EVENT Virtue_Proc
@@ -1631,7 +2530,7 @@ ACTIONS
 EVENT Confusion
 VARS
 CHARACTER:_Character
-
+INT:_Result
 ON
 	OnCharacterStatusApplied(_Character,CONFUSION_RANDOM)
 ACTIONS
@@ -1639,23 +2538,580 @@ ACTIONS
 	IF "c1"		
 		IsEqual(_Result,1)
 	THEN
-		CharacterApplyStatus(_Character,CONFUSION_ACTION,1)
-	ELIF "(c1|c2|c3|c4|c5)"		
+		CharacterApplyStatus(_Character,CONFUSION_MOVEMENT,1)
+	ELIF "c1"
 		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,CONFUSION_NOACTION,1)
+	ELIF "c1"		
 		IsEqual(_Result,3)
+	THEN
+		CharacterApplyStatus(_Character,CONFUSION_NOACTION,1)
+	ELIF "c1"		
 		IsEqual(_Result,4)
+	THEN
+		CharacterApplyStatus(_Character,CONFUSION_NOACTION,1)
+	ELIF "c1"		
 		IsEqual(_Result,5)
+	THEN
+		CharacterApplyStatus(_Character,CONFUSION_NOACTION,1)
+	ELIF "c1"		
 		IsEqual(_Result,6)
 	THEN
-		CharacterApplyStatus(_Character,CONFUSION_BOTH,1)
-	ELIF "(c1|c2)"		
+		CharacterApplyStatus(_Character,CONFUSION_NOACTION,1)
+	ELIF "c1"		
 		IsEqual(_Result,7)
+	THEN
+		CharacterApplyStatus(_Character,CONFUSION_ATTACK,1)
+	ELIF "c1"		
 		IsEqual(_Result,8)
 	THEN
-		CharacterApplyStatus(_Character,CONFUSION_MOVEMENT,1)
-	ELIF "(c1|c2)"		
+		CharacterApplyStatus(_Character,CONFUSION_ATTACK,1)
+	ELIF "c1"
 		IsEqual(_Result,9)
+	THEN
+		CharacterApplyStatus(_Character,CONFUSION_NORMAL,1)
+	ELIF "c1"
 		IsEqual(_Result,10)
 	THEN
-		CharacterRemoveStatus(_Character,CONFUSION_RANDOM)
+		CharacterApplyStatus(_Character,CONFUSION_NORMAL,1)
 	ENDIF
+	
+EVENT SleetStorm
+VARS
+ITEM:_Item
+ON
+	OnItemStatus(_Item,SLEET_STORM_AURA)
+ACTIONS
+	CreateSurfaceAt(_Item, "SurfaceWaterFrozen", 12.0, 10)
+	CreateSurfaceAt(_Item, "SurfaceFogCloud", 12.0, 10)
+
+EVENT SleetStormRemoval
+VARS
+ITEM:_Item
+FLOAT3:_Result
+ON
+	OnItemStatusRemoved(_Item,SLEET_STORM_AURA)
+ACTIONS
+IF    "c1"
+    FindSurface(_Result, _Item, FLOAT:0.0, FLOAT:12.0, SurfaceWaterFrozen)
+THEN
+    CreateSurfaceAt(_Result, SurfaceNone, FLOAT:12.0, -1)
+ENDIF
+
+EVENT SleetStormRemoval2
+VARS
+ITEM:_Item
+FLOAT3:_Result
+ON
+	OnItemStatusRemoved(_Item,SLEET_STORM_AURA)
+ACTIONS
+IF    "c1"
+    FindSurface(_Result, _Item, FLOAT:0.0, FLOAT:12.0, SurfaceFogCloud)
+THEN
+    CreateSurfaceAt(_Result, SurfaceNone, FLOAT:12.0, -1)
+ENDIF
+
+EVENT Daylight
+VARS
+ITEM:_Item
+CHARACTER:_Character
+FLOAT3:_Result
+ON
+	OnItemStatus(_Item,DAYLIGHT)
+	OnCharacterStatusApplied(_Character,DAYLIGHT_TECHNICAL)
+ACTIONS
+IF    "c1|c2"
+    FindSurface(_Result, _Item, FLOAT:0.0, FLOAT:18.0, SurfaceDarknessCloud)
+    FindSurface(_Result, _Character, FLOAT:0.0, FLOAT:18.0, SurfaceDarknessCloud)
+THEN
+    CreateSurfaceAt(_Result, SurfaceNone, FLOAT:18.0, -1)
+	RemoveSurfaceLayerAt(_Result, 0, FLOAT:18.0)
+ENDIF
+
+EVENT DarknessDancingLights
+VARS
+ITEM:_Item
+CHARACTER:_Character
+ON
+	OnItemStatusAttempt(_Item,BLINDED_DARKNESS)
+ACTIONS
+IF	"c1"
+	ItemHasStatus(_Item,DANCING_LIGHTS)
+THEN
+	ItemDestroy(_Item)
+ENDIF
+
+EVENT DarknessOnItem
+VARS
+	CHARACTER:_Character
+ON
+	OnCharacterStatusRemoved(_Character,SNEAKING_HEAVILY_OBSCURED)
+ACTIONS
+IF	"c1"
+	CharacterHasStatus(_Character,HEAVILY_OBSCURED)
+THEN
+	CharacterApplyStatus(_Character,HEAVILY_OBSCURED,-1)
+ENDIF
+
+EVENT Blink
+VARS
+CHARACTER:_Character
+INT:_Result
+ON
+	OnCharacterStatusApplied(_Character,BLINK_PROC)
+ACTIONS
+IF	"!c1"
+	CharacterHasStatus(_Character,BLINK_ACTIVATE)
+THEN
+	GetRandomBetween(_Result,1,20)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		DisplayText(_Character,"Rolled a 1", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,2)
+	THEN
+		DisplayText(_Character,"Rolled a 2", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,3)
+	THEN
+		DisplayText(_Character,"Rolled a 3", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,4)
+	THEN
+		DisplayText(_Character,"Rolled a 4", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,5)
+	THEN
+		DisplayText(_Character,"Rolled a 5", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,6)
+	THEN
+		DisplayText(_Character,"Rolled a 6", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,7)
+	THEN
+		DisplayText(_Character,"Rolled a 7", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,8)
+	THEN
+		DisplayText(_Character,"Rolled an 8", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,9)
+	THEN
+		DisplayText(_Character,"Rolled a 9", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,10)
+	THEN
+		DisplayText(_Character,"Rolled a 10", FLOAT:1.0)
+	ELIF "c1"		
+		IsEqual(_Result,11)
+	THEN
+		DisplayText(_Character,"Rolled an 11", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,12)
+	THEN
+		DisplayText(_Character,"Rolled a 12", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,13)
+	THEN
+		DisplayText(_Character,"Rolled a 13", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,14)
+	THEN
+		DisplayText(_Character,"Rolled a 14", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,15)
+	THEN
+		DisplayText(_Character,"Rolled a 15", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,16)
+	THEN
+		DisplayText(_Character,"Rolled a 16", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,17)
+	THEN
+		DisplayText(_Character,"Rolled a 17", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,18)
+	THEN
+		DisplayText(_Character,"Rolled an 18", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,19)
+	THEN
+		DisplayText(_Character,"Rolled a 19", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,20)
+	THEN
+		DisplayText(_Character,"Rolled a 20", FLOAT:1.0)
+		CharacterApplyStatus(_Character,BLINK_ACTIVATE,-1)
+	ENDIF
+ENDIF
+
+EVENT LightningBolt
+VARS
+CHARACTER:_Character
+CHARACTER:_Owner
+ITEM:_Item
+ON
+	OnCharacterStatusApplied(_Character,LIGHTNING_BOLT)
+	OnItemStatusApplied(_Item,LIGHTNING_BOLT)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,LIGHTNING_BOLT,_Owner)
+THEN
+	ShootLocalProjectileAt(Projectile_LightningBolt,_Owner,FLOAT3:{0;3.0;0},_Character)
+ELIF	"c1"
+	ItemGetStatusSourceCharacter(_Item,LIGHTNING_BOLT,_Owner)
+THEN
+	ShootLocalProjectileAt(Projectile_LightningBolt,_Owner,FLOAT3:{0;3.0;0},_Item)
+ENDIF
+
+EVENT Catapult
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+	ITEM:_Item
+ON
+	OnCharacterStatusApplied(_Character, CATAPULT_TARGET)
+ACTIONS
+IF	"c1&c2&c3"
+	CharacterGetStatusSourceCharacter(_Character,CATAPULT_TARGET,_Source)
+	CharacterHasStatus(_Source,CATAPULT_SOURCE)
+	CharacterGetStatusSourceItem(_Source,CATAPULT_SOURCE,_Item)
+THEN
+	TeleportTo(_Item, _Character)
+	CharacterRemoveStatus(_Source,CATAPULT_TECHNICAL)
+	CharacterRemoveStatus(_Source,CATAPULT_TECHNICAL_2)
+	CharacterRemoveStatus(_Source,CATAPULT_TECHNICAL_3)
+	ItemRemoveStatus(_Item,CATAPULT)
+ENDIF
+
+EVENT ThunderStepSpell
+VARS
+	CHARACTER:_Character
+	FLOAT3:_OldPos
+	FLOAT3:_NewPos
+ON
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, Teleportation_ThunderStep)
+ACTIONS
+	ExplodeAt(_OldPos, Projectile_ThunderStep_Explosion, -1, _Character)
+	
+EVENT ThunderStepSpell4
+VARS
+	CHARACTER:_Character
+	FLOAT3:_OldPos
+	FLOAT3:_NewPos
+ON
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, Teleportation_ThunderStep_4)
+ACTIONS
+	ExplodeAt(_OldPos, Projectile_ThunderStep_4_Explosion, -1, _Character)
+
+EVENT ThunderStepSpell5
+VARS
+	CHARACTER:_Character
+	FLOAT3:_OldPos
+	FLOAT3:_NewPos
+ON
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, Teleportation_ThunderStep_5)
+ACTIONS
+	ExplodeAt(_OldPos, Projectile_ThunderStep_5_Explosion, -1, _Character)
+
+EVENT ThunderStepSpell6
+VARS
+	CHARACTER:_Character
+	FLOAT3:_OldPos
+	FLOAT3:_NewPos
+ON
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, Teleportation_ThunderStep_6)
+ACTIONS
+	ExplodeAt(_OldPos, Projectile_ThunderStep_6_Explosion, -1, _Character)
+
+EVENT ThunderStepSpell7
+VARS
+	CHARACTER:_Character
+	FLOAT3:_OldPos
+	FLOAT3:_NewPos
+ON
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, Teleportation_ThunderStep_7)
+ACTIONS
+	ExplodeAt(_OldPos, Projectile_ThunderStep_7_Explosion, -1, _Character)
+
+EVENT ThunderStepSpell8
+VARS
+	CHARACTER:_Character
+	FLOAT3:_OldPos
+	FLOAT3:_NewPos
+ON
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, Teleportation_ThunderStep_8)
+ACTIONS
+	ExplodeAt(_OldPos, Projectile_ThunderStep_8_Explosion, -1, _Character)
+
+EVENT ThunderStepSpell9
+VARS
+	CHARACTER:_Character
+	FLOAT3:_OldPos
+	FLOAT3:_NewPos
+ON
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, Teleportation_ThunderStep_9)
+ACTIONS
+	ExplodeAt(_OldPos, Projectile_ThunderStep_9_Explosion, -1, _Character)
+	
+EVENT Ceremony_BlessWater
+VARS
+	CHARACTER:_Character
+	Item:_Item
+ON
+	OnCharacterStatusApplied(_Character, BLESS_WATER)
+ACTIONS
+IF	"c1&c2"
+	ItemGetFromInventory(_Item, _Character , "CONS_DRINK_Water")
+	ItemIsInCharacterInventory(_Item, _Character)
+THEN
+	CharacterRemoveFromInventory(_Character, "CONS_DRINK_Water", INT:1)
+	CharacterAddToInventory(_Character, "OBJ_HolyWaterFlask_Ceremony", INT:1)
+ELIF	"c1&c2"
+	ItemGetFromInventory(_Item, _Character , "CONS_DRINK_Water_Bottle")
+	ItemIsInCharacterInventory(_Item, _Character)
+THEN
+	CharacterRemoveFromInventory(_Character, "CONS_DRINK_Water_Bottle", INT:1)
+	CharacterAddToInventory(_Character, "OBJ_HolyWaterFlask_Ceremony", INT:1)
+ELIF	"c1&c2"
+	ItemGetFromInventory(_Item, _Character , "CONS_DRINK_Water_Bottle_Wicker")
+	ItemIsInCharacterInventory(_Item, _Character)
+THEN
+	CharacterRemoveFromInventory(_Character, "CONS_DRINK_Water_Bottle_Wicker", INT:1)
+	CharacterAddToInventory(_Character, "OBJ_HolyWaterFlask_Ceremony", INT:1)
+ENDIF
+
+EVENT Disintegrate
+VARS
+	CHARACTER:_Character
+	ITEM:_Item
+ON
+	OnCharacterStatusApplied(_Character, DISINTEGRATE)
+	OnItemStatus(_Item, DISINTEGRATE)
+ACTIONS
+	CharacterDestroy(_Character)
+	ItemDestroy(_Item)
+	
+EVENT PowerWordKill
+VARS
+	CHARACTER:_Character
+ON
+	OnCharacterStatusApplied(_Character, POWER_WORD_KILL)
+ACTIONS
+IF	"c1"
+	CharacterHasStatus(_Character,DEATH_WARD)
+THEN
+	CharacterRemoveStatus(_Character,DEATH_WARD)
+ELIF	"!c1"
+	CharacterHasStatus(_Character,DEATH_WARD)
+THEN
+	CharacterDie(_Character)
+ENDIF
+
+EVENT GuardianOfFaith
+VARS
+	CHARACTER:_Character
+ON
+	OnCharacterStatusApplied(_Character, GUARDIAN_OF_FAITH_60)
+	OnCharacterStatusApplied(_Character, GUARDIAN_OF_FAITH_70)
+ACTIONS
+	CharacterDie(_Character)
+	
+EVENT Contagion
+VARS
+CHARACTER:_Character
+INT:_Result
+ON
+	OnCharacterStatusApplied(_Character,CONTAGION_FAIL_3)
+ACTIONS
+	GetRandomBetween(_Result,1,6)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		CharacterApplyStatus(_Character,BLINDING_SICKNESS,-1)
+	ELIF "c1"
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,FILTH_FEVER,-1)
+	ELIF "c1"		
+		IsEqual(_Result,3)
+	THEN
+		CharacterApplyStatus(_Character,FLESH_ROT,-1)
+	ELIF "c1"		
+		IsEqual(_Result,4)
+	THEN
+		CharacterApplyStatus(_Character,MINDFIRE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,5)
+	THEN
+		CharacterApplyStatus(_Character,SEIZURE,-1)
+	ELIF "c1"		
+		IsEqual(_Result,6)
+	THEN
+		CharacterApplyStatus(_Character,SLIMY_DOOM,-1)
+	ENDIF
+	
+EVENT FingerOfDeath
+VARS
+CHARACTER:_Character
+ON
+	OnCharacterStatusApplied(_Character,FINGER_OF_DEATH_DESTROY)
+ACTIONS
+	CharacterDestroy(_Character)
+	
+EVENT FullRecoverySpells
+VARS
+CHARACTER:_Character
+ON
+	OnCharacterStatusApplied(_Character,POWER_WORD_HEAL)
+ACTIONS
+	SetHealth(_Character, 1.0)
+	
+EVENT TimeStop
+VARS
+CHARACTER:_Character
+INT:_Result
+ON
+	OnCharacterStatusApplied(_Character,TIME_STOP_TECHNICAL)
+ACTIONS
+	GetRandomBetween(_Result,1,4)
+	IF "c1"
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character, TIME_STOP_AURA, 3)
+	ELIF "c1"
+		IsEqual(_Result,3)
+	THEN
+		CharacterApplyStatus(_Character, TIME_STOP_AURA, 4)
+	ELIF "c1"
+		IsEqual(_Result,4)
+	THEN
+		CharacterApplyStatus(_Character, TIME_STOP_AURA, 5)
+	ELIF "c1"
+		IsEqual(_Result,1)
+	THEN
+		CharacterApplyStatus(_Character, TIME_STOP_AURA, 2)
+	ENDIF
+
+EVENT TimeStop_Removal
+VARS
+CHARACTER:_Character
+STATUS:_Status
+ON
+	OnCharacterStatusApplied(_Character,_Status)
+ACTIONS
+IF	"!c1&c2&!c3&c4"
+	IsEqual(_Status,TIME_STOP)
+	CharacterGetStatusSourceCharacter(_Character,_Status,_Source)
+	IsEqual(_Character,_Source)
+	CharacterHasStatus(_Character,TIME_STOP)
+THEN
+	CharacterRemoveStatus(_Character,TIME_STOP)
+ENDIF
+
+EVENT Teleport_Explosion
+VARS
+	CHARACTER:_Character
+	FLOAT3:_OldPos
+	FLOAT3:_NewPos
+ON
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, "Shout_Teleport_Character")
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, "Shout_Teleport_Character_8")
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, "Shout_Teleport_Character_9")
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, "Shout_Teleport_Character_Psion")
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, "Shout_Teleport_Character_Planeswalker")
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, "Shout_Teleport_Character_7_Planeswalker")
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, "Shout_Teleport_Character_8_Planeswalker")
+	OnCharacterTeleported(_Character, _Character, _OldPos, _NewPos, "Shout_Teleport_Character_9_Planeswalker")
+ACTIONS
+	ExplodeAt(_OldPos, Projectile_Teleport_Explosion, -1, _Character)
+	SetVar(_Character,"TeleportExplosion",_NewPos)
+
+EVENT Teleport_Aftermath
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+FLOAT3:_Pos
+
+ON
+	OnCharacterStatusApplied(_Character,TELEPORT_EXPLOSION)
+ACTIONS
+IF	"c1&c2"
+	CharacterGetStatusSourceCharacter(_Character,TELEPORT_EXPLOSION,_Source)
+	GetVar(_Pos,_Source,"TeleportExplosion")
+THEN
+	TeleportTo(_Character,_Pos)
+ENDIF
+
+EVENT Teleport_Selection
+VARS
+CHARACTER:_Character
+FLOAT3:_Pos
+
+ON
+	OnCharacterStatusApplied(_Character,TELEPORT_SELECTION)
+ACTIONS
+IF	"c1"
+	GetPosition(_Character,_Pos)
+THEN
+	SetVar(_Character,"TeleportDestination",_Pos)
+ENDIF
+
+EVENT Teleport_CharacterDestination
+VARS
+CHARACTER:_Character
+CHARACTER:_Source
+ITEM:_Item
+FLOAT3:_Pos
+
+ON
+	OnCharacterStatusApplied(_Character,TELEPORT)
+	OnItemStatus(_Item,TELEPORT)
+ACTIONS
+IF	"c1&c2"
+	CharacterGetStatusSourceCharacter(_Character,TELEPORT,_Source)
+	GetVar(_Pos,_Source,"TeleportDestination")
+THEN
+	TeleportTo(_Character,_Pos)
+ELIF	"c1&c2"
+	ItemGetStatusSourceCharacter(_Item,TELEPORT,_Source)
+	GetVar(_Pos,_Source,"TeleportDestination")
+THEN
+	TeleportTo(_Item,_Pos)
+ENDIF
+
+EVENT SpiritualWeapon_Teleport
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+	FLOAT3:_Pos
+ON
+	OnCharacterStatusApplied(_Character, SPIRITUAL_WEAPON_TELEPORT_PROC)
+ACTIONS
+	IF	"c1"
+		CharacterGetStatusSourceCharacter(_Character, SPIRITUAL_WEAPON_TELEPORT, _Source)
+	THEN
+		TeleportTo(_Source,_Character)
+		CharacterApplyStatus(_Source,SPIRITUAL_WEAPON_MOVEMENT,1)
+	ENDIF
+
+EVENT Haste_Lethargic
+VARS
+	CHARACTER:_Character
+ON
+	OnCharacterStatusRemoved(_Character, HASTE)
+ACTIONS
+	CharacterApplyStatus(_Character,HASTE_LETHARGY,1)

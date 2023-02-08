@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<save>
+  <version major="4" minor="0" revision="0" build="58"/>
+  <region id="Tags">
+    <node id="root">
+      <attribute id="Description" type="LSString" value=""/>
+      <attribute id="DisplayDescription" type="TranslatedString" handle="ls::TranslatedStringRepository::s_HandleUnknown" version="0"/>
+      <attribute id="DisplayName" type="TranslatedString" handle="ls::TranslatedStringRepository::s_HandleUnknown" version="0"/>
+      <attribute id="Icon" type="FixedString" value=""/>
+      <attribute id="Name" type="FixedString" value="CHARMED_DISADV"/>
+      <attribute id="UUID" type="guid" value="75a9dfdc-2f76-49a6-a1c2-691b708fa6fe"/>
+      <children>
+        <node id="Categories">
+          <children>
+            <node id="Category">
+              <attribute id="Name" type="LSString" value="SpellCondition"/>
+            </node>
+          </children>
+        </node>
+      </children>
+    </node>
+  </region>
+</save>

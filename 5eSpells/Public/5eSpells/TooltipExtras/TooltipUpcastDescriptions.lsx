@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="8" build="608"/>
+    <region id="TooltipUpcastDescriptions">
+        <node id="root">
+            <children>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Additional damage every two levels"/>
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_DamageTwoLevels"/>
+                    <attribute id="UUID" type="guid" value="95f58087-775f-49d1-9e72-6820caf73248"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Flock of Familiars"/>
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_FlockOfFamiliars"/>
+                    <attribute id="UUID" type="guid" value="f3097346-50c7-4a7b-8880-601429cc2e64"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Summon Beast"/>
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_SummonBeast"/>
+                    <attribute id="UUID" type="guid" value="56532f99-3dcf-47fd-a86a-8eebd296d67f"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Vortex Warp"/>
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_VortexWarp"/>
+                    <attribute id="UUID" type="guid" value="5217141e-4587-4ade-ada9-77d7171d4520"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Dragon's Breath"/>
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_DragonsBreath"/>
+                    <attribute id="UUID" type="guid" value="51eb8817-5c4a-4b0b-9793-ee9b133ec949"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Chaos Bolt"/>
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_ChaosBolt"/>
+                    <attribute id="UUID" type="guid" value="373a6b72-4740-4fbc-84b3-8a12edb99a57"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Minute Meteors"/>
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_MinuteMeteors"/>
+                    <attribute id="UUID" type="guid" value="a5961b68-b7ce-4bcc-a4a2-6a5d48938411"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Summon Shadowspawn"/>
+                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_SummonShadowspawn"/>
+                    <attribute id="UUID" type="guid" value="483ed170-a5d9-4229-a9fb-9d9a043272f5"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>
