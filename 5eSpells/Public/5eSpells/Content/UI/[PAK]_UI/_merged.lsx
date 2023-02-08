@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <save>
-	<version major="4" minor="0" revision="0" build="51" />
+	<version major="4" minor="0" revision="4" build="602" />
 	<region id="TextureBank">
 		<node id="TextureBank">
 			<children>
@@ -13,7 +13,7 @@
 					<attribute id="Streaming" type="bool" value="True" />
 					<attribute id="Template" type="FixedString" value="Icons_Items" />
 					<attribute id="Type" type="int32" value="0" />
-					<attribute id="_OriginalFileVersion_" type="32" value="144115188075855912" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115188075855873" />
 				</node>
 			</children>
 		</node>
