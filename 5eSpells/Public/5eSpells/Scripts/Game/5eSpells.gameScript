@@ -8,6 +8,14 @@ INIT
 
 EVENTS
 
+EVENT CharacterTurn
+VARS
+	CHARACTER:_Character
+ON
+	OnTurn(_Character, _)
+ACTIONS
+	CharacterApplyStatus(_Character,CURRENT_TURN,1)
+
 EVENT CharacterMageHandOwner
 VARS
 	CHARACTER:_Character
@@ -82,7 +90,7 @@ ACTIONS
         ItemToInventory(_IteratedItem,%owner,1)
     ENDIF
 
-EVENT RitualCasting_Ceremony
+EVENT RitualCasting_Classes
 VARS
 	CHARACTER:_Character
 ON
@@ -92,334 +100,14 @@ ON
 	OnItemEquipped(_Character,_)
 	OnItemUnequipped(_Character,_)
 ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Target_Ceremony")
-	CharacterHasStatus(_Character,CEREMONY_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,CEREMONY_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_DetectMagic
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Shout_DetectMagic")
-	CharacterHasStatus(_Character,DETECT_MAGIC_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,DETECT_MAGIC_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_FindFamiliar
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Target_FindFamiliar")
-	CharacterHasStatus(_Character,FIND_FAMILIAR_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,FIND_FAMILIAR_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_SpeakWithAnimals
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Shout_SpeakWithAnimals")
-	CharacterHasStatus(_Character,SPEAK_WITH_ANIMALS_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,SPEAK_WITH_ANIMALS_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_UnseenServant
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Target_UnseenServant")
-	CharacterHasStatus(_Character,UNSEEN_SERVANT_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,UNSEEN_SERVANT_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_Silence
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Target_Silence")
-	CharacterHasStatus(_Character,SILENCE_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,SILENCE_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_WaterWalk
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Shout_WaterWalk")
-	CharacterHasStatus(_Character,WATER_WALK_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,WATER_WALK_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_FeignDeath
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Target_FeignDeath")
-	CharacterHasStatus(_Character,FEIGN_DEATH_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,FEIGN_DEATH_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_CommuneWithNature
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Shout_CommuneWithNature")
-	CharacterHasStatus(_Character,COMMUNE_WITH_NATURE_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,COMMUNE_WITH_NATURE_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_RarysTelepathicBond
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"c1&!c2"
-	CharacterHasSpell(_Character,"Target_RarysTelepathicBond")
-	CharacterHasStatus(_Character,TELEPATHIC_BOND_RITUAL)
-THEN
-	CharacterApplyStatus(_Character,TELEPATHIC_BOND_RITUAL,-1)
-ENDIF
-
-EVENT RitualCasting_Ceremony_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Target_Ceremony")
+IF	"(c1|c2|c3|c4)&!c5"
 	IsTagged(_Character,"BARD")
+	IsTagged(_Character,"CLERIC")
+	IsTagged(_Character,"DRUID")
+	IsTagged(_Character,"WIZARD")
+	CharacterHasStatus(_Character,RITUAL_CASTER)
 THEN
-	CharacterRemoveStatus(_Character,CEREMONY_RITUAL)
-ENDIF
-
-EVENT RitualCasting_DetectMagic_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Shout_DetectMagic")
-	IsTagged(_Character,"BARD")
-THEN
-	CharacterRemoveStatus(_Character,DETECT_MAGIC_RITUAL)
-ENDIF
-
-EVENT RitualCasting_FindFamiliar_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Target_FindFamiliar")
-	IsTagged(_Character,"BARD")
-THEN
-	CharacterRemoveStatus(_Character,FIND_FAMILIAR_RITUAL)
-ENDIF
-
-EVENT RitualCasting_SpeakWithAnimals_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Shout_SpeakWithAnimals")
-	IsTagged(_Character,"BARD")
-THEN
-	CharacterRemoveStatus(_Character,SPEAK_WITH_ANIMALS_RITUAL)
-ENDIF
-
-EVENT RitualCasting_UnseenServant_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Target_UnseenServant")
-	IsTagged(_Character,"BARD")
-THEN
-	CharacterRemoveStatus(_Character,UNSEEN_SERVANT_RITUAL)
-ENDIF
-
-EVENT RitualCasting_Silence_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Target_Silence")
-	IsTagged(_Character,"BARD")
-THEN
-	CharacterRemoveStatus(_Character,SILENCE_RITUAL)
-ENDIF
-
-EVENT RitualCasting_WaterWalk_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Shout_WaterWalk")
-	IsTagged(_Character,"BARD")
-THEN
-	CharacterRemoveStatus(_Character,WATER_WALK_RITUAL)
-ENDIF
-
-EVENT RitualCasting_FeignDeath_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Target_FeignDeath")
-	IsTagged(_Character,"BARD")
-THEN
-	CharacterRemoveStatus(_Character,FEIGN_DEATH_RITUAL)
-ENDIF
-
-EVENT RitualCasting_CommuneWithNature_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Shout_CommuneWithNature")
-	IsTagged(_Character,"BARD")
-THEN
-	CharacterRemoveStatus(_Character,COMMUNE_WITH_NATURE_RITUAL)
-ENDIF
-
-EVENT RitualCasting_RarysTelepathicBond_Remove
-VARS
-	CHARACTER:_Character
-ON
-	OnTurn(_Character)
-	OnCharacterVitalityChanged(_Character, _)
-	OnSight(_Character)
-	OnItemEquipped(_Character,_)
-	OnItemUnequipped(_Character,_)
-ACTIONS
-IF	"!c1&c2"
-	CharacterHasSpell(_Character,"Target_RarysTelepathicBond")
-	IsTagged(_Character,"BARD")
-THEN
-	CharacterRemoveStatus(_Character,TELEPATHIC_BOND_RITUAL)
+	CharacterApplyStatus(_Character,RITUAL_CASTER,-1)
 ENDIF
 
 EVENT MageHandItemGive
@@ -2642,16 +2330,67 @@ THEN
 	ItemDestroy(_Item)
 ENDIF
 
-EVENT DarknessOnItem
+EVENT DarknessOnItemEquipped
 VARS
 	CHARACTER:_Character
+	ITEM:_Item
 ON
-	OnCharacterStatusRemoved(_Character,SNEAKING_HEAVILY_OBSCURED)
+	OnItemEquipped(_Character, _Item)
 ACTIONS
 IF	"c1"
-	CharacterHasStatus(_Character,HEAVILY_OBSCURED)
+	ItemHasStatus(_Item,DARKNESS_EQUIPPED)
 THEN
-	CharacterApplyStatus(_Character,HEAVILY_OBSCURED,-1)
+	CharacterApplyStatus(_Character,DARKNESS_EFFECT,-1)
+ELIF	"c1&!c2"
+	ItemHasStatus(_Item,DARKNESS)
+	ItemHasStatus(_Item,DARKNESS_EQUIPPED)
+THEN
+	ItemApplyStatus(_Character,DARKNESS_EQUIPPED,-1)
+	CharacterApplyStatus(_Character,DARKNESS_EFFECT,-1)
+ENDIF
+
+EVENT DarknessOnItemDropped
+VARS
+	CHARACTER:_Character
+	ITEM:_Item
+ON
+	OnItemDropped(_Item, _)
+ACTIONS
+IF	"c1&c2"
+	ItemHasStatus(_Item,DARKNESS_EQUIPPED)
+	ItemGetStatusSourceCharacter(_Item,DARKNESS_EQUIPPED,_Character)
+THEN
+	CharacterRemoveStatus(_Character,DARKNESS_VISUAL)
+	CharacterRemoveStatus(_Character,DARKNESS_EFFECT)
+ENDIF
+
+EVENT DarknessOnPickupItem
+VARS
+	CHARACTER:_Character
+	ITEM:_Item
+ON
+	OnPickupItem(_Character, _Item)
+ACTIONS
+IF	"c1|c2"
+	ItemHasStatus(_Item,DARKNESS_EQUIPPED)
+	ItemHasStatus(_Item,DARKNESS)
+THEN
+	SetVar(_Character, "DarknessItemHolder", _Item)
+ENDIF
+
+EVENT DarknessOnItemStatusRemoved
+VARS
+	CHARACTER:_Character
+	ITEM:_Item
+ON
+	OnItemStatusRemoved(_Item, DARKNESS)
+	OnItemStatusRemoved(_Item, DARKNESS_EQUIPPED)
+ACTIONS
+IF	"c1"
+	GetVar(_Item,_Character,"DarknessItemHolder")
+THEN
+	CharacterRemoveStatus(_Character,DARKNESS_VISUAL)
+	CharacterRemoveStatus(_Character,DARKNESS_EFFECT)
 ENDIF
 
 EVENT Blink
@@ -3115,3 +2854,130 @@ ON
 	OnCharacterStatusRemoved(_Character, HASTE)
 ACTIONS
 	CharacterApplyStatus(_Character,HASTE_LETHARGY,1)
+
+EVENT Sanctuary
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+ON
+	OnCharacterStatusApplied(_Character, SANCTUARY_TECHNICAL)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,SANCTUARY_TECHNICAL,_Source)
+THEN
+	CharacterApplyStatus(_Character,SANCTUARY_EXPLOSION,1,1,_Source)
+ENDIF
+
+EVENT AnimateDead
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+ON
+	OnCharacterStatusApplied(_Character, ANIMATE_DEAD_TECHNICAL)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,ANIMATE_DEAD_TECHNICAL,_Source)
+THEN
+	SetVar(_Character,"AnimateDead",_Source)
+ENDIF
+
+EVENT AnimateDead_2
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+ON
+	OnCharacterStatusApplied(_Character, ANIMATE_DEAD_TECHNICAL_2)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,ANIMATE_DEAD_TECHNICAL_2,_Source)
+THEN
+	SetVar(_Character,"AnimateDead_2",_Source)
+ENDIF
+
+EVENT AnimateDead_3
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+ON
+	OnCharacterStatusApplied(_Character, ANIMATE_DEAD_TECHNICAL_3)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,ANIMATE_DEAD_TECHNICAL_3,_Source)
+THEN
+	SetVar(_Character,"AnimateDead_3",_Source)
+ENDIF
+
+EVENT AnimateDead_Removal
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+ON
+	OnCharacterStatusRemoved(_Character, ANIMATE_DEAD_TECHNICAL)
+ACTIONS
+IF	"c1"
+	GetVar(_Source,_Character,"AnimateDead")
+THEN
+	TeleportTo(_Source,_Character)
+	CharacterApplyStatus(_Source,ANIMATE_DEAD_DEATHTYPE,-1)
+ENDIF
+
+EVENT AnimateDead_Removal_2
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+ON
+	OnCharacterStatusRemoved(_Character, ANIMATE_DEAD_TECHNICAL_2)
+ACTIONS
+IF	"c1"
+	GetVar(_Source,_Character,"AnimateDead_2")
+THEN
+	TeleportTo(_Source,_Character)
+	CharacterApplyStatus(_Source,ANIMATE_DEAD_DEATHTYPE,-1)
+ENDIF
+
+EVENT AnimateDead_Removal_3
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+ON
+	OnCharacterStatusRemoved(_Character, ANIMATE_DEAD_TECHNICAL_3)
+ACTIONS
+IF	"c1"
+	GetVar(_Source,_Character,"AnimateDead_3")
+THEN
+	TeleportTo(_Source,_Character)
+	CharacterApplyStatus(_Source,ANIMATE_DEAD_DEATHTYPE,-1)
+ENDIF
+
+EVENT NathairsMischief
+VARS
+	CHARACTER:_Character
+	CHARACTER:_Source
+	ITEM:_Item
+	INT:_Result
+ON
+	OnCharacterStatusApplied(_Character, NATHAIRS_MISCHIEF_EFFECT)
+ACTIONS
+IF	"c1"
+	CharacterGetStatusSourceCharacter(_Character,NATHAIRS_MISCHIEF_EFFECT,_Source)
+THEN
+	GetRandomBetween(_Result,1,4)
+	IF "c1"		
+		IsEqual(_Result,1)
+	THEN
+		CharacterApplyStatus(_Character,NATHAIRS_MISCHIEF_CHARMED_EFFECT,1,1,_Source)
+	ELIF "c1"
+		IsEqual(_Result,2)
+	THEN
+		CharacterApplyStatus(_Character,NATHAIRS_MISCHIEF_BLINDED_EFFECT,1,1,_Source)
+	ELIF "c1"
+		IsEqual(_Result,3)
+	THEN
+		CharacterApplyStatus(_Character,NATHAIRS_MISCHIEF_INCAPACITATED_EFFECT,1,1,_Source)
+	ELIF "c1&c2"
+		IsEqual(_Result,4)
+		CharacterGetStatusSourceItem(_Character,NATHAIRS_MISCHIEF_TECHNICAL,_Item)
+	THEN
+		ItemApplyStatus(_Item,NATHAIRS_MISCHIEF_DIFFICULT_TERRAIN_EFFECT,1,1,_Source)
+	ENDIF
+ENDIF

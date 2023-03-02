@@ -5,6 +5,21 @@
         <node id="root">
             <children>
                 <node id="ActionResourceDefinition">
+                    <attribute id="Description" type="FixedString" value="Shared_ActionResourceDefinitions_New_Stat_14_Description"/>
+                    <attribute id="DiceType" type="uint32" value="6"/>
+                    <attribute id="DisplayName" type="FixedString" value="Shared_ActionResourceDefinitions_New_Stat_14_DisplayName"/>
+                    <attribute id="Error" type="FixedString" value="Shared_ActionResourceDefinitions_New_Stat_14_Error"/>
+                    <attribute id="IsSpellResource" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="MaxValue" type="uint32" value="0"/>
+                    <attribute id="Name" type="FixedString" value="HitDice"/>
+                    <attribute id="PartyActionResource" type="bool" value="false"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Never"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="d59999b2-3e77-42f6-96e8-b021a17a9e1c"/>
+                    <attribute id="UpdatesSpellPowerLevel" type="bool" value="false"/>
+                </node>
+                <node id="ActionResourceDefinition">
                     <attribute id="Description" type="FixedString" value="Your resource for taking the Attack, Dash, Hide or Disengage actions through the Haste spell."/>
                     <attribute id="DiceType" type="uint32" value="0"/>
                     <attribute id="DisplayName" type="FixedString" value="Haste Action"/>
@@ -44,6 +59,34 @@
                     <attribute id="ReplenishType" type="FixedString" value="Rest"/>
                     <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
                     <attribute id="UUID" type="guid" value="17cb7d9b-3db7-40f1-b9c7-51edcbb5831b"/>
+                    <attribute id="UpdatesSpellPowerLevel" type="bool" value="false"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="Description" type="FixedString" value="This is your resource for the number of Flame Arrows you can use."/>
+                    <attribute id="DiceType" type="uint32" value="0"/>
+                    <attribute id="DisplayName" type="FixedString" value="Flame Arrows"/>
+                    <attribute id="Error" type="FixedString" value="ActionResourceDefinitions_New_Stat_3_Error"/>
+                    <attribute id="IsSpellResource" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="Name" type="FixedString" value="FlameArrows"/>
+                    <attribute id="PartyActionResource" type="bool" value="false"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="cae44999-68c1-441f-ae59-3a7ba7b64fba"/>
+                    <attribute id="UpdatesSpellPowerLevel" type="bool" value="false"/>
+                </node>
+                <node id="ActionResourceDefinition">
+                    <attribute id="Description" type="FixedString" value="This is your resource for the number of addiitonal Skeletons or Zombies that can be summoned with Animate Dead."/>
+                    <attribute id="DiceType" type="uint32" value="0"/>
+                    <attribute id="DisplayName" type="FixedString" value="Animate Dead"/>
+                    <attribute id="Error" type="FixedString" value="ActionResourceDefinitions_New_Stat_3_Error"/>
+                    <attribute id="IsSpellResource" type="bool" value="false"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="Name" type="FixedString" value="AnimateDead"/>
+                    <attribute id="PartyActionResource" type="bool" value="false"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Never"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="UUID" type="guid" value="d9913d0a-d7db-4e2e-82e6-c7117f1b9139"/>
                     <attribute id="UpdatesSpellPowerLevel" type="bool" value="false"/>
                 </node>
             </children>
