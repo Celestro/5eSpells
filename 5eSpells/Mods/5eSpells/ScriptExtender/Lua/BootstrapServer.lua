@@ -50,17 +50,56 @@ end
 
 Ext.Osiris.RegisterListener("StatusRemoved", 3, "after", MaximiliansEarthGraspRemoval)
 
-Ext.RegisterListener("OnDealDamage", function (functor, caster, target, position, isFromItem, spellId, originator, hit, damageSums, hitWith)
-    --Ext.Utils.PrintWarning("Functor is: " .. tostring(functor))
-    --for k,v in pairs(functor) do
-    --    Ext.Utils.Print(k .. ": " .. Ext.Json.Stringify(v, true, true, true))
-    --end
-    --Ext.Utils.PrintWarning("--- end functor dump ---")
+-- Vampiric Touch
+local VampiricTouchProc = function (character, spell, spelltype, spellelement, storyid)
+	if spell == "Target_VampiricTouch" or spell == "Target_VampiricTouch_Free" then
+		ApplyStatus(character,"VAMPIRIC_TOUCH_PROC",100,1)
+	end
+end
 
-    if hitWith == "Target" and tostring(caster) ~= tostring(target) then
-        --Ext.Utils.PrintWarning(" --- OnDealDamage --- ")
-        Ext.Dump({functor, caster, target, position, isFromItem, spellId, originator, hit, damageSums, hitWith})
-    end
+Ext.Osiris.RegisterListener("UsingSpell", 5, "before", VampiricTouchProc)
 
+-- Vampiric Touch Heal
+local VampiricTouchHeal = function (defender, attackowner, attacker, damagetype, damage, damagecause, storyid)
+	local hp = GetHitpoints(attacker)
+	if HasActiveStatus(attacker,"VAMPIRIC_TOUCH_PROC") == 1 and damagetype == "Necrotic" then
+		damage = damage / 2
+		hp = hp + damage
+		Osi.SetHitpoints(attacker,hp)
+	end
+end
 
-end)
+Ext.Osiris.RegisterListener("AttackedBy", 7, "after", VampiricTouchHeal)
+
+-- Blink Setup
+local Blink = function (character)
+	if HasActiveStatus(character,"BLINK") == 1 then
+		local ran = Random(20)
+		if ran > 9 then
+			Osi.ApplyStatus(character,"BANISHED",6.0,1)
+		end
+	end
+end
+
+Ext.Osiris.RegisterListener("TurnEnded", 1, "before", Blink)
+
+-- Blink Removal
+local BlinkRemoval = function (character, spell, spelltype, element, id)
+	if spell == "Target_Blink_Activate" then
+		Osi.RemoveStatus(character,"BLINK")
+		Osi.RemoveStatus(character,"BLINK_ACTIVATE")
+		Osi.RemoveStatus(character,"BANISHED")
+	end
+end
+
+Ext.Osiris.RegisterListener("CastedSpell", 5, "after", BlinkRemoval)
+
+-- Thunder Step
+local ThunderStep = function (character, x, y, z, spell, spelltype, spellelement, id)
+	local oldx, oldy, oldz = GetPosition(character)
+	if spell == "Target_ThunderStep" then
+		Osi.CreateExplosionAtPosition(oldx, oldy, oldz, "Projectile_ThunderStep_Explosion", 1, character)
+	end
+end
+
+Ext.Osiris.RegisterListener("UsingSpellAtPosition", 8, "before", ThunderStep)
