@@ -1,0 +1,14 @@
+{
+    "tcoespells": {
+        "displayName": "Tasha's Cauldron of Everything Spells",
+        "description": "Provides additional spells to be added to class spell lists that were introduced as options in the Tasha's Cauldron of Everything book for DnD 5e.",
+        "enabled": true,
+        "value": null,
+        "dependencies": [],
+        "conflicts": [],
+        "files": {
+            "enabled": [],
+            "disabled": []
+        }
+    }
+}

@@ -1,8 +1,7 @@
 {
-    "RequiredVersion": 1,
-    "ModTable": "5eSpells",
+    "RequiredVersion": 5,
+    "ModTable": "5eSpells_fb5f528d-4d48-4bf2-a668-2274d3cfba96",
     "FeatureFlags": [
-        "Osiris",
         "Lua"
     ]
 }
