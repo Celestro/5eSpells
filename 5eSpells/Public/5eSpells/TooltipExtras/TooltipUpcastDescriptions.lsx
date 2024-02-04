@@ -6,43 +6,68 @@
             <children>
                 <node id="TooltipUpcastDescriptions">
                     <attribute id="Name" type="FixedString" value="Additional damage every two levels"/>
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_DamageTwoLevels"/>
+                    <attribute id="Text" type="TranslatedString" handle="hd426751fge01cg427cg980fg582d45c7a8eb" version="1"/>
                     <attribute id="UUID" type="guid" value="95f58087-775f-49d1-9e72-6820caf73248"/>
                 </node>
                 <node id="TooltipUpcastDescriptions">
                     <attribute id="Name" type="FixedString" value="Flock of Familiars"/>
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_FlockOfFamiliars"/>
+                    <attribute id="Text" type="TranslatedString" handle="6651021e-0474-4968-a12d-1d3db631a357" version="1"/>
                     <attribute id="UUID" type="guid" value="f3097346-50c7-4a7b-8880-601429cc2e64"/>
                 </node>
                 <node id="TooltipUpcastDescriptions">
                     <attribute id="Name" type="FixedString" value="Summon Beast"/>
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_SummonBeast"/>
+                    <attribute id="Text" type="TranslatedString" handle="1b745f89-847b-4dc3-91b2-40ed12a08414" version="1"/>
                     <attribute id="UUID" type="guid" value="56532f99-3dcf-47fd-a86a-8eebd296d67f"/>
                 </node>
                 <node id="TooltipUpcastDescriptions">
                     <attribute id="Name" type="FixedString" value="Vortex Warp"/>
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_VortexWarp"/>
+                    <attribute id="Text" type="TranslatedString" handle="81c4fbae-fce7-4f36-a494-6055379ffee8" version="1"/>
                     <attribute id="UUID" type="guid" value="5217141e-4587-4ade-ada9-77d7171d4520"/>
                 </node>
                 <node id="TooltipUpcastDescriptions">
                     <attribute id="Name" type="FixedString" value="Dragon's Breath"/>
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_DragonsBreath"/>
+                    <attribute id="Text" type="TranslatedString" handle="92fbd2bf-1d0f-4a2b-aac7-9a1baa809620" version="1"/>
                     <attribute id="UUID" type="guid" value="51eb8817-5c4a-4b0b-9793-ee9b133ec949"/>
                 </node>
                 <node id="TooltipUpcastDescriptions">
                     <attribute id="Name" type="FixedString" value="Chaos Bolt"/>
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_ChaosBolt"/>
+                    <attribute id="Text" type="TranslatedString" handle="952ea4b1-2bca-4299-9516-92d2b1ef4852" version="1"/>
                     <attribute id="UUID" type="guid" value="373a6b72-4740-4fbc-84b3-8a12edb99a57"/>
                 </node>
                 <node id="TooltipUpcastDescriptions">
                     <attribute id="Name" type="FixedString" value="Minute Meteors"/>
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_MinuteMeteors"/>
+                    <attribute id="Text" type="TranslatedString" handle="h677ff2e6g6860g4880gbfcfg394867d9fe80" version="1"/>
                     <attribute id="UUID" type="guid" value="a5961b68-b7ce-4bcc-a4a2-6a5d48938411"/>
                 </node>
                 <node id="TooltipUpcastDescriptions">
                     <attribute id="Name" type="FixedString" value="Summon Shadowspawn"/>
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipUpcastDescriptions_SummonShadowspawn"/>
+                    <attribute id="Text" type="TranslatedString" handle="38ebe1d1-ea04-49fa-96ab-0b45964ad0b5" version="1"/>
                     <attribute id="UUID" type="guid" value="483ed170-a5d9-4229-a9fb-9d9a043272f5"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Pulse Wave"/>
+                    <attribute id="Text" type="TranslatedString" handle="f0bff0e3-71b7-4752-9b67-8e552767e156" version="1"/>
+                    <attribute id="UUID" type="guid" value="29850573-b62c-4777-b338-d94920056008"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Absorb Elements"/>
+                    <attribute id="Text" type="TranslatedString" handle="029e5bf0471f478aaf63dbab24a1a4eb" version="1"/>
+                    <attribute id="UUID" type="guid" value="74ff838f297241b0a551f3bea91917ff"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Flame Arrows"/>
+                    <attribute id="Text" type="TranslatedString" handle="h477bb943ga05cg45e7g8886gefba7e655e16" version="1"/>
+                    <attribute id="UUID" type="guid" value="a92f9113-4af3-47fc-b3bf-2399f83ccbce"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Summon Elemental"/>
+                    <attribute id="Text" type="TranslatedString" handle="h0b484c54gb947g41d1g9f18g07c22f3382c3" version="1"/>
+                    <attribute id="UUID" type="guid" value="a379c3b1-f6f8-4052-890f-3b63f80532c7"/>
+                </node>
+                <node id="TooltipUpcastDescriptions">
+                    <attribute id="Name" type="FixedString" value="Motivational Speech"/>
+                    <attribute id="Text" type="TranslatedString" handle="h28d9e0beg479cg49b9gb961gcfbf53246de9" version="1"/>
+                    <attribute id="UUID" type="guid" value="3aebe792-6c84-46aa-b206-a886828533d9"/>
                 </node>
             </children>
         </node>

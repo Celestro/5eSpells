@@ -5,16 +5,92 @@
         <node id="root">
             <children>
                 <node id="TooltipExtraTexts">
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipExtraTexts_EnemiesAbound"/>
+                    <attribute id="Text" type="TranslatedString" handle="445cff2b-2785-40ec-a648-ea3addb363fe" version="1"/>
                     <attribute id="UUID" type="guid" value="79c43674-3859-4b0c-bf0f-63ff10d7637e"/>
                 </node>
                 <node id="TooltipExtraTexts">
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipExtraTexts_IceKnife"/>
-                    <attribute id="UUID" type="guid" value="eb8d4cab-c280-4946-987c-3404e8287c93"/>
+                    <attribute id="Text" type="TranslatedString" handle="826a50c0-b8e4-4e4a-a6b3-677a5a064f88" version="1"/>
+                    <attribute id="UUID" type="guid" value="4298fdb5-b370-43a1-a45c-648f7ce9b51c"/>
                 </node>
                 <node id="TooltipExtraTexts">
-                    <attribute id="Text" type="FixedString" value="5eSpells_TooltipExtraTexts_LightningArrow"/>
-                    <attribute id="UUID" type="guid" value="e63499d3-dad7-4b32-8861-6d259dbafd25"/>
+                    <attribute id="Text" type="TranslatedString" handle="5d87d29e-4282-414a-bae8-df16a88da05e" version="1"/>
+                    <attribute id="UUID" type="guid" value="1c883c84-03ce-4465-a436-38953f6cdafe"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="TranslatedString" handle="bb4c214a-a60f-4486-b28c-12d87abe9d5c" version="1"/>
+                    <attribute id="UUID" type="guid" value="379cabff-d19a-4c5e-b748-1ff6b66f9eb1"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="TranslatedString" handle="5e6ebe6a-3819-4910-8f8e-1adfd15ff6cf" version="1"/>
+                    <attribute id="UUID" type="guid" value="ed3b576b-b69a-40fc-87fe-2772b03a65b1"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="TranslatedString" handle="e8aa171a-ce73-4e22-b476-08af9a54edc4" version="1"/>
+                    <attribute id="UUID" type="guid" value="90a25266-a34c-4209-9a6c-279a9c8aa347"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="TranslatedString" handle="5dfb4398-fe17-4bdf-ae03-770adcd46dc7" version="1"/>
+                    <attribute id="UUID" type="guid" value="04343be9-9ce4-41fa-b118-c57df351e2d2"/>
+                </node>
+                <node id="TooltipExtraTexts"> Gust Creature
+                    <attribute id="Text" type="TranslatedString" handle="hbf3eb0ccga50bg4391g9decgab4f62c14b85" version="1"/>
+                    <attribute id="UUID" type="guid" value="056e5fdc-92fa-49b3-8104-6bb3d055fee3"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="TranslatedString" handle="08c0f5f8-ea94-4e51-8a6b-20cbcd4cb7f1" version="1"/>
+                    <attribute id="UUID" type="guid" value="d6bfba46-4ec2-44ec-b945-8f7aef9916bd"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="TranslatedString" handle="e8c433ca-4e4a-4300-bf97-71c983b3647d" version="1"/>
+                    <attribute id="UUID" type="guid" value="0a8f9343-e031-4ff5-999b-5c2d3fd47363"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="TranslatedString" handle="4b950443-ef26-4282-9c0e-664343f3008e" version="1"/>
+                    <attribute id="UUID" type="guid" value="640fba72-8885-495e-b5ae-072451caaa89"/>
+                </node>
+                <node id="TooltipExtraTexts">
+                    <attribute id="Text" type="TranslatedString" handle="dabb276c955d4a21a93e01e5d669a151" version="1"/>
+                    <attribute id="UUID" type="guid" value="0623ecc839d9446aa003aa3e56636d32"/>
+                </node>
+                <node id="TooltipExtraTexts"> Psychic Lance On Save
+                    <attribute id="Text" type="TranslatedString" handle="5c255d93-77e1-43e2-84c4-e9ed3d826467" version="1"/>
+                    <attribute id="UUID" type="guid" value="76a5924e2d6a4cb49a86b197d70ba584"/>
+                </node>
+                <node id="TooltipExtraTexts"> Suggestion Removal
+                    <attribute id="Text" type="TranslatedString" handle="9a4f706d75b74e1c9735161cdfec8ccf" version="1"/>
+                    <attribute id="UUID" type="guid" value="37b4c7dd50564d6db0766c4dbb3b790f"/>
+                </node>
+                <node id="TooltipExtraTexts"> Steel Wind Strike Teleport
+                    <attribute id="Text" type="TranslatedString" handle="b67aaabe-e37c-489d-84ce-c8aef94576dc" version="1"/>
+                    <attribute id="UUID" type="guid" value="bb01ce26376746d69d3f19668832865e"/>
+                </node>
+                <node id="TooltipExtraTexts"> Healing Spirit Uses
+                    <attribute id="Text" type="TranslatedString" handle="85c1fadaf6d4416e808a021b8672a508" version="1"/>
+                    <attribute id="UUID" type="guid" value="f7de5f779e544a0781212dc691e871e7"/>
+                </node>
+                <node id="TooltipExtraTexts"> Holy Weapon Spell Ends
+                    <attribute id="Text" type="TranslatedString" handle="bb24c0776b874a1db4e422875941cd0f" version="1"/>
+                    <attribute id="UUID" type="guid" value="9e1b04fdccdf46d7876de6012a604676"/>
+                </node>
+                <node id="TooltipExtraTexts"> Flame Arrows Spell Ends
+                    <attribute id="Text" type="TranslatedString" handle="bf086fdb5af94a6f958cb72a00ea00d2" version="1"/>
+                    <attribute id="UUID" type="guid" value="ebeb3c31eb71492fb1ca88f7716b7004"/>
+                </node>
+                <node id="TooltipExtraTexts"> Synaptic Static On Save
+                    <attribute id="Text" type="TranslatedString" handle="5a6e089bbceb4efdba28b65f473ebc54" version="1"/>
+                    <attribute id="UUID" type="guid" value="6427bd874cba483fa485b9f640f838a5"/>
+                </node>
+                <node id="TooltipExtraTexts"> Synaptic Static Immunity
+                    <attribute id="Text" type="TranslatedString" handle="cb461e3d44c24dbfbac33e595fb7fd45" version="1"/>
+                    <attribute id="UUID" type="guid" value="c3e00c0b30c8483e95202511776232a4"/>
+                </node>
+                <node id="TooltipExtraTexts"> Ceremony Gold Cost Warning
+                    <attribute id="Text" type="TranslatedString" handle="h1ca7f387g3a91g4acaga9cbge2f2e1f0d420" version="1"/>
+                    <attribute id="UUID" type="guid" value="01ada50d-f880-43fc-8899-b91b94a3920f"/>
+                </node>
+                <node id="TooltipExtraTexts"> Gust Item
+                    <attribute id="Text" type="TranslatedString" handle="h62a1dba9g0a67g4164g9c4cg05b43f7e55fd" version="1"/>
+                    <attribute id="UUID" type="guid" value="6807f59c-6724-4907-abb0-888ad4d3a523"/>
                 </node>
             </children>
         </node>

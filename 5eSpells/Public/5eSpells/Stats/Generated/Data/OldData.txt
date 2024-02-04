@@ -1,0 +1,66 @@
+new entry "Status_ZephyrStrikeSpeedAttackBonus"
+type "PassiveData"
+
+new entry "FlameArrows"
+type "PassiveData"
+
+new entry "SpiritShroud_Cold"
+type "PassiveData"
+
+new entry "SpiritShroud_Cold_5"
+type "PassiveData"
+
+new entry "SpiritShroud_Cold_7"
+type "PassiveData"
+
+new entry "SpiritShroud_Cold_9"
+type "PassiveData"
+
+new entry "GuardianOfNature_PrimalBeast"
+type "PassiveData"
+
+new entry "AbsorbElements_AcidAttack"
+type "PassiveData"
+
+new entry "AbsorbElements_ColdAttack"
+type "PassiveData"
+
+new entry "AbsorbElements_FireAttack"
+type "PassiveData"
+
+new entry "AbsorbElements_LightningAttack"
+type "PassiveData"
+
+new entry "AbsorbElements_ThunderAttack"
+type "PassiveData"
+
+new entry "RITUAL_CASTING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "RITUAL_CASTING"
+data "RemoveEvents" "OnTurn"
+data "StatusPropertyFlags" "ApplyToDead;DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "RITUAL_CASTING_BLOCK"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StackId" "RITUAL_CASTING"
+data "RemoveEvents" "OnTurn"
+data "StatusPropertyFlags" "ApplyToDead;DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
+data "StatusGroups" "SG_RemoveOnRespec"
+
+new entry "S5E_POTENT_SPELLCASTING"
+type "StatusData"
+data "StatusType" "BOOST"
+data "RemoveEvents" "OnTurn"
+data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+data "StatusGroups" "SG_RemoveOnRespec"
+data "StackId" "S5E_POTENT_SPELLCASTING"
+
+new entry "MIND_SPIKE_REMOVAL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "TickType" "EndTurn"
+data "StatusPropertyFlags" "ApplyToDead;DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
+data "RemoveEvents" "OnTurn"
