@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<save>
+    <version major="4" minor="0" revision="8" build="613"/>
+    <region id="ConditionErrors">
+        <node id="root">
+            <children>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="he6842936ged43g4072gb88egdf2460a3d0d8" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="NotHasGoldForCeremony"/>
+                    <attribute id="UUID" type="guid" value="5696e1d2-ffec-4989-a3ed-7f590aaf1a47"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h0b792bd3geaefg468agb33fg927ac94f786e" version="2"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="IsNotLevelGreater"/>
+                    <attribute id="UUID" type="guid" value="c6500b80-14b1-433b-abbc-9e46b3fb7678"/>
+                </node>
+            </children>
+        </node>
+    </region>
+</save>
