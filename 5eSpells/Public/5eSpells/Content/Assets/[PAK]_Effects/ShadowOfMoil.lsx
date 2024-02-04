@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="3 3 3" />
+					<attribute id="BoundsMin" type="fvec3" value="-3 -3 -3" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="7" />
+					<attribute id="EffectName" type="FixedString" value="S5E_ShadowOfMoil_01" />
+					<attribute id="ID" type="FixedString" value="21964977-e6c6-4d91-a05a-371936d45c4c" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_ShadowOfMoil_01" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_ShadowOfMoil_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209017" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="09507f13-8b48-c991-2f7e-46e2958f3344" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="917462b4-5ddb-2f37-3d71-61b632e58e47" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a0998003-12c2-93ef-c686-797451ed2d9b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="43f3b710-66ea-4c8a-aca2-21365d549ca8" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

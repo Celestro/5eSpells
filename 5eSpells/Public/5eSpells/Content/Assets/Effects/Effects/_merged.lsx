@@ -1,0 +1,723 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="7.5 7.5 7.5" />
+					<attribute id="BoundsMin" type="fvec3" value="-7.5 -7.5 -7.5" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="2" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Spells_Prepare_Warlock_FiendishResilience_Force_R_HandFX_Textkey_01" />
+					<attribute id="ID" type="FixedString" value="89e5adb0-2b94-4300-b68c-c3cb56481cc4" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="VFX_Spells_Prepare_Warlock_FiendishResilience_Force_R_HandFX_Textkey_01" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Prepare/Warlock/VFX_Spells_Prepare_Warlock_FiendishResilience_Force_R_HandFX_Textkey_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="4b277c0f-856a-431a-840f-59a614a2cdfb" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca81644b-6579-0bf0-f8c1-4588fe9d7403" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7bdafec7-27dd-539a-e30b-3a3fb9311196" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5ab4200c-0c40-8779-258f-45829397e9cd" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6809c7c7-f5a0-8ce0-ffb1-15dac6918c6f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="35616aa2-cdec-342a-943c-74b0fd665ecf" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="bf272981-98bd-04b2-f4bb-e4e5e0fa6604" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9844cfed-d978-789b-eede-e173d909c95c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6c627d5c-75a0-b582-66fd-9db11df0e720" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="2c43722a-0a68-81d4-76a1-729c094346e7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7f6c8f84-7c6c-7438-ed88-bc109bd807cf" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ab785ea6-2a63-8aed-9247-fa3fb7847be4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5e1b3b30-8ca9-ea66-5346-d2a89dbf79fc" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="642f797e-cc01-7453-788a-ade071592d06" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="d624a8b0-5db6-e563-3a22-d70133c01485" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c851631a-669c-fb82-9138-93833bdb62f9" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="7.5 7.5 7.5" />
+					<attribute id="BoundsMin" type="fvec3" value="-7.5 -7.5 -7.5" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="2" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Spells_Prepare_ZephyrStrike" />
+					<attribute id="ID" type="FixedString" value="f65f8904-dafb-4f53-ad36-056d13b7d87b" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="VFX_Spells_Prepare_ZephyrStrike" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Prepare/Warlock/VFX_Spells_Prepare_ZephyrStrike.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209026" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="4b277c0f-856a-431a-840f-59a614a2cdfb" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca81644b-6579-0bf0-f8c1-4588fe9d7403" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7bdafec7-27dd-539a-e30b-3a3fb9311196" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5ab4200c-0c40-8779-258f-45829397e9cd" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6809c7c7-f5a0-8ce0-ffb1-15dac6918c6f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="35616aa2-cdec-342a-943c-74b0fd665ecf" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="bf272981-98bd-04b2-f4bb-e4e5e0fa6604" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9844cfed-d978-789b-eede-e173d909c95c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6c627d5c-75a0-b582-66fd-9db11df0e720" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="2c43722a-0a68-81d4-76a1-729c094346e7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7f6c8f84-7c6c-7438-ed88-bc109bd807cf" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ab785ea6-2a63-8aed-9247-fa3fb7847be4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5e1b3b30-8ca9-ea66-5346-d2a89dbf79fc" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="642f797e-cc01-7453-788a-ade071592d06" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="d624a8b0-5db6-e563-3a22-d70133c01485" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c851631a-669c-fb82-9138-93833bdb62f9" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.501071" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_AxeSLShortblade" />
+					<attribute id="ID" type="FixedString" value="4aaed3f4-ab74-47ec-9190-638b48b8fbca" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_AxeSLShortblade" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_AxeSLShortblade.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c1c6e295-7edb-a7d8-64a1-d180d5c3f0e8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_DaggerHammerS" />
+					<attribute id="ID" type="FixedString" value="c22b518d-24de-467c-acaf-9f8131b9a078" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_DaggerHammerS" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_DaggerHammerS.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="08944579-28c3-b460-e178-5e410b7e4616" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_HammerL" />
+					<attribute id="ID" type="FixedString" value="f5b066d8-8f71-4054-ad9d-f1768445fccd" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_HammerL" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_HammerL.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="3910f726-32c7-88ce-9662-ddd7c01cd0c8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_Longblade" />
+					<attribute id="ID" type="FixedString" value="d493dd8b-3e5e-4c85-a6a6-bb8b045d382a" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_Longblade" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_Longblade.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="59be088e-f7cd-53d8-1335-ecacf7cd1f3c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_SpearQuarterstaff" />
+					<attribute id="ID" type="FixedString" value="9feb230c-1e13-4ea1-9117-11aad7e4702f" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_SpearQuarterstaff" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_SpearQuarterstaff.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f8f9730f-29c8-3b2e-5f8c-cdceff63c6a4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.501071" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_AxeSLShortblade" />
+					<attribute id="ID" type="FixedString" value="82a84a08-ede6-496e-8579-ca0e92db1333" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_AxeSLShortblade" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_AxeSLShortblade.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c1c6e295-7edb-a7d8-64a1-d180d5c3f0e8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_DaggerHammerS" />
+					<attribute id="ID" type="FixedString" value="2127ef0c-88e1-4630-8a83-c1b08c118f0a" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_DaggerHammerS" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_DaggerHammerS.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="08944579-28c3-b460-e178-5e410b7e4616" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_HammerL" />
+					<attribute id="ID" type="FixedString" value="1589ecee-a104-4b9d-995f-8420dda96857" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_HammerL" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_HammerL.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="3910f726-32c7-88ce-9662-ddd7c01cd0c8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_Longblade" />
+					<attribute id="ID" type="FixedString" value="6a3fc989-a19c-45d5-ac4a-b313f0f6334a" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_Longblade" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_Longblade.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="59be088e-f7cd-53d8-1335-ecacf7cd1f3c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_SpearQuarterstaff" />
+					<attribute id="ID" type="FixedString" value="46c73f22-7742-493e-a8b4-d179003a7956" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_SpearQuarterstaff" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_SpearQuarterstaff.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f8f9730f-29c8-3b2e-5f8c-cdceff63c6a4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.501071" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_AxeSLShortblade" />
+					<attribute id="ID" type="FixedString" value="5c20ae55-b155-4047-b580-175a707c24f7" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_AxeSLShortblade" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_AxeSLShortblade.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c1c6e295-7edb-a7d8-64a1-d180d5c3f0e8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_DaggerHammerS" />
+					<attribute id="ID" type="FixedString" value="039ba3fc-4248-43a4-82db-1e25045fe06c" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_DaggerHammerS" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_DaggerHammerS.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="08944579-28c3-b460-e178-5e410b7e4616" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_HammerL" />
+					<attribute id="ID" type="FixedString" value="f4fa62f1-8709-4a80-b659-7d32ba6e6d7d" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_HammerL" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_HammerL.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="3910f726-32c7-88ce-9662-ddd7c01cd0c8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_Longblade" />
+					<attribute id="ID" type="FixedString" value="7129c8cf-33b5-497f-99d9-9cc9f39afd16" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_Longblade" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_Longblade.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209032" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="59be088e-f7cd-53d8-1335-ecacf7cd1f3c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_GreenFlameBlade_SpearQuarterstaff" />
+					<attribute id="ID" type="FixedString" value="81ff4cd1-68db-442b-88c8-b6d8aac9c1fe" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="S5E_GreenFlameBlade_SpearQuarterstaff" />
+					<attribute id="Radius" type="float" value="2" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_GreenFlameBlade_SpearQuarterstaff.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209006" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f8f9730f-29c8-3b2e-5f8c-cdceff63c6a4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a5a2a3db-0f63-49a0-9122-d767583d43a7" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="80787626-4da2-786e-dc66-cb574485a81b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7eeb570d-73ba-dcf5-ea9f-066245ad189c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>
