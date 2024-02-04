@@ -54,6 +54,12 @@ using "S5E_RITUAL_SPELL_DETECT_MAGIC"
 data "Boosts" "UnlockSpell(Target_RarysTelepathicBond_Ritual)"
 data "StackId" "S5E_RITUAL_SPELL_TELEPATHIC_BOND"
 
+new entry "BLUR"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BLUR"
+data "Boosts" "IF(not Tagged('BLINDSIGHT', context.Source) and not HasStatus('TRUESIGHT', context.Source) and not (HasPassive('FightingStyle_BlindFighting', context.Source) or DistanceToTargetGreaterThan(3))):Disadvantage(AttackTarget)"
+
 new entry "DIFFICULT_TERRAIN_GREASE"
 type "StatusData"
 data "StatusType" "BOOST"
