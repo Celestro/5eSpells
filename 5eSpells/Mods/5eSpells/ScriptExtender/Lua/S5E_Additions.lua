@@ -1,63 +1,65 @@
--- Chaos Bolt Passive Trigger
-Ext.Osiris.RegisterListener("EnteredTrigger", 2, "before", function (character, _)
-	if	Osi.HasPassive(character,"ChaosBolt_Explosion") == 0 and Osi.IsPlayer(character) == 1 then
-		Osi.AddPassive(character, "ChaosBolt")
-		Osi.AddPassive(character, "ChaosBolt_2")
-		Osi.AddPassive(character, "ChaosBolt_3")
-		Osi.AddPassive(character, "ChaosBolt_4")
-		Osi.AddPassive(character, "ChaosBolt_5")
-		Osi.AddPassive(character, "ChaosBolt_6")
-		Osi.AddPassive(character, "ChaosBolt_7")
-		Osi.AddPassive(character, "ChaosBolt_8")
-		Osi.AddPassive(character, "ChaosBolt_9")
-		Osi.AddPassive(character, "ChaosBolt_Explosion")
-    end
-end)
+--[[local files = {
+		"Public/5eSpells/Stats/Generated/Data/Passives_5eSpells.txt",
+		"Public/5eSpells/Stats/Generated/Data/Spells_1stLevel.txt",
+		"Public/5eSpells/Stats/Generated/Data/Spells_2ndLevel.txt",
+		"Public/5eSpells/Stats/Generated/Data/Spells_3rdLevel.txt",
+		"Public/5eSpells/Stats/Generated/Data/Spells_4thLevel.txt",
+		"Public/5eSpells/Stats/Generated/Data/Spells_5thLevel.txt",
+		"Public/5eSpells/Stats/Generated/Data/Spells_Effects.txt",
+		"Public/5eSpells/Stats/Generated/Data/Statuses_1stLevel.txt",
+		"Public/5eSpells/Stats/Generated/Data/Statuses_2ndLevel.txt",
+		"Public/5eSpells/Stats/Generated/Data/Statuses_3rdLevel.txt",
+		"Public/5eSpells/Stats/Generated/Data/Statuses_4thLevel.txt",
+		"Public/5eSpells/Stats/Generated/Data/Statuses_5thLevel.txt"
+}
 
--- Chaos Bolt Preview
-Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "before", function (character, spell, _, _)
-	if	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and Osi.HasPassive(character,"ChaosBolt_Explosion") == 0 and Osi.IsPlayer(character) == 1 then
-		Osi.AddPassive(character, "ChaosBolt")
-		Osi.AddPassive(character, "ChaosBolt_2")
-		Osi.AddPassive(character, "ChaosBolt_3")
-		Osi.AddPassive(character, "ChaosBolt_4")
-		Osi.AddPassive(character, "ChaosBolt_5")
-		Osi.AddPassive(character, "ChaosBolt_6")
-		Osi.AddPassive(character, "ChaosBolt_7")
-		Osi.AddPassive(character, "ChaosBolt_8")
-		Osi.AddPassive(character, "ChaosBolt_9")
-		Osi.AddPassive(character, "ChaosBolt_Explosion")
+local function ResetStats()
+        Ext.Stats.LoadStatsFile("Public/5eSpells/Stats/Generated/Data/Spells_2ndLevel.txt", false)
+        Ext.Stats.LoadStatsFile("Public/5eSpells/Stats/Generated/Data/Statuses_2ndLevelSpells.txt", false)
+end
+
+Ext.Events.ResetCompleted:Subscribe(ResetStats)--]]
+
+local function GetEntityStatus(entity, statusId)
+    if entity.ServerCharacter ~= nil then
+        return entity.ServerCharacter:GetStatus(statusId)
+    elseif entity.ServerItem ~= nil then
+        for _, esvStatus in pairs(entity.ServerItem.StatusManager.Statuses) do
+            if esvStatus.StatusId == statusId then
+                return esvStatus
+            end
+        end
     end
-end)
+end
 
 -- Chaos Bolt Self
 Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, _, _, _)
 	local number = Random(8)
-	if	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 0 and HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
+	if	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_ACID",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 1 and HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 1 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_COLD",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 2 and HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 2 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_FIRE",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 3 and HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 3 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_FORCE",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 4 and HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 4 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_LIGHTNING",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 5 and HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 5 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_POISON",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 6 and HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 6 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_PSYCHIC",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 7 and HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 7 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_THUNDER",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 0 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 0 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
@@ -68,7 +70,7 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, 
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_ACID",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 1 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 1 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
@@ -79,7 +81,7 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, 
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_COLD",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 2 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 2 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
@@ -90,7 +92,7 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, 
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_FIRE",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 3 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 3 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
@@ -101,7 +103,7 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, 
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_FORCE",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 4 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 4 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
@@ -112,7 +114,7 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, 
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_LIGHTNING",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 5 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 5 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
@@ -123,7 +125,7 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, 
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_POISON",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 6 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 6 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
@@ -134,7 +136,7 @@ Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, 
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(caster, "CHAOS_BOLT_PSYCHIC",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 7 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 7 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
@@ -151,31 +153,31 @@ end)
 -- Chaos Bolt Target
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
 	local ran = Random(8)
-	if	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 0 and HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
+	if	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(target, "CHAOS_BOLT_ACID",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 1 and HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(target, "CHAOS_BOLT_COLD",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 2 and HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 2 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(target, "CHAOS_BOLT_FIRE",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 3 and HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 3 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(target, "CHAOS_BOLT_FORCE",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 4 and HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 4 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(target, "CHAOS_BOLT_LIGHTNING",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 5 and HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 5 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(target, "CHAOS_BOLT_POISON",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 6 and HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 6 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(target, "CHAOS_BOLT_PSYCHIC",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 7 and HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 7 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
 		Osi.ApplyStatus(target, "CHAOS_BOLT_THUNDER",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 0 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 0 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
@@ -186,7 +188,7 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
 		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(target, "CHAOS_BOLT_ACID",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 1 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 1 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
@@ -197,7 +199,7 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
 		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(target, "CHAOS_BOLT_COLD",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 2 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 2 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
@@ -208,7 +210,7 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
 		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(target, "CHAOS_BOLT_FIRE",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 3 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 3 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
@@ -219,7 +221,7 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
 		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(target, "CHAOS_BOLT_FORCE",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 4 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 4 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
@@ -230,7 +232,7 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
 		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(target, "CHAOS_BOLT_LIGHTNING",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 5 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 5 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
@@ -241,7 +243,7 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
 		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(target, "CHAOS_BOLT_POISON",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 6 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 6 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
@@ -252,7 +254,7 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
 		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
 		Osi.ApplyStatus(target, "CHAOS_BOLT_PSYCHIC",6.0,1,caster)
 		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 7 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
+	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 7 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
 		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
 		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
@@ -294,36 +296,72 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
 end)
 
 -- Gold Tracking
-Ext.Osiris.RegisterListener("GoldChanged", 2, "after", function (character, _)
-	local amt = GetGold(character)
-	if Osi.HasSpell(character,"Target_Ceremony") == 1 and amt > 24 and Osi.HasActiveStatus(character,"CEREMONY_GOLD_COST") == 0 then
-		Osi.ApplyStatus(character,"CEREMONY_GOLD_COST",-1.0,1,character)
-	elseif Osi.HasSpell(character,"Target_Ceremony") == 1 and amt < 25 and Osi.HasActiveStatus(character,"CEREMONY_GOLD_COST") == 1 then
-		Osi.RemoveStatus(character,"CEREMONY_GOLD_COST")
+Ext.Osiris.RegisterListener("GoldChanged", 2, "after", function (_, _)
+	local party = Osi.DB_Players:Get(nil)
+	for _,p in pairs(party) do
+		local amt = Osi.PartyGetGold(p[1])
+		if amt > 24 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
+			Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
+		elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
+			Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
+		end
+    end
+end)
+
+-- Gold Tracking 2
+Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function(level, _)
+    if level ~= "SYS_CC_I" then
+		local party = Osi.DB_Players:Get(nil)
+		for _,p in pairs(party) do
+			local amt = Osi.PartyGetGold(p[1])
+			if amt > 24 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
+				Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
+			elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
+				Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
+			end
+		end
+    end
+end)
+
+-- Gold Tracking 3
+Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function (_)
+	local party = Osi.DB_Players:Get(nil)
+	for _,p in pairs(party) do
+		local amt = Osi.PartyGetGold(p[1])
+		if amt > 24 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
+			Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
+		elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
+			Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
+		end
     end
 end)
 
 -- Gold Removal
 Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function (caster, spell, _, _, _)
 	if spell == "Target_Ceremony_BlessWater" or spell == "Target_Ceremony_ComingOfAge" or spell == "Target_Ceremony_Dedication" or spell == "Target_Ceremony_BlessWater_2" or spell == "Target_Ceremony_ComingOfAge_2" or spell == "Target_Ceremony_Dedication_2" or spell == "Target_Ceremony_BlessWater_3" or spell == "Target_Ceremony_ComingOfAge_3" or spell == "Target_Ceremony_Dedication_3" or spell == "Target_Ceremony_BlessWater_4" or spell == "Target_Ceremony_ComingOfAge_4" or spell == "Target_Ceremony_Dedication_4" or spell == "Target_Ceremony_BlessWater_5" or spell == "Target_Ceremony_ComingOfAge_5" or spell == "Target_Ceremony_Dedication_5" or spell == "Target_Ceremony_BlessWater_6" or spell == "Target_Ceremony_ComingOfAge_6" or spell == "Target_Ceremony_Dedication_6" or spell == "Target_Ceremony_BlessWater_7" or spell == "Target_Ceremony_ComingOfAge_7" or spell == "Target_Ceremony_Dedication_7" or spell == "Target_Ceremony_BlessWater_8" or spell == "Target_Ceremony_ComingOfAge_8" or spell == "Target_Ceremony_Dedication_8" or spell == "Target_Ceremony_BlessWater_9" or spell == "Target_Ceremony_ComingOfAge_9" or spell == "Target_Ceremony_Dedication_9" then
-		Osi.AddGold(caster, -25)
-		Osi.ApplyStatus(caster, "CEREMONY_GOLD_COST_PROC",0.0,1,caster)
+		Osi.PartyAddGold(caster, -25)
+		Osi.ApplyStatus(caster,"GOLD_COST_PROC",6.0,0)
     end
 end)
 
 -- Gold Check after Removal
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, _, _)
-	local amt = GetGold(character)
-	if status == "CEREMONY_GOLD_COST_PROC" and amt > 24 and Osi.HasActiveStatus(character,"CEREMONY_GOLD_COST") == 0 then
-		Osi.ApplyStatus(character,"CEREMONY_GOLD_COST",-1.0,1,character)
-	elseif status == "CEREMONY_GOLD_COST_PROC" and amt < 25 and Osi.HasActiveStatus(character,"CEREMONY_GOLD_COST") == 1 then
-		Osi.RemoveStatus(character,"CEREMONY_GOLD_COST")
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (_, status, _, _)
+	local party = Osi.DB_Players:Get(nil)
+	if status == "GOLD_COST_PROC" then
+		for _,p in pairs(party) do
+			local amt = Osi.PartyGetGold(p[1])
+			if amt > 24 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
+				Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
+			elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
+				Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
+			end
+		end
     end
 end)
 
 -- Ceremony Bless Water Part 1
 Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", function (template, _, character, _)
-	if	(template == "CONS_Drink_Water_A_640302a8-d841-44d6-996d-2addda644306" or template == "CONS_Drink_Water_A_Wicker_00253e1b-375c-4ef4-8808-974cab615ff7" or template == "CONS_Drink_Water_Bottle_A_d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c" or template == "CONS_Drink_Water_B_Wicker_e8e427ac-9078-4471-85f2-4b8bbc3e00b5" or template == "CONS_Drink_Water_Bottle_B_6f5abf98-cca0-43a7-a064-10c17643bb72" or template == "CONS_Drink_Water_B_94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a" or template == "CONS_Drink_Water_Jug_A_cb2e851f-8a75-4899-b705-0f079e8e55bc") and Osi.HasSpell(character,"Target_Ceremony") == 1 and HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 0 then
+	if	(template == "CONS_Drink_Water_A_640302a8-d841-44d6-996d-2addda644306" or template == "CONS_Drink_Water_A_Wicker_00253e1b-375c-4ef4-8808-974cab615ff7" or template == "CONS_Drink_Water_Bottle_A_d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c" or template == "CONS_Drink_Water_B_Wicker_e8e427ac-9078-4471-85f2-4b8bbc3e00b5" or template == "CONS_Drink_Water_Bottle_B_6f5abf98-cca0-43a7-a064-10c17643bb72" or template == "CONS_Drink_Water_B_94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a" or template == "CONS_Drink_Water_Jug_A_cb2e851f-8a75-4899-b705-0f079e8e55bc") and Osi.HasSpell(character,"Target_Ceremony") == 1 and Osi.HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 0 then
 		Osi.ApplyStatus(character, "CEREMONY_BLESSED_WATER_TECHNICAL", -1.0, 1, character)
     end
 end)
@@ -337,7 +375,7 @@ Ext.Osiris.RegisterListener("TemplateRemovedFrom", 3, "after", function (_, _, c
 	local item5 = GetItemByTemplateInInventory("6f5abf98-cca0-43a7-a064-10c17643bb72",character)
 	local item6 = GetItemByTemplateInInventory("94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a",character)
 	local item7 = GetItemByTemplateInInventory("cb2e851f-8a75-4899-b705-0f079e8e55bc",character)
-	if	Osi.HasSpell(character,"Target_Ceremony") == 1 and HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 1 and not (item or item2 or item3 or item4 or item5 or item6 or item7) then
+	if	Osi.HasSpell(character,"Target_Ceremony") == 1 and Osi.HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 1 and not (item or item2 or item3 or item4 or item5 or item6 or item7) then
 		Osi.RemoveStatus(character, "CEREMONY_BLESSED_WATER_TECHNICAL")
     end
 end)
@@ -352,7 +390,6 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 	local item6 = GetItemByTemplateInInventory("94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a",character)
 	local item7 = GetItemByTemplateInInventory("cb2e851f-8a75-4899-b705-0f079e8e55bc",character)
 	if	status == "CEREMONY_BLESSED_WATER" and item then
---		Osi.ShowNotification(character, "Works")
 		Osi.TemplateAddTo("edabfdca-3371-405f-8358-850718a61fdb", character, 1, 1)
 		Osi.TemplateRemoveFromUser("640302a8-d841-44d6-996d-2addda644306", character, 1)
 	elseif	status == "CEREMONY_BLESSED_WATER" and item2 then
@@ -378,6 +415,18 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
     end
 end)
 
+-- Nathair's Mischief Owner
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (item, status, causee, _)
+	if	status == "NATHAIRS_MISCHIEF" or status == "NATHAIRS_MISCHIEF_MOVE" then
+		Osi.SetVarObject(causee,"NathairsMischiefOwner",item)
+	end
+
+	if status == "NATHAIRS_MISCHIEF_PROC" then
+		local nmitem = Osi.GetVarObject(causee, "NathairsMischiefOwner")
+		Osi.ApplyStatus(nmitem,"NATHAIRS_MISCHIEF_EFFECT",6.0,1,causee)
+    end
+end)
+
 -- Nathair's Mischief
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (item, status, causee, _)
 	if	status == "NATHAIRS_MISCHIEF_EFFECT" then
@@ -385,19 +434,19 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (item, status,
 --		local num = IntegerToString(number)
 --		Osi.ShowNotification(causee,num)
 		if	number == 0 then
-			Osi.ApplyStatus(item, "NATHAIRS_MISCHIEF_CHARMED_EFFECT", 6.0, 1, causee)
+			Osi.CreateExplosion(item,"Projectile_NathairsMischief_Charmed", -1, causee)
 		elseif	number == 1 then
-			Osi.ApplyStatus(item, "NATHAIRS_MISCHIEF_BLINDED_EFFECT", 6.0, 1, causee)
+			Osi.CreateExplosion(item,"Projectile_NathairsMischief_Blinded", -1, causee)
 		elseif	number == 2 then
-			Osi.ApplyStatus(item, "NATHAIRS_MISCHIEF_INCAPACITATED_EFFECT", 6.0, 1, causee)
+			Osi.CreateExplosion(item,"Projectile_NathairsMischief_Incapacitated", -1, causee)
 		elseif	number == 3 then
-			Osi.ApplyStatus(item, "NATHAIRS_MISCHIEF_DIFFICULT_TERRAIN_EFFECT", 6.0, 1, causee)
+			Osi.CreateExplosion(item,"Projectile_NathairsMischief_DifficultTerrain", -1, causee)
 		end
     end
 end)
 
 -- Life Transference Setup
-Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, _, _, _)
+Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "before", function (caster, spell, _, _)
 	if spell == "Target_LifeTransference" or spell == "Target_LifeTransference_3" or spell == "Target_LifeTransference_4" or spell == "Target_LifeTransference_5" or spell == "Target_LifeTransference_6" or spell == "Target_LifeTransference_7" or spell == "Target_LifeTransference_8" or spell == "Target_LifeTransference_9" then
 		local hp = GetHitpoints(caster)
 --		local num = IntegerToString(hp)
@@ -411,967 +460,11 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 	if status == "LIFE_TRANSFERENCE" then
 		local previoushp = GetVarInteger(causee, "BeforeHP")
 		local currenthp = GetHitpoints(causee)
-		local targethp = GetHitpoints(character)
---		local num = IntegerToString(previoushp)
---		Osi.ShowNotification(causee,num)
 		local hp = 0
-		local newhp = 0
 		hp = previoushp - currenthp
 		hp = hp * 2
---		Osi.SetHitpoints(character, hp, "Vitality")
-		newhp = targethp + hp
-		if hp == 2 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_2", 0.0, 1, causee)
-		elseif hp == 4 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4", 0.0, 1, causee)
-		elseif hp == 6 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6", 0.0, 1, causee)
-		elseif hp == 8 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8", 0.0, 1, causee)
-		elseif hp == 10 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_10", 0.0, 1, causee)
-		elseif hp == 12 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_12", 0.0, 1, causee)
-		elseif hp == 14 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_14", 0.0, 1, causee)
-		elseif hp == 16 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_16", 0.0, 1, causee)
-		elseif hp == 18 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_18", 0.0, 1, causee)
-		elseif hp == 20 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_20", 0.0, 1, causee)
-		elseif hp == 22 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_22", 0.0, 1, causee)
-		elseif hp == 24 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_24", 0.0, 1, causee)
-		elseif hp == 26 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_26", 0.0, 1, causee)
-		elseif hp == 28 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_28", 0.0, 1, causee)
-		elseif hp == 30 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_30", 0.0, 1, causee)
-		elseif hp == 32 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_32", 0.0, 1, causee)
-		elseif hp == 34 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_34", 0.0, 1, causee)
-		elseif hp == 36 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_36", 0.0, 1, causee)
-		elseif hp == 38 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_38", 0.0, 1, causee)
-		elseif hp == 40 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_40", 0.0, 1, causee)
-		elseif hp == 42 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_42", 0.0, 1, causee)
-		elseif hp == 44 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_44", 0.0, 1, causee)
-		elseif hp == 46 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_46", 0.0, 1, causee)
-		elseif hp == 48 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_48", 0.0, 1, causee)
-		elseif hp == 50 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_50", 0.0, 1, causee)
-		elseif hp == 52 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_52", 0.0, 1, causee)
-		elseif hp == 54 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_54", 0.0, 1, causee)
-		elseif hp == 56 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_56", 0.0, 1, causee)
-		elseif hp == 58 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_58", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_64", 0.0, 1, causee)
-		end
-	elseif status == "LIFE_TRANSFERENCE_4" then
-		local previoushp = GetVarInteger(causee, "BeforeHP")
-		local currenthp = GetHitpoints(causee)
-		local targethp = GetHitpoints(character)
-		local hp = 0
-		local newhp = 0
-		hp = previoushp - currenthp
-		hp = hp * 2
-		newhp = targethp + hp
-		if hp == 2 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_2", 0.0, 1, causee)
-		elseif hp == 4 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_4", 0.0, 1, causee)
-		elseif hp == 6 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_6", 0.0, 1, causee)
-		elseif hp == 8 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_8", 0.0, 1, causee)
-		elseif hp == 10 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_10", 0.0, 1, causee)
-		elseif hp == 12 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_12", 0.0, 1, causee)
-		elseif hp == 14 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_14", 0.0, 1, causee)
-		elseif hp == 16 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_16", 0.0, 1, causee)
-		elseif hp == 18 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_18", 0.0, 1, causee)
-		elseif hp == 20 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_20", 0.0, 1, causee)
-		elseif hp == 22 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_22", 0.0, 1, causee)
-		elseif hp == 24 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_24", 0.0, 1, causee)
-		elseif hp == 26 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_26", 0.0, 1, causee)
-		elseif hp == 28 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_28", 0.0, 1, causee)
-		elseif hp == 30 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_30", 0.0, 1, causee)
-		elseif hp == 32 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_32", 0.0, 1, causee)
-		elseif hp == 34 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_34", 0.0, 1, causee)
-		elseif hp == 36 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_36", 0.0, 1, causee)
-		elseif hp == 38 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_38", 0.0, 1, causee)
-		elseif hp == 40 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_40", 0.0, 1, causee)
-		elseif hp == 42 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_42", 0.0, 1, causee)
-		elseif hp == 44 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_44", 0.0, 1, causee)
-		elseif hp == 46 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_46", 0.0, 1, causee)
-		elseif hp == 48 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_48", 0.0, 1, causee)
-		elseif hp == 50 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_50", 0.0, 1, causee)
-		elseif hp == 52 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_52", 0.0, 1, causee)
-		elseif hp == 54 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_54", 0.0, 1, causee)
-		elseif hp == 56 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_56", 0.0, 1, causee)
-		elseif hp == 58 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_58", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_68", 0.0, 1, causee)
-		elseif hp == 70 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_70", 0.0, 1, causee)
-		elseif hp == 72 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_72", 0.0, 1, causee)
-		elseif hp == 74 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_74", 0.0, 1, causee)
-		elseif hp == 76 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_76", 0.0, 1, causee)
-		elseif hp == 78 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_78", 0.0, 1, causee)
-		elseif hp == 80 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_4TH_80", 0.0, 1, causee)
-		end
-	elseif status == "LIFE_TRANSFERENCE_5" then
-		local previoushp = GetVarInteger(causee, "BeforeHP")
-		local currenthp = GetHitpoints(causee)
-		local targethp = GetHitpoints(character)
-		local hp = 0
-		local newhp = 0
-		hp = previoushp - currenthp
-		hp = hp * 2
-		newhp = targethp + hp
-		if hp == 2 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_2", 0.0, 1, causee)
-		elseif hp == 4 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_4", 0.0, 1, causee)
-		elseif hp == 6 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_6", 0.0, 1, causee)
-		elseif hp == 8 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_8", 0.0, 1, causee)
-		elseif hp == 10 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_10", 0.0, 1, causee)
-		elseif hp == 12 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_12", 0.0, 1, causee)
-		elseif hp == 14 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_14", 0.0, 1, causee)
-		elseif hp == 16 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_16", 0.0, 1, causee)
-		elseif hp == 18 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_18", 0.0, 1, causee)
-		elseif hp == 20 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_20", 0.0, 1, causee)
-		elseif hp == 22 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_22", 0.0, 1, causee)
-		elseif hp == 24 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_24", 0.0, 1, causee)
-		elseif hp == 26 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_26", 0.0, 1, causee)
-		elseif hp == 28 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_28", 0.0, 1, causee)
-		elseif hp == 30 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_30", 0.0, 1, causee)
-		elseif hp == 32 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_32", 0.0, 1, causee)
-		elseif hp == 34 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_34", 0.0, 1, causee)
-		elseif hp == 36 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_36", 0.0, 1, causee)
-		elseif hp == 38 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_38", 0.0, 1, causee)
-		elseif hp == 40 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_40", 0.0, 1, causee)
-		elseif hp == 42 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_42", 0.0, 1, causee)
-		elseif hp == 44 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_44", 0.0, 1, causee)
-		elseif hp == 46 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_46", 0.0, 1, causee)
-		elseif hp == 48 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_48", 0.0, 1, causee)
-		elseif hp == 50 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_50", 0.0, 1, causee)
-		elseif hp == 52 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_52", 0.0, 1, causee)
-		elseif hp == 54 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_54", 0.0, 1, causee)
-		elseif hp == 56 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_56", 0.0, 1, causee)
-		elseif hp == 58 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_58", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_68", 0.0, 1, causee)
-		elseif hp == 70 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_70", 0.0, 1, causee)
-		elseif hp == 72 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_72", 0.0, 1, causee)
-		elseif hp == 74 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_74", 0.0, 1, causee)
-		elseif hp == 76 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_76", 0.0, 1, causee)
-		elseif hp == 78 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_78", 0.0, 1, causee)
-		elseif hp == 80 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_80", 0.0, 1, causee)
-		elseif hp == 82 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_82", 0.0, 1, causee)
-		elseif hp == 84 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_84", 0.0, 1, causee)
-		elseif hp == 86 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_86", 0.0, 1, causee)
-		elseif hp == 88 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_88", 0.0, 1, causee)
-		elseif hp == 90 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_90", 0.0, 1, causee)
-		elseif hp == 92 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_92", 0.0, 1, causee)
-		elseif hp == 94 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_94", 0.0, 1, causee)
-		elseif hp == 96 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_5TH_96", 0.0, 1, causee)
-		end
-	elseif status == "LIFE_TRANSFERENCE_6" then
-		local previoushp = GetVarInteger(causee, "BeforeHP")
-		local currenthp = GetHitpoints(causee)
-		local targethp = GetHitpoints(character)
-		local hp = 0
-		local newhp = 0
-		hp = previoushp - currenthp
-		hp = hp * 2
-		newhp = targethp + hp
-		if hp == 2 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_2", 0.0, 1, causee)
-		elseif hp == 4 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_4", 0.0, 1, causee)
-		elseif hp == 6 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_6", 0.0, 1, causee)
-		elseif hp == 8 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_8", 0.0, 1, causee)
-		elseif hp == 10 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_10", 0.0, 1, causee)
-		elseif hp == 12 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_12", 0.0, 1, causee)
-		elseif hp == 14 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_14", 0.0, 1, causee)
-		elseif hp == 16 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_16", 0.0, 1, causee)
-		elseif hp == 18 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_18", 0.0, 1, causee)
-		elseif hp == 20 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_20", 0.0, 1, causee)
-		elseif hp == 22 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_22", 0.0, 1, causee)
-		elseif hp == 24 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_24", 0.0, 1, causee)
-		elseif hp == 26 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_26", 0.0, 1, causee)
-		elseif hp == 28 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_28", 0.0, 1, causee)
-		elseif hp == 30 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_30", 0.0, 1, causee)
-		elseif hp == 32 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_32", 0.0, 1, causee)
-		elseif hp == 34 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_34", 0.0, 1, causee)
-		elseif hp == 36 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_36", 0.0, 1, causee)
-		elseif hp == 38 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_38", 0.0, 1, causee)
-		elseif hp == 40 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_40", 0.0, 1, causee)
-		elseif hp == 42 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_42", 0.0, 1, causee)
-		elseif hp == 44 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_44", 0.0, 1, causee)
-		elseif hp == 46 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_46", 0.0, 1, causee)
-		elseif hp == 48 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_48", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_68", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_68", 0.0, 1, causee)
-		elseif hp == 70 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_70", 0.0, 1, causee)
-		elseif hp == 72 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_72", 0.0, 1, causee)
-		elseif hp == 74 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_74", 0.0, 1, causee)
-		elseif hp == 76 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_76", 0.0, 1, causee)
-		elseif hp == 78 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_78", 0.0, 1, causee)
-		elseif hp == 80 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_80", 0.0, 1, causee)
-		elseif hp == 82 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_82", 0.0, 1, causee)
-		elseif hp == 84 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_84", 0.0, 1, causee)
-		elseif hp == 86 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_86", 0.0, 1, causee)
-		elseif hp == 88 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_88", 0.0, 1, causee)
-		elseif hp == 90 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_90", 0.0, 1, causee)
-		elseif hp == 92 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_92", 0.0, 1, causee)
-		elseif hp == 94 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_94", 0.0, 1, causee)
-		elseif hp == 96 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_96", 0.0, 1, causee)
-		elseif hp == 98 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_98", 0.0, 1, causee)
-		elseif hp == 100 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_100", 0.0, 1, causee)
-		elseif hp == 102 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_102", 0.0, 1, causee)
-		elseif hp == 104 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_104", 0.0, 1, causee)
-		elseif hp == 106 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_106", 0.0, 1, causee)
-		elseif hp == 108 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_108", 0.0, 1, causee)
-		elseif hp == 110 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_110", 0.0, 1, causee)
-		elseif hp == 112 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_6TH_112", 0.0, 1, causee)
-		end
-	elseif status == "LIFE_TRANSFERENCE_7" then
-		local previoushp = GetVarInteger(causee, "BeforeHP")
-		local currenthp = GetHitpoints(causee)
-		local targethp = GetHitpoints(character)
-		local hp = 0
-		local newhp = 0
-		hp = previoushp - currenthp
-		hp = hp * 2
-		newhp = targethp + hp
-		if hp == 2 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_2", 0.0, 1, causee)
-		elseif hp == 4 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_4", 0.0, 1, causee)
-		elseif hp == 6 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_6", 0.0, 1, causee)
-		elseif hp == 8 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_8", 0.0, 1, causee)
-		elseif hp == 10 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_10", 0.0, 1, causee)
-		elseif hp == 12 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_12", 0.0, 1, causee)
-		elseif hp == 14 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_14", 0.0, 1, causee)
-		elseif hp == 16 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_16", 0.0, 1, causee)
-		elseif hp == 18 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_18", 0.0, 1, causee)
-		elseif hp == 20 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_20", 0.0, 1, causee)
-		elseif hp == 22 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_22", 0.0, 1, causee)
-		elseif hp == 24 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_24", 0.0, 1, causee)
-		elseif hp == 26 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_26", 0.0, 1, causee)
-		elseif hp == 28 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_28", 0.0, 1, causee)
-		elseif hp == 30 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_30", 0.0, 1, causee)
-		elseif hp == 32 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_32", 0.0, 1, causee)
-		elseif hp == 34 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_34", 0.0, 1, causee)
-		elseif hp == 36 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_36", 0.0, 1, causee)
-		elseif hp == 38 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_38", 0.0, 1, causee)
-		elseif hp == 40 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_40", 0.0, 1, causee)
-		elseif hp == 42 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_42", 0.0, 1, causee)
-		elseif hp == 44 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_44", 0.0, 1, causee)
-		elseif hp == 46 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_46", 0.0, 1, causee)
-		elseif hp == 48 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_48", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_68", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_68", 0.0, 1, causee)
-		elseif hp == 70 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_70", 0.0, 1, causee)
-		elseif hp == 72 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_72", 0.0, 1, causee)
-		elseif hp == 74 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_74", 0.0, 1, causee)
-		elseif hp == 76 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_76", 0.0, 1, causee)
-		elseif hp == 78 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_78", 0.0, 1, causee)
-		elseif hp == 80 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_80", 0.0, 1, causee)
-		elseif hp == 82 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_82", 0.0, 1, causee)
-		elseif hp == 84 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_84", 0.0, 1, causee)
-		elseif hp == 86 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_86", 0.0, 1, causee)
-		elseif hp == 88 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_88", 0.0, 1, causee)
-		elseif hp == 90 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_90", 0.0, 1, causee)
-		elseif hp == 92 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_92", 0.0, 1, causee)
-		elseif hp == 94 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_94", 0.0, 1, causee)
-		elseif hp == 96 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_96", 0.0, 1, causee)
-		elseif hp == 98 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_98", 0.0, 1, causee)
-		elseif hp == 100 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_100", 0.0, 1, causee)
-		elseif hp == 102 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_102", 0.0, 1, causee)
-		elseif hp == 104 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_104", 0.0, 1, causee)
-		elseif hp == 106 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_106", 0.0, 1, causee)
-		elseif hp == 108 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_108", 0.0, 1, causee)
-		elseif hp == 110 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_110", 0.0, 1, causee)
-		elseif hp == 112 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_112", 0.0, 1, causee)
-		elseif hp == 114 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_114", 0.0, 1, causee)
-		elseif hp == 116 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_116", 0.0, 1, causee)
-		elseif hp == 118 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_118", 0.0, 1, causee)
-		elseif hp == 120 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_120", 0.0, 1, causee)
-		elseif hp == 122 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_122", 0.0, 1, causee)
-		elseif hp == 124 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_124", 0.0, 1, causee)
-		elseif hp == 126 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_126", 0.0, 1, causee)
-		elseif hp == 128 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_7TH_128", 0.0, 1, causee)
-		end
-	elseif status == "LIFE_TRANSFERENCE_8" then
-		local previoushp = GetVarInteger(causee, "BeforeHP")
-		local currenthp = GetHitpoints(causee)
-		local targethp = GetHitpoints(character)
-		local hp = 0
-		local newhp = 0
-		hp = previoushp - currenthp
-		hp = hp * 2
-		newhp = targethp + hp
-		if hp == 2 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_2", 0.0, 1, causee)
-		elseif hp == 4 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_4", 0.0, 1, causee)
-		elseif hp == 6 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_6", 0.0, 1, causee)
-		elseif hp == 8 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_8", 0.0, 1, causee)
-		elseif hp == 10 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_10", 0.0, 1, causee)
-		elseif hp == 12 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_12", 0.0, 1, causee)
-		elseif hp == 14 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_14", 0.0, 1, causee)
-		elseif hp == 16 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_16", 0.0, 1, causee)
-		elseif hp == 18 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_18", 0.0, 1, causee)
-		elseif hp == 20 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_20", 0.0, 1, causee)
-		elseif hp == 22 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_22", 0.0, 1, causee)
-		elseif hp == 24 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_24", 0.0, 1, causee)
-		elseif hp == 26 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_26", 0.0, 1, causee)
-		elseif hp == 28 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_28", 0.0, 1, causee)
-		elseif hp == 30 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_30", 0.0, 1, causee)
-		elseif hp == 32 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_32", 0.0, 1, causee)
-		elseif hp == 34 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_34", 0.0, 1, causee)
-		elseif hp == 36 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_36", 0.0, 1, causee)
-		elseif hp == 38 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_38", 0.0, 1, causee)
-		elseif hp == 40 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_40", 0.0, 1, causee)
-		elseif hp == 42 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_42", 0.0, 1, causee)
-		elseif hp == 44 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_44", 0.0, 1, causee)
-		elseif hp == 46 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_46", 0.0, 1, causee)
-		elseif hp == 48 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_48", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_68", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_68", 0.0, 1, causee)
-		elseif hp == 80 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_80", 0.0, 1, causee)
-		elseif hp == 82 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_82", 0.0, 1, causee)
-		elseif hp == 84 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_84", 0.0, 1, causee)
-		elseif hp == 86 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_86", 0.0, 1, causee)
-		elseif hp == 88 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_88", 0.0, 1, causee)
-		elseif hp == 80 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_80", 0.0, 1, causee)
-		elseif hp == 82 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_82", 0.0, 1, causee)
-		elseif hp == 84 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_84", 0.0, 1, causee)
-		elseif hp == 86 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_86", 0.0, 1, causee)
-		elseif hp == 88 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_88", 0.0, 1, causee)
-		elseif hp == 90 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_90", 0.0, 1, causee)
-		elseif hp == 92 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_92", 0.0, 1, causee)
-		elseif hp == 94 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_94", 0.0, 1, causee)
-		elseif hp == 96 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_96", 0.0, 1, causee)
-		elseif hp == 98 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_98", 0.0, 1, causee)
-		elseif hp == 100 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_100", 0.0, 1, causee)
-		elseif hp == 102 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_102", 0.0, 1, causee)
-		elseif hp == 104 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_104", 0.0, 1, causee)
-		elseif hp == 106 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_106", 0.0, 1, causee)
-		elseif hp == 108 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_108", 0.0, 1, causee)
-		elseif hp == 110 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_110", 0.0, 1, causee)
-		elseif hp == 112 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_112", 0.0, 1, causee)
-		elseif hp == 114 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_114", 0.0, 1, causee)
-		elseif hp == 116 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_116", 0.0, 1, causee)
-		elseif hp == 118 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_118", 0.0, 1, causee)
-		elseif hp == 120 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_120", 0.0, 1, causee)
-		elseif hp == 122 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_122", 0.0, 1, causee)
-		elseif hp == 124 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_124", 0.0, 1, causee)
-		elseif hp == 126 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_126", 0.0, 1, causee)
-		elseif hp == 128 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_128", 0.0, 1, causee)
-		elseif hp == 130 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_130", 0.0, 1, causee)
-		elseif hp == 132 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_132", 0.0, 1, causee)
-		elseif hp == 134 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_134", 0.0, 1, causee)
-		elseif hp == 136 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_136", 0.0, 1, causee)
-		elseif hp == 138 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_138", 0.0, 1, causee)
-		elseif hp == 140 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_140", 0.0, 1, causee)
-		elseif hp == 142 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_142", 0.0, 1, causee)
-		elseif hp == 144 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_8TH_144", 0.0, 1, causee)
-		end
-	elseif status == "LIFE_TRANSFERENCE_9" then
-		local previoushp = GetVarInteger(causee, "BeforeHP")
-		local currenthp = GetHitpoints(causee)
-		local targethp = GetHitpoints(character)
-		local hp = 0
-		local newhp = 0
-		hp = previoushp - currenthp
-		hp = hp * 2
-		newhp = targethp + hp
-		if hp == 2 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_2", 0.0, 1, causee)
-		elseif hp == 4 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_4", 0.0, 1, causee)
-		elseif hp == 6 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_6", 0.0, 1, causee)
-		elseif hp == 8 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_8", 0.0, 1, causee)
-		elseif hp == 10 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_10", 0.0, 1, causee)
-		elseif hp == 12 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_12", 0.0, 1, causee)
-		elseif hp == 14 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_14", 0.0, 1, causee)
-		elseif hp == 16 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_16", 0.0, 1, causee)
-		elseif hp == 18 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_18", 0.0, 1, causee)
-		elseif hp == 20 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_20", 0.0, 1, causee)
-		elseif hp == 22 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_22", 0.0, 1, causee)
-		elseif hp == 24 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_24", 0.0, 1, causee)
-		elseif hp == 26 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_26", 0.0, 1, causee)
-		elseif hp == 28 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_28", 0.0, 1, causee)
-		elseif hp == 30 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_30", 0.0, 1, causee)
-		elseif hp == 32 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_32", 0.0, 1, causee)
-		elseif hp == 34 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_34", 0.0, 1, causee)
-		elseif hp == 36 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_36", 0.0, 1, causee)
-		elseif hp == 38 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_38", 0.0, 1, causee)
-		elseif hp == 40 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_40", 0.0, 1, causee)
-		elseif hp == 42 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_42", 0.0, 1, causee)
-		elseif hp == 44 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_44", 0.0, 1, causee)
-		elseif hp == 46 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_46", 0.0, 1, causee)
-		elseif hp == 48 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_48", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_68", 0.0, 1, causee)
-		elseif hp == 60 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_60", 0.0, 1, causee)
-		elseif hp == 62 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_62", 0.0, 1, causee)
-		elseif hp == 64 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_64", 0.0, 1, causee)
-		elseif hp == 66 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_66", 0.0, 1, causee)
-		elseif hp == 68 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_68", 0.0, 1, causee)
-		elseif hp == 80 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_80", 0.0, 1, causee)
-		elseif hp == 82 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_82", 0.0, 1, causee)
-		elseif hp == 84 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_84", 0.0, 1, causee)
-		elseif hp == 86 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_86", 0.0, 1, causee)
-		elseif hp == 88 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_88", 0.0, 1, causee)
-		elseif hp == 80 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_80", 0.0, 1, causee)
-		elseif hp == 82 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_82", 0.0, 1, causee)
-		elseif hp == 84 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_84", 0.0, 1, causee)
-		elseif hp == 86 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_86", 0.0, 1, causee)
-		elseif hp == 88 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_88", 0.0, 1, causee)
-		elseif hp == 90 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_90", 0.0, 1, causee)
-		elseif hp == 92 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_92", 0.0, 1, causee)
-		elseif hp == 94 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_94", 0.0, 1, causee)
-		elseif hp == 96 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_96", 0.0, 1, causee)
-		elseif hp == 98 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_98", 0.0, 1, causee)
-		elseif hp == 100 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_100", 0.0, 1, causee)
-		elseif hp == 102 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_102", 0.0, 1, causee)
-		elseif hp == 104 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_104", 0.0, 1, causee)
-		elseif hp == 106 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_106", 0.0, 1, causee)
-		elseif hp == 108 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_108", 0.0, 1, causee)
-		elseif hp == 110 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_110", 0.0, 1, causee)
-		elseif hp == 112 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_112", 0.0, 1, causee)
-		elseif hp == 114 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_114", 0.0, 1, causee)
-		elseif hp == 116 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_116", 0.0, 1, causee)
-		elseif hp == 118 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_118", 0.0, 1, causee)
-		elseif hp == 120 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_120", 0.0, 1, causee)
-		elseif hp == 122 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_122", 0.0, 1, causee)
-		elseif hp == 124 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_124", 0.0, 1, causee)
-		elseif hp == 126 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_126", 0.0, 1, causee)
-		elseif hp == 128 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_128", 0.0, 1, causee)
-		elseif hp == 130 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_130", 0.0, 1, causee)
-		elseif hp == 132 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_132", 0.0, 1, causee)
-		elseif hp == 134 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_134", 0.0, 1, causee)
-		elseif hp == 136 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_136", 0.0, 1, causee)
-		elseif hp == 138 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_138", 0.0, 1, causee)
-		elseif hp == 140 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_140", 0.0, 1, causee)
-		elseif hp == 142 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_142", 0.0, 1, causee)
-		elseif hp == 144 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_144", 0.0, 1, causee)
-		elseif hp == 146 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_146", 0.0, 1, causee)
-		elseif hp == 148 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_148", 0.0, 1, causee)
-		elseif hp == 150 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_150", 0.0, 1, causee)
-		elseif hp == 152 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_152", 0.0, 1, causee)
-		elseif hp == 154 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_154", 0.0, 1, causee)
-		elseif hp == 156 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_156", 0.0, 1, causee)
-		elseif hp == 158 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_158", 0.0, 1, causee)
-		elseif hp == 160 then
-			Osi.ApplyStatus(character, "LIFE_TRANSFERENCE_HP_9TH_160", 0.0, 1, causee)
-		end
-    end
-end)
-
--- SCAGtrips War Magic Extra Attack
-Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
-	if	(spell == "Target_GreenFlameBlade" or spell == "Target_BoomingBlade") and (Osi.HasPassive(caster,"ExtraAttack") == 1 or Osi.HasPassive(caster,"ExtraAttack_2") == 1 or Osi.HasPassive(caster,"ThirstingBlade_Blade") == 1 or Osi.HasPassive(caster,"WarPriest") == 1 or Osi.HasPassive(caster,"StalkersFlurry") == 1) then
-		Osi.ApplyStatus(caster, "EXTRA_ATTACK_BLOCK_SCAGTRIPS",6.0,1,caster)
-    end
-end)
-
--- SCAGtrips War Magic/Bladesinging
-Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function (caster, target, spell, _, _, _)
-	if	(spell == "Target_GreenFlameBlade" or spell == "Target_BoomingBlade") and Osi.HasPassive(caster,"WarMagic") == 1 and Osi.HasPassive(caster,"ExtraAttack_Bladesinging") == 0 and (Osi.HasPassive(caster,"ExtraAttack") == 1 or Osi.HasPassive(caster,"ExtraAttack_2") == 1) and (Osi.IsInForceTurnBasedMode(caster) == 1 or Osi.IsInCombat(caster) == 1) and HasPassive(caster,"RAW_OnTurnTracker") == 0 then
-		Osi.ApplyStatus(caster, "EXTRA_ATTACK_WAR_MAGIC_REPLACEMENT",6.0,1,caster)
-	elseif	(spell == "Target_GreenFlameBlade" or spell == "Target_BoomingBlade") and Osi.HasPassive(caster,"ExtraAttack_Bladesinging") == 1 and (Osi.IsInForceTurnBasedMode(caster) == 1 or Osi.IsInCombat(caster) == 1) and HasActiveStatus(caster,"EXTRA_ATTACK_BLADESINGING") == 0 and HasActiveStatus(caster,"EXTRA_ATTACK_CANTRIP") == 0 and HasPassive(caster,"RAW_OnTurnTracker") == 0 then
-		Osi.ApplyStatus(caster, "EXTRA_ATTACK_CANTRIP",6.0,1,caster)
-	elseif	(spell == "Target_GreenFlameBlade" or spell == "Target_BoomingBlade") and Osi.HasPassive(caster,"WarMagic") == 1 and Osi.HasPassive(caster,"ExtraAttack_Bladesinging") == 0 and (Osi.HasPassive(caster,"ExtraAttack") == 1 or Osi.HasPassive(caster,"ExtraAttack_2") == 1) and (Osi.IsInForceTurnBasedMode(caster) == 1 or Osi.IsInCombat(caster) == 1) and HasPassive(caster,"RAW_OnTurnTracker") == 1 then
-		Osi.ApplyStatus(caster, "RAW_EXTRA_ATTACK_WAR_MAGIC_REPLACEMENT",6.0,1,caster)
-	elseif	(spell == "Target_GreenFlameBlade" or spell == "Target_BoomingBlade") and Osi.HasPassive(caster,"ExtraAttack_Bladesinging") == 1 and (Osi.IsInForceTurnBasedMode(caster) == 1 or Osi.IsInCombat(caster) == 1) and HasActiveStatus(caster,"RAW_EXTRA_ATTACK_BLADESINGING") == 0 and HasActiveStatus(caster,"RAW_EXTRA_ATTACK_CANTRIP") == 0 and HasPassive(caster,"RAW_OnTurnTracker") == 1 then
-		Osi.ApplyStatus(caster, "RAW_EXTRA_ATTACK_CANTRIP",6.0,1,caster)
-    end
-end)
-
--- SCAGtrips Extra Attacks
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, _, _)
-	if (Osi.HasSpell(character,"Target_BoomingBlade") == 1 or Osi.HasSpell(character,"Target_GreenFlameBlade") == 1) and HasPassive(character,"RAW_OnTurnTracker") == 0 and HasPassive(character,"RAW_Loading_Block_ExtraAttack") == 0 and HasPassive(character,"RAW_Walk") == 0 then
-		if	status == "EXTRA_ATTACK" then
-			Osi.ApplyStatus(character, "EXTRA_ATTACK_REPLACEMENT",6.0,1,character)
-		elseif	status == "EXTRA_ATTACK_THIRSTING_BLADE" then
-			Osi.RemoveStatus(character, "EXTRA_ATTACK_THIRSTING_BLADE")
-			Osi.RemoveStatus(character, "EXTRA_ATTACK_Q")
-			Osi.ApplyStatus(character, "EXTRA_ATTACK_THIRSTING_BLADE_REPLACEMENT",6.0,1,character)
-		elseif	status == "EXTRA_ATTACK_WAR_PRIEST" then
-			Osi.ApplyStatus(character, "EXTRA_ATTACK_WAR_PRIEST_REPLACEMENT",6.0,1,character)
-		elseif	status == "EXTRA_ATTACK_2" then
-			Osi.ApplyStatus(character, "EXTRA_ATTACK_2_REPLACEMENT",6.0,1,character)
-		elseif	status == "COMMANDERS_STRIKE_D8" then
-			Osi.ApplyStatus(character, "COMMANDERS_STRIKE_D8_REPLACEMENT",6.0,1,character)
-		elseif	status == "COMMANDERS_STRIKE_D10" then
-			Osi.ApplyStatus(character, "COMMANDERS_STRIKE_D10_REPLACEMENT",6.0,1,character)
-		elseif	status == "MAG_MARTIAL_EXERTION" then
-			Osi.ApplyStatus(character, "MAG_MARTIAL_EXERTION_REPLACEMENT",6.0,1,character)
-		elseif	status == "WILDSTRIKE_EXTRA_ATTACK" then
-			Osi.ApplyStatus(character, "WILDSTRIKE_EXTRA_ATTACK_REPLACEMENT",6.0,1,character)
-		elseif	status == "WILDSTRIKE_2_EXTRA_ATTACK" then
-			Osi.ApplyStatus(character, "WILDSTRIKE_2_EXTRA_ATTACK_REPLACEMENT",6.0,1,character)
-		elseif	status == "STALKERS_FLURRY" then
-			Osi.ApplyStatus(character, "STALKERS_FLURRY_REPLACEMENT",6.0,1,character)
-		elseif	(status == "EXTRA_ATTACK" or status == "EXTRA_ATTACK_THIRSTING_BLADE") and Osi.HasPassive(character,"ExtraAttack_Bladesinging") == 1 and Osi.HasActiveStatus(character,"EXTRA_ATTACK_BLADESINGING") == 0 then
-			Osi.ApplyStatus(character, "EXTRA_ATTACK_BLADESINGING",6.0,1,character)
-		end
-	elseif (Osi.HasSpell(character,"Target_BoomingBlade") == 1 or Osi.HasSpell(character,"Target_GreenFlameBlade") == 1) and (HasPassive(character,"RAW_OnTurnTracker") == 1 or HasPassive(character,"RAW_Loading_Block_ExtraAttack") == 1 or HasPassive(character,"RAW_Walk") == 1) then
-		if	status == "EXTRA_ATTACK" then
-			Osi.ApplyStatus(character, "RAW_EXTRA_ATTACK_REPLACEMENT",6.0,1,character)
-		elseif	status == "EXTRA_ATTACK_THIRSTING_BLADE" then
-			Osi.RemoveStatus(character, "EXTRA_ATTACK_THIRSTING_BLADE")
-			Osi.RemoveStatus(character, "EXTRA_ATTACK_Q")
-			Osi.ApplyStatus(character, "RAW_EXTRA_ATTACK_THIRSTING_BLADE_REPLACEMENT",6.0,1,character)
-		elseif	status == "EXTRA_ATTACK_WAR_PRIEST" then
-			Osi.ApplyStatus(character, "EXTRA_ATTACK_WAR_PRIEST_REPLACEMENT",6.0,1,character)
-		elseif	status == "EXTRA_ATTACK_2" then
-			Osi.ApplyStatus(character, "RAW_EXTRA_ATTACK_2_REPLACEMENT",6.0,1,character)
-		elseif	status == "COMMANDERS_STRIKE_D8" then
-			Osi.ApplyStatus(character, "RAW_COMMANDERS_STRIKE_D8_REPLACEMENT",6.0,1,character)
-		elseif	status == "COMMANDERS_STRIKE_D10" then
-			Osi.ApplyStatus(character, "RAW_COMMANDERS_STRIKE_D10_REPLACEMENT",6.0,1,character)
-		elseif	status == "MAG_MARTIAL_EXERTION" then
-			Osi.ApplyStatus(character, "RAW_MAG_MARTIAL_EXERTION_REPLACEMENT",6.0,1,character)
-		elseif	status == "WILDSTRIKE_EXTRA_ATTACK" then
-			Osi.ApplyStatus(character, "RAW_WILDSTRIKE_EXTRA_ATTACK_REPLACEMENT",6.0,1,character)
-		elseif	status == "WILDSTRIKE_2_EXTRA_ATTACK" then
-			Osi.ApplyStatus(character, "RAW_WILDSTRIKE_2_EXTRA_ATTACK_REPLACEMENT",6.0,1,character)
-		elseif	status == "STALKERS_FLURRY" then
-			Osi.ApplyStatus(character, "RAW_STALKERS_FLURRY_REPLACEMENT",6.0,1,character)
-		elseif	(status == "EXTRA_ATTACK" or status == "EXTRA_ATTACK_THIRSTING_BLADE") and Osi.HasPassive(character,"ExtraAttack_Bladesinging") == 1 and Osi.HasActiveStatus(character,"RAW_EXTRA_ATTACK_BLADESINGING") == 0 then
-			Osi.ApplyStatus(character, "RAW_EXTRA_ATTACK_BLADESINGING",6.0,1,character)
-		end
-    end
-end)
-
--- Slow Extra Attack Replacement Removal
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, _, _)
-	if status == "SLOW" then
-		Osi.RemoveStatus(character,"EXTRA_ATTACK_REPLACEMENT")
-		Osi.RemoveStatus(character,"EXTRA_ATTACK_2_REPLACEMENT")
-		Osi.RemoveStatus(character,"EXTRA_ATTACK_THIRSTING_BLADE_REPLACEMENT")
-		Osi.RemoveStatus(character,"EXTRA_ATTACK_WAR_MAGIC_REPLACEMENT")
-		Osi.RemoveStatus(character,"EXTRA_ATTACK_WAR_PRIEST_REPLACEMENT")
-		Osi.RemoveStatus(character,"STALKERS_FLURRY_REPLACEMENT")
-		Osi.RemoveStatus(character,"MAG_MARTIAL_EXERTION")
-		Osi.RemoveStatus(character,"COMMANDERS_STRIKE_D8_REPLACEMENT")
-		Osi.RemoveStatus(character,"COMMANDERS_STRIKE_D10_REPLACEMENT")
-		Osi.RemoveStatus(character,"WILDSTRIKE_EXTRA_ATTACK_REPLACEMENT")
-		Osi.RemoveStatus(character,"WILDSTRIKE_EXTRA_ATTACK_REPLACEMENT")
-		Osi.RemoveStatus(character,"WILDSTRIKE_2_EXTRA_ATTACK_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_EXTRA_ATTACK_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_EXTRA_ATTACK_2_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_EXTRA_ATTACK_THIRSTING_BLADE_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_EXTRA_ATTACK_WAR_MAGIC_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_EXTRA_ATTACK_WAR_PRIEST_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_STALKERS_FLURRY_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_MAG_MARTIAL_EXERTION")
-		Osi.RemoveStatus(character,"RAW_COMMANDERS_STRIKE_D8_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_COMMANDERS_STRIKE_D10_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_WILDSTRIKE_EXTRA_ATTACK_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_WILDSTRIKE_EXTRA_ATTACK_REPLACEMENT")
-		Osi.RemoveStatus(character,"RAW_WILDSTRIKE_2_EXTRA_ATTACK_REPLACEMENT")
+		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
+		Osi.ApplyStatus(character, ltstatus, 6.0, 0)
 	end
 end)
 
@@ -1407,18 +500,299 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function (caster, spell, _,
 	end
 end)
 
---[[ Ritual Casting
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, _, _, _)
-	for i, name in pairs(Ext.Stats.GetStats("SpellData")) do
-		local stat = Ext.Stats.Get(name)
-		if stat.RitualCosts == "ActionPoint:1" then
-			stat.RitualCosts = ""
-			stat:Sync()
+-- Kinetic Jaunt
+Ext.Osiris.RegisterListener("GainedControl", 1, "after", function(character)
+	if	Osi.HasActiveStatus(character,"KINETIC_JAUNT") == 1 then
+		Osi.ApplyStatus(character,"KINETIC_JAUNT_AURA",6.0,0,character)
+	elseif	Osi.HasActiveStatus(character,"KINETIC_JAUNT_WALKTHROUGH") == 1 then
+		Osi.RemoveStatus(character,"KINETIC_JAUNT_WALKTHROUGH")
+	end
+end)
+
+local dragonsBreathStatuses = {
+  "DRAGONS_BREATH_FIRE",
+  "DRAGONS_BREATH_COLD",
+  "DRAGONS_BREATH_ACID",
+  "DRAGONS_BREATH_LIGHTNING",
+  "DRAGONS_BREATH_POISON",
+  "DRAGONS_BREATH_FIRE_3",
+  "DRAGONS_BREATH_COLD_3",
+  "DRAGONS_BREATH_ACID_3",
+  "DRAGONS_BREATH_LIGHTNING_3",
+  "DRAGONS_BREATH_POISON_3",
+  "DRAGONS_BREATH_FIRE_4",
+  "DRAGONS_BREATH_COLD_4",
+  "DRAGONS_BREATH_ACID_4",
+  "DRAGONS_BREATH_LIGHTNING_4",
+  "DRAGONS_BREATH_POISON_4",
+  "DRAGONS_BREATH_FIRE_5",
+  "DRAGONS_BREATH_COLD_5",
+  "DRAGONS_BREATH_ACID_5",
+  "DRAGONS_BREATH_LIGHTNING_5",
+  "DRAGONS_BREATH_POISON_5",
+  "DRAGONS_BREATH_FIRE_6",
+  "DRAGONS_BREATH_COLD_6",
+  "DRAGONS_BREATH_ACID_6",
+  "DRAGONS_BREATH_LIGHTNING_6",
+  "DRAGONS_BREATH_POISON_6",
+  "DRAGONS_BREATH_FIRE_7",
+  "DRAGONS_BREATH_COLD_7",
+  "DRAGONS_BREATH_ACID_7",
+  "DRAGONS_BREATH_LIGHTNING_7",
+  "DRAGONS_BREATH_POISON_7",
+  "DRAGONS_BREATH_FIRE_8",
+  "DRAGONS_BREATH_COLD_8",
+  "DRAGONS_BREATH_ACID_8",
+  "DRAGONS_BREATH_LIGHTNING_8",
+  "DRAGONS_BREATH_POISON_8",
+  "DRAGONS_BREATH_FIRE_9",
+  "DRAGONS_BREATH_COLD_9",
+  "DRAGONS_BREATH_ACID_9",
+  "DRAGONS_BREATH_LIGHTNING_9",
+  "DRAGONS_BREATH_POISON_9"
+}
+
+local dragonsBreathSpells = {
+  Zone_DragonsBreath_Fire = "Target_DragonsBreath_Fire",
+  Zone_DragonsBreath_Cold = "Target_DragonsBreath_Cold",
+  Zone_DragonsBreath_Lightning = "Target_DragonsBreath_Lightning",
+  Zone_DragonsBreath_Poison = "Target_DragonsBreath_Poison",
+  Zone_DragonsBreath_Acid = "Target_DragonsBreath_Acid",
+  Zone_DragonsBreath_Fire_3 = "Target_DragonsBreath_Fire_3",
+  Zone_DragonsBreath_Cold_3 = "Target_DragonsBreath_Cold_3",
+  Zone_DragonsBreath_Lightning_3 = "Target_DragonsBreath_Lightning_3",
+  Zone_DragonsBreath_Poison_3 = "Target_DragonsBreath_Poison_3",
+  Zone_DragonsBreath_Acid_3 = "Target_DragonsBreath_Acid_3",
+  Zone_DragonsBreath_Fire_4 = "Target_DragonsBreath_Fire_4",
+  Zone_DragonsBreath_Cold_4 = "Target_DragonsBreath_Cold_4",
+  Zone_DragonsBreath_Lightning_4 = "Target_DragonsBreath_Lightning_4",
+  Zone_DragonsBreath_Poison_4 = "Target_DragonsBreath_Poison_4",
+  Zone_DragonsBreath_Acid_4 = "Target_DragonsBreath_Acid_4",
+  Zone_DragonsBreath_Fire_5 = "Target_DragonsBreath_Fire_5",
+  Zone_DragonsBreath_Cold_5 = "Target_DragonsBreath_Cold_5",
+  Zone_DragonsBreath_Lightning_5 = "Target_DragonsBreath_Lightning_5",
+  Zone_DragonsBreath_Poison_5 = "Target_DragonsBreath_Poison_5",
+  Zone_DragonsBreath_Acid_5 = "Target_DragonsBreath_Acid_5",
+  Zone_DragonsBreath_Fire_6 = "Target_DragonsBreath_Fire_6",
+  Zone_DragonsBreath_Cold_6 = "Target_DragonsBreath_Cold_6",
+  Zone_DragonsBreath_Lightning_6 = "Target_DragonsBreath_Lightning_6",
+  Zone_DragonsBreath_Poison_6 = "Target_DragonsBreath_Poison_6",
+  Zone_DragonsBreath_Acid_6 = "Target_DragonsBreath_Acid_6",
+  Zone_DragonsBreath_Fire_7 = "Target_DragonsBreath_Fire_7",
+  Zone_DragonsBreath_Cold_7 = "Target_DragonsBreath_Cold_7",
+  Zone_DragonsBreath_Lightning_7 = "Target_DragonsBreath_Lightning_7",
+  Zone_DragonsBreath_Poison_7 = "Target_DragonsBreath_Poison_7",
+  Zone_DragonsBreath_Acid_7 = "Target_DragonsBreath_Acid_7",
+  Zone_DragonsBreath_Fire_8 = "Target_DragonsBreath_Fire_8",
+  Zone_DragonsBreath_Cold_8 = "Target_DragonsBreath_Cold_8",
+  Zone_DragonsBreath_Lightning_8 = "Target_DragonsBreath_Lightning_8",
+  Zone_DragonsBreath_Poison_8 = "Target_DragonsBreath_Poison_8",
+  Zone_DragonsBreath_Acid_8 = "Target_DragonsBreath_Acid_8",
+  Zone_DragonsBreath_Fire_9 = "Target_DragonsBreath_Fire_9",
+  Zone_DragonsBreath_Cold_9 = "Target_DragonsBreath_Cold_9",
+  Zone_DragonsBreath_Lightning_9 = "Target_DragonsBreath_Lightning_9",
+  Zone_DragonsBreath_Poison_9 = "Target_DragonsBreath_Poison_9",
+  Zone_DragonsBreath_Acid_9 = "Target_DragonsBreath_Acid_9"
+}
+
+-- Magic Stone & Dragon's Breath
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
+	if string.sub(character,-36) ~= causee and status == "MAGIC_STONE" then
+		Osi.SetVarObject(string.sub(character,-36),"StoreSource",causee)
+	elseif string.sub(character,-36) ~= causee and status ~= "MAGIC_STONE" then
+		for _, dbstatus in pairs(dragonsBreathStatuses) do
+			if status == dbstatus then
+        		Osi.SetVarObject(string.sub(character,-36),"StoreSource",causee)
+			end
+    	end
+	end
+
+	for _, dbstatus in pairs(dragonsBreathStatuses) do
+		if string.sub(character,-36) == causee and status == dbstatus then
+			_D("This works")
+			for _, dbstatus in pairs(Ext.Entity.Get(causee).ServerCharacter.StatusManager.Statuses) do
+				_D("This works")
+				if dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 4 then
+					Osi.ApplyStatus(character,"DRAGONS_BREATH_INTELLIGENCE",60.0,1,causee)
+				elseif dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 5 then
+					Osi.ApplyStatus(character,"DRAGONS_BREATH_WISDOM",60.0,1,causee)
+				elseif dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 6 then
+					Osi.ApplyStatus(character,"DRAGONS_BREATH_CHARISMA",60.0,1,causee)
+				end
+			end
+		elseif string.sub(character,-36) ~= causee and status == dbstatus then
+			for _, dbstatus in pairs(Ext.Entity.Get(character).ServerCharacter.StatusManager.Statuses) do
+				if dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 4 then
+					Osi.ApplyStatus(character,"DRAGONS_BREATH_INTELLIGENCE",60.0,1,causee)
+				elseif dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 5 then
+					Osi.ApplyStatus(character,"DRAGONS_BREATH_WISDOM",60.0,1,causee)
+				elseif dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 6 then
+					Osi.ApplyStatus(character,"DRAGONS_BREATH_CHARISMA",60.0,1,causee)
+				end
+			end
 		end
 	end
 end)
 
--- Status Debug Text
+Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (caster, spell, _, _)
+	local source = Osi.GetVarObject(caster,"StoreSource")
+	if spell == "Projectile_MagicStone" and caster ~= source then
+		for _, spell in pairs(Ext.Entity.Get(source).SpellBook.Spells) do
+			if spell.Id.Prototype == "Target_MagicStone" and spell.SpellCastingAbility == "Intelligence" then
+				local int = Osi.GetAbility(caster,"Intelligence") - Osi.GetAbility(source,"Intelligence")
+				local scastatus = "MAGIC_STONE_MODIFIER_" .. int
+				if Osi.HasActiveStatus(caster,scastatus) == 0 then
+					Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
+				end
+			elseif spell.Id.Prototype == "Target_MagicStone" and spell.SpellCastingAbility == "Wisdom" then
+				local wis = Osi.GetAbility(caster,"Wisdom") - Osi.GetAbility(source,"Wisdom")
+				local scastatus = "MAGIC_STONE_MODIFIER_" .. wis
+				if Osi.HasActiveStatus(caster,scastatus) == 0 then
+					Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
+				end
+			elseif spell.Id.Prototype == "Target_MagicStone" and spell.SpellCastingAbility == "Charisma" then
+				local cha = Osi.GetAbility(caster,"Charisma") - Osi.GetAbility(source,"Charisma")
+				local scastatus = "MAGIC_STONE_MODIFIER_" .. cha
+				if Osi.HasActiveStatus(caster,scastatus) == 0 then
+					Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
+				end
+			end
+		local pb = Ext.Entity.Get(source).Stats.ProficiencyBonus
+		local pbstatus = "MAGIC_STONE_PROFICIENCY_BONUS_" .. pb
+		Osi.ApplyStatus(caster,pbstatus,-1.0,1,source)
+		end
+	elseif (spell == "Zone_DragonsBreath_Fire" or spell == "Zone_DragonsBreath_Cold" or spell == "Zone_DragonsBreath_Lightning" or spell == "Zone_DragonsBreath_Poison" or spell == "Zone_DragonsBreath_Acid" or spell == "Zone_DragonsBreath_Fire_3" or spell == "Zone_DragonsBreath_Cold_3" or spell == "Zone_DragonsBreath_Lightning_3" or spell == "Zone_DragonsBreath_Poison_3" or spell == "Zone_DragonsBreath_Acid_3" or spell == "Zone_DragonsBreath_Fire_4" or spell == "Zone_DragonsBreath_Cold_4" or spell == "Zone_DragonsBreath_Lightning_4" or spell == "Zone_DragonsBreath_Poison_4" or spell == "Zone_DragonsBreath_Acid_4" or spell == "Zone_DragonsBreath_Fire_5" or spell == "Zone_DragonsBreath_Cold_5" or spell == "Zone_DragonsBreath_Lightning_5" or spell == "Zone_DragonsBreath_Poison_5" or spell == "Zone_DragonsBreath_Acid_5" or spell == "Zone_DragonsBreath_Fire_6" or spell == "Zone_DragonsBreath_Cold_6" or spell == "Zone_DragonsBreath_Lightning_6" or spell == "Zone_DragonsBreath_Poison_6" or spell == "Zone_DragonsBreath_Acid_6" or spell == "Zone_DragonsBreath_Fire_7" or spell == "Zone_DragonsBreath_Cold_7" or spell == "Zone_DragonsBreath_Lightning_7" or spell == "Zone_DragonsBreath_Poison_7" or spell == "Zone_DragonsBreath_Acid_7" or spell == "Zone_DragonsBreath_Fire_8" or spell == "Zone_DragonsBreath_Cold_8" or spell == "Zone_DragonsBreath_Lightning_8" or spell == "Zone_DragonsBreath_Poison_8" or spell == "Zone_DragonsBreath_Acid_8" or spell == "Zone_DragonsBreath_Fire_9" or spell == "Zone_DragonsBreath_Cold_9" or spell == "Zone_DragonsBreath_Lightning_9" or spell == "Zone_DragonsBreath_Poison_9" or spell == "Zone_DragonsBreath_Acid_9") and caster ~= source then
+		for _, spell in pairs(Ext.Entity.Get(source).SpellBook.Spells) do
+			for dbaction, dbspell in pairs(dragonsBreathSpells) do
+				if spell.Id.Prototype == dbspell and spell.SpellCastingAbility == "Intelligence" then
+					local int = Osi.GetAbility(caster,"Intelligence") - Osi.GetAbility(source,"Intelligence")
+					local scastatus = "DRAGONS_BREATH_MODIFIER_" .. int
+					if Osi.HasActiveStatus(caster,scastatus) == 0 and  Osi.HasActiveStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL") == 0 then
+							Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
+					end
+				elseif spell.Id.Prototype == dbspell and spell.SpellCastingAbility == "Wisdom" then
+					local wis = Osi.GetAbility(caster,"Wisdom") - Osi.GetAbility(source,"Wisdom")
+					local scastatus = "DRAGONS_BREATH_MODIFIER_" .. wis
+					if Osi.HasActiveStatus(caster,scastatus) == 0 and  Osi.HasActiveStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL") == 0 then
+							Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
+					end
+				elseif spell.Id.Prototype == dbspell and spell.SpellCastingAbility == "Charisma" then
+					local cha = Osi.GetAbility(caster,"Charisma") - Osi.GetAbility(source,"Charisma")
+					local scastatus = "DRAGONS_BREATH_MODIFIER_" .. cha
+					if Osi.HasActiveStatus(caster,scastatus) == 0 and  Osi.HasActiveStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL") == 0 then
+							Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
+					end
+				end
+			end
+		end
+		local pb = Ext.Entity.Get(source).Stats.ProficiencyBonus
+		local pbstatus = "DRAGONS_BREATH_PROFICIENCY_BONUS_" .. pb
+		Osi.ApplyStatus(caster,pbstatus,-1.0,1,source)			
+	elseif (spell ~= "Projectile_MagicStone" and spell ~= "Zone_DragonsBreath_Fire" and spell ~= "Zone_DragonsBreath_Cold" and spell ~= "Zone_DragonsBreath_Lightning" and spell ~= "Zone_DragonsBreath_Poison" and spell ~= "Zone_DragonsBreath_Acid" and spell ~= "Zone_DragonsBreath_Fire_3" and spell ~= "Zone_DragonsBreath_Cold_3" and spell ~= "Zone_DragonsBreath_Lightning_3" and spell ~= "Zone_DragonsBreath_Poison_3" and spell ~= "Zone_DragonsBreath_Acid_3" and spell ~= "Zone_DragonsBreath_Fire_4" and spell ~= "Zone_DragonsBreath_Cold_4" and spell ~= "Zone_DragonsBreath_Lightning_4" and spell ~= "Zone_DragonsBreath_Poison_4" and spell ~= "Zone_DragonsBreath_Acid_4" and spell ~= "Zone_DragonsBreath_Fire_5" and spell ~= "Zone_DragonsBreath_Cold_5" and spell ~= "Zone_DragonsBreath_Lightning_5" and spell ~= "Zone_DragonsBreath_Poison_5" and spell ~= "Zone_DragonsBreath_Acid_5" and spell ~= "Zone_DragonsBreath_Fire_6" and spell ~= "Zone_DragonsBreath_Cold_6" and spell ~= "Zone_DragonsBreath_Lightning_6" and spell ~= "Zone_DragonsBreath_Poison_6" and spell ~= "Zone_DragonsBreath_Acid_6" and spell ~= "Zone_DragonsBreath_Fire_7" and spell ~= "Zone_DragonsBreath_Cold_7" and spell ~= "Zone_DragonsBreath_Lightning_7" and spell ~= "Zone_DragonsBreath_Poison_7" and spell ~= "Zone_DragonsBreath_Acid_7" and spell ~= "Zone_DragonsBreath_Fire_8" and spell ~= "Zone_DragonsBreath_Cold_8" and spell ~= "Zone_DragonsBreath_Lightning_8" and spell ~= "Zone_DragonsBreath_Poison_8" and spell ~= "Zone_DragonsBreath_Acid_8" and spell ~= "Zone_DragonsBreath_Fire_9" and spell ~= "Zone_DragonsBreath_Cold_9" and spell ~= "Zone_DragonsBreath_Lightning_9" and spell ~= "Zone_DragonsBreath_Poison_9" and spell ~= "Zone_DragonsBreath_Acid_9") and caster ~= source then
+		for dbaction, dbspell in pairs(dragonsBreathSpells) do
+			if Osi.HasSpell(caster,"Projectile_MagicStone") == 1 or Osi.HasSpell(caster,dbaction) == 1 then
+				Osi.ApplyStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL",0.0,1,source)
+				Osi.ApplyStatus(caster,"DRAGONS_BREATH_PROFICIENCY_BONUS_REMOVAL",0.0,1,source)
+				Osi.ApplyStatus(caster,"MAGIC_STONE_PROFICIENCY_BONUS_REMOVAL",0.0,1)
+				Osi.ApplyStatus(caster,"MAGIC_STONE_MODIFIER_REMOVAL",0.0,1)
+			end
+		end
+	end
+end)
+
+Ext.Osiris.RegisterListener("CastedSpell", 5, "after", function (caster, spell, _, _, _)
+	if spell == "Projectile_MagicStone" then
+		Osi.ApplyStatus(caster,"MAGIC_STONE_MODIFIER_REMOVAL",0.0,1)
+		Osi.ApplyStatus(caster,"MAGIC_STONE_PROFICIENCY_BONUS_REMOVAL",0.0,1)
+	elseif spell ~= "Projectile_MagicStone" then
+		for dbaction, _ in pairs(dragonsBreathSpells) do
+			for _, dbstatus in pairs(dragonsBreathStatuses) do
+				if spell == dbaction and Osi.HasActiveStatus(caster,dbstatus) == 1 then
+					Osi.ApplyStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL",0.0,1)
+					Osi.ApplyStatus(caster,"DRAGONS_BREATH_PROFICIENCY_BONUS_REMOVAL",0.0,1)
+				end
+			end
+		end
+	end
+end)
+
+local invisStatuses = {
+  INVISIBLE = "INVISIBLE_SEEN",
+  INVISIBLE_MAGEHAND = "INVISIBLE_MAGEHAND_SEEN",
+  INVISIBILITY = "INVISIBILITY_SEEN",
+  ONE_WITH_SHADOWS = "ONE_WITH_SHADOWS_SEEN",
+  POTION_OF_INVISIBILITY = "POTION_OF_INVISIBILITY_SEEN",
+  CLOAK_OF_SHADOWS = "CLOAK_OF_SHADOWS_SEEN",
+  CLOAK_OF_SHADOWS_MONK = "CLOAK_OF_SHADOWS_MONK_SEEN",
+  UMBRAL_CLOAK = "UMBRAL_CLOAK_SEEN",
+  GREATER_INVISIBILITY = "GREATER_INVISIBILITY_SEEN",
+  SHADOWBLEND = "SHADOWBLEND_SEEN",
+  INVISIBILITY_SHADARKAI_GLOOMWEAVER = "INVISIBILITY_SHADARKAI_GLOOMWEAVER_SEEN",
+  HIDE_IN_PLAIN_SIGHT = "HIDE_IN_PLAIN_SIGHT_SEEN",
+  MISTY_ESCAPE_INVISIBLE = "MISTY_ESCAPE_INVISIBLE_SEEN",
+  INVISIBILITY_PANTHER = "INVISIBILITY_PANTHER_SEEN",
+  SHROUD_SELF = "SHROUD_SELF_SEEN",
+  SUPREME_SNEAK = "SUPREME_SNEAK_SEEN",
+  LOW_POLTERGEIST_INVISIBLE = "LOW_POLTERGEIST_INVISIBLE_SEEN"
+}
+
+-- Mind Spike Invisibility Source
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
+	if Osi.HasActiveStatusWithGroup(character, "SG_Invisible") == 1 then
+		Osi.SetVarObject(character,"MindSpikeSource",causee)
+    end
+end)
+
+-- Mind Spike Setup
+Ext.Osiris.RegisterListener("GainedControl", 1, "before", function (character)
+	if Osi.HasActiveStatus(character,"MIND_SPIKE_OWNER") == 1 then
+		Osi.ApplyStatus(character,"MIND_SPIKE_AURA",6.0,1)
+	elseif Osi.HasActiveStatus(character,"MIND_SPIKE_OWNER") == 0 then
+		Osi.RemoveStatus(character,"MIND_SPIKE_REMOVAL")
+		Osi.RemoveStatus(character,"MIND_SPIKE_TECHNICAL")
+    end
+end)
+
+-- Mind Spike Application
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, _, _)
-	Osi.ShowNotification(character,status)
+	local source = Osi.GetVarObject(character,"MindSpikeSource")
+	if status == "MIND_SPIKE_REMOVAL" then
+		for invis, seeninvis in pairs(invisStatuses) do
+			if Osi.HasActiveStatus(character,invis) == 1 then
+				local turns = Osi.GetStatusTurns(character,invis)
+				Osi.ApplyStatus(character,seeninvis,turns*6,1,source)
+			end
+		end
+    end
+end)
+
+-- Mind Spike Removal
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function (character, status, _, _)
+	local source = Osi.GetVarObject(character,"MindSpikeSource")
+	if status == "MIND_SPIKE_REMOVAL" then
+		for invis, seeninvis in pairs(invisStatuses) do
+			if Osi.HasActiveStatus(character,seeninvis) == 1 then
+				local turns = Osi.GetStatusTurns(character,seeninvis)
+				Osi.ApplyStatus(character,invis,turns*6,1,source)
+			end
+		end
+    end
+end)
+
+--[[ Dispel Magic
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(character, status, causee, _)
+	if status == "DISPEL_MAGIC" then
+		local spell = Ext.Entity.Get(character).ServerCharacter:GetStatus(statuses).SourceSpell.Prototype)
+
+	end
+end)--]]
+
+--[[ Status Debug Text
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, _, _)
+	_D("Status Applied: " .. status)
+end)--
+
+-- Status Removal Debug Text
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function (character, status, _, _)
+	_D("Status Removed: " .. status)
 end)--]]

@@ -1,1477 +1,140 @@
-local function S5E_StatsLoaded()
-    S5E_RitualCasterPassive()
+local function SE5_AddChaosBoltPassives(char)
+	char.Passives = "ChaosBolt;ChaosBolt_2;ChaosBolt_3;ChaosBolt_4;ChaosBolt_5;ChaosBolt_6;ChaosBolt_7;ChaosBolt_8;ChaosBolt_9;ChaosBolt_Explosion" .. ";" .. char.Passives
 end
 
-Ext.Events.StatsLoaded:Subscribe(S5E_StatsLoaded)
-
-local S5E_RitualPassive
-
-local function SE5_AddRitualCasterPassives(char)
-        char.Passives = "S5E_RitualCasting" .. ";" .. char.Passives
-end
-
-function S5E_RitualCasterPassive()
+function S5E_ChaosBoltPassives()
 
    for _, name in pairs(Ext.Stats.GetStats("Character")) do
-        local char = Ext.Stats.Get(name)
-			SE5_AddRitualCasterPassives(char)
+        local char = Ext.Stats.Get(name)		
+		if char ~= nil and string.find(char.Passives, "WeaponThrow") and string.find(char.Passives, "CombatStartAttack") then
+			SE5_AddChaosBoltPassives(char)
+		end
+	end
+end
+
+function S5E_RogueSCAGtripSneakAttack()
+
+	local passive = Ext.Stats.Get("SneakAttack_Unlock")		
+	passive.Boosts = passive.Boosts .. ";UnlockSpell(Target_BoomingBlade_SneakAttack);UnlockSpell(Target_GreenFlameBlade_SneakAttack)"
+end
+
+--[[function S5E_Levitate()
+
+   for _, name in pairs(Ext.Stats.GetStats("SpellData")) do
+        local spell = Ext.Stats.Get(name)
+		if spell.SpellType == "Target" and (spell.TargetRadius == "MeleeMainWeaponRange" or spell.TargetRadius == "1.5") then
+			spell.TargetConditions = spell.TargetConditions .. " and not HasStatus('LEVITATE_PSION')"
+		end
+	end
+end--]]
+
+local rawHealingWordMass = {
+  "Shout_HealingWord_Mass",
+  "Shout_HealingWord_Mass_4",
+  "Shout_HealingWord_Mass_5",
+  "Shout_HealingWord_Mass_6",
+  "Shout_HealingWord_Mass_7",
+  "Shout_HealingWord_Mass_8",
+  "Shout_HealingWord_Mass_9"
+}
+
+local rawAid = {
+  "Shout_Aid",
+  "Shout_Aid_3",
+  "Shout_Aid_4",
+  "Shout_Aid_5",
+  "Shout_Aid_6",
+  "Shout_Aid_7",
+  "Shout_Aid_8",
+  "Shout_Aid_9"
+}
+
+local rawPrayerOfHealing = {
+  "Shout_PrayerOfHealing",
+  "Shout_PrayerOfHealing_3",
+  "Shout_PrayerOfHealing_4",
+  "Shout_PrayerOfHealing_5",
+  "Shout_PrayerOfHealing_6",
+  "Shout_PrayerOfHealing_7",
+  "Shout_PrayerOfHealing_8",
+  "Shout_PrayerOfHealing_9"
+}
+
+function S5E_Changes()
+	local sneakAttack = Ext.Stats.Get("Interrupt_SneakAttack")
+	local sneakAttackCritical = Ext.Stats.Get("Interrupt_SneakAttack_Critical")
+	sneakAttack.Conditions = sneakAttack.Conditions .. " and not SpellId('Target_BoomingBlade_SneakAttack') and not SpellId('Target_GreenFlameBlade_SneakAttack')"
+	sneakAttackCritical.Conditions = sneakAttackCritical.Conditions .. " and not SpellId('Target_BoomingBlade_SneakAttack') and not SpellId('Target_GreenFlameBlade_SneakAttack')"
+
+	local aoo = Ext.Stats.Get("Interrupt_AttackOfOpportunity")
+	local pam = Ext.Stats.Get("Interrupt_PolearmMaster")
+	local warc = Ext.Stats.Get("Interrupt_WarCaster")
+	aoo.Conditions = aoo.Conditions .. " and (not S5E_IsInvisibleSeen() or S5E_CanSeeInvisible())"
+	pam.Conditions = pam.Conditions .. " and (not S5E_IsInvisibleSeen() or S5E_CanSeeInvisible())"
+	warc.Conditions = warc.Conditions .. " and (not S5E_IsInvisibleSeen() or S5E_CanSeeInvisible())"
+
+	local potentSpellcasting = Ext.Stats.Get("PotentSpellcasting")
+	potentSpellcasting.Boosts = potentSpellcasting.Boosts .. ";IF(SpellId('Target_TollTheDead')):DamageBonus(max(0, WisdomModifier))"
+
+	for _, name in pairs(Ext.Stats.GetStats("StatusData")) do
+		local invisstatus = Ext.Stats.Get(name)
+		if invisstatus.StatusType == "INVISIBLE" and string.find(invisstatus.Boosts, "Advantage") and invisstatus.Boosts ~= "IF((not HasStatus('MIND_SPIKE_OWNER', context.Target) and not HasStatus('MIND_SPIKE',context.Source,context.Target))):Advantage(AttackRoll);" then
+			invisstatus.Boosts = string.gsub(invisstatus.Boosts, "Advantage", "IF((not HasStatus('MIND_SPIKE_OWNER', context.Target) and not HasStatus('MIND_SPIKE',context.Source,context.Target))):Advantage")
 		end
 	end
 
---[[local function S5E_SessionLoaded()
-	S5E_SpellLists()
+	if Ext.Mod.IsModLoaded("f19c68ed-70be-4c3d-b610-e94afc5c5103") then
+	   for _, name in pairs(rawHealingWordMass) do
+			local spell = Ext.Stats.Get(name)
+			local flags = spell.SpellFlags
+			table.insert(flags, "IgnorePreviouslyPickedEntities")
+			spell.SpellFlags = flags
+			spell.SpellType = "Target"
+			spell.TargetRadius = "18"
+			spell.AreaRadius = 0
+			spell.AmountOfTargets = "6"
+		end
+
+	   for _, name in pairs(rawAid) do
+			local spell = Ext.Stats.Get(name)
+			local flags = spell.SpellFlags
+			table.insert(flags, "IgnorePreviouslyPickedEntities")
+			spell.SpellFlags = flags
+			spell.SpellType = "Target"
+			spell.TargetRadius = "9"
+			spell.AreaRadius = 0
+			spell.AmountOfTargets = "3"
+		end
+
+	   for _, name in pairs(rawPrayerOfHealing) do
+			local spell = Ext.Stats.Get(name)
+			local flags = spell.SpellFlags
+			table.insert(flags, "IgnorePreviouslyPickedEntities")
+			spell.SpellFlags = flags
+			spell.SpellType = "Target"
+			spell.TargetRadius = "9"
+			spell.AreaRadius = 0
+			spell.AmountOfTargets = "6"
+		end
+
+		local spell = Ext.Stats.Get("Shout_AuraOfVitality")
+		local flags = spell.SpellFlags
+		table.insert(flags, "IsConcentration")
+		spell.SpellFlags = flags
+
+		local spell = Ext.Stats.Get("Target_MageHand")
+		spell.RequirementConditions = ""
+
+		local spell = Ext.Stats.Get("Zone_Sunbeam_Recreate")
+		local flags = spell.SpellFlags
+		flags = {
+			"IsHarmful",
+			"Wildshape",
+			"Temporary"
+		}
+		spell.SpellFlags = flags
+	end
 end
-
-Ext.Events.SessionLoaded:Subscribe(S5E_SessionLoaded)
-
-local S5E_BardSpells
-local S5E_BardMagicalSecretsSpells
-local S5E_BardMagicalSecrets10thSpells
-local S5E_ClericSpells
-local S5E_DruidSpells
-local S5E_PaladinSpells
-local S5E_RangerSpells
-local S5E_SorcererSpells
-local S5E_WarlockSpells
-local S5E_WizardSpells
-
-function S5E_SpellLists()
-    S5E_ApplyStaticData(S5E_BardSpells)
-    S5E_ApplyStaticData(S5E_BardMagicalSecretsSpells)
-    S5E_ApplyStaticData(S5E_BardMagicalSecrets10thSpells)
-    S5E_ApplyStaticData(S5E_ClericSpells)
-    S5E_ApplyStaticData(S5E_DruidSpells)
-    S5E_ApplyStaticData(S5E_PaladinSpells)
-    S5E_ApplyStaticData(S5E_RangerSpells)
-    S5E_ApplyStaticData(S5E_SorcererSpells)
-    S5E_ApplyStaticData(S5E_WarlockSpells)
-    S5E_ApplyStaticData(S5E_WizardSpells)
-end
-
-S5E_BardSpells = {
-    ["SpellList"] = {
-	-- Bard Cantrips
-        ["61f79a30-2cac-4a7a-b5fe-50c89d307dd6"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_Prestidigitation",
-                    "Shout_Thunderclap",
-                },
-            },
-        },
-	-- Bard 1st Level Spells
-        ["dcb45167-86bd-4297-9b9d-c295be51af5b"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Zone_ColorSpray",
-                    "Target_Command_Container",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Bard 2nd Level Spells
-        ["7ea8f476-97a1-4256-8f10-afa76a845cce"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_Aid",
-                    "Shout_BorrowedKnowledge",
-                    "Target_EnlargeReduce",
-                    "Shout_KineticJaunt",
-                    "Target_Knock",
-                    "Shout_MirrorImage",
-                    "Target_NathairsMischief",
-                    "Shout_WardingWind",
-                    "Zone_ColorSpray",
-                    "Target_Command_Container",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Bard 3rd Level Spells
-        ["c213ca01-3767-457b-a5c8-fd4c1dd656e2"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_Catnap",
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_HealingWord_Mass",
-                    "Target_MotivationalSpeech",
-                    "Target_Nondetection",
-                    "Target_Slow",
-                    "Shout_Aid",
-                    "Shout_BorrowedKnowledge",
-                    "Target_EnlargeReduce",
-                    "Shout_KineticJaunt",
-                    "Target_Knock",
-                    "Shout_MirrorImage",
-                    "Target_NathairsMischief",
-                    "Shout_WardingWind",
-                    "Zone_ColorSpray",
-                    "Target_Command_Container",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Bard 4th Level Spells
-        ["75e04c40-be8f-40a5-9acc-0b5d59d5f3a6"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CharmMonster",
-                    "Target_PhantasmalKiller",
-                    "Projectile_RaulothimsPsychicLance",
-                    "Target_Catnap",
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_HealingWord_Mass",
-                    "Target_MotivationalSpeech",
-                    "Target_Nondetection",
-                    "Target_Slow",
-                    "Shout_Aid",
-                    "Shout_BorrowedKnowledge",
-                    "Target_EnlargeReduce",
-                    "Shout_KineticJaunt",
-                    "Target_Knock",
-                    "Shout_MirrorImage",
-                    "Target_NathairsMischief",
-                    "Shout_WardingWind",
-                    "Zone_ColorSpray",
-                    "Target_Command_Container",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Bard 5th Level Spells
-        ["bd71fffb-e4d2-4233-9a31-13d43fba36e3"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_SkillEmpowerment",
-                    "Target_SynapticStatic",
-                    "Target_CharmMonster",
-                    "Target_PhantasmalKiller",
-                    "Projectile_RaulothimsPsychicLance",
-                    "Target_Catnap",
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_HealingWord_Mass",
-                    "Target_MotivationalSpeech",
-                    "Target_Nondetection",
-                    "Target_Slow",
-                    "Shout_Aid",
-                    "Shout_BorrowedKnowledge",
-                    "Target_EnlargeReduce",
-                    "Shout_KineticJaunt",
-                    "Target_Knock",
-                    "Shout_MirrorImage",
-                    "Target_NathairsMischief",
-                    "Shout_WardingWind",
-                    "Zone_ColorSpray",
-                    "Target_Command_Container",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-    },
-}
-
-S5E_BardMagicalSecretsSpells = {
-    ["SpellList"] = {
-	-- Magical Secrets 3rd Level Spells
-        ["175ceed7-5a53-4f48-823c-41c4f72d18ae"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_AshardalonsStride",
-                    "Shout_BeaconOfHope",
-                    "Target_Smite_Blinding",
-                    "Shout_Blink",
-                    "Zone_ConjureBarrage",
-                    "Target_CreateFoodAndWater",
-                    "Shout_CrusadersMantle",
-                    "Target_ElementalWeapon",
-                    "Target_EruptingEarth",
-                    "Target_FlameArrows",
-                    "Target_HungerOfHadar",
-                    "Projectile_LightningArrow",
-                    "Projectile_MinuteMeteors",
-                    "Target_ProtectionFromEnergy",
-                    "Teleportation_Revivify",
-                    "Target_SleetStorm",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Target_VampiricTouch",
-                    "Shout_WaterWalk",
-                    "Zone_AganazzarsScorcher",
-                    "Target_Barkskin",
-                    "Target_Smite_Branding_Container",
-                    "Target_ContinualFlame",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Shout_FlameBlade",
-                    "Target_FlamingSphere",
-                    "Target_FlockOfFamiliars",
-                    "Zone_GustOfWind",
-                    "Target_HealingSpirit",
-                    "Target_MagicWeapon",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_Moonbeam",
-                    "Shout_PrayerOfHealing",
-                    "Target_ProtectionFromPoison",
-                    "Projectile_RayOfEnfeeblement",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Target_WardingBond",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Shout_ArmsOfHadar",
-                    "Zone_BurningHands",
-                    "Throw_Catapult",
-                    "Target_CauseFear",
-                    "Target_Ceremony",
-                    "Target_ChaosBolt",
-                    "Target_CreateDestroyWater",
-                    "Shout_DetectEvilAndGood",
-                    "Projectile_EnsnaringStrike_Container",
-                    "Target_Entangle",
-                    "Shout_ExpeditiousRetreat",
-                    "Target_FindFamiliar",
-                    "Target_FogCloud",
-                    "Zone_FrostFingers",
-                    "Target_Goodberry",
-                    "Target_Grease",
-                    "Projectile_HailOfThorns",
-                    "Target_HuntersMark",
-                    "Target_InflictWounds",
-                    "Target_Jump",
-                    "Target_MageArmor",
-                    "Target_ProtectionFromEvilAndGood",
-                    "Projectile_RayOfSickness",
-                    "Target_Sanctuary",
-                    "Target_Smite_Searing",
-                    "Shout_Shield_Sorcerer",
-                    "Target_ShieldOfFaith",
-                    "Target_Sanctuary",
-                    "Target_Smite_Thunderous",
-                    "Target_Snare",
-                    "Shout_SpeakWithAnimals",
-                    "Zone_TashasCausticBrew",
-                    "Projectile_WitchBolt",
-                    "Target_Smite_Wrathful",
-                    "Shout_ZephyrStrike",
-                    "Projectile_AcidSplash",
-                    "Target_BoomingBlade",
-                    "Target_ChillTouch",
-                    "Target_ControlFlames",
-                    "Target_CreateBonfire",
-                    "Shout_Druidcraft",
-                    "Target_Frostbite",
-                    "Target_GreenFlameBlade",
-                    "Target_Guidance",
-                    "Target_Gust",
-                    "Target_LightningLure",
-                    "Target_MagicStone",
-                    "Target_MindSliver",
-                    "Target_MoldEarth",
-                    "Projectile_PoisonSpray",
-                    "Target_Prestidigitation",
-                    "Shout_ProduceFlame",
-                    "Target_Resistance",
-                    "Target_ShapeWater",
-                    "Shout_Shillelagh",
-                    "Target_ShockingGrasp",
-                    "Target_SpareTheDying",
-                    "Shout_SwordBurst",
-                    "Shout_Thaumaturgy",
-                    "Target_ThornWhip",
-                    "Shout_Thunderclap",
-                    "Target_TollTheDead",
-                    "Shout_WordOfRadiance",
-                },
-            },
-        },
-    },
-}
-
-S5E_BardMagicalSecrets10thSpells = {
-    ["SpellList"] = {
-	-- Magical Secrets 5th Level Spells
-        ["858d4322-9e9f-4aa4-aada-9c68835dc6fe"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Projectile_Smite_Banishing_Container",
-                    "Target_Cloudkill",
-                    "ProjectileStrike_ConjureVolley",
-                    "Target_FarStep",
-                    "Target_FlameStrike",
-                    "Target_HolyWeapon",
-                    "Target_InsectPlague",
-                    "Projectile_NegativeEnergyFlood",
-                    "Target_SteelWindStrike",
-                    "Shout_SwiftQuiver",
-                    "Throw_Telekinesis",
-                    "Target_ConjureWoodlandBeings",
-                    "Target_BlackTentacles",
-                    "Target_GraspingVine",
-                    "Shout_GuardianOfNature",
-                    "Target_ResilientSphere",
-                    "Shout_ShadowOfMoil",
-                    "Target_Stoneskin",
-                    "Target_SummonElemental",
-                    "Shout_AshardalonsStride",
-                    "Shout_BeaconOfHope",
-                    "Target_Smite_Blinding",
-                    "Shout_Blink",
-                    "Zone_ConjureBarrage",
-                    "Target_CreateFoodAndWater",
-                    "Shout_CrusadersMantle",
-                    "Target_ElementalWeapon",
-                    "Target_EruptingEarth",
-                    "Target_FlameArrows",
-                    "Target_HungerOfHadar",
-                    "Projectile_LightningArrow",
-                    "Projectile_MinuteMeteors",
-                    "Target_ProtectionFromEnergy",
-                    "Teleportation_Revivify",
-                    "Target_SleetStorm",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Target_VampiricTouch",
-                    "Shout_WaterWalk",
-                    "Zone_AganazzarsScorcher",
-                    "Target_Barkskin",
-                    "Target_Smite_Branding_Container",
-                    "Target_ContinualFlame",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Shout_FlameBlade",
-                    "Target_FlamingSphere",
-                    "Target_FlockOfFamiliars",
-                    "Zone_GustOfWind",
-                    "Target_HealingSpirit",
-                    "Target_MagicWeapon",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_Moonbeam",
-                    "Shout_PrayerOfHealing",
-                    "Target_ProtectionFromPoison",
-                    "Projectile_RayOfEnfeeblement",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Target_WardingBond",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Shout_ArmsOfHadar",
-                    "Zone_BurningHands",
-                    "Throw_Catapult",
-                    "Target_CauseFear",
-                    "Target_Ceremony",
-                    "Target_ChaosBolt",
-                    "Target_CreateDestroyWater",
-                    "Shout_DetectEvilAndGood",
-                    "Projectile_EnsnaringStrike_Container",
-                    "Target_Entangle",
-                    "Shout_ExpeditiousRetreat",
-                    "Target_FindFamiliar",
-                    "Target_FogCloud",
-                    "Zone_FrostFingers",
-                    "Target_Goodberry",
-                    "Target_Grease",
-                    "Projectile_HailOfThorns",
-                    "Target_HuntersMark",
-                    "Target_InflictWounds",
-                    "Target_Jump",
-                    "Target_MageArmor",
-                    "Target_ProtectionFromEvilAndGood",
-                    "Projectile_RayOfSickness",
-                    "Target_Sanctuary",
-                    "Target_Smite_Searing",
-                    "Shout_Shield_Sorcerer",
-                    "Target_ShieldOfFaith",
-                    "Target_Sanctuary",
-                    "Shout_Shield_Sorcerer",
-                    "Target_Smite_Thunderous",
-                    "Target_Snare",
-                    "Shout_SpeakWithAnimals",
-                    "Zone_TashasCausticBrew",
-                    "Projectile_WitchBolt",
-                    "Target_Smite_Wrathful",
-                    "Shout_ZephyrStrike",
-                    "Projectile_AcidSplash",
-                    "Target_BoomingBlade",
-                    "Target_ChillTouch",
-                    "Target_ControlFlames",
-                    "Target_CreateBonfire",
-                    "Shout_Druidcraft",
-                    "Target_Frostbite",
-                    "Target_GreenFlameBlade",
-                    "Target_Guidance",
-                    "Target_Gust",
-                    "Target_LightningLure",
-                    "Target_MagicStone",
-                    "Target_MindSliver",
-                    "Target_MoldEarth",
-                    "Projectile_PoisonSpray",
-                    "Target_Prestidigitation",
-                    "Shout_ProduceFlame",
-                    "Target_Resistance",
-                    "Target_ShapeWater",
-                    "Shout_Shillelagh",
-                    "Target_ShockingGrasp",
-                    "Target_SpareTheDying",
-                    "Shout_SwordBurst",
-                    "Shout_Thaumaturgy",
-                    "Target_ThornWhip",
-                    "Shout_Thunderclap",
-                    "Target_TollTheDead",
-                    "Shout_WordOfRadiance",
-                },
-            },
-        },
-    },
-}
-
-S5E_ClericSpells = {
-    ["SpellList"] = {
-	-- Cleric Cantrips
-        ["2f43a103-5bf1-4534-b14f-663decc0c525"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_SpareTheDying",
-                    "Target_TollTheDead",
-                    "Shout_WordOfRadiance",
-                },
-            },
-        },
-	-- Cleric 1st Level Spells
-        ["269d1a3b-eed8-4131-8901-a562238f5289"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_Ceremony",
-                    "Shout_DetectEvilAndGood",
-                    "Shout_DetectMagic",
-                },
-            },
-        },
-	-- Cleric 2nd Level Spells
-        ["2968a3e6-6c8a-4c2e-882a-ad295a2ad8ac"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_BorrowedKnowledge",
-                    "Target_ContinualFlame",
-                },
-            },
-        },
-	-- Cleric 3rd Level Spells
-        ["21be0992-499f-4c7a-a77a-4430085e947a"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CreateFoodAndWater",
-                    "Target_LifeTransference",
-                    "Target_MotivationalSpeech",
-                    "Shout_SpiritShroud",
-                    "Shout_WaterWalk",
-                },
-            },
-        },
-	-- Cleric 5th Level Spells
-        ["b73aeea5-1ff9-4cac-b61d-b5aa6dfe31c2"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_HolyWeapon",
-                },
-            },
-        },
-    },
-}
-
-S5E_DruidSpells = {
-    ["SpellList"] = {
-	-- Druid Cantrips
-        ["b8faf12f-ca42-45c0-84f8-6951b526182a"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_ControlFlames",
-                    "Target_CreateBonfire",
-                    "Shout_Druidcraft",
-                    "Target_Frostbite",
-                    "Target_Gust",
-                    "Target_MagicStone",
-                    "Target_MoldEarth",
-                    "Target_PrimalSavagery",
-                    "Target_ShapeWater",
-                    "Shout_Thunderclap",
-                },
-            },
-        },
-	-- Druid 1st Level Spells
-        ["2cd54137-2fe5-4100-aad3-df64735a8145"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_AbsorbElements",
-                    "Target_BeastBond",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_Snare",
-                },
-            },
-        },
-	-- Druid 2nd Level Spells
-        ["92126d17-7f1a-41d2-ae6c-a8d254d2b135"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_ContinualFlame",
-                    "Target_DustDevil",
-                    "Target_EnlargeReduce",
-                    "Target_HealingSpirit",
-                    "Target_SummonBeast",
-                    "Target_WitherAndBloom",
-                    "Shout_WardingWind",
-                },
-            },
-        },
-	-- Druid 3rd Level Spells
-        ["3156daf5-9266-41d0-b52c-5bc559a98654"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_ElementalWeapon",
-                    "Target_EruptingEarth",
-                    "Target_FlameArrows",
-                    "Teleportation_Revivify",
-                    "Shout_WaterWalk",
-                },
-            },
-        },
-	-- Druid 4th Level Spells
-        ["09c326c9-672c-4198-a4c0-6f07323bde27"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CharmMonster",
-                    "Shout_GuardianOfNature",
-                    "Target_SummonElemental",
-                },
-            },
-        },
-	-- Druid 5th Level Spells
-        ["ff711c12-b59f-4fde-b9ea-6e5c38ec8f23"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_CommuneWithNature",
-                    "Zone_ConeOfCold",
-                },
-            },
-        },
-    },
-}
-
-S5E_PaladinSpells = {
-    ["SpellList"] = {
-	-- Paladin 1st Level Spells
-        ["c6288ac5-c68b-40ed-bbdd-2ff388575831"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_Ceremony",
-                    "Shout_DetectEvilAndGood",
-                    "Shout_DetectMagic",
-                },
-            },
-        },
-	-- Paladin 2nd Level Spells
-        ["c14c9564-1503-47a1-be19-98e77f22ff59"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_PrayerOfHealing",
-                    "Target_WardingBond",
-                },
-            },
-        },
-	-- Paladin 3rd Level Spells
-        ["d18dec04-478f-41c3-b816-239d5cfcf2a2"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CreateFoodAndWater",
-                    "Shout_SpiritShroud",
-                },
-            },
-        },
-    },
-}
-
-S5E_RangerSpells = {
-    ["SpellList"] = {
-	-- Ranger 1st Level Spells
-        ["458be063-60d4-4548-ae7d-50117fa0226f"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_AbsorbElements",
-                    "Target_BeastBond",
-                    "Shout_DetectMagic",
-                    "Target_Snare",
-                    "Shout_ZephyrStrike",
-                },
-            },
-        },
-	-- Ranger 2nd Level Spells
-        ["e7cfb80a-f5c2-4304-8446-9b00ea6a9814"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_Aid",
-                    "Target_EnhanceAbility",
-                    "Zone_GustOfWind",
-                    "Target_HealingSpirit",
-                    "Target_MagicWeapon",
-                    "Target_SummonBeast",
-                    "Shout_AbsorbElements",
-                    "Target_BeastBond",
-                    "Shout_DetectMagic",
-                    "Target_Snare",
-                    "Shout_ZephyrStrike",
-                },
-            },
-        },
-	-- Ranger 3rd Level Spells
-        ["9a60f649-7f82-4152-90b1-0499c5c9f3e2"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_AshardalonsStride",
-                    "Target_ElementalWeapon",
-                    "Target_FlameArrows",
-                    "Target_Nondetection",
-                    "Teleportation_Revivify",
-                    "Shout_WaterWalk",
-                    "Shout_Aid",
-                    "Target_EnhanceAbility",
-                    "Zone_GustOfWind",
-                    "Target_HealingSpirit",
-                    "Target_MagicWeapon",
-                    "Target_SummonBeast",
-                    "Shout_AbsorbElements",
-                    "Target_BeastBond",
-                    "Shout_DetectMagic",
-                    "Target_Snare",
-                    "Shout_ZephyrStrike",
-                },
-            },
-        },
-    },
-}
-
-S5E_SorcererSpells = {
-    ["SpellList"] = {
-	-- Sorcerer Cantrips
-        ["485a68b4-c678-4888-be63-4a702efbe391"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_BoomingBlade",
-                    "Target_ControlFlames",
-                    "Target_CreateBonfire",
-                    "Target_Frostbite",
-                    "Target_GreenFlameBlade",
-                    "Target_Gust",
-                    "Target_MindSliver",
-                    "Target_MoldEarth",
-                    "Target_Prestidigitation",
-                    "Target_ShapeWater",
-                    "Shout_SwordBurst",
-                    "Shout_Thunderclap",
-                },
-            },
-        },
-	-- Sorcerer 1st Level Spells
-        ["92c4751f-6255-4f67-822c-a75d53830b27"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_ChaosBolt",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_Grease",
-                    "Zone_TashasCausticBrew",
-                },
-            },
-        },
-	-- Sorcerer 2nd Level Spells
-        ["f80396e2-cb76-4694-b0db-5c34da61a478"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Zone_AganazzarsScorcher",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Shout_FlameBlade",
-                    "Target_FlamingSphere",
-                    "Shout_KineticJaunt",
-                    "Target_MagicWeapon",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_NathairsMischief",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Shout_WardingWind",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_ChaosBolt",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_Grease",
-                    "Zone_TashasCausticBrew",
-                },
-            },
-        },
-	-- Sorcerer 3rd Level Spells
-        ["dcbaf2ae-1f45-453e-ab83-cd154f8277a4"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_AshardalonsStride",
-                    "Target_Catnap",
-                    "Target_EnemiesAbound",
-                    "Target_EruptingEarth",
-                    "Target_FlameArrows",
-                    "Target_IntellectFortress",
-                    "Projectile_MinuteMeteors",
-                    "Teleportation_ThunderStep",
-                    "Target_VampiricTouch",
-                    "Shout_WaterWalk",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Shout_FlameBlade",
-                    "Target_FlamingSphere",
-                    "Shout_KineticJaunt",
-                    "Target_MagicWeapon",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_NathairsMischief",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Shout_WardingWind",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_ChaosBolt",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_Grease",
-                    "Zone_TashasCausticBrew",
-                },
-            },
-        },
-	-- Sorcerer 4th Level Spells
-        ["5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CharmMonster",
-                    "Shout_FireShield",
-                    "Projectile_RaulothimsPsychicLance",
-                    "Shout_AshardalonsStride",
-                    "Target_Catnap",
-                    "Target_EnemiesAbound",
-                    "Target_EruptingEarth",
-                    "Target_FlameArrows",
-                    "Target_IntellectFortress",
-                    "Projectile_MinuteMeteors",
-                    "Teleportation_ThunderStep",
-                    "Target_VampiricTouch",
-                    "Shout_WaterWalk",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Shout_FlameBlade",
-                    "Target_FlamingSphere",
-                    "Shout_KineticJaunt",
-                    "Target_MagicWeapon",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_NathairsMischief",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Shout_WardingWind",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_ChaosBolt",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_Grease",
-                    "Zone_TashasCausticBrew",
-                },
-            },
-        },
-	-- Sorcerer 5th Level Spells
-        ["3276fcfe-e143-4559-b6e0-7d7aa0ffcb53"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_FarStep",
-                    "Target_SkillEmpowerment",
-                    "Target_SynapticStatic",
-                    "Target_CharmMonster",
-                    "Shout_FireShield",
-                    "Projectile_RaulothimsPsychicLance",
-                    "Shout_AshardalonsStride",
-                    "Target_Catnap",
-                    "Target_EnemiesAbound",
-                    "Target_EruptingEarth",
-                    "Target_FlameArrows",
-                    "Target_IntellectFortress",
-                    "Projectile_MinuteMeteors",
-                    "Teleportation_ThunderStep",
-                    "Target_VampiricTouch",
-                    "Shout_WaterWalk",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Shout_FlameBlade",
-                    "Target_FlamingSphere",
-                    "Shout_KineticJaunt",
-                    "Target_MagicWeapon",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_NathairsMischief",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Shout_WardingWind",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_ChaosBolt",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Target_Grease",
-                    "Zone_TashasCausticBrew",
-                },
-            },
-        },
-    },
-}
-
-S5E_WarlockSpells = {
-    ["SpellList"] = {
-	-- Warlock Cantrips
-        ["f5c4af9c-5d8d-4526-9057-94a4b243cd40"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_BoomingBlade",
-                    "Target_CreateBonfire",
-                    "Target_Frostbite",
-                    "Target_GreenFlameBlade",
-                    "Target_Gust",
-                    "Target_MagicStone",
-                    "Target_MindSliver",
-                    "Target_Prestidigitation",
-                    "Target_ShapeWater",
-                    "Shout_SwordBurst",
-                    "Shout_Thunderclap",
-                    "Target_TollTheDead",
-                },
-            },
-        },
-	-- Warlock Fiend 1st Level Spells
-        ["4823a292-f584-4f7f-8434-6630c72e5411"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock Fiend 2nd Level Spells
-        ["835aeca7-c64a-4aaa-a25c-143aa14a5cec"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock Fiend 3rd Level Spells
-        ["5dec41aa-f16a-434e-b209-50c07e64e4ed"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock Fiend 4th Level Spells
-        ["7ad7dbd0-751b-4bcd-8034-53bcc7bfb19d"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CharmMonster",
-                    "Shout_ShadowOfMoil",
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock Fiend 5th Level Spells
-        ["deab57bf-4eec-4085-82f7-87335bce3f5d"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_FarStep",
-                    "Projectile_NegativeEnergyFlood",
-                    "Target_PlanarBinding",
-                    "Target_CharmMonster",
-                    "Shout_ShadowOfMoil",
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock GoO 1st Level Spells
-        ["65952d48-bb16-4ad7-b173-532182bf7770"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock GoO 2nd Level Spells
-        ["fe101a94-8619-49b2-859d-a68c2c291054"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock GoO 3rd Level Spells
-        ["30e9b761-6be0-418e-bb28-5103c00c663b"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock GoO 4th Level Spells
-        ["b64e527e-1f97-4125-84f7-78376ab1440b"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CharmMonster",
-                    "Shout_ShadowOfMoil",
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock GoO 5th Level Spells
-        ["6d2edca9-71a7-4f3f-89f0-fccfff0bdee5"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_FarStep",
-                    "Projectile_NegativeEnergyFlood",
-                    "Target_PlanarBinding",
-                    "Target_CharmMonster",
-                    "Shout_ShadowOfMoil",
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock Archfey 1st Level Spells
-        ["e0099b15-2599-4cba-a54b-b25ae03d6519"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock Archfey 2nd Level Spells
-        ["0cc2c8ab-9bbc-43a7-a66d-08e47da4c172"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock Archfey 3rd Level Spells
-        ["f18ad912-e2f4-47a9-8744-73d6a51c2941"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock Archfey 4th Level Spells
-        ["c3d8a4a5-9dae-4193-8322-a5d1c5b89f47"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CharmMonster",
-                    "Shout_ShadowOfMoil",
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Warlock Archfey 5th Level Spells
-        ["0a9b924f-64fb-4f22-b975-5eeedc99b2fd"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_FarStep",
-                    "Projectile_NegativeEnergyFlood",
-                    "Target_PlanarBinding",
-                    "Target_CharmMonster",
-                    "Shout_ShadowOfMoil",
-                    "Target_EnemiesAbound",
-                    "Target_IntellectFortress",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Shout_BorrowedKnowledge",
-                    "Target_FlockOfFamiliars",
-                    "Target_MindSpike",
-                    "Shout_ShadowBlade",
-                    "Target_CauseFear",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-    },
-}
-
-S5E_WizardSpells = {
-    ["SpellList"] = {
-	-- Wizard Cantrips
-        ["3cae2e56-9871-4cef-bba6-96845ea765fa"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_BoomingBlade",
-                    "Target_ControlFlames",
-                    "Target_CreateBonfire",
-                    "Target_Frostbite",
-                    "Target_GreenFlameBlade",
-                    "Target_Gust",
-                    "Target_LightningLure",
-                    "Target_MindSliver",
-                    "Target_MoldEarth",
-                    "Target_Prestidigitation",
-                    "Target_ShapeWater",
-                    "Shout_SwordBurst",
-                    "Shout_Thunderclap",
-                    "Target_TollTheDead",
-                },
-            },
-        },
-	-- Wizard 1st Level Spells
-        ["11f331b0-e8b7-473b-9d1f-19e8e4178d7d"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_CauseFear",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Zone_FrostFingers",
-                    "Target_Snare",
-                    "Zone_TashasCausticBrew",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Wizard 2nd Level Spells
-        ["f80396e2-cb76-4694-b0db-5c34da61a478"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Zone_AganazzarsScorcher",
-                    "Shout_BorrowedKnowledge",
-                    "Target_ContinualFlame",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Target_EnhanceAbility",
-                    "Target_FlockOfFamiliars",
-                    "Shout_KineticJaunt",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_NathairsMischief",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Shout_WardingWind",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_CauseFear",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Zone_FrostFingers",
-                    "Target_Snare",
-                    "Zone_TashasCausticBrew",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Wizard 3rd Level Spells
-        ["22755771-ca11-49f4-b772-13d8b8fecd93"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Shout_AshardalonsStride",
-                    "Target_Catnap",
-                    "Target_EnemiesAbound",
-                    "Target_EruptingEarth",
-                    "Target_FlameArrows",
-                    "Target_IntellectFortress",
-                    "Projectile_MinuteMeteors",
-                    "Target_Nondetection",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Target_VampiricTouch",
-                    "Shout_WaterWalk",
-                    "Zone_AganazzarsScorcher",
-                    "Shout_BorrowedKnowledge",
-                    "Target_ContinualFlame",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Target_EnhanceAbility",
-                    "Target_FlockOfFamiliars",
-                    "Shout_KineticJaunt",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_NathairsMischief",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Shout_WardingWind",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_CauseFear",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Zone_FrostFingers",
-                    "Target_Snare",
-                    "Zone_TashasCausticBrew",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Wizard 4th Level Spells
-        ["820b1220-0385-426d-ae15-458dc8a6f5c0"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_CharmMonster",
-                    "Shout_FireShield",
-                    "Projectile_RaulothimsPsychicLance",
-                    "Target_SummonElemental",
-                    "Shout_AshardalonsStride",
-                    "Target_Catnap",
-                    "Target_EnemiesAbound",
-                    "Target_EruptingEarth",
-                    "Target_FlameArrows",
-                    "Target_IntellectFortress",
-                    "Projectile_MinuteMeteors",
-                    "Target_Nondetection",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Target_VampiricTouch",
-                    "Shout_WaterWalk",
-                    "Zone_AganazzarsScorcher",
-                    "Shout_BorrowedKnowledge",
-                    "Target_ContinualFlame",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Target_EnhanceAbility",
-                    "Target_FlockOfFamiliars",
-                    "Shout_KineticJaunt",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_NathairsMischief",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Shout_WardingWind",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_CauseFear",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Zone_FrostFingers",
-                    "Target_Snare",
-                    "Zone_TashasCausticBrew",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-	-- Wizard 5th Level Spells
-        ["f781a25e-d288-43b4-bf5d-3d8d98846687"] = {
-            ["Spells"] = {
-                ["Type"] = "add",
-                ["Value"] = {
-                    "Target_FarStep",
-                    "Projectile_NegativeEnergyFlood",
-                    "Target_SkillEmpowerment",
-                    "Target_SteelWindStrike",
-                    "Target_SynapticStatic",
-                    "Target_CharmMonster",
-                    "Shout_FireShield",
-                    "Projectile_RaulothimsPsychicLance",
-                    "Target_SummonElemental",
-                    "Shout_AshardalonsStride",
-                    "Target_Catnap",
-                    "Target_EnemiesAbound",
-                    "Target_EruptingEarth",
-                    "Target_FlameArrows",
-                    "Target_IntellectFortress",
-                    "Projectile_MinuteMeteors",
-                    "Target_Nondetection",
-                    "Shout_SpiritShroud",
-                    "Target_SummonShadowspawn",
-                    "Teleportation_ThunderStep",
-                    "Target_VampiricTouch",
-                    "Shout_WaterWalk",
-                    "Zone_AganazzarsScorcher",
-                    "Shout_BorrowedKnowledge",
-                    "Target_ContinualFlame",
-                    "Target_DragonsBreath",
-                    "Target_DustDevil",
-                    "Target_EnhanceAbility",
-                    "Target_FlockOfFamiliars",
-                    "Shout_KineticJaunt",
-                    "Target_MaximiliansEarthenGrasp",
-                    "Target_TashasMindWhip",
-                    "Target_MindSpike",
-                    "Target_NathairsMischief",
-                    "Zone_RimesBindingIce",
-                    "Shout_ShadowBlade",
-                    "Target_SnillocsSnowballStorm",
-                    "Target_VortexWarp",
-                    "Shout_WardingWind",
-                    "Target_WitherAndBloom",
-                    "Shout_AbsorbElements",
-                    "Throw_Catapult",
-                    "Target_CauseFear",
-                    "Shout_DetectMagic",
-                    "Shout_EarthTremor",
-                    "Zone_FrostFingers",
-                    "Target_Snare",
-                    "Zone_TashasCausticBrew",
-                    "Target_UnseenServant",
-                },
-            },
-        },
-    },
-}
-
-function S5E_ApplyStaticData(defTable)
-    for defType, defList in pairs(defTable) do
-        for guid, changes in pairs (defList) do
-            local resource = Ext.StaticData.Get(guid, defType)
-            for attribute, replacement in pairs(changes) do
-                local newValue
-                if type(resource[attribute]) == "userdata"  then
-                    if replacement.Type == "add" then
-                        local oldValue = RAW_Set(resource[attribute])
-                        for _, value in pairs(replacement.Value) do
-                            RAW_Set_Add(oldValue, value)
-                        end
-                        newValue = RAW_Set_ToList(oldValue)
-                    end
-                end
-            end
-        end
-    end
-end
-
--- Creates a Set from a List
-function RAW_Set(list)
-    local set = {}
-    for _, l in pairs(list) do
-        set[l] = true
-    end
-    return set
-end
-
--- Adds an element to a Set
-function RAW_Set_Add(set, elem)
-    if not set[elem] then
---        Ext.Utils.Print("Adding elem to set")
---        _D(elem)
-        set[elem] = true
-    end
-end
-
--- Creates a List from a Set
-function RAW_Set_ToList(set)
-    local list = {}
-    for k, _ in pairs(set) do
-        table.insert(list, k)
-    end
-    return list
-end--]]
 
 Spells = {  
 	SpellList = "Spells",
@@ -1483,9 +146,9 @@ local spellSniper = {
   "Target_PrimalSavagery"
 }
 local ritualCaster = {
-  "Target_Ceremony",
-  "Shout_DetectMagic",
-  "Target_UnseenServant"
+  "Target_Ceremony_Ritual",
+  "Shout_DetectMagic_Ritual",
+  "Target_UnseenServant_Ritual"
 }
 local bardCantrips = {
   "Target_Prestidigitation",
@@ -1561,6 +224,34 @@ local bardSpells4th = {
 	"Target_UnseenServant"
 }
 local bardSpells5th = {
+	"Target_SkillEmpowerment",
+	"Target_SynapticStatic",
+	"Target_CharmMonster",
+	"Target_PhantasmalKiller",
+	"Projectile_RaulothimsPsychicLance",
+	"Target_Catnap",
+	"Target_EnemiesAbound",
+	"Target_IntellectFortress",
+	"Shout_HealingWord_Mass",
+	"Target_MotivationalSpeech",
+	"Target_Nondetection",
+	"Target_Slow",
+	"Shout_Aid",
+	"Shout_BorrowedKnowledge",
+	"Target_EnlargeReduce",
+	"Shout_KineticJaunt",
+	"Target_Knock",
+	"Shout_MirrorImage",
+	"Target_NathairsMischief",
+	"Shout_WardingWind",
+	"Zone_ColorSpray",
+	"Target_Command_Container",
+	"Shout_DetectMagic",
+	"Shout_EarthTremor",
+	"Target_UnseenServant"
+}
+local bardSpells6th = {
+	"Shout_HeroesFeast",
 	"Target_SkillEmpowerment",
 	"Target_SynapticStatic",
 	"Target_CharmMonster",
@@ -1703,6 +394,7 @@ local bardMagicalSecrets5th = {
 	"Projectile_Smite_Banishing_Container",
 	"Target_Cloudkill",
 	"ProjectileStrike_ConjureVolley",
+	"Shout_DestructiveWave",
 	"Target_FarStep",
 	"Target_FlameStrike",
 	"Target_HolyWeapon",
@@ -1974,7 +666,8 @@ local rangerSpells3rd = {
 }
 local rogueATSpells2nd = {
 	"Target_TashasMindWhip",
-	"Target_NathairsMischief"
+	"Target_NathairsMischief",
+	"Shout_ShadowBlade"
 }
 local sorcererCantrips = {
 	"Target_BoomingBlade",
@@ -1983,6 +676,7 @@ local sorcererCantrips = {
 	"Target_Frostbite",
 	"Target_GreenFlameBlade",
 	"Target_Gust",
+	"Target_LightningLure",
 	"Target_MindSliver",
 	"Target_MoldEarth",
 	"Target_Prestidigitation",
@@ -2139,12 +833,54 @@ local sorcererSpells5th = {
 	"Target_Grease",
 	"Zone_TashasCausticBrew"
 }
+local sorcererSpells6th = {
+	"Target_FarStep",
+	"Target_SkillEmpowerment",
+	"Target_SynapticStatic",
+	"Target_CharmMonster",
+	"Shout_FireShield",
+	"Projectile_RaulothimsPsychicLance",
+	"Shout_AshardalonsStride",
+	"Target_Catnap",
+	"Target_EnemiesAbound",
+	"Target_EruptingEarth",
+	"Target_FlameArrows",
+	"Target_IntellectFortress",
+	"Projectile_MinuteMeteors",
+	"Teleportation_ThunderStep",
+	"Target_VampiricTouch",
+	"Shout_WaterWalk",
+	"Target_DragonsBreath",
+	"Target_DustDevil",
+	"Shout_FlameBlade",
+	"Target_FlamingSphere",
+	"Shout_KineticJaunt",
+	"Target_MagicWeapon",
+	"Target_MaximiliansEarthenGrasp",
+	"Target_TashasMindWhip",
+	"Target_MindSpike",
+	"Target_NathairsMischief",
+	"Zone_RimesBindingIce",
+	"Shout_ShadowBlade",
+	"Target_SnillocsSnowballStorm",
+	"Target_VortexWarp",
+	"Shout_WardingWind",
+	"Target_WitherAndBloom",
+	"Shout_AbsorbElements",
+	"Throw_Catapult",
+	"Target_ChaosBolt",
+	"Shout_DetectMagic",
+	"Shout_EarthTremor",
+	"Target_Grease",
+	"Zone_TashasCausticBrew"
+}
 local warlockCantrips = {
 	"Target_BoomingBlade",
 	"Target_CreateBonfire",
 	"Target_Frostbite",
 	"Target_GreenFlameBlade",
 	"Target_Gust",
+	"Target_LightningLure",
 	"Target_MagicStone",
 	"Target_MindSliver",
 	"Target_Prestidigitation",
@@ -2197,6 +933,7 @@ local warlockSpells4th = {
 local warlockSpells5th = {
 	"Target_FarStep",
 	"Projectile_NegativeEnergyFlood",
+	"Target_SynapticStatic",
 	"Target_PlanarBinding",
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
@@ -2276,13 +1013,13 @@ local wizardSpells3rd = {
 	"Target_EruptingEarth",
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
+	"Target_LifeTransference",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
-	"Shout_WaterWalk",
 	"Zone_AganazzarsScorcher",
 	"Shout_BorrowedKnowledge",
 	"Target_ContinualFlame",
@@ -2322,13 +1059,13 @@ local wizardSpells4th = {
 	"Target_EruptingEarth",
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
+	"Target_LifeTransference",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
-	"Shout_WaterWalk",
 	"Zone_AganazzarsScorcher",
 	"Shout_BorrowedKnowledge",
 	"Target_ContinualFlame",
@@ -2373,13 +1110,64 @@ local wizardSpells5th = {
 	"Target_EruptingEarth",
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
+	"Target_LifeTransference",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
-	"Shout_WaterWalk",
+	"Zone_AganazzarsScorcher",
+	"Shout_BorrowedKnowledge",
+	"Target_ContinualFlame",
+	"Target_DragonsBreath",
+	"Target_DustDevil",
+	"Target_EnhanceAbility",
+	"Target_FlockOfFamiliars",
+	"Shout_KineticJaunt",
+	"Target_MaximiliansEarthenGrasp",
+	"Target_TashasMindWhip",
+	"Target_MindSpike",
+	"Target_NathairsMischief",
+	"Zone_RimesBindingIce",
+	"Shout_ShadowBlade",
+	"Target_SnillocsSnowballStorm",
+	"Target_VortexWarp",
+	"Shout_WardingWind",
+	"Target_WitherAndBloom",
+	"Shout_AbsorbElements",
+	"Throw_Catapult",
+	"Target_CauseFear",
+	"Shout_DetectMagic",
+	"Shout_EarthTremor",
+	"Zone_FrostFingers",
+	"Target_Snare",
+	"Zone_TashasCausticBrew",
+	"Target_UnseenServant"
+}
+local wizardSpells6th = {
+	"Target_FarStep",
+	"Projectile_NegativeEnergyFlood",
+	"Target_SkillEmpowerment",
+	"Target_SteelWindStrike",
+	"Target_SynapticStatic",
+	"Target_CharmMonster",
+	"Shout_FireShield",
+	"Projectile_RaulothimsPsychicLance",
+	"Target_SummonElemental",
+	"Shout_AshardalonsStride",
+	"Target_Catnap",
+	"Target_EnemiesAbound",
+	"Target_EruptingEarth",
+	"Target_FlameArrows",
+	"Target_IntellectFortress",
+	"Target_LifeTransference",
+	"Projectile_MinuteMeteors",
+	"Target_Nondetection",
+	"Shout_SpiritShroud",
+	"Target_SummonShadowspawn",
+	"Teleportation_ThunderStep",
+	"Target_VampiricTouch",
 	"Zone_AganazzarsScorcher",
 	"Shout_BorrowedKnowledge",
 	"Target_ContinualFlame",
@@ -2417,6 +1205,7 @@ local spellList5ES = {
   Bard3rd = "c213ca01-3767-457b-a5c8-fd4c1dd656e2",
   Bard4th = "75e04c40-be8f-40a5-9acc-0b5d59d5f3a6",
   Bard5th = "bd71fffb-e4d2-4233-9a31-13d43fba36e3",
+  Bard6th = "586a8796-34f4-41f5-a3ef-95738561d55d",
   BardMS3rd ="175ceed7-5a53-4f48-823c-41c4f72d18ae",
   BardMS5th = "858d4322-9e9f-4aa4-aada-9c68835dc6fe",
   ClericCantrip = "2f43a103-5bf1-4534-b14f-663decc0c525",
@@ -2445,6 +1234,7 @@ local spellList5ES = {
   Sorcerer3rd = "dcbaf2ae-1f45-453e-ab83-cd154f8277a4",
   Sorcerer4th = "5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c",
   Sorcerer5th = "3276fcfe-e143-4559-b6e0-7d7aa0ffcb53",
+  Sorcerer6th = "1270a6db-980b-4e3b-bf26-2924da61dfd5",
   WarlockCantrip = "f5c4af9c-5d8d-4526-9057-94a4b243cd40",
   WFiend1st = "4823a292-f584-4f7f-8434-6630c72e5411",
   WFiend2nd = "835aeca7-c64a-4aaa-a25c-143aa14a5cec",
@@ -2466,7 +1256,8 @@ local spellList5ES = {
   Wizard2nd = "80c6b070-c3a6-4864-84ca-e78626784eb4",
   Wizard3rd = "22755771-ca11-49f4-b772-13d8b8fecd93",
   Wizard4th = "820b1220-0385-426d-ae15-458dc8a6f5c0",
-  Wizard5th = "f781a25e-d288-43b4-bf5d-3d8d98846687"
+  Wizard5th = "f781a25e-d288-43b4-bf5d-3d8d98846687",
+  Wizard6th = "bc917f22-7f71-4a25-9a77-7d2f91a96a65"
 }
 
 local function OnSessionLoaded()
@@ -2502,6 +1293,10 @@ local function OnSessionLoaded()
 	Bard5th = {
 	  Spells = bardSpells5th,
 	  SpellListID = spellList5ES.Bard5th
+	},
+	Bard6th = {
+	  Spells = bardSpells6th,
+	  SpellListID = spellList5ES.Bard6th
 	},
 	BardMS3rd = {
 	  Spells = bardMagicalSecrets3rd,
@@ -2615,6 +1410,10 @@ local function OnSessionLoaded()
 	  Spells = sorcererSpells5th,
 	  SpellListID = spellList5ES.Sorcerer5th
 	},
+	Sorcerer6th = {
+	  Spells = sorcererSpells6th,
+	  SpellListID = spellList5ES.Sorcerer6th
+	},
 	WarlockCantrip = {
 	  Spells = warlockCantrips,
 	  SpellListID = spellList5ES.WarlockCantrip
@@ -2703,6 +1502,10 @@ local function OnSessionLoaded()
 	  Spells = wizardSpells5th,
 	  SpellListID = spellList5ES.Wizard5th
 	},
+	Wizard6th = {
+	  Spells = wizardSpells6th,
+	  SpellListID = spellList5ES.Wizard6th
+	},
 	}
 
 	S5E_SpellLists(additions)
@@ -2753,3 +1556,33 @@ function Insert(list, result, num)
 	end
 	return result, num
 end
+
+-- Static Data helpers
+function S5E_ApplyStaticData(defTable)
+    for defType, defList in pairs(defTable) do
+        for guid, changes in pairs (defList) do
+            local resource = Ext.StaticData.Get(guid, defType)
+            for attribute, replacement in pairs(changes) do
+                local newValue
+                if type(resource[attribute]) == "userdata"  then
+                    if replacement.Type == "add" then
+                        newValue = Ext.Types.Serialize(resource[attribute])
+                        for _, value in pairs(replacement.Value) do
+                            table.insert(newValue, value)
+                        end
+                    end
+                    Ext.Types.Unserialize(resource[attribute], newValue)
+                end
+            end
+        end
+    end
+end
+
+local function S5E_StatsLoaded()
+    S5E_ChaosBoltPassives()
+	S5E_Changes()
+    S5E_RogueSCAGtripSneakAttack()
+--	S5E_Levitate()
+end
+
+Ext.Events.StatsLoaded:Subscribe(S5E_StatsLoaded)
