@@ -743,4 +743,8 @@
   <content contentuid="hdbd72d41gde74g476dgab90gd7d4013a6d7e" version="6">Strike an enemy with lightning. Four more bolts will leap from the target, electrifying as many as four other enemies within [1].</content>
   <content contentuid="h7bdb8874g008cg4b04gae06gf214073ccf7c" version="6">Strike an enemy with lightning. Five more bolts will leap from the target, electrifying as many as five other enemies within [1].</content>
   <content contentuid="hb18bb3adg3fb1g4bbega531gb99ccdb8a98a" version="6">Strike an enemy with lightning. Six more bolts will leap from the target, electrifying as many as six other enemies within [1].</content>
+  <content contentuid="hee2c6742g056cg4bc5g95efg651e5a554074" version="1">The target can also see through illusions created by spells and automatically saving against any that would force a &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;.</content>
+  <content contentuid="h2c7b44a4gc2fcg4dbegb4b7g77097a0d43d9" version="1">Can see any &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures and objects and see through illusions.</content>
+  <content contentuid="h531633c7g1ff4g46c9g8631gef87f2cbaa30" version="1">When you are targeted by an Illusion spell that forces you to make a &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, you can automatically succeed on the save.</content>
+  <content contentuid="hf4028d94g6a22g459agad80g129d75cb6b49" version="1">Power Word: Kill</content>
 </contentList>
