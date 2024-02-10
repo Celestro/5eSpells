@@ -235,10 +235,10 @@ data "StatusType" "BOOST"
 using "CALL_LIGHTNING_TECHNICAL"
 data "Boosts" "UnlockSpell(Target_CallLightning_LightningBolt_9)"
 
-new entry "CATNAP_BLOCK"
+new entry "CATNAP"
 type "StatusData"
 data "StatusType" "BOOST"
-data "StackId" "CATNAP_BLOCK"
+data "StackId" "CATNAP"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
 
 new entry "CREATE_FOOD_AND_WATER"
