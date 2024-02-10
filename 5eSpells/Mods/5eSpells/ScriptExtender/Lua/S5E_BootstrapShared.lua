@@ -252,6 +252,7 @@ local bardSpells5th = {
 }
 local bardSpells6th = {
 	"Shout_HeroesFeast",
+	"Target_TrueSeeing",
 	"Target_SkillEmpowerment",
 	"Target_SynapticStatic",
 	"Target_CharmMonster",
@@ -301,6 +302,7 @@ local bardMagicalSecrets3rd = {
 	"Target_VampiricTouch",
 	"Shout_WaterWalk",
 	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Target_Barkskin",
 	"Target_Smite_Branding_Container",
 	"Target_ContinualFlame",
@@ -433,6 +435,7 @@ local bardMagicalSecrets5th = {
 	"Target_VampiricTouch",
 	"Shout_WaterWalk",
 	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Target_Barkskin",
 	"Target_Smite_Branding_Container",
 	"Target_ContinualFlame",
@@ -547,6 +550,9 @@ local clericSpells3rd = {
 }
 local clericSpells5th = {
 	"Target_HolyWeapon"
+}
+local clericSpells6th = {
+	"Target_TrueSeeing"
 }
 local druidCantrips = {
 	"Target_ControlFlames",
@@ -695,6 +701,7 @@ local sorcererSpells1st = {
 }
 local sorcererSpells2nd = {
 	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Target_DragonsBreath",
 	"Target_DustDevil",
 	"Shout_FlameBlade",
@@ -730,6 +737,8 @@ local sorcererSpells3rd = {
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
 	"Shout_WaterWalk",
+	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Target_DragonsBreath",
 	"Target_DustDevil",
 	"Shout_FlameBlade",
@@ -768,6 +777,8 @@ local sorcererSpells4th = {
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
 	"Shout_WaterWalk",
+	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Target_DragonsBreath",
 	"Target_DustDevil",
 	"Shout_FlameBlade",
@@ -809,6 +820,8 @@ local sorcererSpells5th = {
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
 	"Shout_WaterWalk",
+	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Target_DragonsBreath",
 	"Target_DustDevil",
 	"Shout_FlameBlade",
@@ -834,6 +847,7 @@ local sorcererSpells5th = {
 	"Zone_TashasCausticBrew"
 }
 local sorcererSpells6th = {
+	"Target_TrueSeeing",
 	"Target_FarStep",
 	"Target_SkillEmpowerment",
 	"Target_SynapticStatic",
@@ -850,6 +864,8 @@ local sorcererSpells6th = {
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
 	"Shout_WaterWalk",
+	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Target_DragonsBreath",
 	"Target_DustDevil",
 	"Shout_FlameBlade",
@@ -950,6 +966,9 @@ local warlockSpells5th = {
 	"Target_CauseFear",
 	"Target_UnseenServant"
 }
+local warlockSpells6th = {
+	"Target_TrueSeeing"
+}
 local wizardCantrips = {
 	"Target_BoomingBlade",
 	"Target_ControlFlames",
@@ -979,6 +998,7 @@ local wizardSpells1st = {
 }
 local wizardSpells2nd = {
 	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Shout_BorrowedKnowledge",
 	"Target_ContinualFlame",
 	"Target_DragonsBreath",
@@ -1021,6 +1041,7 @@ local wizardSpells3rd = {
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
 	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Shout_BorrowedKnowledge",
 	"Target_ContinualFlame",
 	"Target_DragonsBreath",
@@ -1067,6 +1088,7 @@ local wizardSpells4th = {
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
 	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Shout_BorrowedKnowledge",
 	"Target_ContinualFlame",
 	"Target_DragonsBreath",
@@ -1118,6 +1140,7 @@ local wizardSpells5th = {
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
 	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Shout_BorrowedKnowledge",
 	"Target_ContinualFlame",
 	"Target_DragonsBreath",
@@ -1146,6 +1169,7 @@ local wizardSpells5th = {
 	"Target_UnseenServant"
 }
 local wizardSpells6th = {
+	"Target_TrueSeeing",
 	"Target_FarStep",
 	"Projectile_NegativeEnergyFlood",
 	"Target_SkillEmpowerment",
@@ -1169,6 +1193,7 @@ local wizardSpells6th = {
 	"Teleportation_ThunderStep",
 	"Target_VampiricTouch",
 	"Zone_AganazzarsScorcher",
+	"Shout_AlterSelf",
 	"Shout_BorrowedKnowledge",
 	"Target_ContinualFlame",
 	"Target_DragonsBreath",
@@ -1213,6 +1238,7 @@ local spellList5ES = {
   Cleric2nd = "2968a3e6-6c8a-4c2e-882a-ad295a2ad8ac",
   Cleric3rd = "21be0992-499f-4c7a-a77a-4430085e947a",
   Cleric5th = "b73aeea5-1ff9-4cac-b61d-b5aa6dfe31c2",
+  Cleric6th = "f8ba7b05-1237-4eaa-97fa-1d3623d5862b",
   DruidCantrip = "b8faf12f-ca42-45c0-84f8-6951b526182a",
   Druid1st = "2cd54137-2fe5-4100-aad3-df64735a8145",
   Druid2nd = "92126d17-7f1a-41d2-ae6c-a8d254d2b135",
@@ -1251,6 +1277,7 @@ local spellList5ES = {
   WArchfey3rd = "f18ad912-e2f4-47a9-8744-73d6a51c2941",
   WArchfey4th = "c3d8a4a5-9dae-4193-8322-a5d1c5b89f47",
   WArchfey5th = "0a9b924f-64fb-4f22-b975-5eeedc99b2fd",
+  Warlock6th = "e6ccab5e-3b3b-4b34-8fa2-1058dff2b3e6",
   WizardCantrip = "3cae2e56-9871-4cef-bba6-96845ea765fa",
   Wizard1st = "11f331b0-e8b7-473b-9d1f-19e8e4178d7d",
   Wizard2nd = "80c6b070-c3a6-4864-84ca-e78626784eb4",
@@ -1325,6 +1352,10 @@ local function OnSessionLoaded()
 	Cleric5th = {
 	  Spells = clericSpells5th,
 	  SpellListID = spellList5ES.Cleric5th
+	},
+	Cleric6th = {
+	  Spells = clericSpells6th,
+	  SpellListID = spellList5ES.Cleric6th
 	},
 	DruidCantrip = {
 	  Spells = druidCantrips,
@@ -1477,6 +1508,10 @@ local function OnSessionLoaded()
 	Archfey5th = {
 	  Spells = warlockSpells5th,
 	  SpellListID = spellList5ES.WArchfey5th
+	},
+	Warlock6th = {
+	  Spells = warlockSpells6th,
+	  SpellListID = spellList5ES.Warlock6th
 	},
 	WizardCantrip = {
 	  Spells = wizardCantrips,

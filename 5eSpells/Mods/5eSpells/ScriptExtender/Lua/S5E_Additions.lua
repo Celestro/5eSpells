@@ -1,4 +1,4 @@
---[[local files = {
+local files = {
 		"Public/5eSpells/Stats/Generated/Data/Passives_5eSpells.txt",
 		"Public/5eSpells/Stats/Generated/Data/Spells_1stLevel.txt",
 		"Public/5eSpells/Stats/Generated/Data/Spells_2ndLevel.txt",
@@ -776,6 +776,14 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function (character, st
 				Osi.ApplyStatus(character,invis,turns*6,1,source)
 			end
 		end
+    end
+end)
+
+-- Catnap Short Resting
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
+	if status == "CATNAP" then
+		local catnapper = Ext.Entity.Get(character)
+		catnapper:CreateComponent("ShortRest")
     end
 end)
 

@@ -21,7 +21,7 @@ end
 
 -- Ritual Spells Status Check 1
 Ext.Osiris.RegisterListener("GainedControl", 1, "after", function(character)
-	DelayedCall(5000, function ()
+	DelayedCall(3000, function ()
 		if	Osi.IsTagged(character,"BARD_d93434bd-6b71-4789-b128-ee24156057cc") == 0 and Osi.IsTagged(character,"CLERIC_1671b4bf-4f47-4bb7-9cb9-80bb1f6009d5") == 0 and Osi.IsTagged(character,"DRUID_44ac4317-4d38-4d28-80e2-94024c6e42f0") == 0 and Osi.IsTagged(character,"WIZARD_6fe3ae27-dc6c-4fc9-9245-710c790c396c") == 0 and HasPassive(character,"BookOfAncientSecrets") == 0 and Osi.IsTagged(character,"PALADIN_6d85ab2d-5c23-498c-a61e-98f05a00177a") == 0 then
 			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.field_18) do
 				for _,sc in pairs(fc.Upgrades.Spells) do
