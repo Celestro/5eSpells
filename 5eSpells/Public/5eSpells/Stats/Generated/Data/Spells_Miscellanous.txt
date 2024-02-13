@@ -792,6 +792,7 @@ data "SpellType" "Projectile"
 data "Level" "3"
 data "SpellProperties" "RegainHitPoints(2,Guaranteed)"
 data "ExplodeRadius" "1"
+data "TargetConditions" "HasStatus('LIFE_TRANSFERENCE')"
 data "Trajectories" "0ec803e3-b962-4e96-bfcf-d2221fdddba3,d35f5172-26c5-d00c-b3aa-80625773099c,26908cea-3340-e0bb-88c1-1e473dcab618"
 data "SpellFlags" "IsSpell"
 
