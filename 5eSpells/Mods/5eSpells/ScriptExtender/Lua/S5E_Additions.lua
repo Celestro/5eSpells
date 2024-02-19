@@ -361,7 +361,7 @@ end)
 
 -- Ceremony Bless Water Part 1
 Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", function (template, _, character, _)
-	if	(template == "CONS_Drink_Water_A_640302a8-d841-44d6-996d-2addda644306" or template == "CONS_Drink_Water_A_Wicker_00253e1b-375c-4ef4-8808-974cab615ff7" or template == "CONS_Drink_Water_Bottle_A_d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c" or template == "CONS_Drink_Water_B_Wicker_e8e427ac-9078-4471-85f2-4b8bbc3e00b5" or template == "CONS_Drink_Water_Bottle_B_6f5abf98-cca0-43a7-a064-10c17643bb72" or template == "CONS_Drink_Water_B_94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a" or template == "CONS_Drink_Water_Jug_A_cb2e851f-8a75-4899-b705-0f079e8e55bc") and Osi.HasSpell(character,"Target_Ceremony") == 1 and Osi.HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 0 then
+	if	(template == "CONS_Drink_Water_A_640302a8-d841-44d6-996d-2addda644306" or template == "CONS_Drink_Water_A_Wicker_00253e1b-375c-4ef4-8808-974cab615ff7" or template == "CONS_Drink_Water_Bottle_A_d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c" or template == "CONS_Drink_Water_B_Wicker_e8e427ac-9078-4471-85f2-4b8bbc3e00b5" or template == "CONS_Drink_Water_Bottle_B_6f5abf98-cca0-43a7-a064-10c17643bb72" or template == "CONS_Drink_Water_B_94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a" or template == "CONS_Drink_Water_Jug_A_cb2e851f-8a75-4899-b705-0f079e8e55bc") and Osi.HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 0 then
 		Osi.ApplyStatus(character, "CEREMONY_BLESSED_WATER_TECHNICAL", -1.0, 1, character)
     end
 end)
@@ -375,7 +375,7 @@ Ext.Osiris.RegisterListener("TemplateRemovedFrom", 3, "after", function (_, _, c
 	local item5 = GetItemByTemplateInInventory("6f5abf98-cca0-43a7-a064-10c17643bb72",character)
 	local item6 = GetItemByTemplateInInventory("94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a",character)
 	local item7 = GetItemByTemplateInInventory("cb2e851f-8a75-4899-b705-0f079e8e55bc",character)
-	if	Osi.HasSpell(character,"Target_Ceremony") == 1 and Osi.HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 1 and not (item or item2 or item3 or item4 or item5 or item6 or item7) then
+	if	Osi.HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 1 and not (item or item2 or item3 or item4 or item5 or item6 or item7) then
 		Osi.RemoveStatus(character, "CEREMONY_BLESSED_WATER_TECHNICAL")
     end
 end)
@@ -464,7 +464,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 		hp = previoushp - currenthp
 		hp = hp * 2
 		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
-		Osi.ApplyStatus(character, ltstatus, 6.0, 0)
+		Osi.ApplyStatus(character, ltstatus, 0.0, 0)
 	end
 end)
 
@@ -787,20 +787,42 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
     end
 end)
 
+-- Heal
+Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
+	if (spell == "Target_Heal" or spell == "Target_GreaterRestoration" or spell == "Target_GreaterRestoration_6") and Osi.HasActiveStatus(target,"FEEBLEMIND") == 1 then
+		Osi.RemoveStatus(target,"FEEBLEMIND")
+    end
+end)
+
 --[[ Dispel Magic
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(character, status, causee, _)
 	if status == "DISPEL_MAGIC" then
 		local spell = Ext.Entity.Get(character).ServerCharacter:GetStatus(statuses).SourceSpell.Prototype)
 
 	end
-end)--]]
+end)
 
---[[ Status Debug Text
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, _, _)
-	_D("Status Applied: " .. status)
-end)--
+-- Status Debug Text
+Ext.Osiris.RegisterListener("StatusApplied",4, "after",function (character, status, _, _)
+	if status ~= "INSURFACE" then
+	local disname = Osi.GetDisplayName(character)
+	local name = Osi.ResolveTranslatedString(disname)
+	local str = status .. " status applied to " .. name
+	_D(str)
+	end
+end)
 
--- Status Removal Debug Text
-Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function (character, status, _, _)
-	_D("Status Removed: " .. status)
+-- Status Debug Text
+Ext.Osiris.RegisterListener("StatusRemoved",4, "after",function (character, status, causee, _)
+	if status ~= "INSURFACE" then
+	local disname = Osi.GetDisplayName(character)
+	local name = Osi.ResolveTranslatedString(disname)
+	local str = status .. " status removed from " .. name .. " by " .. causee
+	_D(str)
+	end
+end)
+
+-- Spell Casting Debug
+Ext.Osiris.RegisterListener("UsingSpell",5, "before",function (caster, spell, _, _, _)
+	_D(spell)
 end)--]]
