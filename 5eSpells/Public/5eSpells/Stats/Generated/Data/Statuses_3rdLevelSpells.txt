@@ -1092,7 +1092,7 @@ data "DisplayName" "058ec68aefdf4802b3a696b2a442db47;1"
 data "Description" "ca250c966b2749ef8221c5ad9a2c075a;1"
 data "Icon" "Spell_Abjuration_Nondetection"
 data "StackId" "NONDETECTION"
-data "Boosts" "StatusImmunity(DETECTED_EVIL_GOOD_ABERRATION);StatusImmunity(DETECTED_EVIL_GOOD_CELESTIAL);StatusImmunity(DETECTED_EVIL_GOOD_ELEMENTAL);StatusImmunity(DETECTED_EVIL_GOOD_FEY);StatusImmunity(DETECTED_EVIL_GOOD_FIEND);StatusImmunity(DETECTED_EVIL_GOOD_UNDEAD);StatusImmunity(SEE_INVISIBILITY);StatusImmunity(SEE_INVISIBILITY_SEEN);StatusImmunity(SEE_INVISIBILITY_REVEAL);StatusImmunity(SG_DetectThoughts)"
+data "Boosts" "StatusImmunity(DETECTED_EVIL_GOOD_ABERRATION);StatusImmunity(DETECTED_EVIL_GOOD_CELESTIAL);StatusImmunity(DETECTED_EVIL_GOOD_ELEMENTAL);StatusImmunity(DETECTED_EVIL_GOOD_FEY);StatusImmunity(DETECTED_EVIL_GOOD_FIEND);StatusImmunity(DETECTED_EVIL_GOOD_UNDEAD);StatusImmunity(SEE_INVISIBILITY_REVEAL);StatusImmunity(SG_DetectThoughts)"
 
 new entry "SPIRIT_SHROUD_COLD"
 type "StatusData"

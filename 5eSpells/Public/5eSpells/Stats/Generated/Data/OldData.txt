@@ -58,13 +58,6 @@ data "StatusPropertyFlags" "IgnoreResting;ApplyToDead;DisableOverhead;DisableCom
 data "StatusGroups" "SG_RemoveOnRespec"
 data "StackId" "S5E_POTENT_SPELLCASTING"
 
-new entry "MIND_SPIKE_REMOVAL"
-type "StatusData"
-data "StatusType" "BOOST"
-data "TickType" "EndTurn"
-data "StatusPropertyFlags" "ApplyToDead;DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
-data "RemoveEvents" "OnTurn"
-
 new entry "CATNAP_BLOCK"
 type "StatusData"
 data "StatusType" "BOOST"
