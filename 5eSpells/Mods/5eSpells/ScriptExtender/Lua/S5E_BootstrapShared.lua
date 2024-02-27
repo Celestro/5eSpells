@@ -177,6 +177,7 @@ local bardSpells2nd = {
 	"Target_UnseenServant"
 }
 local bardSpells3rd = {
+	"Target_Antagonize",
 	"Target_Catnap",
 	"Target_EnemiesAbound",
 	"Target_IntellectFortress",
@@ -727,6 +728,7 @@ local sorcererSpells2nd = {
 	"Zone_TashasCausticBrew"
 }
 local sorcererSpells3rd = {
+	"Target_Antagonize",
 	"Shout_AshardalonsStride",
 	"Target_Catnap",
 	"Target_EnemiesAbound",
@@ -918,6 +920,7 @@ local warlockSpells2nd = {
 	"Target_UnseenServant"
 }
 local warlockSpells3rd = {
+	"Target_Antagonize",
 	"Target_EnemiesAbound",
 	"Target_IntellectFortress",
 	"Shout_SpiritShroud",
@@ -1027,6 +1030,7 @@ local wizardSpells2nd = {
 	"Target_UnseenServant"
 }
 local wizardSpells3rd = {
+	"Target_Antagonize",
 	"Shout_AshardalonsStride",
 	"Target_Catnap",
 	"Target_EnemiesAbound",
