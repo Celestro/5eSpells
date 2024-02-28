@@ -747,4 +747,12 @@
   <content contentuid="h2c7b44a4gc2fcg4dbegb4b7g77097a0d43d9" version="1">Can see any &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures and objects and see through illusions.</content>
   <content contentuid="h531633c7g1ff4g46c9g8631gef87f2cbaa30" version="1">When you are targeted by an Illusion spell that forces you to make a &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, you can automatically succeed on the save.</content>
   <content contentuid="hf4028d94g6a22g459agad80g129d75cb6b49" version="1">Power Word: Kill</content>
+  <content contentuid="hb7427c6ege554g4317gbc59g89bd37378263" version="1">Antagonize</content>
+  <content contentuid="ha4718c2dg1d1bg45f9ga8cfge0c74bed9998" version="1">You whisper magical words that antagonize one creature of your choice within range possibly causing the target to immediately use its reaction to make a melee attack against another creature of your choice that you can see.&lt;br&gt;&lt;br&gt;If the target can’t make this attack (for example, because there is no one within its reach or because its reaction is unavailable), the target instead has disadvantage on the next attack roll it makes before the start of your next turn.</content>
+  <content contentuid="h1ff23493g515bg4674gb394g2b2d73ef489a" version="1">Antagonize: Declare Target</content>
+  <content contentuid="hf1fafe6bg7671g4607gb24bgf109e9620cab" version="1">Choose who your antagonized target is goaded into attacking.</content>
+  <content contentuid="h598433b1g0916g44c0g968bgc0c2236d4426" version="1">Antagonized</content>
+  <content contentuid="hae85792egcd37g4509gb5b8g1a1a137e2daf" version="1">You have been provoked into attacking one of your allies. If you are unable to do so, your next attack before your antagonizers next turn has &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;.</content>
+  <content contentuid="hce8d25fegc177g45cfga9c7g39f0fbeeaec1" version="1">Antagonized Attack</content>
+  <content contentuid="hc36bb798g8a81g45ecg8e12g10c0caa4d467" version="1">You have been provoked into attacking one of your allies.</content>
 </contentList>
