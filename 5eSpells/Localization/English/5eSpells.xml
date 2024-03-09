@@ -441,7 +441,7 @@
   <content contentuid="338f54dc5e9d4faab9309e7b8e87bfde" version="1">Call Lightning: Area</content>
   <content contentuid="3a3dd2cf28b344c9a81f272f27787a96" version="1">Standing in an area susceptible to lightning strikes from the spellcaster.</content>
   <content contentuid="92d018ee-b4f3-41a5-9d75-91c3413302b9" version="1">Catnap</content>
-  <content contentuid="2e466f4e-9071-466b-9499-d861607cd2ea" version="1">Make a calming gesture that forces allied creature to fall unconscious and gain the benefits of a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt;.</content>
+  <content contentuid="2e466f4e-9071-466b-9499-d861607cd2ea" version="1">Make a calming gesture that forces targeted allies to fall unconscious and gain the benefits of a &lt;LSTag Tooltip="ShortRest"&gt;Short Rest&lt;/LSTag&gt;.</content>
   <content contentuid="08c0f5f8-ea94-4e51-8a6b-20cbcd4cb7f1" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; Once affected by this spell, a creature can't benefit from it again until it finishes a &lt;LSTag Tooltip="LongRest"&gt;Long Rest&lt;/LSTag&gt;.</content>
   <content contentuid="41a5494dd2af439f8d50e65ca4321644" version="1">Create Food and Water</content>
   <content contentuid="ebd066fefafb453f997fe6d16f2dc8cf" version="1">Create several pounds and gallons of food and water as camp supplies.</content>
@@ -465,7 +465,7 @@
   <content contentuid="7047dfdcc65e4de8987fe353cbd47538" version="1">Resistant to psychic damage and has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Intelligence, Wisdom, and Charisma &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
   <content contentuid="f56ee772-a670-42ac-a54a-a15f11f9e34f" version="1">Life Transference</content>
   <content contentuid="a6f894cc-4c0e-4b9e-ad70-4e7cd6643df9" version="1">Sacrifice some of your life to mend another creature's injuries, causing you to take [1] and the targeted creature regains &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt; equal to twice the damage you take.</content>
-  <content contentuid="84778cbc-d7a6-4895-ae48-fd63e63df756" version="1">Minute Meteors</content>
+  <content contentuid="84778cbc-d7a6-4895-ae48-fd63e63df756" version="1">Melf's Minute Meteors</content>
   <content contentuid="72bc1a0a-f3af-4c59-b163-5421eff7099e" version="1">Create [1] meteors that can be sent streaking towards an area and explode.</content>
   <content contentuid="23632ada-db01-480c-bbee-5194974bc667" version="1">Send one or two meteors streaking towards an area.</content>
   <content contentuid="f40e5229b0004f3c8dd4adb41b6aa052" version="1">Minute Meteors: One</content>
@@ -699,27 +699,6 @@
   <content contentuid="hb3f4bfb9g83a5g4090g92c9g846144a096ef" version="1">Whenever a creature within [1] hits you with an attack, the shadows lash out at that creature, dealing [2].</content>
   <content contentuid="h041a9202gd475g44a1gb09bg68849ebfcb50" version="1">&lt;LSTag Type="Status" Tooltip="SNEAKING_HEAVILY_OBSCURED"&gt;Heavily Obscured&lt;/LSTag&gt; to others and &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistant&lt;/LSTag&gt; to radiant damage.</content>
   <content contentuid="he6842936ged43g4072gb88egdf2460a3d0d8" version="1">Must have 25 gold to cast this spell.</content>
-  <content contentuid="h33b54f2eg497cg48e7gb623g9bd0e1e34c34" version="1">Alter Self</content>
-  <content contentuid="h2ce06e95gd1afg4954g94c8g6cb33f52beb1" version="1">Change your appearance or gain natural weapons.</content>
-  <content contentuid="h829ff404g07e6g491bgb3e3g6eab7860ec33" version="1">Alter Self: Drow</content>
-  <content contentuid="hfffabd2dg932ag4071gbfedg565127e8b3d9" version="1">Change your appearance to that of a drow.</content>
-  <content contentuid="h6a603fe7gf5e5g45b0g9d58gd55e1cf0be10" version="1">Alter Self: Duergar</content>
-  <content contentuid="h24cc46c1gdd49g4a0agb7a4g016bd0cfc5a0" version="1">Change your appearance to that of a duergar.</content>
-  <content contentuid="hb273c7ddg4962g4972gb1c2g802246216b94" version="1">Alter Self: Dwarf</content>
-  <content contentuid="hbc137fa5gf0d3g4ef4g9261gde15fa850601" version="1">Change your appearance to that of a dwarf.</content>
-  <content contentuid="h15a3de20ge679g4ad2g8715g95bda96e2d64" version="1">Alter Self: Elf</content>
-  <content contentuid="he4d00524g78abg475cg8fdcg48b1270b8ef1" version="1">Change your appearance to that of a elf.</content>
-  <content contentuid="hb594688dg1d3cg4d40g8055g0d82f7807a57" version="1">Alter Self: Githyanki</content>
-  <content contentuid="h24f8afebg9ad8g41a8g872agabc6b590568b" version="1">Change your appearance to that of a githyanki.</content>
-  <content contentuid="h77f20a70ge796g4394g9c38g26fd32d3fa7d" version="1">Alter Self: Half Drow</content>
-  <content contentuid="h332086b7g2b69g418egb789gab95277526d3" version="1">Change your appearance to that of a half drow.</content>
-  <content contentuid="h9e6d229dga5c8g4086g91ccgf53cced5ded1" version="1">Alter Self: Half Elf</content>
-  <content contentuid="hf2bf3d7cg8ae9g48b2gbb1dg606b86f46d84" version="1">Change your appearance to that of a half elf.</content>
-  <content contentuid="h0d7fda08g7038g4761g8819g8445a71e45c3" version="1">Alter Self: Halfling</content>
-  <content contentuid="h697aecb7g16bbg4c2cga90dg69360fbc9571" version="1">Change your appearance to that of a halfling.</content>
-  <content contentuid="h7fbf4e4bgb5f3g45f6g95e1gd044c3d34fb9" version="1">Alter Self: Human</content>
-  <content contentuid="h9fa81870g5875g4835gaef1gf1e53bb4ecda" version="1">Change your appearance to that of a human.</content>
-  <content contentuid="hf0cf5adagaeebg403dgb057g86f2b7b5accc" version="1">Alter Self: Tiefling</content>
   <content contentuid="h5790919cg84adg408fg8301gfe641fcb8e0a" version="1">Change your appearance to that of a tiefling.</content>
   <content contentuid="hfeb7855fgd59bg42c0gbfabg03d7c7b1b25e" version="1">Regenerate</content>
   <content contentuid="h3c16c38bg3e76g4f4egb696g7494ad91d656" version="1">Touch a creature to stimulate its natural healing ability, regaining [1] and [2] at the start of its turns.</content>
@@ -747,12 +726,86 @@
   <content contentuid="h2c7b44a4gc2fcg4dbegb4b7g77097a0d43d9" version="1">Can see any &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures and objects and see through illusions.</content>
   <content contentuid="h531633c7g1ff4g46c9g8631gef87f2cbaa30" version="1">When you are targeted by an Illusion spell that forces you to make a &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, you can automatically succeed on the save.</content>
   <content contentuid="hf4028d94g6a22g459agad80g129d75cb6b49" version="1">Power Word: Kill</content>
+  <content contentuid="h33b54f2eg497cg48e7gb623g9bd0e1e34c34" version="1">Alter Self</content>
+  <content contentuid="h2ce06e95gd1afg4954g94c8g6cb33f52beb1" version="1">Change your appearance or gain natural weapons.</content>
+  <content contentuid="h97cddef0g9a53g4bb7gb227g9b2bcf260840" version="1">Alter Self: Masc Tiefling</content>
+  <content contentuid="h027933fbgf4b5g4df0ga7b6gf76b6cf802c6" version="1">Alter Self: Femme Tiefling</content>
+  <content contentuid="h0e0abcefgc15eg4afcgac5dg2ed67b9082e1" version="1">Alter Self: Masc Drow</content>
+  <content contentuid="he82e7a56g0dd4g4b35g905eg9d4490d45113" version="1">Alter Self: Femme Drow</content>
+  <content contentuid="h6f10f3deg93b7g451ag98dfgc0d3bf54a94e" version="1">Alter Self: Masc Human</content>
+  <content contentuid="ha6c862e8g8520g469bgb81bga7582fbe979f" version="1">Alter Self: Femme Human</content>
+  <content contentuid="h1c5d4736g4787g495cga876gb55d5b7c0f65" version="1">Alter Self: Masc Githyanki</content>
+  <content contentuid="hadb0ba20g0aafg4f2bg85f2g12bb1d78a2c7" version="1">Alter Self: Femme Githyanki</content>
+  <content contentuid="ha5b8e094gaaabg4ee1ga382g8fba16729c6e" version="1">Alter Self: Masc Dwarf</content>
+  <content contentuid="hd1e48713g573bg46a4gae10g39e8de1c019c" version="1">Alter Self: Femme Dwarf</content>
+  <content contentuid="h1b418129g897bg4138g986bg10a547c5246c" version="1">Alter Self: Masc Elf</content>
+  <content contentuid="h0902da46g9468g441ag8c43g3cc820ec3329" version="1">Alter Self: Femme Elf</content>
+  <content contentuid="h010ca9abgadc5g4ecdg95e2g6e2a8cb1b098" version="1">Alter Self: Masc Half-Elf</content>
+  <content contentuid="h2cbd9cffg273eg4848ga948gd1a0eb8b1740" version="1">Alter Self: Femme Half-Elf</content>
+  <content contentuid="h0e6b0dfdgb5eag4fc9g811ege150b5b38f9f" version="1">Alter Self: Masc Halfling</content>
+  <content contentuid="hcb8fd758g22feg48d9g97f5g9b260eb7b161" version="1">Alter Self: Femme Halfling</content>
+  <content contentuid="h1fe79f01g3d12g489bg847egb02ad9027667" version="1">Alter Self: Masc Gnome</content>
+  <content contentuid="hcaed1143g6d42g4508gad7cg829985d7bde3" version="1">Alter Self: Femme Gnome</content>
+  <content contentuid="h52c27fbbg70e5g4f5dg8953gee79ad06a6dd" version="1">Alter Self: Masc Dragonborn</content>
+  <content contentuid="hb357f781gec1cg4566gbca5gb1b8aac991fd" version="1">Alter Self: Femme Dragonborn</content>
+  <content contentuid="hb450d7bcgb446g4eaega21cg9c3daa5cb67a" version="1">Alter Self: Masc Half-Orc</content>
+  <content contentuid="h32dae33bgbf5eg42f1g8909gbff445ca608f" version="1">Alter Self: Femme Half-Orc</content>
+  <content contentuid="h12bf0c8agad79g4933g8b9fg8b18b590524c" version="1">Alter Self: Masc Strong Human</content>
+  <content contentuid="he0dd2213g16aeg4d09ga6d4g570a34764d8a" version="1">Alter Self: Femme Strong Human</content>
+  <content contentuid="h5ec274a5g2919g4a0agb74dg7b2251855763" version="1">Alter Self: Masc Strong Drow</content>
+  <content contentuid="h5826b20fgc009g47edg901bg16d721e117fc" version="1">Alter Self: Femme Strong Drow</content>
+  <content contentuid="hc880594eg1a2ag4743gb595g6179d4fbcec1" version="1">Alter Self: Masc Strong Elf</content>
+  <content contentuid="had65c0ebgb85bg4024g967dg1dd7d88957ab" version="1">Alter Self: Femme Strong Elf</content>
+  <content contentuid="hfd0a53c9g5e16g48ffg8764g09f9bfe6f807" version="1">Alter Self: Masc Strong Half-Elf</content>
+  <content contentuid="hc9acf85cga698g4057g892fgc6974a3050ca" version="1">Alter Self: Femme Strong Half-Elf</content>
+  <content contentuid="h74cb76f5g210ag4718g9aa9gd299563b7a1c" version="1">Alter Self: Masc Strong Tiefling</content>
+  <content contentuid="hcdc93e7bg8d20g4665ga3a4gf71f3c81c803" version="1">Alter Self: Femme Strong Tiefling</content>
+  <content contentuid="hbe28d46fg3b31g4497ga7dfgd22a3cce7d77" version="1">Alter Self: Bludgeoning Weapon</content>
+  <content contentuid="h387a1c05gcf55g4b33gabaeg7f2f97ee9840" version="1">Alter Self: Piercing Weapon</content>
+  <content contentuid="h6f07ae45gedc2g4db7ga0acg9156e395e5e6" version="1">Alter Self: Slashing Weapon</content>
+  <content contentuid="h57b8da30g001eg4118gb208g369110330386" version="1">Grow a natural weapon that deals [1], is magical and has a +1 bonus to their &lt;LSTag Tooltip="AttackRoll"&gt;attack&lt;/LSTag&gt; and damage rolls.</content>
+  <content contentuid="h916d7508g7e05g423bg8223g1da251b2d870" version="1">Bludgeoning Weapon</content>
+  <content contentuid="hfcd05529g302ag485cg842fg80e70e2eae05" version="1">Slashing Weapon</content>
+  <content contentuid="h3be39c2fg9167g4fedgba03gca9bacbb2894" version="1">Piercing Weapon</content>
+  <content contentuid="h98a470f0g76f2g472dg8864gdd720a9a7da1" version="1">This entity's unarmed strikes deal [1], are magical and have a +1 bonus to their &lt;LSTag Tooltip="AttackRoll"&gt;attack&lt;/LSTag&gt; and damage rolls.</content>
+  <content contentuid="h870fa36fgb5e3g4bf5ga9b1gd84e695905ee" version="1">Weapon Enhancement</content>
+  <content contentuid="ha057ec3fga181g41f2gbf37g65e80718615c" version="1">Hit a target with your natural weapon.</content>
+  <content contentuid="h605274f5g5a8ag4d00gaa86g8db82acd10ed" version="1">Alter Self: Change</content>
+  <content contentuid="hba4c14bcg7309g46f0g96a2gf08f2bcab84d" version="1">Change your appearance again.</content>
+  <content contentuid="ha8e78de1gf702g4dd8g938eg31d5d1c8127b" version="1">Mind Blank</content>
+  <content contentuid="hbdc2382agdcdcg4e6dg929dgbbcad13b8c78" version="1">Touch an allied creature, making it &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Immune&lt;/LSTag&gt; to Psychic damage, effects that senses its emotions or read its thoughts, divination spells, and the &lt;LSTag Type="Status" Tooltip="CHARMED"&gt;Charmed&lt;/LSTag&gt; condition.</content>
+  <content contentuid="h621f3386g9fc5g4981g9a9bg8c87b67242a3" version="1">This entity is &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Immune&lt;/LSTag&gt; to Psychic damage, effects that senses its emotions or read its thoughts, divination spells, and the &lt;LSTag Type="Status" Tooltip="CHARMED"&gt;Charmed&lt;/LSTag&gt; condition.</content>
+  <content contentuid="heaec4028g9e12g4e37gae62gd4ac84235228" version="1">Holy Aura</content>
+  <content contentuid="h4de5bcfdg5912g4d10g9910g5156465d4cc8" version="1">Divine light washes out in a [1] area around you. Allied creatures have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; and non-allied creatures have on &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;attack&lt;/LSTag&gt; against your allies.</content>
+  <content contentuid="h2ba9d54dg869eg431agbbc4gf8d417f47b68" version="1">Fiends and undeads are &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;Blinded&lt;/LSTag&gt; when they hit affected allies with melee attacks.</content>
+  <content contentuid="hb4a068c8ge575g491fg960cg0766ac2cd042" version="1">Has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.</content>
+  <content contentuid="h9242d9ebga114g4b0eg97ceg8d077a51fab9" version="1">Has &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt; against entities affected by &lt;LSTag Type="Spell" Tooltip="Shout_HolyAura"&gt;Holy Aura&lt;/LSTag&gt;.</content>
+  <content contentuid="h2951270ege85bg4ebdg9260ga50fe58fd155" version="1">Feeblemind</content>
+  <content contentuid="h282b6cfag0263g4330gb10fg9fbe096e5003" version="1">Shatter a creature's intellect and personality, reducing its &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; and &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; to 1 and preventing it from casting spells or communicating intelligibly.</content>
+  <content contentuid="h98fc69aegb2f2g45d7ga364g67cb4db725bf" version="1">&lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; and &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; reduced to 1 and cannot cast spells or engage in dialogues.</content>
+  <content contentuid="hf7c7e4a4g84eag4234gb696g6c1ec5df9098" version="1">Dominate Monster</content>
+  <content contentuid="hed72c3b5ga736g40adga68ag526eef2dd0ab" version="1">Make a creature fight alongside you. Every time the creature takes damage, it makes a Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; against your domination. Allies cannot be dominated.</content>
+  <content contentuid="h1091a605gffd9g47d2g92a9gea580c3fe53f" version="1">Tenser's Transformation</content>
+  <content contentuid="h18d70482g6daeg40ddg8b80g38a245006e1f" version="1">Endow yourself with endurance and martial prowess fueled by magic, preventing you from casting spells but granting you gain several benefits.</content>
+  <content contentuid="h5cc3c512g5319g4746g8173gfa5355023e71" version="1">You gain [1], you have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; with weapons, you deal an extra [2] with weapon attacks, you have proficiency with all armor, shields and weapons, you have proficiency in Strength and Constitution &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.&lt;br&gt; and you can attack twice, instead of once, when you take the Attack action on your turn unless you have the &lt;LSTag Type="Passive" Tooltip="ExtraAttack"&gt;Extra Attack&lt;/LSTag&gt; or similar feature.</content>
+  <content contentuid="hfb366376g61c1g41c7gb1c0gbd91cfc5aaf3" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; After the spell ends, you must succeed on a DC 15 Constitution &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or suffer one level of Exhaustion.</content>
+  <content contentuid="h36892695gc354g4b89gb61egcf006641c203" version="1">This entity has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; with weapons, deals an extra [2] with weapon attacks, has proficiency with all armor, shields and weapons, has proficiency in Strength and Constitution &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; and attack twice, instead of once, when taking the Attack action on its turn.</content>
+  <content contentuid="h8cb18068g250fg49d0gb0dbg93d2a0e25314" version="1">Power Word: Heal</content>
+  <content contentuid="h0e1edde2gc913g4749ga7aag431a611a5efa" version="1">A wave of healing energy washes over a creature, causing it to regaining all its &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt; and removing the &lt;LSTag Type="Status" Tooltip="CHARMED"&gt;Charmed&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;Frightened&lt;/LSTag&gt;, &lt;LSTag Type="Status" Tooltip="PARALYSED"&gt;Paralysed&lt;/LSTag&gt; and &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;Stunned&lt;/LSTag&gt; conditions.</content>
+  <content contentuid="hed8030c5gde84g4f32g9f90g7dfc7265b1fd" version="1">If the target is &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;, it stands up by using its &lt;LSTag Type="ActionResource" Tooltip="ReactionActionPoint"&gt;reaction&lt;/LSTag&gt;.</content>
+  <content contentuid="h763c0a15gaa73g4396g8915g16d1ba130336" version="1">Power Word Heal: Prone</content>
+  <content contentuid="h39577b3cg079eg4b79gbf77ga5a27141cc19" version="1">You can stand up from being &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;.</content>
+  <content contentuid="h216772b5g8dccg41c7g8d3fg919d2bb0123e" version="1">Foresight</content>
+  <content contentuid="h02adb6fag6ca7g44b5gbeefgfa7261400ad0" version="1">Bestow a creature with a limited ability to see the future. The target cannot be &lt;LSTag Type="Status" Tooltip="SURPRISED"&gt;Surprised&lt;/LSTag&gt; and has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;, &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;, and &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; and imposes &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; from creatures targeting them.</content>
+  <content contentuid="h05db2e96gc74fg4c32g8f35g7fd4c33b2c54" version="1">This entity cannot be &lt;LSTag Type="Status" Tooltip="SURPRISED"&gt;Surprised&lt;/LSTag&gt; and has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;, &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;, and &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; and imposes &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; from creatures targeting it.</content>
   <content contentuid="hb7427c6ege554g4317gbc59g89bd37378263" version="1">Antagonize</content>
-  <content contentuid="ha4718c2dg1d1bg45f9ga8cfge0c74bed9998" version="1">You whisper magical words that antagonize one creature of your choice within range possibly causing the target to immediately use its reaction to make a melee attack against another creature of your choice that you can see.&lt;br&gt;&lt;br&gt;If the target can’t make this attack (for example, because there is no one within its reach or because its reaction is unavailable), the target instead has disadvantage on the next attack roll it makes before the start of your next turn.</content>
+  <content contentuid="ha4718c2dg1d1bg45f9ga8cfge0c74bed9998" version="1">Whisper magical words that antagonize a creature, possibly causing the target to use its reaction to make a melee attack against another creature.</content>
+  <content contentuid="h0f2cfcbaga5cag40d8ga645gbf7066d6ceb1" version="1">If the target can’t make the attack, it instead has &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on its next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.</content>
   <content contentuid="h1ff23493g515bg4674gb394g2b2d73ef489a" version="1">Antagonize: Declare Target</content>
   <content contentuid="hf1fafe6bg7671g4607gb24bgf109e9620cab" version="1">Choose who your antagonized target is goaded into attacking.</content>
   <content contentuid="h598433b1g0916g44c0g968bgc0c2236d4426" version="1">Antagonized</content>
-  <content contentuid="hae85792egcd37g4509gb5b8g1a1a137e2daf" version="1">You have been provoked into attacking one of your allies. If you are unable to do so, your next attack before your antagonizers next turn has &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;.</content>
+  <content contentuid="hae85792egcd37g4509gb5b8g1a1a137e2daf" version="1">This entity has been provoked into attacking another creature. If unable to do so, the entity's next attack has &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt;.</content>
   <content contentuid="hce8d25fegc177g45cfga9c7g39f0fbeeaec1" version="1">Antagonized Attack</content>
-  <content contentuid="hc36bb798g8a81g45ecg8e12g10c0caa4d467" version="1">You have been provoked into attacking one of your allies.</content>
+  <content contentuid="hc36bb798g8a81g45ecg8e12g10c0caa4d467" version="1">You are provoked into attacking another creature.</content>
+  <content contentuid="h812fed61g8516g4f5ag9997g4e0e435138bf" version="1">Can't take actions, bonus actions, or reactions.</content>
 </contentList>
