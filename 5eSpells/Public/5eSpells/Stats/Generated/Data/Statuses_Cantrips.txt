@@ -58,6 +58,7 @@ data "AuraRadius" "1"
 data "AuraStatuses" "IF(Character()):ApplyStatus(CREATE_BONFIRE,100,1)"
 data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
 data "StackId" "CREATE_BONFIRE_AURA"
+data "SurfaceChange" "Ignite"
 
 new entry "CREATE_BONFIRE_BLOCK"
 type "StatusData"

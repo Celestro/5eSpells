@@ -1,3 +1,10 @@
+new entry "Projectile_PowerWordHeal_Explosion"
+type "SpellData"
+data "SpellType" "Projectile"
+data "Trajectories" "e7904756-aa17-4c7d-aa93-1e71f8465f7b,50a199c7-831a-b6b4-bb87-de738bafeb1c,2b63f185-ff8c-d273-dcea-da041796d672"
+data "HitAnimationType" "MagicalNonDamage"
+data "TargetEffect" "fd5dfd79-b4db-43aa-a66b-926bfa1ef963"
+
 new entry "Projectile_WardingWind_Explosion"
 type "SpellData"
 data "SpellType" "Projectile"

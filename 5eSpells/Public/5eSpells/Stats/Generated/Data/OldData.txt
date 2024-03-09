@@ -4,6 +4,23 @@ type "PassiveData"
 new entry "FlameArrows"
 type "PassiveData"
 
+new entry "S5E_SpiritShroud_Cold"
+type "PassiveData"
+data "DisplayName" "23dd88c7-8782-42c0-b724-4a402ab2665b;1"
+data "Properties" "IsHidden"
+
+new entry "S5E_SpiritShroud_Cold_5"
+type "PassiveData"
+using "S5E_SpiritShroud_Cold"
+
+new entry "S5E_SpiritShroud_Cold_7"
+type "PassiveData"
+using "S5E_SpiritShroud_Cold"
+
+new entry "S5E_SpiritShroud_Cold_9"
+type "PassiveData"
+using "S5E_SpiritShroud_Cold"
+
 new entry "SpiritShroud_Cold"
 type "PassiveData"
 
@@ -14,6 +31,30 @@ new entry "SpiritShroud_Cold_7"
 type "PassiveData"
 
 new entry "SpiritShroud_Cold_9"
+type "PassiveData"
+
+new entry "SpiritShroud_Necrotic"
+type "PassiveData"
+
+new entry "SpiritShroud_Necrotic_5"
+type "PassiveData"
+
+new entry "SpiritShroud_Necrotic_7"
+type "PassiveData"
+
+new entry "SpiritShroud_Necrotic_9"
+type "PassiveData"
+
+new entry "SpiritShroud_Radiant"
+type "PassiveData"
+
+new entry "SpiritShroud_Radiant_5"
+type "PassiveData"
+
+new entry "SpiritShroud_Radiant_7"
+type "PassiveData"
+
+new entry "SpiritShroud_Radiant_9"
 type "PassiveData"
 
 new entry "GuardianOfNature_PrimalBeast"

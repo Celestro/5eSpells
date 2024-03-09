@@ -92,6 +92,10 @@
                     <attribute id="Text" type="TranslatedString" handle="h62a1dba9g0a67g4164g9c4cg05b43f7e55fd" version="1"/>
                     <attribute id="UUID" type="guid" value="6807f59c-6724-4907-abb0-888ad4d3a523"/>
                 </node>
+                <node id="TooltipExtraTexts"> Tenser's Transformation
+                    <attribute id="Text" type="TranslatedString" handle="hfb366376g61c1g41c7gb1c0gbd91cfc5aaf3" version="1"/>
+                    <attribute id="UUID" type="guid" value="fd285819-5eb0-4df1-be73-ca2eebff294c"/>
+                </node>
             </children>
         </node>
     </region>
