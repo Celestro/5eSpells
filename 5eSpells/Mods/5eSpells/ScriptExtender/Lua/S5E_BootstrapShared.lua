@@ -73,6 +73,15 @@ function S5E_Changes()
 	pam.Conditions = pam.Conditions .. " and (not S5E_IsInvisibleSeen() or S5E_CanSeeInvisible())"
 	warc.Conditions = warc.Conditions .. " and (not S5E_IsInvisibleSeen() or S5E_CanSeeInvisible())"
 
+	local guidance = Ext.Stats.Get("Target_Guidance")
+	local huntersMark = Ext.Stats.Get("Target_HuntersMark")
+	local huntersMarkReapply = Ext.Stats.Get("Target_HuntersMark_Reapply")
+	local trueStrike = Ext.Stats.Get("Target_TrueStrike")
+	guidance.TargetConditions = guidance.TargetConditions .. " and not IsImmuneToStatus('GUIDANCE')"
+	huntersMark.TargetConditions = huntersMark.TargetConditions .. " and not IsImmuneToStatus('HUNTERS_MARK')"
+	huntersMarkReapply.TargetConditions = huntersMarkReapply.TargetConditions .. " and not IsImmuneToStatus('HUNTERS_MARK')"
+	trueStrike.TargetConditions = trueStrike.TargetConditions .. " and not IsImmuneToStatus('TRUE_STRIKE')"
+
 	local potentSpellcasting = Ext.Stats.Get("PotentSpellcasting")
 	potentSpellcasting.Boosts = potentSpellcasting.Boosts .. ";IF(SpellId('Target_TollTheDead')):DamageBonus(max(0, WisdomModifier))"
 
@@ -284,7 +293,7 @@ local bardSpells6th = {
 	"Target_UnseenServant"
 }
 local bardMagicalSecrets3rd = {
-	"Shout_AshardalonsStride",
+	"Target_Antagonize",
 	"Shout_BeaconOfHope",
 	"Target_Smite_Blinding",
 	"Shout_Blink",
@@ -417,7 +426,7 @@ local bardMagicalSecrets5th = {
 	"Shout_ShadowOfMoil",
 	"Target_Stoneskin",
 	"Target_SummonElemental",
-	"Shout_AshardalonsStride",
+	"Target_Antagonize",
 	"Shout_BeaconOfHope",
 	"Target_Smite_Blinding",
 	"Shout_Blink",
@@ -1183,6 +1192,7 @@ local wizardSpells5th = {
 	"Target_UnseenServant"
 }
 local wizardSpells6th = {
+	"Shout_TensersTransformation",
 	"Target_TrueSeeing",
 	"Target_FarStep",
 	"Projectile_NegativeEnergyFlood",
@@ -1302,7 +1312,7 @@ local spellList5ES = {
   Wizard6th = "bc917f22-7f71-4a25-9a77-7d2f91a96a65"
 }
 
-local function OnSessionLoaded()
+local function OnStatsLoaded()
 	local additions = {
 	SSCantrips = {
 	  Spells = spellSniper,
@@ -1560,7 +1570,7 @@ local function OnSessionLoaded()
 
 	S5E_SpellLists(additions)
 end
-Ext.Events.SessionLoaded:Subscribe(OnSessionLoaded)
+Ext.Events.StatsLoaded:Subscribe(OnStatsLoaded)
 
 function S5E_SpellLists(additions)
 if additions ~= nil then

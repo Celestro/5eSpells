@@ -794,6 +794,32 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
     end
 end)
 
+-- Power Word Heal
+Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
+	if spell == "Target_PowerWordHeal" and Osi.HasActiveStatusWithGroup(target,"SG_Prone") == 1 then
+		Osi.ApplyStatus(target,"POWER_WORD_HEAL_INTERRUPT",6.0,1)
+	elseif spell ~= "Target_PowerWordHeal" and Osi.HasActiveStatusWithGroup(target,"SG_Prone") == 1 then
+		Osi.RemoveStatus(target,"POWER_WORD_HEAL_INTERRUPT")
+		Osi.RemoveStatus(target,"POWER_WORD_HEAL_TECHNICAL")
+    end
+end)
+
+--[[ Boost Checking
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
+	if status == "SNEAKING" then
+		for _, boosts in pairs(Ext.Entity.Get(causee).BoostsContainer.Boosts) do
+			if boosts.Type == "ProficiencyBonus" then
+				for _, b in pairs(boosts.Boosts) do
+					if b.ProficiencyBonusBoost.Type == "SavingThrow" then
+						_D(b.ProficiencyBonusBoost.Ability)
+					end
+				end
+			end
+		end
+    end
+end)--]]
+
+
 --[[ Dispel Magic
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(character, status, causee, _)
 	if status == "DISPEL_MAGIC" then
