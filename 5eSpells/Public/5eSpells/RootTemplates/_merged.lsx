@@ -4354,6 +4354,50 @@
 						</node>
 					</children>
 				</node>
+				<node id="GameObjects">
+					<attribute id="AnubisConfigName" type="FixedString" value="Dummy" />
+					<attribute id="AttackableWhenClickThrough" type="bool" value="False" />
+					<attribute id="BloodSurfaceType" type="FixedString" value="SurfaceNone" />
+					<attribute id="CanClickThrough" type="bool" value="True" />
+					<attribute id="CanFight" type="bool" value="False" />
+					<attribute id="CanJoinCombat" type="bool" value="False" />
+					<attribute id="CanShootThrough" type="bool" value="True" />
+					<attribute id="CastShadow" type="bool" value="False" />
+					<attribute id="DeathEffect" type="guid" value="00000000-0000-0000-0000-000000000000" />
+					<attribute id="DisplayName" type="TranslatedString" handle="hea1c17d4geb8dg46ccg909dg18074ada4858" version="1" />
+					<attribute id="GeneratePortrait" type="LSString" value="" />
+					<attribute id="Icon" type="FixedString" value="c782be1a-319c-15b9-319a-208adbce3312-_(Icon_Imp)" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="MapKey" type="FixedString" value="734f1996-5cdb-4a6f-aae2-6dde31062f5d" />
+					<attribute id="Name" type="LSString" value="StormSphere_InvisibleHelper" />
+					<attribute id="Opacity" type="float" value="0" />
+					<attribute id="ParentTemplateId" type="FixedString" value="82bdf364-bcf3-4070-9b18-f4c1fd7dd2b0" />
+					<attribute id="Race" type="guid" value="00000000-0000-0000-0000-000000000000" />
+					<attribute id="Stats" type="FixedString" value="HelperSummon_Invulnerable" />
+					<attribute id="Type" type="FixedString" value="character" />
+					<attribute id="WalkOn" type="bool" value="False" />
+					<attribute id="WalkThrough" type="bool" value="True" />
+					<children>
+						<node id="LocomotionParams" />
+						<node id="Tags">
+							<children>
+								<node id="Tag">
+									<attribute id="Object" type="guid" value="26c78224-a4c1-43e4-b943-75e7fa1bfa41" />
+								</node>
+								<node id="Tag">
+									<attribute id="Object" type="guid" value="a50cb0b1-29a6-4711-a71d-0dc3e3642287" />
+								</node>
+								<node id="Tag">
+									<attribute id="Object" type="guid" value="cf60d691-4307-4a8c-af4d-0e8781ea2503" />
+								</node>
+								<node id="Tag">
+									<attribute id="Object" type="guid" value="f9650813-18ae-4da7-9a9e-615d9814bcfb" />
+								</node>
+							</children>
+						</node>
+						<node id="OnDeathActions" />
+					</children>
+				</node>
 			</children>
 		</node>
 	</region>
