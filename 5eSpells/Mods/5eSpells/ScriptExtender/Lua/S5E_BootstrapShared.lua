@@ -610,7 +610,8 @@ local druidSpells4th = {
 }
 local druidSpells5th = {
 	"Shout_CommuneWithNature",
-	"Zone_ConeOfCold"
+	"Zone_ConeOfCold",
+	"Target_Maelstrom"
 }
 local fighterEKSpells1st = {
 	"Shout_AbsorbElements",
