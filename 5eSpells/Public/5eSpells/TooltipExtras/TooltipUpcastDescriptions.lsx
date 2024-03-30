@@ -60,7 +60,7 @@
                     <attribute id="UUID" type="guid" value="a92f9113-4af3-47fc-b3bf-2399f83ccbce"/>
                 </node>
                 <node id="TooltipUpcastDescriptions">
-                    <attribute id="Name" type="FixedString" value="Summon Elemental"/>
+                    <attribute id="Name" type="FixedString" value="Summon Elemental/Aberration"/>
                     <attribute id="Text" type="TranslatedString" handle="h0b484c54gb947g41d1g9f18g07c22f3382c3" version="1"/>
                     <attribute id="UUID" type="guid" value="a379c3b1-f6f8-4052-890f-3b63f80532c7"/>
                 </node>

@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="9" build="0" lslib_meta="v1,bswap_guids" />
+	<region id="EffectBank">
+		<node id="EffectBank">
+			<children>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="1 1 1" />
+					<attribute id="BoundsMin" type="fvec3" value="-1 -1 -1" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="1.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_TollTheDead_EyeFX_01" />
+					<attribute id="ID" type="FixedString" value="fc31ea75-03db-4938-989a-4b2eae015bf1" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="S5E_TollTheDead_EyeFX_01" />
+					<attribute id="Radius" type="float" value="1" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Cast/Intent/Debuff/S5E_TollTheDead_EyeFX_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115200960758165" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7458ee79-cf78-5dc7-9966-58acad0f4a49" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="1a1a7099-9c46-4d5f-8f00-a249af1dc519" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="1 1 1" />
+					<attribute id="BoundsMin" type="fvec3" value="-1 -1 -1" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="1.5" />
+					<attribute id="EffectName" type="FixedString" value="S5E_TollTheDead_EyeFX_02" />
+					<attribute id="ID" type="FixedString" value="46b42878-35c2-4a0e-b2c7-88f239ede9a5" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="S5E_TollTheDead_EyeFX_02" />
+					<attribute id="Radius" type="float" value="1" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Cast/Intent/Debuff/S5E_TollTheDead_EyeFX_02.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115200960758165" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="11c56c86-1573-4ba8-b656-8a2104fdbba3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="1a1a7099-9c46-4d5f-8f00-a249af1dc519" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="1" />
+					<attribute id="EffectName" type="FixedString" value="S5E_TollTheDead_CastFX_Textkey_01" />
+					<attribute id="ID" type="FixedString" value="8cd8c159-69a9-4864-b13b-5470a22d40b7" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="S5E_TollTheDead_CastFX_Textkey_01" />
+					<attribute id="Radius" type="float" value="3.464102" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Cast/Intent/Debuff/S5E_TollTheDead_CastFX_Textkey_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115198813274212" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9c15f129-f070-7a2b-e66d-d728aaea2383" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="fb21ca3c-3b37-b5b8-86cd-c7feaead109d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c857d19b-25be-a746-1134-1fcf2107ac38" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9acfb87b-b0b3-50a7-7408-414d4246d2b4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="5 5 5" />
+					<attribute id="BoundsMin" type="fvec3" value="-5 -5 -5" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="1.15" />
+					<attribute id="EffectName" type="FixedString" value="S5E_TollTheDead_CastFX_Textkey_02" />
+					<attribute id="ID" type="FixedString" value="ea9e7bda-7473-4add-9bd6-e5cd9a42f502" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="S5E_TollTheDead_CastFX_Textkey_02" />
+					<attribute id="Radius" type="float" value="8.660254" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Cast/Intent/Debuff/S5E_TollTheDead_CastFX_Textkey_02.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115198813274212" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9c15f129-f070-7a2b-e66d-d728aaea2383" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="30e17083-9341-c17f-1993-4301d74f2152" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="d1b959e1-4a69-5fb9-3711-9d39bc5edce0" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="fb21ca3c-3b37-b5b8-86cd-c7feaead109d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5e1b3b30-8ca9-ea66-5346-d2a89dbf79fc" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="3 3 3" />
+					<attribute id="BoundsMin" type="fvec3" value="-3 -3 -3" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2" />
+					<attribute id="EffectName" type="FixedString" value="S5E_TollTheDead_HandFX_Overlay_01" />
+					<attribute id="ID" type="FixedString" value="89be3b94-d10e-4327-a64f-2e7e11f7692a" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="S5E_TollTheDead_HandFX_Overlay_01" />
+					<attribute id="Radius" type="float" value="3" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Cast/Intent/Debuff/S5E_TollTheDead_HandFX_Overlay_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115198813274414" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e2d34dd3-0ca2-7daf-7ca8-3b0ba3089772" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="3 3 3" />
+					<attribute id="BoundsMin" type="fvec3" value="-3 -3 -3" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="30" />
+					<attribute id="Duration" type="float" value="2" />
+					<attribute id="EffectName" type="FixedString" value="S5E_TollTheDead_HandFX_Overlay_02" />
+					<attribute id="ID" type="FixedString" value="813f64fb-b10b-4502-8877-39253d16db57" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="S5E_TollTheDead_HandFX_Overlay_02" />
+					<attribute id="Radius" type="float" value="3" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Cast/Intent/Debuff/S5E_TollTheDead_HandFX_Overlay_02.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115198813274414" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="0dc57eb3-56a2-fb85-167e-b25d15372d54" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="5 5 5" />
+					<attribute id="BoundsMin" type="fvec3" value="-5 -5 -5" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="3" />
+					<attribute id="EffectName" type="FixedString" value="S5E_TollTheDead_Impact_BodyFX_Textkey_01" />
+					<attribute id="ID" type="FixedString" value="fcd31979-c00e-4bee-926e-aaf5197f18b0" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="S5E_TollTheDead_Impact_BodyFX_Textkey_01" />
+					<attribute id="Radius" type="float" value="8.660254" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Cast/Intent/Debuff/S5E_TollTheDead_Impact_BodyFX_Textkey_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115205255725656" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5e1b3b30-8ca9-ea66-5346-d2a89dbf79fc" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="97b12629-982f-c7b4-7807-1ca4cd35e0aa" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="d1b959e1-4a69-5fb9-3711-9d39bc5edce0" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e861c0c8-a4f4-b18f-0dcb-34f1fcaa371b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e96f46e3-3998-e4b2-9dc1-18249a90c8b6" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="fb21ca3c-3b37-b5b8-86cd-c7feaead109d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7bdafec7-27dd-539a-e30b-3a3fb9311196" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>
