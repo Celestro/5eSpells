@@ -459,3 +459,11 @@ function S5E_CanSeeInvisible(entity)
         | ((HasStatus('SEE_INVISIBILITY_SEEK', entity) | HasPassive('BlindFighting', entity)) & ~DistanceToGreaterThan(context.SourcePosition, context.TargetPosition, 3))
         | (HasStatus('MIND_SPIKE_OWNER', entity) & ~DistanceToGreaterThan(context.SourcePosition, context.TargetPosition, 99.5))
 end
+
+function S5E_RangedWeaponAttackSpellCheck()
+    return (HasStringInSpellRoll('AttackType.RangedWeaponAttack') | SpellId('Projectile_ArrowOfSmokepowder')) & ~(SpellId('Projectile_EnsnaringStrike') | SpellId('Projectile_EnsnaringStrike_2') | SpellId('Projectile_EnsnaringStrike_3') | SpellId('Projectile_EnsnaringStrike_4') | SpellId('Projectile_EnsnaringStrike_5') | SpellId('Projectile_EnsnaringStrike_6') | SpellId('Projectile_EnsnaringStrike_7') | SpellId('Projectile_EnsnaringStrike_8') | SpellId('Projectile_EnsnaringStrike_9') | SpellId('Projectile_EnsnaringStrike_Container'))
+end
+
+function S5E_RangedWeaponAttackCheck()
+    return S5E_RangedWeaponAttackSpellCheck() & HasUseCosts('ActionPoint',false)
+end

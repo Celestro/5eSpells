@@ -37,7 +37,7 @@
   <content contentuid="61cafcd2-c06b-4ed8-af89-e98639e629b7" version="1">Arrow still explodes.</content>
   <content contentuid="h677ff2e6g6860g4880gbfcfg394867d9fe80" version="1">Creates two more meteors per level.</content>
   <content contentuid="38ebe1d1-ea04-49fa-96ab-0b45964ad0b5" version="1">Summon gains +1 to AC, +15 maximum &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt; and deals +1 additional damage on attacks per level.</content>
-  <content contentuid="h0b484c54gb947g41d1g9f18g07c22f3382c3" version="1">Summon gains +1 to AC, +10 maximum &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt; and deals +1 additional damage on attacks per level.</content>
+  <content contentuid="h0b484c54gb947g41d1g9f18g07c22f3382c3" version="1">Summon gains +1 to AC, +[1] to their maximum and deals +1 additional damage on attacks per level.</content>
   <content contentuid="hd426751fge01cg427cg980fg582d45c7a8eb" version="1">For every [1] spell levels higher than the original, deal an additional [2].</content>
   <content contentuid="h28d9e0beg479cg49b9gb961gcfbf53246de9" version="1">Gain an additional [1] per level.</content>
   <content contentuid="a354a061-e594-4604-9204-4ba58b16d318" version="1">Snare Trap</content>
@@ -180,7 +180,7 @@
   <content contentuid="b9d8673da2b94c1fb644ddcc057fd730" version="1">Can be targeted by Green-Flame Blade's leaping fire.</content>
   <content contentuid="db5c91b4-e7db-4f8b-81a4-bb4a026d88e2" version="1">Green-Flame</content>
   <content contentuid="dac95e17-7fb6-4ebe-840b-5f92f409431f" version="1">Green-flame leaps from your weapon to strike a nearby foe.</content>
-  <content contentuid="1e59de7f-2f54-4f51-9304-9aabd84e3f15" version="1">Gust</content>
+  <content contentuid="h1e59de7fg2f54g4f51g9304g9aabd84e3f15" version="1">Gust</content>
   <content contentuid="hc5526a6dg376dg4c65g8036g7b07ccdd38b5" version="1">Seize air and compel it to possibly push a creature up to [1] away from you, an object [2] away from you or clear clouds in a [3] area.</content>
   <content contentuid="217ec6abd81e41bb83ca552230fba831" version="1">Gust: Creature</content>
   <content contentuid="eaeed94dc8384fd294df27282718a336" version="1">Seize air and compel it to possibly push a creature up to [1] away from you.</content>
@@ -188,8 +188,8 @@
   <content contentuid="f0805e7ab7c5406bb6710dd519a75e48" version="1">Gust: Object</content>
   <content contentuid="85322456b80b4bd5b1813ee6d0168fc7" version="1">Seize air and compel it to possibly push an weighing up to 5 pounds [2] away from you.</content>
   <content contentuid="h62a1dba9g0a67g4164g9c4cg05b43f7e55fd" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; The object cannot weigh more than 5 pounds.</content>
-  <content contentuid="hdadbcfc4g44acg44beg9b01g999bfb636baf" version="1">Gust: Cloud</content>
-  <content contentuid="hbb364860gc5e7g4d6fg8782g12bb7fd13e27" version="1">Seize air and clear clouds in a [1] area.</content>
+  <content contentuid="hdadbcfc4g44acg44beg9b01g999bfb636baf" version="1">Gust: Distraction</content>
+  <content contentuid="hbb364860gc5e7g4d6fg8782g12bb7fd13e27" version="1">Seize air and create a gust of wind that distracts non-hostile creatures nearby.</content>
   <content contentuid="c745619a-bd5a-4e1e-8a08-68600ac69062" version="1">Lightning Lure</content>
   <content contentuid="ec9c8bcc-b22f-4bc5-bd68-b79e5ee020bb" version="1">Create a lash of lightning energy that strikes at a creature and possibly pulls them [1] towards you.</content>
   <content contentuid="h2ee7df7eg2c60g4a7dg9a79g74101b021a3c" version="1">Magic Stone</content>
@@ -208,11 +208,11 @@
   <content contentuid="93d3af5e-98db-47ae-b5a3-dc9c9f2b940b" version="1">Drive a disorienting spike of psychic energy into the mind of a creature, possibly imposing a -[1] penalty to its next Saving Throw.</content>
   <content contentuid="6ae5af254af049a9b32c0da31e0359ac" version="1">Next &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; reduced by [1].</content>
   <content contentuid="9d7d6dd6-4f80-4e70-8dd7-fd5aa40d3704" version="1">Mold Earth: Create</content>
-  <content contentuid="9d3126a7-22e1-49d1-8393-c31f883da890" version="1">Create a mud surface that becomes &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Difficult Terrain&lt;/LSTag&gt;.</content>
-  <content contentuid="a42fcc44-335c-4c84-b536-5be090f6ad90" version="1">Mold Earth: Destroy</content>
-  <content contentuid="9a028fa4-6333-4581-a675-f08e2186546b" version="1">Remove a mud surface.</content>
-  <content contentuid="045a290b-efdc-4cf7-bd25-2ee6b269cb17" version="1">Mold Earth</content>
-  <content contentuid="5ee75e1a-0b41-4726-bca1-eaa10c486de5" version="1">Manipulate earth to your whim, allowing you to create a mud surface that becomes &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Difficult Terrain&lt;/LSTag&gt; or to remove a mud surface.</content>
+  <content contentuid="9d3126a7-22e1-49d1-8393-c31f883da890" version="1">Create a [1] mud surface that becomes &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Difficult Terrain&lt;/LSTag&gt;.</content>
+  <content contentuid="ha42fcc44g335cg4c84gb536g5be090f6ad90" version="1">Mold Earth: Destroy</content>
+  <content contentuid="h9a028fa4g6333g4581ga675gf08e2186546b" version="1">Remove a [1] mud surface.</content>
+  <content contentuid="h045a290bgefdcg4cf7gbd25g2ee6b269cb17" version="1">Mold Earth</content>
+  <content contentuid="h5ee75e1ag0b41g4726gbca1geaa10c486de5" version="1">Manipulate earth to your whim, allowing you to create a mud surface that becomes &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Difficult Terrain&lt;/LSTag&gt; or to remove a mud surface.</content>
   <content contentuid="hdb65ca99gdf3dg4492g9daag28bf7861dcef" version="1">Prestidigitation</content>
   <content contentuid="he8442688g04f1g4751ga863gfe05abc86b89" version="1">Perform minor magical tricks that light or snuff out the fire on some items and weapons and cleans ground surfaces or creatures.</content>
   <content contentuid="cb796812372c4ad4944804a521e83b7c" version="1">Cleaned of blood, dirt and sweat.</content>
@@ -221,15 +221,13 @@
   <content contentuid="5aa87de0-6bd2-4e40-a279-f100ae3dab60" version="1">Sapping Sting</content>
   <content contentuid="0bdfb2cf-6072-4699-8454-2492bac4e400" version="1">Sap the vitality of a creature, possibly causing it to fall &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;.</content>
   <content contentuid="hcff835ecg0101g485agb7e5gd3aa6b69de11" version="1">Shape Water</content>
-  <content contentuid="h6f60d13ag4981g4a9ag8b4bg576d79f30182" version="1">Manipulate water to freeze water surfaces, melt ice surfaces or drench an allied creature to become &lt;LSTag Type="Status" Tooltip="WET"&gt;Wet&lt;/LSTag&gt;.</content>
+  <content contentuid="h6f60d13ag4981g4a9ag8b4bg576d79f30182" version="1">Manipulate water to freeze water surfaces, move a water surface to another location or create a block of ice from a water surface.</content>
   <content contentuid="779794ccc2494711a793023a752a70ba" version="1">Shape Water: Freeze</content>
   <content contentuid="65c0a00ff24d487db8ce408c863fe481" version="1">Manipulate a water surface and freeze it to become an ice surface.</content>
-  <content contentuid="630af4d3d7374b1ebf31771db43a732c" version="1">Shape Water: Unfreeze</content>
-  <content contentuid="5244d1bec0cb4c69a1ee19af83b4cf28" version="1">Manipulate an ice surface and melt it to become a water surface.</content>
-  <content contentuid="h3aab77a8g5455g4968g9341gef97386d1798" version="1">Shape Water: Unfreeze</content>
-  <content contentuid="h99d89c81g7507g4a4dgbac4ge68c80d3a84c" version="1">Manipulate an ice surface and melt it to become a water surface.</content>
-  <content contentuid="h84c618eegaf80g4487g92e8gbf15c00832bd" version="1">Shape Water: Drench</content>
-  <content contentuid="hc102651cge12cg40dcg86begccbabc37cb6d" version="1">Manipulate water to drench an allied creature.</content>
+  <content contentuid="hc249b596gef94g4631gb226gc7ce065c9850" version="1">Shape Water: Ice Block</content>
+  <content contentuid="h358a33cagab17g4ac2gbb89g2cfdebc71966" version="1">Manipulate a water surface to change its shape and freeze it into a block of ice.</content>
+  <content contentuid="h3aab77a8g5455g4968g9341gef97386d1798" version="1">Shape Water: Move</content>
+  <content contentuid="h99d89c81g7507g4a4dgbac4ge68c80d3a84c" version="1">Manipulate a water surface to move to a different location.</content>
   <content contentuid="755532c6-a78a-48f5-a366-32294aa1aab8" version="1">Sword Burst</content>
   <content contentuid="93a05bac-da51-483e-8659-3474bb03d194" version="1">Create a momentary circle of spectral blades that sweep around you to strike nearby creatures.</content>
   <content contentuid="95fad570-9f5d-451c-bc2e-b994b3b0ab50" version="1">Thunderclap</content>
@@ -434,7 +432,7 @@
   <content contentuid="d9039419-9c56-41ab-98e6-7b3d7457abf1" version="1">Regain &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt;.</content>
   <content contentuid="adfc5dc8d64446ceb2cadf323c6c4e06" version="1">Can regain &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt;.</content>
   <content contentuid="b3f4c8d4-fe03-438c-915e-fed4c9199e95" version="1">Ashardalon's Stride</content>
-  <content contentuid="f654556a-b003-48c3-a971-82b3f2177890" version="1">Billowing dragon flames blast from your feet, granting explosive speed that increases your &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; increases by [1] and prevents provoking &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
+  <content contentuid="f654556a-b003-48c3-a971-82b3f2177890" version="1">Billowing dragon flames blast from your feet, granting explosive speed that increases your &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; by [1] and prevents provoking &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
   <content contentuid="2cb2151ef2ca4c2e85519abb2e7e5d26" version="1">When moving within [1] of a creature or an object, it takes [2] per turn.</content>
   <content contentuid="f6df6dd5ad0b43478c30fc8fc7ffad7e" version="1">Damaged by Ashardalon's Stride.</content>
   <content contentuid="0c11216d35d04cfaa9156f6fb2f5e1bc" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; increased by [1] and do not provoke &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;. Creatures or objects within [2] take [3].</content>
@@ -676,10 +674,10 @@
   <content contentuid="0dcf2040-520a-49f7-a8bc-d0fab42a9880" version="1">Call forth a draconic spirit that resembles a chromatic dragon that fights alongside you.</content>
   <content contentuid="cdc068e3-f9cd-474f-a421-88e5b8601951" version="1">Summon Draconic Spirit: Gem</content>
   <content contentuid="97f2f626-2157-498e-90de-72f733f7b1b9" version="1">Call forth a draconic spirit that resembles a gem dragon that fights alongside you.</content>
-  <content contentuid="9939b043-2f5c-4bb3-9fc2-920ebbd3a379" version="1">Swift Quiver</content>
-  <content contentuid="cc528f00-79f0-4f54-a56b-3c7330c5dfdf" version="1">Transmute your quiver so it produces an endless supply of nonmagical ammunition. You can use a bonus action to make two ranged Weapon Attacks.</content>
-  <content contentuid="dbc8d34d957241159137def6c76699c7" version="1">Can make two ranged weapon attacks as a &lt;LSTag Tooltip="BonusAction"&gt;Bonus Action&lt;/LSTag&gt;.</content>
-  <content contentuid="32d078b9f5b04fd2bf40170eb3bb3d40" version="1">Make two ranged attacks with the equipped weapon.</content>
+  <content contentuid="h9939b043g2f5cg4bb3g9fc2g920ebbd3a379" version="1">Swift Quiver</content>
+  <content contentuid="hcc528f00g79f0g4f54ga56bg3c7330c5dfdf" version="1">Transmute your quiver so it produces an endless supply of nonmagical ammunition. You can use a bonus action to make two ranged weapon attacks.</content>
+  <content contentuid="h5385e90ag42c4g4ed3g8e45g90308de76526" version="1">Can make two ranged weapon attacks as a &lt;LSTag Tooltip="BonusAction"&gt;Bonus Action&lt;/LSTag&gt;.</content>
+  <content contentuid="h39758693g5958g429dg8887g46fa52f07947" version="1">Make two ranged attacks with the equipped weapon.</content>
   <content contentuid="48164d07-2254-44b4-a983-70dd8a6abf7e" version="1">Synaptic Static</content>
   <content contentuid="4aeb0d58-d625-4ef4-a7f4-5a62fc732861" version="1">Psychic energy explodes in an area, possibly causing creatures to subtract [1] from their &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;, &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt; and Constitution &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; to maintain concentration.</content>
   <content contentuid="cb461e3d44c24dbfbac33e595fb7fd45" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; Cannot affect creatures with an &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; score of 2 or lower.</content>
@@ -808,4 +806,15 @@
   <content contentuid="hce8d25fegc177g45cfga9c7g39f0fbeeaec1" version="1">Antagonized Attack</content>
   <content contentuid="hc36bb798g8a81g45ecg8e12g10c0caa4d467" version="1">You are provoked into attacking another creature.</content>
   <content contentuid="h812fed61g8516g4f5ag9997g4e0e435138bf" version="1">Can't take actions, bonus actions, or reactions.</content>
+  <content contentuid="h2e2114b9g2922g41f9ga396g9e485a4043f3" version="1">Summon Aberration: Beholderkin</content>
+  <content contentuid="h2865ab28g7c78g40cegbc49g22910db110d8" version="1">Call forth an aberrant spirit whose corporeal form resembles a Beholderkin.</content>
+  <content contentuid="h5677fe1cgc4bdg4db7gb4e9gdc3c4c8069f7" version="1">Aberrant Spirit: Beholderkin</content>
+  <content contentuid="h41b4be4dgedffg4072gb3aegb51839ab050d" version="1">Eye Ray</content>
+  <content contentuid="h8ba16f71gc073g414ag8270g509d2fe00666" version="1">Shoot amagical eye ray at a creature.</content>
+  <content contentuid="hb57f94a6g849cg4dcdg825egd6ac258d879d" version="1">Aura of Life</content>
+  <content contentuid="hc44fc7ffg569eg48caga976g6f74ef801569" version="1">An aura of life-preserving energy radiates from you in a [1] radius. Non-hostile creatures in the aura have &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, their hit point maximum cannot be reduced and living creatures regain [2] when starting their turns with [3].</content>
+  <content contentuid="h7092412egf2f7g4bc7ga6f2g43f7d1804d2f" version="1">This entity has &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, its hit point maximum cannot be reduced and it regains [1] at start of turns if it has [2] and is alive.</content>
+  <content contentuid="ha7a0e525g11acg4f66ga301g7382ad354066" version="1">Maelstrom</content>
+  <content contentuid="hcda91e65gc241g482dga893gdb9b7d912748" version="1">A swirling mass of [1]-deep water appears in a [2] radius centered on a point you can see within range. Until the spell ends, that area is difficult terrain, and any creature that starts its turn there must succeed on a Strength saving throw or take damage and be pulled [3] toward the center.</content>
+  <content contentuid="h5dc5b718ge8c9g49ddg8ee4gd78fc34055dc" version="1">Caught in the maelstrom. Take damage and be pulled toward the center at the start of your turn.</content>
 </contentList>

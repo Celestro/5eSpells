@@ -92,57 +92,43 @@ function S5E_Changes()
 		end
 	end
 
-	if Ext.Mod.IsModLoaded("f19c68ed-70be-4c3d-b610-e94afc5c5103") then
-	   for _, name in pairs(rawHealingWordMass) do
-			local spell = Ext.Stats.Get(name)
-			local flags = spell.SpellFlags
-			table.insert(flags, "IgnorePreviouslyPickedEntities")
-			spell.SpellFlags = flags
-			spell.SpellType = "Target"
-			spell.TargetRadius = "18"
-			spell.AreaRadius = 0
-			spell.AmountOfTargets = "6"
-		end
-
-	   for _, name in pairs(rawAid) do
-			local spell = Ext.Stats.Get(name)
-			local flags = spell.SpellFlags
-			table.insert(flags, "IgnorePreviouslyPickedEntities")
-			spell.SpellFlags = flags
-			spell.SpellType = "Target"
-			spell.TargetRadius = "9"
-			spell.AreaRadius = 0
-			spell.AmountOfTargets = "3"
-		end
-
-	   for _, name in pairs(rawPrayerOfHealing) do
-			local spell = Ext.Stats.Get(name)
-			local flags = spell.SpellFlags
-			table.insert(flags, "IgnorePreviouslyPickedEntities")
-			spell.SpellFlags = flags
-			spell.SpellType = "Target"
-			spell.TargetRadius = "9"
-			spell.AreaRadius = 0
-			spell.AmountOfTargets = "6"
-		end
-
-		local spell = Ext.Stats.Get("Shout_AuraOfVitality")
-		local flags = spell.SpellFlags
-		table.insert(flags, "IsConcentration")
-		spell.SpellFlags = flags
-
-		local spell = Ext.Stats.Get("Target_MageHand")
-		spell.RequirementConditions = ""
-
-		local spell = Ext.Stats.Get("Zone_Sunbeam_Recreate")
-		local flags = spell.SpellFlags
-		flags = {
-			"IsHarmful",
-			"Wildshape",
-			"Temporary"
-		}
-		spell.SpellFlags = flags
-	end
+	local mummymatk = Ext.Stats.Get("Target_Multiattack_Mummy")
+	mummymatk.TargetConditions = "not Self() and not Dead() and HasStatus('SG_Frightened')"
+	local fearray = Ext.Stats.Get("Target_FearRay_Spectator")
+	fearray.TargetConditions = "Character() and Enemy() and not HasStatus('SG_Frightened')"
+	local aotbhb = Ext.Stats.Get("AspectOfTheBeast_HoneyBadger")
+	aotbhb.Conditions = "(HasStatus('SG_Poisoned', context.Source) or HasStatus('SG_Frightened', context.Source) or HasStatus('SG_Charmed', context.Source)) and RollDieAgainstDC(DiceType.d20,10) and not HasStatus('SG_Rage', context.Source)"
+	local cloakeratk = Ext.Stats.Get("Target_Multiattack_Cloaker")
+	cloakeratk.TargetConditions = "not Self() and not Dead() and HasStatus('SG_Frightened',context.Target)"
+	local oskarscon = Ext.Stats.Get("Shout_LOW_OskarsBeloved_Visage_Confusion")
+	oskarscon.TargetConditions = "not Self() and not Dead() and not Item() and not Tagged('UNDEAD') and Enemy() and not Tagged('OSKARSBELOVED_IMMUNITY') and not HasStatus('CONFUSION') and not HasStatus('SG_Frightened')"
+	local oskarspos = Ext.Stats.Get("Target_LOW_OskarsBeloved_Possession")
+	oskarspos.TargetConditions = "Character() and Enemy() and not Dead() and not HasStatus('SG_Frightened') and not HasStatus('CONFUSION') and not Tagged('OSKARSBELOVED_IMMUNITY') and not HasStatus('LOW_OSKARSBELOVED_UNNERVED')"
+	local oskarsmummyatk = Ext.Stats.Get("Target_LOW_OskarsBeloved_Mummy_Multiattack")
+	oskarsmummyatk.TargetConditions = "not Self() and not Dead() and HasStatus('SG_Frightened') and not Tagged('OSKARSBELOVED_IMMUNITY')"
+	local oskarsmummyglare = Ext.Stats.Get("Target_LOW_OskarsBeloved_Mummy_Glare")
+	oskarsmummyglare.TargetConditions = "Character() and IsCrowdControlled(context.Target) and not Tagged('OSKARSBELOVED_IMMUNITY') and not HasStatus('CONFUSION') and not HasStatus('SG_Frightened')"
+	local hogdark = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Darkness")
+	hogdark.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('SG_Frightened') and not Dead() and not HasStatus('CONTAGION_BLINDING_SICKNESS_3')"
+	local hogdisease = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Disease")
+	hogdisease.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('SG_Frightened') and not Dead() and not HasStatus('CONTAGION_FLESH_ROT_3')"
+	local hogpowerless = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Powerless")
+	hogpowerless.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('SG_Frightened') and not Dead() and not HasStatus('RAY_OF_ENFEEBLEMENT')"
+	local hogbetray = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Betrayal")
+	hogbetray.AoEConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not Dead() and not HasStatus('SG_Frightened')"
+	local hogwolf = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Wolf_2")
+	hogwolf.TargetConditions = "Tagged('SHADOWHEART') and not HasStatus('SG_Frightened')"
+	local hogspider = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Spider_2")
+	hogspider.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('FRIGHTENED')"
+	
+	local elementalaffinity = Ext.Stats.Get("ELEMENTALAFFINITY_FIRE_EXTRA_DAMAGE_TECHNICAL")
+    local elementalgish = Ext.Stats.Get("MAG_ElementalGish_CantripBooster_Amulet_Passive")
+    local charismacaster = Ext.Stats.Get("MAG_CharismaCaster_CantripBooster_Passive")
+	local elementalinfusion = Ext.Stats.Get("MAG_ElementalGish_ElementalInfusion_Ring")
+    elementalaffinity.Boosts = "IF(IsSpell() and SpellDamageTypeIs(DamageType.Fire) and not SpellId('Target_GreenFlameBlade_Default') and not SpellId('Target_GreenFlameBlade_SneakAttack')):DamageBonus(max(0, CharismaModifier));IF(SpellDamageTypeIs(DamageType.Fire) and (SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(0, CharismaModifier),Fire)"
+    elementalgish.Boosts = "IF(IsCantrip() and not SpellId('Target_GreenFlameBlade_Default') and not SpellId('Target_GreenFlameBlade_SneakAttack') and not SpellId('Target_BoomingBlade_Default') and not SpellId('Target_BoomingBlade_SneakAttack') and (SpellDamageTypeIs(DamageType.Fire) or SpellDamageTypeIs(DamageType.Cold) or SpellDamageTypeIs(DamageType.Thunder) or SpellDamageTypeIs(DamageType.Acid) or SpellDamageTypeIs(DamageType.Lightning))):DamageBonus(max(1,SpellCastingAbilityModifier));IF((SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, SpellCastingAbilityModifier),Fire);IF((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, SpellCastingAbilityModifier),Thunder)"
+    charismacaster.Boosts = "IF(IsCantrip() and not SpellId('Target_GreenFlameBlade_Default') and not SpellId('Target_GreenFlameBlade_SneakAttack') and not SpellId('Target_BoomingBlade_Default') and not SpellId('Target_BoomingBlade_SneakAttack')):DamageBonus(max(1,CharismaModifier));IF((SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Fire);IF((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Thunder)"
+    elementalinfusion.PassivesOnEquip = elementalinfusion.PassivesOnEquip .. ";S5E_ElementalGish_ElementalInfusion_Ring_Passive"
 end
 
 Spells = {  
@@ -414,10 +400,12 @@ local bardMagicalSecrets5th = {
 	"Target_FlameStrike",
 	"Target_HolyWeapon",
 	"Target_InsectPlague",
+	"Target_Maelstrom",
 	"Projectile_NegativeEnergyFlood",
 	"Target_SteelWindStrike",
 	"Shout_SwiftQuiver",
 	"Throw_Telekinesis",
+	"Shout_AuraOfLife",
 	"Target_ConjureWoodlandBeings",
 	"Target_BlackTentacles",
 	"Target_GraspingVine",
@@ -425,6 +413,7 @@ local bardMagicalSecrets5th = {
 	"Target_ResilientSphere",
 	"Shout_ShadowOfMoil",
 	"Target_Stoneskin",
+	"Target_SummonBeholderkin",
 	"Target_SummonElemental",
 	"Target_Antagonize",
 	"Shout_BeaconOfHope",
@@ -561,10 +550,14 @@ local clericSpells3rd = {
 	"Shout_SpiritShroud",
 	"Shout_WaterWalk"
 }
+local clericSpells4th = {
+	"Shout_AuraOfLife"
+}
 local clericSpells5th = {
 	"Target_HolyWeapon"
 }
 local clericSpells6th = {
+	"Zone_Sunbeam",
 	"Target_TrueSeeing"
 }
 local druidCantrips = {
@@ -583,6 +576,7 @@ local druidSpells1st = {
 	"Shout_AbsorbElements",
 	"Target_BeastBond",
 	"Shout_DetectMagic",
+	"Target_ProtectionFromEvilAndGood",
 	"Shout_EarthTremor",
 	"Target_Snare"
 }
@@ -605,6 +599,7 @@ local druidSpells3rd = {
 }
 local druidSpells4th = {
 	"Target_CharmMonster",
+	"Shout_FireShield",
 	"Shout_GuardianOfNature",
 	"Target_SummonElemental"
 }
@@ -612,6 +607,9 @@ local druidSpells5th = {
 	"Shout_CommuneWithNature",
 	"Zone_ConeOfCold",
 	"Target_Maelstrom"
+}
+local druidSpells6th = {
+	"Target_FleshToStone"
 }
 local fighterEKSpells1st = {
 	"Shout_AbsorbElements",
@@ -864,6 +862,8 @@ local sorcererSpells5th = {
 	"Zone_TashasCausticBrew"
 }
 local sorcererSpells6th = {
+	"Target_FleshToStone",
+	"Target_FreezingSphere",
 	"Target_TrueSeeing",
 	"Target_FarStep",
 	"Target_SkillEmpowerment",
@@ -953,6 +953,7 @@ local warlockSpells4th = {
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Shout_ShadowOfMoil",
+	"Target_SummonBeholderkin",
 	"Target_Antagonize",
 	"Target_EnemiesAbound",
 	"Target_IntellectFortress",
@@ -969,11 +970,12 @@ local warlockSpells4th = {
 local warlockSpells5th = {
 	"Target_FarStep",
 	"Projectile_NegativeEnergyFlood",
-	"Target_SynapticStatic",
 	"Target_PlanarBinding",
+	"Target_SynapticStatic",
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Shout_ShadowOfMoil",
+	"Target_SummonBeholderkin",
 	"Target_Antagonize",
 	"Target_EnemiesAbound",
 	"Target_IntellectFortress",
@@ -1058,6 +1060,7 @@ local wizardSpells3rd = {
 	"Target_LifeTransference",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
+	"Target_SpeakWithDead",
 	"Shout_SpiritShroud",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
@@ -1095,6 +1098,7 @@ local wizardSpells4th = {
 	"Target_CharmMonster",
 	"Shout_FireShield",
 	"Projectile_RaulothimsPsychicLance",
+	"Target_SummonBeholderkin",
 	"Target_SummonElemental",
 	"Target_Antagonize",
 	"Shout_AshardalonsStride",
@@ -1106,6 +1110,7 @@ local wizardSpells4th = {
 	"Target_LifeTransference",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
+	"Target_SpeakWithDead",
 	"Shout_SpiritShroud",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
@@ -1148,6 +1153,7 @@ local wizardSpells5th = {
 	"Target_CharmMonster",
 	"Shout_FireShield",
 	"Projectile_RaulothimsPsychicLance",
+	"Target_SummonBeholderkin",
 	"Target_SummonElemental",
 	"Target_Antagonize",
 	"Shout_AshardalonsStride",
@@ -1159,6 +1165,7 @@ local wizardSpells5th = {
 	"Target_LifeTransference",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
+	"Target_SpeakWithDead",
 	"Shout_SpiritShroud",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
@@ -1203,6 +1210,7 @@ local wizardSpells6th = {
 	"Target_CharmMonster",
 	"Shout_FireShield",
 	"Projectile_RaulothimsPsychicLance",
+	"Target_SummonBeholderkin",
 	"Target_SummonElemental",
 	"Target_Antagonize",
 	"Shout_AshardalonsStride",
@@ -1214,6 +1222,7 @@ local wizardSpells6th = {
 	"Target_LifeTransference",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
+	"Target_SpeakWithDead",
 	"Shout_SpiritShroud",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
@@ -1263,6 +1272,7 @@ local spellList5ES = {
   Cleric1st = "269d1a3b-eed8-4131-8901-a562238f5289",
   Cleric2nd = "2968a3e6-6c8a-4c2e-882a-ad295a2ad8ac",
   Cleric3rd = "21be0992-499f-4c7a-a77a-4430085e947a",
+  Cleric4th = "37e9b20b-5fd1-45c5-b1c5-159c42397c83",
   Cleric5th = "b73aeea5-1ff9-4cac-b61d-b5aa6dfe31c2",
   Cleric6th = "f8ba7b05-1237-4eaa-97fa-1d3623d5862b",
   DruidCantrip = "b8faf12f-ca42-45c0-84f8-6951b526182a",
@@ -1271,6 +1281,7 @@ local spellList5ES = {
   Druid3rd = "3156daf5-9266-41d0-b52c-5bc559a98654",
   Druid4th = "09c326c9-672c-4198-a4c0-6f07323bde27",
   Druid5th = "ff711c12-b59f-4fde-b9ea-6e5c38ec8f23",
+  Druid6th = "6a4e2167-55f3-4ba8-900f-14666b293e93",
   FighterEK1st = "32aeba85-13bd-4a6f-8e06-cd4447b746d8",
   FighterEK2nd = "4a86443c-6a21-4b8d-b1bf-55a99e021354",
   Paladin1st = "c6288ac5-c68b-40ed-bbdd-2ff388575831",
@@ -1375,6 +1386,10 @@ local function OnStatsLoaded()
 	  Spells = clericSpells3rd,
 	  SpellListID = spellList5ES.Cleric3rd
 	},
+	Cleric4th = {
+	  Spells = clericSpells3rd,
+	  SpellListID = spellList5ES.Cleric4th
+	},
 	Cleric5th = {
 	  Spells = clericSpells5th,
 	  SpellListID = spellList5ES.Cleric5th
@@ -1406,6 +1421,10 @@ local function OnStatsLoaded()
 	Druid5th = {
 	  Spells = druidSpells5th,
 	  SpellListID = spellList5ES.Druid5th
+	},
+	Druid6th = {
+	  Spells = druidSpells6th,
+	  SpellListID = spellList5ES.Druid6th
 	},
 	FighterEK1st = {
 	  Spells = fighterEKSpells1st,

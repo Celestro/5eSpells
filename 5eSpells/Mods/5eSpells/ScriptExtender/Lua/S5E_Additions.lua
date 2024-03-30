@@ -1,4 +1,4 @@
-local files = {
+--[[local files = {
 		"Public/5eSpells/Stats/Generated/Data/Passives_5eSpells.txt",
 		"Public/5eSpells/Stats/Generated/Data/Spells_1stLevel.txt",
 		"Public/5eSpells/Stats/Generated/Data/Spells_2ndLevel.txt",
@@ -813,6 +813,10 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 					if b.ProficiencyBonusBoost.Type == "SavingThrow" then
 						_D(b.ProficiencyBonusBoost.Ability)
 					end
+				end
+			elseif boosts.Type == "Resistance" then
+				for _, b in pairs(boosts.Boosts) do
+					_D(b.ResistanceBoost)
 				end
 			end
 		end

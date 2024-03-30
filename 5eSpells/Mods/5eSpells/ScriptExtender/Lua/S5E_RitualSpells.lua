@@ -23,7 +23,7 @@ end
 Ext.Osiris.RegisterListener("GainedControl", 1, "after", function(character)
 	DelayedCall(3000, function ()
 		if	Osi.IsTagged(character,"BARD_d93434bd-6b71-4789-b128-ee24156057cc") == 0 and Osi.IsTagged(character,"CLERIC_1671b4bf-4f47-4bb7-9cb9-80bb1f6009d5") == 0 and Osi.IsTagged(character,"DRUID_44ac4317-4d38-4d28-80e2-94024c6e42f0") == 0 and Osi.IsTagged(character,"WIZARD_6fe3ae27-dc6c-4fc9-9245-710c790c396c") == 0 and HasPassive(character,"BookOfAncientSecrets") == 0 and Osi.IsTagged(character,"PALADIN_6d85ab2d-5c23-498c-a61e-98f05a00177a") == 0 then
-			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.field_18) do
+			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.LevelUps) do
 				for _,sc in pairs(fc.Upgrades.Spells) do
 					if	sc.Class ~= "f3370916-6b35-4c5b-af36-19ca888cb43e" then
 						for _,spell in pairs(sc.Spells) do
@@ -85,7 +85,7 @@ Ext.Osiris.RegisterListener("GainedControl", 1, "after", function(character)
 		end
 
 		if	HasPassive(character,"RitualCaster_FreeSpells") == 1 then
-			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.field_18) do
+			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.LevelUps) do
 				for _,sc in pairs(fc.Upgrades.Spells) do
 					if	sc.Class == "f3370916-6b35-4c5b-af36-19ca888cb43e" then
 						for _,spell in pairs(sc.Spells) do
@@ -121,7 +121,7 @@ Ext.Osiris.RegisterListener("GainedControl", 1, "after", function(character)
 	end)
 end)
 
---_D(Ext.Entity.Get(entity.Uuid.EntityUuid).LevelUp.field_18[4].Upgrades.Spells[3].Spells[1])
+--_D(Ext.Entity.Get(entity.Uuid.EntityUuid).LevelUp.LevelUps[4].Upgrades.Spells[3].Spells[1])
 
 -- Ritual Spells Status Check 2
 Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function(character)
@@ -139,7 +139,7 @@ Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function(character)
 		end
 
 		if	Osi.IsTagged(character,"BARD_d93434bd-6b71-4789-b128-ee24156057cc") == 0 and Osi.IsTagged(character,"CLERIC_1671b4bf-4f47-4bb7-9cb9-80bb1f6009d5") == 0 and Osi.IsTagged(character,"DRUID_44ac4317-4d38-4d28-80e2-94024c6e42f0") == 0 and Osi.IsTagged(character,"WIZARD_6fe3ae27-dc6c-4fc9-9245-710c790c396c") == 0 and HasPassive(character,"BookOfAncientSecrets") == 0 and Osi.IsTagged(character,"PALADIN_6d85ab2d-5c23-498c-a61e-98f05a00177a") == 0 then
-			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.field_18) do
+			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.LevelUps) do
 				for _,sc in pairs(fc.Upgrades.Spells) do
 					if	sc.Class ~= "f3370916-6b35-4c5b-af36-19ca888cb43e" then
 						for _,spell in pairs(sc.Spells) do
@@ -186,7 +186,7 @@ Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function(character)
 		end
 
 		if	HasPassive(character,"RitualCaster_FreeSpells") == 1 then
-			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.field_18) do
+			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.LevelUps) do
 				for _,sc in pairs(fc.Upgrades.Spells) do
 					if	sc.Class == "f3370916-6b35-4c5b-af36-19ca888cb43e" then
 						for _,spell in pairs(sc.Spells) do
@@ -221,7 +221,7 @@ Ext.Osiris.RegisterListener("LearnedSpell", 2, "after", function(character, spel
 		end
 
 		if	Osi.IsTagged(character,"BARD_d93434bd-6b71-4789-b128-ee24156057cc") == 0 and Osi.IsTagged(character,"CLERIC_1671b4bf-4f47-4bb7-9cb9-80bb1f6009d5") == 0 and Osi.IsTagged(character,"DRUID_44ac4317-4d38-4d28-80e2-94024c6e42f0") == 0 and Osi.IsTagged(character,"WIZARD_6fe3ae27-dc6c-4fc9-9245-710c790c396c") == 0 and HasPassive(character,"BookOfAncientSecrets") == 0 and Osi.IsTagged(character,"PALADIN_6d85ab2d-5c23-498c-a61e-98f05a00177a") == 0 then
-			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.field_18) do
+			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.LevelUps) do
 				for _,sc in pairs(fc.Upgrades.Spells) do
 					if	sc.Class ~= "f3370916-6b35-4c5b-af36-19ca888cb43e" then
 						for _,spell in pairs(sc.Spells) do
@@ -268,7 +268,7 @@ Ext.Osiris.RegisterListener("LearnedSpell", 2, "after", function(character, spel
 		end
 
 		if	HasPassive(character,"RitualCaster_FreeSpells") == 1 then
-			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.field_18) do
+			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.LevelUps) do
 				for _,sc in pairs(fc.Upgrades.Spells) do
 					if	sc.Class == "f3370916-6b35-4c5b-af36-19ca888cb43e" then
 						for _,spell in pairs(sc.Spells) do
@@ -303,7 +303,7 @@ Ext.Osiris.RegisterListener("RespecCompleted", 1, "after", function(character)
 		end
 
 		if	Osi.IsTagged(character,"BARD_d93434bd-6b71-4789-b128-ee24156057cc") == 0 and Osi.IsTagged(character,"CLERIC_1671b4bf-4f47-4bb7-9cb9-80bb1f6009d5") == 0 and Osi.IsTagged(character,"DRUID_44ac4317-4d38-4d28-80e2-94024c6e42f0") == 0 and Osi.IsTagged(character,"WIZARD_6fe3ae27-dc6c-4fc9-9245-710c790c396c") == 0 and HasPassive(character,"BookOfAncientSecrets") == 0 and Osi.IsTagged(character,"PALADIN_6d85ab2d-5c23-498c-a61e-98f05a00177a") == 0 then
-			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.field_18) do
+			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.LevelUps) do
 				for _,sc in pairs(fc.Upgrades.Spells) do
 					if	sc.Class ~= "f3370916-6b35-4c5b-af36-19ca888cb43e" then
 						for _,spell in pairs(sc.Spells) do
@@ -350,7 +350,7 @@ Ext.Osiris.RegisterListener("RespecCompleted", 1, "after", function(character)
 		end
 
 		if	HasPassive(character,"RitualCaster_FreeSpells") == 1 then
-			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.field_18) do
+			for _,fc in pairs(Ext.Entity.Get(character).LevelUp.LevelUps) do
 				for _,sc in pairs(fc.Upgrades.Spells) do
 					if	sc.Class == "f3370916-6b35-4c5b-af36-19ca888cb43e" then
 						for _,spell in pairs(sc.Spells) do
