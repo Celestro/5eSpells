@@ -717,6 +717,108 @@
 						</node>
 					</children>
 				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="2 2 2" />
+					<attribute id="BoundsMin" type="fvec3" value="-2 -2 -2" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="6.5" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_Maelstrom_Root_01" />
+					<attribute id="ID" type="FixedString" value="79f18ea5-2cac-41cf-8a04-251a1b646cc2" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="VFX_Status_Maelstrom_Root_01" />
+					<attribute id="Radius" type="float" value="3.464102" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eEMonkRework/Assets/Effects/Effects_Banks/Status/VFX_Status_Maelstrom_Root_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115205255725661" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="3abc4b9a-b0ef-4c04-6d9f-6c13a4018370" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="769a59d9-03fe-5e52-a29a-3584dd58ac88" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a8353e41-8e74-41f3-fb3e-1593c8ecc3be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="2c53a016-23aa-78d4-4503-fa1b1fc16264" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c43beeb4-0335-8fc6-c52b-652fa8d45905" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="8 10 8" />
+					<attribute id="BoundsMin" type="fvec3" value="-8 -6 -8" />
+					<attribute id="Center" type="fvec3" value="0 2 0" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="3.52" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_Maelstrom_Aura_01" />
+					<attribute id="ID" type="FixedString" value="fc8612b5-b0a4-4b05-af53-8f368dd530a4" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="VFX_Status_Maelstrom_Aura_01" />
+					<attribute id="Radius" type="float" value="13.85641" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eEMonkRework/Assets/Effects/Effects_Banks/Status/VFX_Status_Maelstrom_Aura_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115205255725559" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="299f2e2b-00fb-7ac6-2895-a6b14d5845eb" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c0ee5929-fe44-6966-1e55-d933620fa661" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="aa60e6ce-5934-0b15-6edc-8ec7ddfc7867" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="79d3616d-254a-3073-c114-c6e0cc992b38" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="54189fc8-2658-6a01-614d-1ae5ee6fe5e8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="74539fe8-5b4b-484b-981c-7d92c4bffaff" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="467bee01-f41f-f63c-99c5-1ad7c70966aa" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="15abb60f-2f09-39f9-7ac7-1c2a63322dee" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="4c5ff3b9-e670-a681-985a-a33bf51416ae" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="652b2b58-e949-e6f8-f4b8-db172bf76e4f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6ed94110-8dfb-aa61-0a9b-a1f246060a7e" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9c15f129-f070-7a2b-e66d-d728aaea2383" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="0c5ef267-581e-3d1e-6645-20626faa15ab" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
 			</children>
 		</node>
 	</region>
