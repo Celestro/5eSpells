@@ -84,7 +84,7 @@
 				<node id="GameObjects">
 					<attribute id="AnubisConfigName" type="FixedString" value="Dummy" />
 					<attribute id="CharacterVisualResourceID" type="FixedString" value="3561a258-d52b-4694-d869-f31cc7537dd7" />
-					<attribute id="DisplayName" type="TranslatedString" handle="h2ba1c9fcge97eg4324g8c9cg42df7e4b1405" version="1" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h5f04604fg105cg4281g9fedg0a3ef74343d4" version="1" />
 					<attribute id="Faction" type="guid" value="cfb709b3-220f-9682-bcfb-6f0d8837462e" />
 					<attribute id="LevelName" type="FixedString" value="" />
 					<attribute id="MapKey" type="FixedString" value="e75e0981-d9a2-4892-a009-ae900965ff8a" />

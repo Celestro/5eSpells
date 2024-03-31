@@ -203,7 +203,7 @@ data "Icon" "GenericIcon_DamageType_Lightning"
 data "InterruptContext" "OnSpellCast"
 data "InterruptContextScope" "Nearby"
 data "Container" "YesNoDecision"
-data "Conditions" "SpellId('Target_StormSphere_BoltOfLightning') and not Self(context.Target,context.Observer) and HasStatus('STORM_SPHERE_TECHNICAL',context.Observer,context.Source)"
+data "Conditions" "SpellId('Target_StormSphere_BoltOfLightning') and not Self(context.Target,context.Observer) and (HasStatus('STORM_SPHERE_TECHNICAL',context.Observer,context.Source) or HasStatus('STORM_SPHERE_TECHNICAL_5',context.Observer,context.Source) or HasStatus('STORM_SPHERE_TECHNICAL_6',context.Observer,context.Source))"
 data "Properties" "UseSpell(OBSERVER_TARGET,Projectile_StormSphere_BoltOfLightning,true,true,true)"
 data "InterruptDefaultValue" "Enabled"
 

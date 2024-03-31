@@ -383,7 +383,7 @@
 					<attribute id="Stub" type="bool" value="True" />
 				</node>
 				<node id="TranslatedStringKey">
-					<attribute id="Content" type="TranslatedString" handle="5f04604f-105c-4281-9fed-0a3ef74343d4" version="1" />
+					<attribute id="Content" type="TranslatedString" handle="h5f04604fg105cg4281g9fedg0a3ef74343d4" version="1" />
 					<attribute id="UUID" type="FixedString" value="5eSpells_UnseenServant_DisplayName" />
 					<attribute id="Speaker" type="FixedString" value="" />
 					<attribute id="ExtraData" type="LSString" value="" />
