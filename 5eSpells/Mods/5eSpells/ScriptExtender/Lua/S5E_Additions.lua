@@ -789,7 +789,7 @@ end)
 
 -- Heal
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
-	if (spell == "Target_Heal" or spell == "Target_GreaterRestoration" or spell == "Target_GreaterRestoration_6") and Osi.HasActiveStatus(target,"FEEBLEMIND") == 1 then
+	if (spell == "Target_Heal" or spell == "Target_Heal_7" or spell == "Target_Heal_8" or spell == "Target_Heal_9" or spell == "Target_GreaterRestoration" or spell == "Target_GreaterRestoration_6" or spell == "Target_GreaterRestoration_7" or spell == "Target_GreaterRestoration_8" or spell == "Target_GreaterRestoration_9") and Osi.HasActiveStatus(target,"FEEBLEMIND") == 1 then
 		Osi.RemoveStatus(target,"FEEBLEMIND")
     end
 end)

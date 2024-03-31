@@ -141,7 +141,7 @@
   <content contentuid="ca617c4d38114678a5fbeacfe031270f" version="1">Acid Removal</content>
   <content contentuid="7cd27bde3f7c4fe8bd59be5b29b5143d" version="1">Remove acid that covers the target.</content>
   <content contentuid="360046d059b145f797fd75e2f3f95778" version="1">Deals [1] per turn.</content>
-  <content contentuid="5f04604f-105c-4281-9fed-0a3ef74343d4" version="1">Unseen Servant</content>
+  <content contentuid="h5f04604fg105cg4281g9fedg0a3ef74343d4" version="1">Unseen Servant</content>
   <content contentuid="700987e2-c76a-4758-8b2c-f71f5a41fb38" version="1">Create an invisible, mindless, shapeless, medium force that performs simple tasks at your command.</content>
   <content contentuid="4f49bb64-bf50-4cc7-997b-129be0d728e1" version="1">Zephyr Strike</content>
   <content contentuid="8bed9dc5-b98a-4a72-b0b3-f4d0cfadccc0" version="1">Move like the wind, allowing you to avoid provoking &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
@@ -513,7 +513,7 @@
   <content contentuid="e16d1e7413de4eb9b453b2f0e61260da" version="1">Other creatures within [1] of the spirit has its &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; reduced by [2].</content>
   <content contentuid="8ffeacfef32d43e5973c53c9d54bcf9e" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; reduced by [2].</content>
   <content contentuid="8253b1e7954b4fe98922e7b8bb3182c1" version="1">Shadow Stealth</content>
-  <content contentuid="0ce03ecc2e604f4dacde48f7094c462b" version="1">While in dim light or darkness, spirit can take the Hide action as a &lt;LSTag Tooltip="BonusAction"&gt;Bonus Action&lt;/LSTag&gt;.</content>
+  <content contentuid="0ce03ecc2e604f4dacde48f7094c462b" version="1">While in dim light or darkness, spirit can take the Hide action as a &lt;LSTag Tooltip="BonusAction"&gt;bonus action&lt;/LSTag&gt;.</content>
   <content contentuid="c172dc976b8543158fe16b56c40a3143" version="1">Chilling Hand</content>
   <content contentuid="33530a233f7d4137bf4fc63778e2a12a" version="1">Deal [1].</content>
   <content contentuid="acbb0c23c2ee4aeaa8e8894c1362d940" version="1">Dreadful Scream</content>
@@ -816,14 +816,15 @@
   <content contentuid="h7092412egf2f7g4bc7ga6f2g43f7d1804d2f" version="1">This entity has &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, its hit point maximum cannot be reduced and it regains [1] at start of turns if it has [2] and is alive.</content>
   <content contentuid="ha7a0e525g11acg4f66ga301g7382ad354066" version="1">Maelstrom</content>
   <content contentuid="hcda91e65gc241g482dga893gdb9b7d912748" version="1">A swirling mass of [1]-deep water appears in a [2] radius centered on a point you can see within range. Until the spell ends, that area is difficult terrain, and any creature that starts its turn there must succeed on a Strength saving throw or take damage and be pulled [3] toward the center.</content>
-  <content contentuid="h5dc5b718ge8c9g49ddg8ee4gd78fc34055dc" version="1">Caught in the maelstrom. Take damage and be pulled toward the center at the start of your turn.</content>
+  <content contentuid="h5dc5b718ge8c9g49ddg8ee4gd78fc34055dc" version="1">This entity is caught in the maelstrom, taking damage and being pulled toward the center at the start of its turn.</content>
   <content contentuid="hea1c17d4geb8dg46ccg909dg18074ada4858" version="1">Storm Sphere</content>
-  <content contentuid="h206a22eeg1552g4deag8298gb6889a3964ab" version="1">A [1] radius sphere of whirling air springs into existence centered on a point you choose within range. Each creature in the sphere when it appears or that ends its turn there must succeed on a Strength &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or take [2]. The sphere’s space is difficult terrain.&lt;br&gt;&lt;br&gt;Until the spell ends, you can use a bonus action on each of your turns to cause a bolt of lightning to leap from the center of the sphere toward one creature you choose within [3]. Make a ranged spell attack. You have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on the attack roll if the target is in the sphere. On a hit, the target takes [4].</content>
+  <content contentuid="h206a22eeg1552g4deag8298gb6889a3964ab" version="1">A [1] radius sphere of whirling air springs into existence. Creatures in the sphere when it appears or that ends its turn there takes [2]. The sphere’s space is difficult terrain.</content>
+  <content contentuid="hc3ba642eg83b3g4388g8fcbgd763eb421626" version="1">You can use a &lt;LSTag Tooltip="BonusAction"&gt;bonus action&lt;/LSTag&gt; to cause a bolt of lightning to leap from the sphere towards a creature within [1], dealing [2]. You have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on the &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; if the target is in the sphere.</content>
   <content contentuid="h8ed1f03fg0684g4abcgac44g9f0de40a690c" version="1">Summon Storm Bolt</content>
-  <content contentuid="haf04bf0fg3d62g42d8g8b37gd800c435c3e2" version="1">Use a bonus action to cause your &lt;LSTag Type="Spell" Tooltip="Target_StormSphere"&gt;Storm Sphere&lt;/LSTag&gt; to strike a target with a bolt of lightning. If the target is affected by &lt;LSTag Type="Status" Tooltip="STORM_SPHERE_MONK_INTENSE_WINDS"&gt;Intense Winds&lt;/LSTag&gt;, it has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on the attack roll.</content>
+  <content contentuid="haf04bf0fg3d62g42d8g8b37gd800c435c3e2" version="1">Make your &lt;LSTag Type="Spell" Tooltip="Target_StormSphere"&gt;Storm Sphere&lt;/LSTag&gt; strike a target with a bolt of lightning. If the target is affected by &lt;LSTag Type="Status" Tooltip="STORM_SPHERE_MONK_INTENSE_WINDS"&gt;Intense Winds&lt;/LSTag&gt;, it has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on the attack roll.</content>
   <content contentuid="h1e4aa51cgad21g4a52gb122g8ee9ae0045aa" version="1">Storm Bolt</content>
   <content contentuid="hdfb0e3beg9a4eg4dd0g8b90g2abb872c8615" version="1">Strike the target with a bolt of lightning.</content>
   <content contentuid="h5e0ea76bgd377g4f76gbb39g017c77e79d28" version="1">Intense Winds</content>
-  <content contentuid="hd28762c7g61dag4b2agae85gf4bea9bd4ec7" version="1">Being battered by intense winds that will deal [1] if you fail a Strength &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;.</content>
+  <content contentuid="hd28762c7g61dag4b2agae85gf4bea9bd4ec7" version="1">This entity is battered by intense winds that will deal [1] on a failed Strength &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;.</content>
   <content contentuid="h7884cd43g34b3g480cg98beg43f7902bb4b9" version="1">Spell Casting Ability Modifier</content>
 </contentList>
