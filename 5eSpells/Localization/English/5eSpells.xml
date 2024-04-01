@@ -827,4 +827,7 @@
   <content contentuid="h5e0ea76bgd377g4f76gbb39g017c77e79d28" version="1">Intense Winds</content>
   <content contentuid="hd28762c7g61dag4b2agae85gf4bea9bd4ec7" version="1">This entity is battered by intense winds that will deal [1] on a failed Strength &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;.</content>
   <content contentuid="h7884cd43g34b3g480cg98beg43f7902bb4b9" version="1">Spell Casting Ability Modifier</content>
+  <content contentuid="h936703e2g5be2g469bgaf1cgba3482ec407a" version="1">Infestation</content>
+  <content contentuid="haee25001gac48g43edg9001g01c80bcc7280" version="1">You conjure a cloud of mites, fleas, and other parasites to appear on creature, possibly forcing it to move [1] in a random direction. This movement doesn't provoke &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
+  <content contentuid="ha9fd6ca5gebc8g4071ga1d1g3e0dc8dc5888" version="1">This entity is forced to move [1] in a random direction which doesn't provoke &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
 </contentList>

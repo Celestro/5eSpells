@@ -760,7 +760,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 		for invis, seeninvis in pairs(invisStatuses) do
 			if Osi.HasActiveStatus(character,invis) == 1 then
 				local turns = Osi.GetStatusTurns(character,invis)
-				Osi.ApplyStatus(character,seeninvis,turns*6,1,source)
+				Osi.ApplyStatus(character,seeninvis,turns*6,1,character)
 			end
 		end
     end
@@ -773,7 +773,7 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function (character, st
 		for invis, seeninvis in pairs(invisStatuses) do
 			if Osi.HasActiveStatus(character,seeninvis) == 1 then
 				local turns = Osi.GetStatusTurns(character,seeninvis)
-				Osi.ApplyStatus(character,invis,turns*6,1,source)
+				Osi.ApplyStatus(character,invis,turns*6,1,character)
 			end
 		end
     end
@@ -801,6 +801,44 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
 	elseif spell ~= "Target_PowerWordHeal" and Osi.HasActiveStatusWithGroup(target,"SG_Prone") == 1 then
 		Osi.RemoveStatus(target,"POWER_WORD_HEAL_INTERRUPT")
 		Osi.RemoveStatus(target,"POWER_WORD_HEAL_TECHNICAL")
+    end
+end)
+
+---@param diceAmount integer
+---@param faces integer
+---@param minDieValue? integer
+---@param maxDieValue? integer
+---@return integer
+function RollDice(diceAmount, faces, minDieValue, maxDieValue)
+    local total = 0
+    local min = math.min(minDieValue or 1, faces)
+    local max = math.min(maxDieValue or faces, faces)
+    for i = 1, diceAmount do
+        total = total + Ext.Utils.Random(min, max)
+    end
+    return total
+end
+
+-- Infestation
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
+	if status == "INFESTATION" then
+		local x, y, z = Osi.GetPosition(character)
+		local vx, vy, vz = Osi.FindValidPosition(x, y, z, 2, character, 1)
+		local roll = RollDice(1, 4, 1, 4)
+		_D(roll)
+		if roll == 1 then
+			vz = vz + 1.5
+			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 5)
+		elseif roll == 2 then
+			vz = vz - 1.5
+			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 10)
+		elseif roll == 3 then
+			vx = vx + 1.5
+			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 15)
+		elseif roll == 4 then
+			vx = vx - 1.5
+			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 20)
+		end
     end
 end)
 
