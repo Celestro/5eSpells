@@ -100,7 +100,6 @@ function S5E_Changes()
 end
 
 -- Global variables
-HasPrinted = {}
 Spells = {  
 	SpellList = "Spells",
 }
@@ -1794,55 +1793,31 @@ local function OnStatsLoaded()
 	Wizard6thOther = {
 	  Spells = wizardSpells6thOther,
 	  SpellListID = othersList5ES.Wizard6thOther
-	},--]]
+	},
 }
 
-function printTableAddress(t)
-	for k, v in pairs(t) do
-		print(k, v)
-	end
-end
-
-function printTable(tbl, indent)
-	if not indent then indent = 0 end
-
-	for k, v in pairs(tbl) do
-		formatting = string.rep("  ", indent) .. k .. ": "
-
-		if type(v) == "table" then
-			print(formatting)
-			printTable(v, indent+1)
-		else
-			print(formatting .. tostring(v))
-		end
-	end
-end
-
--- Without JSON beautify in SE this will have to do
-function beautifyJson(json)
+function formatting(file)
 	local result = ""
-	local indent = 0
-	local inString = false
+	local space = 0
+	local str = false
 	local currentChar = ""
-
-	for i = 1, #json do
-		currentChar = json:sub(i, i)
-
-		if currentChar == '"' and json:sub(i - 1, i - 1) ~= "\\" then
-			inString = not inString
+	for i = 1, #file do
+		currentChar = file:sub(i, i)
+		if currentChar == '"' and file:sub(i - 1, i - 1) ~= "\\" then
+			str = not str
 		end
 
-		if inString then
+		if str then
 			result = result .. currentChar
 		else
 			if currentChar == "{" or currentChar == "[" then
-				indent = indent + 2
-				result = result .. currentChar .. "\n" .. string.rep(" ", indent)
+				space = space + 2
+				result = result .. currentChar .. "\n" .. string.rep(" ", space)
 			elseif currentChar == "}" or currentChar == "]" then
-				indent = indent - 2
-				result = result .. "\n" .. string.rep(" ", indent) .. currentChar
+				space = space - 2
+				result = result .. "\n" .. string.rep(" ", space) .. currentChar
 			elseif currentChar == "," then
-				result = result .. currentChar .. "\n" .. string.rep(" ", indent)
+				result = result .. currentChar .. "\n" .. string.rep(" ", space)
 			else
 				result = result .. currentChar
 			end
@@ -1851,64 +1826,36 @@ function beautifyJson(json)
 	return result
 end
 
-function writeDefaultConfig()
-	-- Define the default configuration
-	local defaultConfigRaw = '{"Spells":{"TCoESpells":{"Enabled":true},"Cantrips":{"Enabled":true},"OtherSpells":{"Enabled":true}}}'
-
-	-- Beautify the JSON string
-	local defaultConfig = beautifyJson(defaultConfigRaw)
-
-	-- Write the default configuration to the file
-	Ext.IO.SaveFile("5eSpells.json", defaultConfig)
+function writing()
+	local default = '{"Spells":{"Cantrips":{"Enabled":true},"TCoE":{"Enabled":true},"AllOthers":{"Enabled":true}}}'
+	local defaultJson = formatting(default)
+	Ext.IO.SaveFile("5eSpells.json", defaultJson)
 end
 
-function readJsonFile()
-	-- Load the file and get its content
-	local status, json = pcall(Ext.IO.LoadFile, "5eSpells.json")
-
-	-- Check if the file was loaded successfully
-	if not status or not json then
-		print(string.format("5eSpells: Applying default configuration since 5eSpells.json couldn't be found at %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\%s.", json or "5eSpells.json"))
-
-		-- If the file is not present or fails to load, write the default config file
-		writeDefaultConfig()
-
-		-- Try to load the file again after writing the default config
-		status, json = pcall(Ext.IO.LoadFile, "5eSpells.json")
-
-		-- If the file still fails to load, return nil
-		if not status or not json then
+function reading()
+	local status, file = pcall(Ext.IO.LoadFile, "5eSpells.json")
+	if not status or not file then
+		print(string.format("5eSpells: Creating configuration at %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\5eSpells.json"))
+		writing()
+		status, file = pcall(Ext.IO.LoadFile, "5eSpells.json")
+		if not status or not file then
 			print("ERROR: Failed to load config file after writing default config")
 			return nil
 		end
 	end
 
-	-- Parse the JSON string into a Lua table
-	local status, result = pcall(Ext.Json.Parse, json)
-
-	-- Check if the JSON was parsed successfully
+	local status, result = pcall(Ext.Json.Parse, file)
 	if not status then
-		print(string.format("ERROR: Failed to parse JSON: %s", result)) -- result contains the error message
 		return nil
 	end
-
-	-- Assign the result to the global ConfigTable
-	ConfigTable = result
-
-	-- Print the entire table for debugging only if HasPrinted is false
-	if not HasPrinted["ConfigTable"] and Ext.Debug.IsDeveloperMode() then
-		printTableAddress(ConfigTable)
-		printTable(ConfigTable)
-		HasPrinted["ConfigTable"] = true
-	end
+	Table = result
 end
 
--- Call the readJsonFile function to read the JSON file and store the returned table in ConfigTable
-readJsonFile()
+reading()
 
-	local tcoeconfig = ConfigTable["Spells"]["TCoESpells"]
-	local cantripsconfig = ConfigTable["Spells"]["Cantrips"]
-	local otherspellsconfig = ConfigTable["Spells"]["OtherSpells"]
+	local tcoeconfig = Table["Spells"]["TCoE"]
+	local cantripsconfig = Table["Spells"]["Cantrips"]
+	local otherspellsconfig = Table["Spells"]["AllOthers"]
 	local tcoeenabled = tcoeconfig["Enabled"]
 	local cantripsenabled = cantripsconfig["Enabled"]
 	local otherspellsenabled = otherspellsconfig["Enabled"]

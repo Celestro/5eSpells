@@ -825,7 +825,6 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 		local x, y, z = Osi.GetPosition(character)
 		local vx, vy, vz = Osi.FindValidPosition(x, y, z, 2, character, 1)
 		local roll = RollDice(1, 4, 1, 4)
-		_D(roll)
 		if roll == 1 then
 			vz = vz + 1.5
 			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 5)
