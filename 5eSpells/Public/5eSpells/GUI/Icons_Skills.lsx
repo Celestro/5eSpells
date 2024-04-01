@@ -446,7 +446,7 @@
                     <attribute id="V2" type="float" value="0.0625"/>	
                 </node>		
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="Spell_Conjuration_Infestation"/>
                     <attribute id="U1" type="float" value="0.96875"/>
                     <attribute id="U2" type="float" value="1.0"/>
                     <attribute id="V1" type="float" value="0.03125"/>
