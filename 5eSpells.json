@@ -1,0 +1,13 @@
+{
+  "Spells":{
+    "TCoESpells":{
+      "Enabled":true
+    },
+    "Cantrips":{
+      "Enabled":true
+    },
+    "OtherSpells":{
+      "Enabled":true
+    }
+  }
+}
