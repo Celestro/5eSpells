@@ -97,9 +97,11 @@ function S5E_Changes()
     elementalgish.Boosts = "IF(IsCantrip() and not SpellId('Target_GreenFlameBlade_Default') and not SpellId('Target_GreenFlameBlade_SneakAttack') and not SpellId('Target_BoomingBlade_Default') and not SpellId('Target_BoomingBlade_SneakAttack') and (SpellDamageTypeIs(DamageType.Fire) or SpellDamageTypeIs(DamageType.Cold) or SpellDamageTypeIs(DamageType.Thunder) or SpellDamageTypeIs(DamageType.Acid) or SpellDamageTypeIs(DamageType.Lightning))):DamageBonus(max(1,SpellCastingAbilityModifier));IF((SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, SpellCastingAbilityModifier),Fire);IF((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, SpellCastingAbilityModifier),Thunder)"
     charismacaster.Boosts = "IF(IsCantrip() and not SpellId('Target_GreenFlameBlade_Default') and not SpellId('Target_GreenFlameBlade_SneakAttack') and not SpellId('Target_BoomingBlade_Default') and not SpellId('Target_BoomingBlade_SneakAttack')):DamageBonus(max(1,CharismaModifier));IF((SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Fire);IF((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Thunder)"
     elementalinfusion.PassivesOnEquip = elementalinfusion.PassivesOnEquip .. ";S5E_ElementalGish_ElementalInfusion_Ring_Passive"
+
+	local shadowbladering = Ext.Stats.Get("MAG_Shadow_ShadowBlade_Ring")
+	shadowbladering.Boosts = "UnlockSpell(Shout_ShadowBlade_Ring)"
 end
 
--- Global variables
 Spells = {  
 	SpellList = "Spells",
 }
@@ -459,6 +461,7 @@ local bardMagicalSecrets5thOther = {
 	"Shout_ShadowOfMoil",
 	"Target_SummonBeholderkin",
 	"Target_SummonElemental",
+	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
 	"Target_CreateFoodAndWater",
 	"Target_EruptingEarth",
@@ -809,6 +812,7 @@ local sorcererSpells4thOther = {
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Target_StormSphere",
+	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
 	"Shout_AshardalonsStride",
 	"Target_Catnap",
@@ -856,6 +860,7 @@ local sorcererSpells5thOther = {
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Target_StormSphere",
+	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
 	"Shout_AshardalonsStride",
 	"Target_Catnap",
@@ -906,6 +911,7 @@ local sorcererSpells6thOther = {
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Target_StormSphere",
+	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
 	"Shout_AshardalonsStride",
 	"Target_Catnap",
@@ -1142,6 +1148,7 @@ local wizardSpells4thOther = {
 	"Target_StormSphere",
 	"Target_SummonBeholderkin",
 	"Target_SummonElemental",
+	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
 	"Shout_AshardalonsStride",
 	"Target_Catnap",
@@ -1198,6 +1205,7 @@ local wizardSpells5thOther = {
 	"Target_StormSphere",
 	"Target_SummonBeholderkin",
 	"Target_SummonElemental",
+	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
 	"Shout_AshardalonsStride",
 	"Target_Catnap",
@@ -1256,6 +1264,7 @@ local wizardSpells6thOther = {
 	"Target_StormSphere",
 	"Target_SummonBeholderkin",
 	"Target_SummonElemental",
+	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
 	"Shout_AshardalonsStride",
 	"Target_Catnap",
@@ -1800,26 +1809,26 @@ function formatting(file)
 	local result = ""
 	local space = 0
 	local str = false
-	local currentChar = ""
+	local character = ""
 	for i = 1, #file do
-		currentChar = file:sub(i, i)
-		if currentChar == '"' and file:sub(i - 1, i - 1) ~= "\\" then
+		character = file:sub(i, i)
+		if character == '"' and file:sub(i - 1, i - 1) ~= "\\" then
 			str = not str
 		end
 
 		if str then
-			result = result .. currentChar
+			result = result .. character
 		else
-			if currentChar == "{" or currentChar == "[" then
+			if character == "{" or character == "[" then
 				space = space + 2
-				result = result .. currentChar .. "\n" .. string.rep(" ", space)
-			elseif currentChar == "}" or currentChar == "]" then
+				result = result .. character .. "\n" .. string.rep(" ", space)
+			elseif character == "}" or character == "]" then
 				space = space - 2
-				result = result .. "\n" .. string.rep(" ", space) .. currentChar
-			elseif currentChar == "," then
-				result = result .. currentChar .. "\n" .. string.rep(" ", space)
+				result = result .. "\n" .. string.rep(" ", space) .. character
+			elseif character == "," then
+				result = result .. character .. "\n" .. string.rep(" ", space)
 			else
-				result = result .. currentChar
+				result = result .. character
 			end
 		end
 	end

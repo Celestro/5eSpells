@@ -830,4 +830,7 @@
   <content contentuid="h936703e2g5be2g469bgaf1cgba3482ec407a" version="1">Infestation</content>
   <content contentuid="haee25001gac48g43edg9001g01c80bcc7280" version="1">You conjure a cloud of mites, fleas, and other parasites to appear on creature, possibly forcing it to move [1] in a random direction. This movement doesn't provoke &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
   <content contentuid="ha9fd6ca5gebc8g4071ga1d1g3e0dc8dc5888" version="1">This entity is forced to move [1] in a random direction which doesn't provoke &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
+  <content contentuid="h4fffd2a5g6af5g49ebgbc57gf180d906ab89" version="3">Vitriolic Sphere</content>
+  <content contentuid="hd2c653a3gf141g4791g8c48g2114a03fee7a" version="3">Send  glowing ball of emerald green acid at a creature that deals [1] immediately and [2] at the end of the target's turn.</content>
+  <content contentuid="h559e5458g9da6g4a2fgb019g24ed33a69bab" version="3">Takes [1] at end of their turn.</content>
 </contentList>
