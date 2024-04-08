@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="0" revision="4" build="602" lslib_meta="v1,bswap_guids" />
+	<region id="MultiEffectInfos">
+		<node id="MultiEffectInfos">
+			<attribute id="Name" type="LSString" value="TollTheDead_TargetEffect" />
+			<attribute id="UUID" type="guid" value="d9670c9b-3254-4270-a724-60627e41ed55" />
+			<children>
+				<node id="EffectInfo">
+					<attribute id="BindSourceTo" type="FixedString" value="SourceEntity" />
+					<attribute id="BindTargetTo" type="FixedString" value="TargetEntity" />
+					<attribute id="DetachSource" type="bool" value="False" />
+					<attribute id="DetachTarget" type="bool" value="False" />
+					<attribute id="EffectResourceGuid" type="guid" value="fcd31979-c00e-4bee-926e-aaf5197f18b0" />
+					<attribute id="KeepRotation" type="bool" value="False" />
+					<attribute id="KeepScale" type="bool" value="True" />
+					<attribute id="MainHand" type="bool" value="False" />
+					<attribute id="MaxDistance" type="float" value="0" />
+					<attribute id="MinDistance" type="float" value="0" />
+					<attribute id="OffHand" type="bool" value="False" />
+					<attribute id="Pivot" type="FixedString" value="Target" />
+					<attribute id="StartTextKey" type="LSString" value="Cast" />
+					<attribute id="UUID" type="guid" value="3fd3a57a-17f5-479a-88d7-2c91f25a99d1" />
+					<attribute id="UseDistance" type="bool" value="False" />
+					<attribute id="UseOrientDirection" type="bool" value="False" />
+					<attribute id="UseScaleOverride" type="bool" value="False" />
+					<children>
+						<node id="TargetBone">
+							<attribute id="Value" type="LSString" value="Dummy_BodyFX" />
+						</node>
+						<node id="TargetSkeletonSlot">
+							<attribute id="Value" type="LSString" value="" />
+						</node>
+					</children>
+				</node>
+				<node id="EffectInfo">
+					<attribute id="BindSourceTo" type="FixedString" value="SourceEntity" />
+					<attribute id="BindTargetTo" type="FixedString" value="TargetEntity" />
+					<attribute id="DetachSource" type="bool" value="False" />
+					<attribute id="DetachTarget" type="bool" value="False" />
+					<attribute id="EffectResourceGuid" type="guid" value="398076ba-6bc5-1a4d-008c-2347b040521b" />
+					<attribute id="KeepRotation" type="bool" value="False" />
+					<attribute id="KeepScale" type="bool" value="True" />
+					<attribute id="MainHand" type="bool" value="False" />
+					<attribute id="MaxDistance" type="float" value="0" />
+					<attribute id="MinDistance" type="float" value="0" />
+					<attribute id="OffHand" type="bool" value="False" />
+					<attribute id="Pivot" type="FixedString" value="Target" />
+					<attribute id="StartTextKey" type="LSString" value="Cast" />
+					<attribute id="UUID" type="guid" value="845df213-c440-4096-95fa-ccbae0fe5338" />
+					<attribute id="UseDistance" type="bool" value="False" />
+					<attribute id="UseOrientDirection" type="bool" value="False" />
+					<attribute id="UseScaleOverride" type="bool" value="False" />
+					<children>
+						<node id="TargetBone">
+							<attribute id="Value" type="LSString" value="Dummy_Root" />
+						</node>
+						<node id="TargetSkeletonSlot">
+							<attribute id="Value" type="LSString" value="" />
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

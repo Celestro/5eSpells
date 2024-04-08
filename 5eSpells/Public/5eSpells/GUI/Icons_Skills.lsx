@@ -453,21 +453,21 @@
                     <attribute id="V2" type="float" value="0.0625"/>	
                 </node>
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="Spell_Evocation_VitriolicSphere"/>
                     <attribute id="U1" type="float" value="0.0"/>
                     <attribute id="U2" type="float" value="0.03125"/>
                     <attribute id="V1" type="float" value="0.0625"/>
                     <attribute id="V2" type="float" value="0.09375"/>
                 </node>		
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="Spell_Evocation_ContinualFlame_Dismiss"/>
                     <attribute id="U1" type="float" value="0.03125"/>
                     <attribute id="U2" type="float" value="0.0625"/>
                     <attribute id="V1" type="float" value="0.0625"/>
                     <attribute id="V2" type="float" value="0.09375"/>
                 </node>		
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="Spell_Evocation_ContinualFlame_Red"/>
                     <attribute id="U1" type="float" value="0.0625"/>
                     <attribute id="U2" type="float" value="0.09375"/>
                     <attribute id="V1" type="float" value="0.0625"/>
