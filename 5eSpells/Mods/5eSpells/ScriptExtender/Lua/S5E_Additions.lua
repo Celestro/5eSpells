@@ -893,10 +893,3 @@ end)
 Ext.Osiris.RegisterListener("UsingSpell",5, "before",function (caster, spell, _, _, _)
 	_D(spell)
 end)--]]
-
-Ext.Osiris.RegisterListener("StatusApplied",4,"after", function(character, status, _, _)
-	if (status == "SNEAKING") then
-		Ext.Net.BroadcastMessage("pipes","")
-	end
-
-end)

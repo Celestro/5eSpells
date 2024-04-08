@@ -329,10 +329,14 @@
   <content contentuid="61fabc75e1234c69be4f2051ff372b21" version="1">Gained ability to exhale cold in a cone.</content>
   <content contentuid="baf8f9c8bfd741e383cfece209a5a14b" version="1">Gained ability to exhale lightning in a cone.</content>
   <content contentuid="788b3a44bc9348319001122c775ced56" version="1">Gained ability to exhale poison in a cone.</content>
-  <content contentuid="0c47714c-3607-4f7c-a8f2-08eefae6d2aa" version="1">Dust Devil</content>
-  <content contentuid="e531785a-e230-47fe-a786-cb76ecf270e3" version="1">Summon an elemental force that resembles a dust devil.</content>
-  <content contentuid="bc378123-725a-48fb-b2b7-9fa634337771" version="1">Creatures that end their turn within [1] of the dust devil take [2] and are pushed back [3].</content>
-  <content contentuid="3b97bc728e6a4c969e6bc01f974ef478" version="1">Possibly deal [1] and push creature back [2] or deal half damage and no push back on a successful save.</content>
+  <content contentuid="h0c47714cg3607g4f7cga8f2g08eefae6d2aa" version="1">Dust Devil</content>
+  <content contentuid="he531785age230g47fega786gcb76ecf270e3" version="1">Summon an elemental force that resembles a dust devil.</content>
+  <content contentuid="hbc378123g725ag48fbgb2b7g9fa634337771" version="1">Creatures that end their turn within [1] of the dust devil take [2] and are pushed back [3].</content>
+  <content contentuid="h05136948g66d7g46a3g8bebgaedc86091a81" version="1">Dust Devil: Move</content>
+  <content contentuid="h57a1996fgbc7bg4d46g8ae8g3ea1e4b3b8d0" version="1">Allow the dust devil to move up to [1].</content>
+  <content contentuid="hf6e19e75gd6efg472eg8474g1fc9da6596f9" version="1">Possibly deal [1] and push creature back [2] or deal half damage and no push back on a successful save.</content>
+  <content contentuid="hac78e7abg00ebg4283gb227gcf7fb615c3a7" version="1">Movement</content>
+  <content contentuid="h00437f93g8bacg46bfg9d80g1ffb8c1a8f9d" version="1">Entity can move up to [1].</content>
   <content contentuid="cd69dca5-63aa-42ea-ba6e-626efa8121e9" version="1">Flock of Familiars</content>
   <content contentuid="6120046e-8c02-4b2f-9ff2-8c5e0234f32c" version="1">Gain the service of [1] familiars, each a fey spirit that takes an animal form you choose.</content>
   <content contentuid="dabb276c955d4a21a93e01e5d669a151" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; Already summoned familiars disappear when using this spell.</content>
