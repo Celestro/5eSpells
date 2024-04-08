@@ -348,7 +348,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Uniform Scale" />
 											<attribute id="FullName" type="FixedString" value="Appearance.Uniform Scale" />
 											<attribute id="Type" type="uint8" value="4" />
-											<attribute id="Value" type="float" value="5" />
+											<attribute id="Value" type="float" value="3" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Brightness" />
@@ -736,7 +736,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Scale Modifier Z" />
 											<attribute id="FullName" type="FixedString" value="Particle.Appearance.Scale Modifier Z" />
 											<attribute id="Type" type="uint8" value="4" />
-											<attribute id="Value" type="float" value="4" />
+											<attribute id="Value" type="float" value="3" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Rotation Rate/Life" />
@@ -1336,7 +1336,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Scale Modifier Y" />
 											<attribute id="FullName" type="FixedString" value="Particle.Appearance.Scale Modifier Y" />
 											<attribute id="Type" type="uint8" value="4" />
-											<attribute id="Value" type="float" value="4" />
+											<attribute id="Value" type="float" value="3" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Rotation/Life" />
@@ -2272,7 +2272,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Scale Modifier X" />
 											<attribute id="FullName" type="FixedString" value="Particle.Appearance.Scale Modifier X" />
 											<attribute id="Type" type="uint8" value="4" />
-											<attribute id="Value" type="float" value="4" />
+											<attribute id="Value" type="float" value="3" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Uniform Scale" />
@@ -3224,19 +3224,19 @@
 											<attribute id="AttributeName" type="FixedString" value="Scale Modifier X" />
 											<attribute id="FullName" type="FixedString" value="Particle.Appearance.Scale Modifier X" />
 											<attribute id="Type" type="uint8" value="4" />
-											<attribute id="Value" type="float" value="1.5" />
+											<attribute id="Value" type="float" value="1" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Scale Modifier Y" />
 											<attribute id="FullName" type="FixedString" value="Particle.Appearance.Scale Modifier Y" />
 											<attribute id="Type" type="uint8" value="4" />
-											<attribute id="Value" type="float" value="1.5" />
+											<attribute id="Value" type="float" value="1" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Scale Modifier Z" />
 											<attribute id="FullName" type="FixedString" value="Particle.Appearance.Scale Modifier Z" />
 											<attribute id="Type" type="uint8" value="4" />
-											<attribute id="Value" type="float" value="1.5" />
+											<attribute id="Value" type="float" value="1" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Rotation Rate/Life" />
@@ -4109,7 +4109,7 @@
 											<attribute id="AttributeName" type="FixedString" value="Radius Scale" />
 											<attribute id="FullName" type="FixedString" value="Physical Material.Radius Scale" />
 											<attribute id="Type" type="uint8" value="4" />
-											<attribute id="Value" type="float" value="0.51" />
+											<attribute id="Value" type="float" value="0.01" />
 										</node>
 										<node id="Property">
 											<attribute id="AttributeName" type="FixedString" value="Lifetime Loss" />
