@@ -836,5 +836,9 @@
   <content contentuid="ha9fd6ca5gebc8g4071ga1d1g3e0dc8dc5888" version="1">This entity is forced to move [1] in a random direction which doesn't provoke &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
   <content contentuid="h4fffd2a5g6af5g49ebgbc57gf180d906ab89" version="3">Vitriolic Sphere</content>
   <content contentuid="hd2c653a3gf141g4791g8c48g2114a03fee7a" version="3">Send  glowing ball of emerald green acid at a creature that deals [1] immediately and [2] at the end of the target's turn.</content>
-  <content contentuid="h559e5458g9da6g4a2fgb019g24ed33a69bab" version="3">Takes [1] at end of their turn.</content>
+  <content contentuid="h559e5458g9da6g4a2fgb019g24ed33a69bab" version="3">Takes [1] at end of their turn.</content>	
+  <content contentuid="hab28bf8bg73dbg4ed2g82abg33cbb1bbeecb" version="1">Mental Prison</content>
+  <content contentuid="h167dc145g985ag4706g8d69gc0ffea454275" version="1">On a failed Intelligence &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the enemy receives 5d10 Psychic damage. Reduce it's vision and receives damage 10d10 Psychic damage if it moves, is pushed or attacks.</content>
+  <content contentuid="hc1f5f72bg133cg4978g84c8gd6ce81a78568" version="1">Mental Prisoner</content>
+  <content contentuid="hb64747beg4177g4030gacebgf6b16a5480bb" version="1">Receives Psychic damage if attacks, is pushed or moves.</content>
 </contentList>
