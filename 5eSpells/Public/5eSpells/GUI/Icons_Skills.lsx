@@ -208,7 +208,7 @@
                     <attribute id="V2" type="float" value="0.03125"/>
                 </node>	
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value="Spell_Conjuration_ConjureBarrage"/>
+                    <attribute id="MapKey" type="FixedString" value=""/>
                     <attribute id="U1" type="float" value="0.90625"/>
                     <attribute id="U2" type="float" value="0.9375"/>
                     <attribute id="V1" type="float" value="0.0"/>
@@ -481,7 +481,7 @@
                     <attribute id="V2" type="float" value="0.09375"/>
                 </node>		
                 <node id="IconUV">
-                    <attribute id="MapKey" type="FixedString" value=""/>
+                    <attribute id="MapKey" type="FixedString" value="Spell_Conjuration_SummonConstruct"/>
                     <attribute id="U1" type="float" value="0.125"/>
                     <attribute id="U2" type="float" value="0.15625"/>
                     <attribute id="V1" type="float" value="0.0625"/>

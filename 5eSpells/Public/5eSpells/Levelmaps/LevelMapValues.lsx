@@ -5,15 +5,6 @@
         <node id="root">
             <children>
                 <node id="LevelMapSeries">
-                    <attribute id="Level1" type="LSString" value="2"/>
-                    <attribute id="Level5" type="LSString" value="3"/>
-                    <attribute id="Level9" type="LSString" value="4"/>
-                    <attribute id="Level13" type="LSString" value="5"/>
-                    <attribute id="Level17" type="LSString" value="6"/>
-                    <attribute id="Name" type="FixedString" value="StandardProficiencyBonusScale"/>
-                    <attribute id="UUID" type="guid" value="265d62c4-9b82-4ed6-9a86-da675b4ef8fe"/>
-                </node>
-                <node id="LevelMapSeries">
                     <attribute id="Level5" type="LSString" value="1d8"/>
                     <attribute id="Level10" type="LSString" value="2d8"/>
                     <attribute id="Level17" type="LSString" value="3d8"/>

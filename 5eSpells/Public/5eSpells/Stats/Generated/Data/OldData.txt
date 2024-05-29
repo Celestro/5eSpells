@@ -105,3 +105,11 @@ data "StatusType" "BOOST"
 data "StackId" "CATNAP_BLOCK"
 data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
 data "RemoveEvents" "OnTurn"
+
+new entry "BoomingBlade"
+type "PassiveData"
+data "Properties" "IsHidden"
+
+new entry "ChaosBolt_Explosion"
+type "PassiveData"
+data "Properties" "IsHidden"
