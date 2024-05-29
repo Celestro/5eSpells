@@ -258,6 +258,10 @@ function HasHitDice12()
     return ClassLevelHigherOrEqualThan(1,'Barbarian',context.Source)
 end
 
+function NoClassHitDice()
+    return ~(HasHitDice6() or HasHitDice8() or HasHitDice10() or HasHitDice12())
+end
+
 function HasHitDice()
     return HasStatus('HIT_DICE_LEVEL_0',context.Source) | HasStatus('HIT_DICE_LEVEL_1',context.Source) | HasStatus('HIT_DICE_LEVEL_2',context.Source) | HasStatus('HIT_DICE_LEVEL_3',context.Source) | HasStatus('HIT_DICE_LEVEL_4',context.Source) | HasStatus('HIT_DICE_LEVEL_5',context.Source) | HasStatus('HIT_DICE_LEVEL_6',context.Source) | HasStatus('HIT_DICE_LEVEL_7',context.Source) | HasStatus('HIT_DICE_LEVEL_8',context.Source) | HasStatus('HIT_DICE_LEVEL_9',context.Source) | HasStatus('HIT_DICE_LEVEL_10',context.Source) | HasStatus('HIT_DICE_LEVEL_11',context.Source) | HasStatus('HIT_DICE_LEVEL_12',context.Source) | HasStatus('HIT_DICE_LEVEL_13',context.Source) | HasStatus('HIT_DICE_LEVEL_14',context.Source) | HasStatus('HIT_DICE_LEVEL_15',context.Source) | HasStatus('HIT_DICE_LEVEL_16',context.Source) | HasStatus('HIT_DICE_LEVEL_17',context.Source) | HasStatus('HIT_DICE_LEVEL_18',context.Source) | HasStatus('HIT_DICE_LEVEL_19',context.Source) | HasStatus('HIT_DICE_LEVEL_20',context.Source)
 end
@@ -451,19 +455,24 @@ function S5E_IsInvisibleSeen(entity)
         |  HasStatus('LOW_POLTERGEIST_INVISIBLE_SEEN',entity)
 end
 
-function S5E_CanSeeInvisible(entity)
-    local entity = entity or context.Source
-    return ((Tagged('BLINDSIGHT', entity) 
-        |  HasStatus('TRUESIGHT', entity)) & ~DistanceToGreaterThan(context.SourcePosition, context.TargetPosition, 36.5))
-        | ((HasStatus('SEE_INVISIBILITY', entity) | HasStatus('MAG_SEE_INVISIBILITY_HIDDEN_IGNORE_RESTING', entity)) & ~DistanceToGreaterThan(context.SourcePosition, context.TargetPosition, 9))
-        | ((HasStatus('SEE_INVISIBILITY_SEEK', entity) | HasPassive('BlindFighting', entity)) & ~DistanceToGreaterThan(context.SourcePosition, context.TargetPosition, 3))
-        | (HasStatus('MIND_SPIKE_OWNER', entity) & ~DistanceToGreaterThan(context.SourcePosition, context.TargetPosition, 99.5))
-end
-
 function S5E_RangedWeaponAttackSpellCheck()
     return (HasStringInSpellRoll('AttackType.RangedWeaponAttack') | SpellId('Projectile_ArrowOfSmokepowder')) & ~(SpellId('Projectile_EnsnaringStrike') | SpellId('Projectile_EnsnaringStrike_2') | SpellId('Projectile_EnsnaringStrike_3') | SpellId('Projectile_EnsnaringStrike_4') | SpellId('Projectile_EnsnaringStrike_5') | SpellId('Projectile_EnsnaringStrike_6') | SpellId('Projectile_EnsnaringStrike_7') | SpellId('Projectile_EnsnaringStrike_8') | SpellId('Projectile_EnsnaringStrike_9') | SpellId('Projectile_EnsnaringStrike_Container'))
 end
 
 function S5E_RangedWeaponAttackCheck()
     return S5E_RangedWeaponAttackSpellCheck() & HasUseCosts('ActionPoint',false)
+end
+
+function IsLastAttackRollSuccess()
+    local isSavingThrow = IsAttack()
+    if isAttack then
+        return IsLastConditionRollSuccess(ConditionRollType.ConditionAttack)
+    end
+    return ConditionResult(false)
+end
+
+function IsElusive(entity)
+    local entity = entity or context.Source
+
+    return HasPassive('Elusive', entity) & ~HasStatus('SG_Incapacitated', entity)
 end

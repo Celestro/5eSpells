@@ -150,6 +150,13 @@
   <content contentuid="0470b21bdeb8470da97ab240f945772f" version="1">Gained [1] &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt;.</content>
   <content contentuid="06ccff5b-74f8-4871-a26d-66436d5da6d5" version="1">Booming Blade</content>
   <content contentuid="h5c64717fgdf63g456dga956gccc1a47102b5" version="1">Booming Blade: Sneak Attack</content>
+  <content contentuid="h0ea141e3g0fb1g400dgb480g894644b1f5a9" version="1">Booming Blade: Divine Strike (Radiant)</content>
+  <content contentuid="h47aae9e5g6825g4346g9f56gfeed0f8cf46d" version="1">Booming Blade: Divine Strike (Cold)</content>
+  <content contentuid="h2d84d9c7gb7ecg4198gb999g00077d3189d5" version="1">Booming Blade: Divine Strike (Fire)</content>
+  <content contentuid="h02accb1cg0ea6g4f63gadcbg09980baeb31c" version="1">Booming Blade: Divine Strike (Lightning)</content>
+  <content contentuid="hbf78053ag5ff5g46b9g8627gb1fe870dc54e" version="1">Booming Blade: Divine Strike (Thunder)</content>
+  <content contentuid="h1adcf480g239eg4eadg9a70gc18ccb3332f7" version="1">Booming Blade: Divine Strike (Poison)</content>
+  <content contentuid="hcb08682bgbb90g4488gba9eg7ad394899525" version="1">Booming Blade: Divine Strike (Weapon)</content>
   <content contentuid="aa20553d-362b-4ff6-b5d9-5c70e4e37e59" version="1">Strike a target with a melee weapon, surrounding them in a booming energy that detonates and deals [1] if it willingly moves.</content>
   <content contentuid="7072fa8e512243d18b7e182cbd0651be" version="1">Takes [1] if moving willingly.</content>
   <content contentuid="hc9a48d42g9567g4fc0g9352g7e7ced0aab62" version="1">Control Flames</content>
@@ -159,7 +166,7 @@
   <content contentuid="70dd64c3-4570-459d-82b9-2f235d4fb560" version="1">Control Flames: Extinguish</content>
   <content contentuid="528367ff-48cf-4f51-a059-aabbecdfe51b" version="1">Extinguish the flames of a fire surface or the flames of an object.</content>
   <content contentuid="h70dd64c3g4570g459dg82b9g2f235d4fb560" version="1">Control Flames: Resistance</content>
-  <content contentuid="h528367ffg48cfg4f51ga059gaabbecdfe51b" version="1">Grant a creature &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt; against Fire damage.</content>
+  <content contentuid="h528367ffg48cfg4f51ga059gaabbecdfe51b" version="1">Grant a creature &lt;LSTag Tooltip="Resistance"&gt;Resistance&lt;/LSTag&gt; against Fire damage.</content>
   <content contentuid="hb52d0831g1f55g4356gb606g724245fd2500" version="1">&lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistant&lt;/LSTag&gt; to Fire damage.</content>
   <content contentuid="6cec9657ec2343d69622568217974bc4" version="1">Create Bonfire</content>
   <content contentuid="230e0fdb78354f1f8680dfd69df183b7" version="1">Create a bonfire that burns creatures in the bonfire’s space when casting this spell or when the creature starts or ends its turn in the space.</content>
@@ -168,13 +175,20 @@
   <content contentuid="c2303d03-287b-48d6-bd07-3cce35798836" version="1">Druidcraft</content>
   <content contentuid="31463b0c-ca07-4746-a80b-144c0f83ca13" version="1">Create harmless sensory effects that grants you &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Intimidation &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; or instantly snuff out or light a source of fire on a object.</content>
   <content contentuid="a4e2714f-7d91-4ca4-a0d0-caba22e6781f" version="1">Create harmless sensory effects that grants you &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Intimidation &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt;.</content>
-  <content contentuid="3c1beecf-6508-4c72-a3e3-be452d67e412" version="1">Instantly snuff out or light a source of fire on an object.</content>
+  <content contentuid="3c1beecf-6508-4c72-a3e3-be452d67e412" version="1">Instantly snuff out or light a source of fire on an object or a fire surface.</content>
   <content contentuid="befafae4ab3747b6ab913facd82e9cfd" version="1">Has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Intimidation &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt;.</content>
   <content contentuid="7cf2ef50-78ee-4426-a586-5682f2a748dc" version="1">Frostbite</content>
   <content contentuid="3f10dad4-2df1-49ad-83e4-b127bcf07dcb" version="1">Cause a numbing frost to form on a creature, possibly imposing &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.</content>
   <content contentuid="85510b37371f4daf85cad0b8b114ab2a" version="1">Has &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.</content>
   <content contentuid="70d336bc-94f6-4bad-a8b8-5944fa9ab350" version="1">Green-Flame Blade</content>
   <content contentuid="h1908ba8cgbd5ag403ag8ecag69f34c6ddd15" version="1">Green-Flame Blade: Sneak Attack</content>
+  <content contentuid="h2e29b8e5g6e9bg49e8ga66ag9f1a535c4c85" version="1">Green-Flame Blade: Divine Strike (Radiant)</content>
+  <content contentuid="hea89e9c3gb7feg4b8eg80f9g1c6f0deca925" version="1">Green-Flame Blade: Divine Strike (Cold)</content>
+  <content contentuid="h5cde96d6g001ag494cg9819g3b38d106effd" version="1">Green-Flame Blade: Divine Strike (Fire)</content>
+  <content contentuid="hfde7cbbcg8ffbg42eaga3c0g53eadd896202" version="1">Green-Flame Blade: Divine Strike (Lightning)</content>
+  <content contentuid="h644748f1gb823g4b61gb0dag25d75fff2941" version="1">Green-Flame Blade: Divine Strike (Thunder)</content>
+  <content contentuid="h02d48687ga653g4978g9702ge57659329388" version="1">Green-Flame Blade: Divine Strike (Poison)</content>
+  <content contentuid="hfe528f39gec3bg4cbag908cgc1c2d41601e4" version="1">Green-Flame Blade: Divine Strike (Weapon)</content>
   <content contentuid="9b0579a5-8a2d-4127-ac47-0cd8582e0027" version="1">Strike a target with a melee weapon, allowing fire to leap from your target to strike a second nearby foe within [1] of them, dealing [2].</content>
   <content contentuid="32f268b63e3e4801a74ad7943eacf3c0" version="1">Can shoot fire towards a nearby creature.</content>
   <content contentuid="b9d8673da2b94c1fb644ddcc057fd730" version="1">Can be targeted by Green-Flame Blade's leaping fire.</content>
@@ -214,8 +228,16 @@
   <content contentuid="h045a290bgefdcg4cf7gbd25g2ee6b269cb17" version="1">Mold Earth</content>
   <content contentuid="h5ee75e1ag0b41g4726gbca1geaa10c486de5" version="1">Manipulate earth to your whim, allowing you to create a mud surface that becomes &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Difficult Terrain&lt;/LSTag&gt; or to remove a mud surface.</content>
   <content contentuid="hdb65ca99gdf3dg4492g9daag28bf7861dcef" version="1">Prestidigitation</content>
-  <content contentuid="he8442688g04f1g4751ga863gfe05abc86b89" version="1">Perform minor magical tricks that light or snuff out the fire on some items and weapons and cleans ground surfaces or creatures.</content>
+  <content contentuid="he8442688g04f1g4751ga863gfe05abc86b89" version="1">Perform minor magical tricks that light or snuff out fire on some items, cleans certain surfaces or creatures and creates musical notes that can distract others.</content>
+  <content contentuid="h71e2740cg0198g4cf1gabe2gcb4f338a9bde" version="1">The surfaces affected are water, electrified water, blood, electrified blood, poison, oil, grease, web, acid, alien oil, mud, alcohol, silver blood and ash.</content>
   <content contentuid="cb796812372c4ad4944804a521e83b7c" version="1">Cleaned of blood, dirt and sweat.</content>
+  <content contentuid="hbb5d0712ged38g4402gb6f6ge1dfbbc3106c" version="1">Prestidigitation: Clean</content>
+  <content contentuid="h36de362ag85f3g4a80gbabcgc990ea33b6a3" version="1">Instantly clean a creature of blood, sweat and dirt or remove certain surfaces.</content>
+  <content contentuid="hcdbc4e09g3d74g43e5g9d16ge465dabf3406" version="1">Prestidigitation: Musical</content>
+  <content contentuid="h6ae73b47g47d2g4213gb583g6afe2c552b16" version="1">Create music that possibly distracts creatures nearby.</content>
+  <content contentuid="h791afe39g7f77g48dega27fgc0472f2177a5" version="1">Prestidigitation: Fire</content>
+  <content contentuid="hd579d008g05dbg4a4bg9c9cg8ee61d667897" version="1">Light or snuff out fire on a weapon or object such as a torch.</content>
+  <content contentuid="he867bd3fg4516g40b7g9edcgf35083499848" version="1">Musical Notes</content>
   <content contentuid="e1e8930c-4213-47f3-b049-7acba8410ad8" version="1">Primal Savagery</content>
   <content contentuid="d2f5ac35-3e48-4cd0-9a44-1b4fe565498b" version="1">Channel primal magic to cause your teeth or fingernails to sharpen, ready to deliver a corrosive attack.</content>
   <content contentuid="5aa87de0-6bd2-4e40-a279-f100ae3dab60" version="1">Sapping Sting</content>
@@ -330,7 +352,8 @@
   <content contentuid="baf8f9c8bfd741e383cfece209a5a14b" version="1">Gained ability to exhale lightning in a cone.</content>
   <content contentuid="788b3a44bc9348319001122c775ced56" version="1">Gained ability to exhale poison in a cone.</content>
   <content contentuid="h0c47714cg3607g4f7cga8f2g08eefae6d2aa" version="1">Dust Devil</content>
-  <content contentuid="he531785age230g47fega786gcb76ecf270e3" version="1">Summon an elemental force that resembles a dust devil.</content>
+  <content contentuid="he531785age230g47fega786gcb76ecf270e3" version="1">Summon an elemental force that resembles a dust devil that damages creatures that end their turn within [1] of it and pushed back [2].</content>
+  <content contentuid="ha7d13afega06ag4c91gb8e2gbcaeb1360d59" version="1">If the dust devil moves through a mud surface, it removes the surface and generates a [1] cloud that moves with the dust devil, &lt;LSTag Type="Status" Tooltip="SNEAKING_HEAVILY_OBSCURED"&gt;Heavily Obscuring&lt;/LSTag&gt; the area.</content>
   <content contentuid="hbc378123g725ag48fbgb2b7g9fa634337771" version="1">Creatures that end their turn within [1] of the dust devil take [2] and are pushed back [3].</content>
   <content contentuid="h05136948g66d7g46a3g8bebgaedc86091a81" version="1">Dust Devil: Move</content>
   <content contentuid="h57a1996fgbc7bg4d46g8ae8g3ea1e4b3b8d0" version="1">Allow the dust devil to move up to [1].</content>
@@ -480,7 +503,9 @@
   <content contentuid="479f1f01-5f15-49da-ae4b-b33e602fa241" version="1">Five creatures in the area gain [1] and have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. If hit by an attack, an affected creature has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on its next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; during combat.</content>
   <content contentuid="e42d6815-0749-4b58-a282-5d5b671eccd0" version="1">The spell ends on a creature once its &lt;LSTag Tooltip="TemporaryHitPoints"&gt;temporary hit points&lt;/LSTag&gt; are depleted.</content>
   <content contentuid="4b950443-ef26-4282-9c0e-664343f3008e" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; Cannot affect summoned creatures.</content>
-  <content contentuid="d29b1dacc3ee4a14bb3bcb5a216a7008" version="1">Gain [1] and have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; in combat after being hit by an attack.</content>
+  <content contentuid="d29b1dacc3ee4a14bb3bcb5a216a7008" version="1">Gain [1] and have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; after being hit by an attack.</content>
+  <content contentuid="h568e002eg449fg471bg8e34g9f2560f9be38" version="1">Motivational Speech: Advantage</content>
+  <content contentuid="hddeefee3g2179g4056g86b9gd3b1bd2f58b4" version="1">Has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.</content>
  <content contentuid="058ec68aefdf4802b3a696b2a442db47" version="1">Nondetection</content>
   <content contentuid="876058c1a7e34d569a16a8dd0dbf4f0d" version="1">Touch a creature to hide it from divination magic, preventing divination spells from targeting it and from being perceived through magical scrying sensors.</content>
   <content contentuid="ca250c966b2749ef8221c5ad9a2c075a" version="1">Hidden from divination magic and cannot be targeted by divination spells.</content>
@@ -515,7 +540,7 @@
   <content contentuid="97096d9d739147489f5d817606c47429" version="1">Spirit has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against &lt;LSTag Type="Status" Tooltip="FRIGHTENED"&gt;Frightened&lt;/LSTag&gt; creatures.</content>
   <content contentuid="12c82fef4ebf4fcd8331815b60352fd2" version="1">Weight of Sorrow</content>
   <content contentuid="e16d1e7413de4eb9b453b2f0e61260da" version="1">Other creatures within [1] of the spirit has its &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; reduced by [2].</content>
-  <content contentuid="8ffeacfef32d43e5973c53c9d54bcf9e" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; reduced by [2].</content>
+  <content contentuid="8ffeacfef32d43e5973c53c9d54bcf9e" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; reduced by [1].</content>
   <content contentuid="8253b1e7954b4fe98922e7b8bb3182c1" version="1">Shadow Stealth</content>
   <content contentuid="0ce03ecc2e604f4dacde48f7094c462b" version="1">While in dim light or darkness, spirit can take the Hide action as a &lt;LSTag Tooltip="BonusAction"&gt;bonus action&lt;/LSTag&gt;.</content>
   <content contentuid="c172dc976b8543158fe16b56c40a3143" version="1">Chilling Hand</content>
@@ -526,10 +551,12 @@
   <content contentuid="6c8ef77bf9c9402aa31d8c97d6e57302" version="1">Multiattack</content>
   <content contentuid="af9ea4cc274e409793da23bb19efd683" version="1">Free attack after making an attack.</content>
   <content contentuid="eca119cabd7f4057b7a12d7e935006d1" version="1">Multiattack</content>
-  <content contentuid="7a6c7a219b3145f49d66451699b892b7" version="1">The shadowspawn makes a number of attacks equal to spell's level used to summon it.</content>
-  <content contentuid="e91ceb65847146cb99509ba29976f60e" version="1">The elemental makes two attacks.</content>
+  <content contentuid="7a6c7a219b3145f49d66451699b892b7" version="1">The shadowspawn makes a number of attacks equal to half the spell's level used to summon it.</content>
+  <content contentuid="e91ceb65847146cb99509ba29976f60e" version="1">The elemental makes a number of attacks equal to half the spell's level used to summon it.</content>
   <content contentuid="a6053f2f77314d628ef9c5c4e276c13f" version="1">Free attack after using Breath Weapon.</content>
   <content contentuid="46167340d5ba4fe0b1e773c7fa507e4f" version="1">Hide: Shadow Stealth</content>
+  <content contentuid="hb85c6a8bgbeaag4e1bga0e2gfcc0f0857347" version="1">Teleport</content>
+  <content contentuid="h71231790gac61g47f2gaf7cgdc2f8e53ab94" version="1">Teleport to your summoner.</content>
   <content contentuid="9d5446c6c10b4788a576b32e5b5fae7b" version="1">Thunder Step</content>
   <content contentuid="e46ef781-4e75-4f64-8042-c5b3a7f5d5bd" version="1">Teleport yourself and possibly an ally to an unoccupied space, causing a thunderous boom within [1] of the space you left.</content>
   <content contentuid="d348c657-6866-492e-8756-003ee1c4d369" version="1">Water Walk</content>
@@ -578,8 +605,16 @@
   <content contentuid="345abb07-bf64-48bb-8175-375424f87962" version="1">Cone of Cold</content>
   <content contentuid="669ed387-7951-4ce8-a2f9-740f1b1160d4" version="1">A blast of cold air erupts from your hands, dealing [1] to creatures.</content>
   <content contentuid="edae0945-9a25-4321-8e15-4b739d8d6ecd" version="1">On a successful save, targets take half damage.</content>
-  <content contentuid="f1251932-62f1-4884-a249-783d042771e9" version="1">Conjure Volley</content>
-  <content contentuid="ebdfc939-adab-4a60-ba50-8416f01e7ef2" version="1">Fire a piece of ammunition from a ranged weapon into the air and choose a point within range. Hundreds of duplicates of the ammunition fall in a volley from above and then disappear, dealing [1] to creatures.</content>
+  <content contentuid="hf1251932g62f1g4884ga249g783d042771e9" version="1">Conjure Volley</content>
+  <content contentuid="hebdfc939gadabg4a60gba50g8416f01e7ef2" version="1">Fire a piece of ammunition from a ranged weapon or throw a weapon into the air. Hundreds of duplicates of the ammunition or weapon fall in a volley from above and then disappear, damaging creatures in a [1] radius area.</content>
+  <content contentuid="h89bf4e76gc243g4ea1gb2c6gc857ba3ba5c2" version="1">Conjure Volley: Ammunition</content>
+  <content contentuid="h8f514ae1ge2e6g4347gb7fega1ce78d3569a" version="1">Fire a piece of ammunition from a ranged weapon into the air. Hundreds of duplicates of the ammunition fall in a volley from above and then disappear, damaging creatures in a [1] radius area.</content>
+  <content contentuid="hf595bbdeg2dc3g4711ga7a6gd5884301a672" version="1">Conjure Volley: Bludgeoning Weapon</content>
+  <content contentuid="h42522707g014fg4d43gba4dg5d80401a4947" version="1">Throw a weapon into the air. Hundreds of duplicates of the weapon fall in a volley from above and then disappear, damaging creatures within a [1] radius area.</content>
+  <content contentuid="hfee65bcbg68f4g43cbgb231ge8f09b6f3606" version="1">Conjure Volley: Slashing Weapon</content>
+  <content contentuid="hc183347cg2045g4b87g8ecfg0dd929506cda" version="1">Throw a weapon into the air. Hundreds of duplicates of the weapon fall in a volley from above and then disappear, damaging creatures within a [1] radius area.</content>
+  <content contentuid="haf8411d1g7990g4bb9ga0fdg333e818eda18" version="1">Conjure Volley: Piercing Weapon</content>
+  <content contentuid="hcb0c878ag93f8g43e1ga2acg5e48f2e9b723" version="1">Throw a weapon into the air. Hundreds of duplicates of the weapon fall in a volley from above and then disappear, damaging creatures within a [1] radius area.</content>
   <content contentuid="cd235fbb-284b-4689-b538-db9c7eb6ef32" version="1">Contagion</content>
   <content contentuid="6f1aeb88-1e7a-43b5-a0be-0512f2ec3b70" version="1">Touch a creature, causing them to be Poisoned and make Constitution Saving Throws at the end of its turns.</content>
   <content contentuid="f04b97a8-af68-4d7f-b2bd-1b8ecd77fae0" version="1">If creatures Poisoned have three successful saves, this spell ends. If creatures Poisoned have three failed saves, they are no longer Poisoned but suffer a random disease.</content>
@@ -697,7 +732,7 @@
   <content contentuid="87abbc875a36408a8005093e0164df17" version="1">Vanish a creature, in addition to [1] other creature(s), when it casts a spell or makes an attack, causing the action to fail before it has any effect.</content>
   <content contentuid="cf78d0c6838b4935be99a8e694a9b7f3" version="1">Vanished to another point in time.</content>
   <content contentuid="h8b7abf49ge54bg4bd0gaa58g616d8d40cbd1" version="1">Shadow of Moil</content>
-  <content contentuid="hd2aecb5ag35b1g4e6dgbe67gb9f4485badf4" version="1">Flame-like shadows wreathe your body, causing you to gain &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt; to radiant damage and become &lt;LSTag Type="Status" Tooltip="SNEAKING_HEAVILY_OBSCURED"&gt;Heavily Obscured&lt;/LSTag&gt; to others.</content>
+  <content contentuid="hd2aecb5ag35b1g4e6dgbe67gb9f4485badf4" version="1">Flame-like shadows wreathe your body, causing you to gain &lt;LSTag Tooltip="Resistance"&gt;Resistance&lt;/LSTag&gt; to radiant damage and become &lt;LSTag Type="Status" Tooltip="SNEAKING_HEAVILY_OBSCURED"&gt;Heavily Obscured&lt;/LSTag&gt; to others.</content>
   <content contentuid="hb3f4bfb9g83a5g4090g92c9g846144a096ef" version="1">Whenever a creature within [1] hits you with an attack, the shadows lash out at that creature, dealing [2].</content>
   <content contentuid="h041a9202gd475g44a1gb09bg68849ebfcb50" version="1">&lt;LSTag Type="Status" Tooltip="SNEAKING_HEAVILY_OBSCURED"&gt;Heavily Obscured&lt;/LSTag&gt; to others and &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistant&lt;/LSTag&gt; to radiant damage.</content>
   <content contentuid="he6842936ged43g4072gb88egdf2460a3d0d8" version="1">Must have 25 gold to cast this spell.</content>
@@ -787,6 +822,11 @@
   <content contentuid="h98fc69aegb2f2g45d7ga364g67cb4db725bf" version="1">&lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; and &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; reduced to 1 and cannot cast spells or engage in dialogues.</content>
   <content contentuid="hf7c7e4a4g84eag4234gb696g6c1ec5df9098" version="1">Dominate Monster</content>
   <content contentuid="hed72c3b5ga736g40adga68ag526eef2dd0ab" version="1">Make a creature fight alongside you. Every time the creature takes damage, it makes a Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; against your domination. Allies cannot be dominated.</content>
+  <content contentuid="h3858180eg0353g4c43gaff8g7fee79847375" version="1">As an action, you can &lt;LSTag Type="Spell" Tooltip="Target_DominateMonster_TotalControl"&gt;total control&lt;/LSTag&gt; the target.</content>
+  <content contentuid="hb05c2944g8c95g4e00gbfd4gae133bd36a04" version="1">Dominate Monster: Total Control</content>
+  <content contentuid="h673d3bd6g7300g47e5gbb30gfd0dbb8ce979" version="1">Take total and precise control of a creature &lt;LSTag Type="Spell" Tooltip="Target_DominateMonster"&gt;dominated&lt;/LSTag&gt; by you.</content>
+  <content contentuid="h5b564ca9ge783g4240gb44egd8d9031f6fdc" version="1">Dominate Monster: Lost Control</content>
+  <content contentuid="hd5b42943gf374g4445gb3cag47f572e2d4db" version="1">Affected entity has been fully dominated and lost all control.</content>
   <content contentuid="h1091a605gffd9g47d2g92a9gea580c3fe53f" version="1">Tenser's Transformation</content>
   <content contentuid="h18d70482g6daeg40ddg8b80g38a245006e1f" version="1">Endow yourself with endurance and martial prowess fueled by magic, preventing you from casting spells but granting you gain several benefits.</content>
   <content contentuid="h5cc3c512g5319g4746g8173gfa5355023e71" version="1">You gain [1], you have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; with weapons, you deal an extra [2] with weapon attacks, you have proficiency with all armor, shields and weapons, you have proficiency in Strength and Constitution &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.&lt;br&gt; and you can attack twice, instead of once, when you take the Attack action on your turn unless you have the &lt;LSTag Type="Passive" Tooltip="ExtraAttack"&gt;Extra Attack&lt;/LSTag&gt; or similar feature.</content>
@@ -816,8 +856,8 @@
   <content contentuid="h41b4be4dgedffg4072gb3aegb51839ab050d" version="1">Eye Ray</content>
   <content contentuid="h8ba16f71gc073g414ag8270g509d2fe00666" version="1">Shoot amagical eye ray at a creature.</content>
   <content contentuid="hb57f94a6g849cg4dcdg825egd6ac258d879d" version="1">Aura of Life</content>
-  <content contentuid="hc44fc7ffg569eg48caga976g6f74ef801569" version="1">An aura of life-preserving energy radiates from you in a [1] radius. Non-hostile creatures in the aura have &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, their hit point maximum cannot be reduced and living creatures regain [2] when starting their turns with [3].</content>
-  <content contentuid="h7092412egf2f7g4bc7ga6f2g43f7d1804d2f" version="1">This entity has &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, its hit point maximum cannot be reduced and it regains [1] at start of turns if it has [2] and is alive.</content>
+  <content contentuid="hc44fc7ffg569eg48caga976g6f74ef801569" version="1">An aura of life-preserving energy radiates from you in a [1] radius. Non-hostile creatures in the aura have &lt;LSTag Tooltip="Resistance"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, their hit point maximum cannot be reduced and living creatures regain [2] when starting their turns with [3].</content>
+  <content contentuid="h7092412egf2f7g4bc7ga6f2g43f7d1804d2f" version="1">This entity has &lt;LSTag Tooltip="Resistance"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, its hit point maximum cannot be reduced and it regains [1] at start of turns if it has [2] and is alive.</content>
   <content contentuid="ha7a0e525g11acg4f66ga301g7382ad354066" version="1">Maelstrom</content>
   <content contentuid="hcda91e65gc241g482dga893gdb9b7d912748" version="1">A swirling mass of [1]-deep water appears in a [2] radius centered on a point you can see within range. Until the spell ends, that area is difficult terrain, and any creature that starts its turn there must succeed on a Strength saving throw or take damage and be pulled [3] toward the center.</content>
   <content contentuid="h5dc5b718ge8c9g49ddg8ee4gd78fc34055dc" version="1">This entity is caught in the maelstrom, taking damage and being pulled toward the center at the start of its turn.</content>
@@ -835,6 +875,19 @@
   <content contentuid="haee25001gac48g43edg9001g01c80bcc7280" version="1">You conjure a cloud of mites, fleas, and other parasites to appear on creature, possibly forcing it to move [1] in a random direction. This movement doesn't provoke &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
   <content contentuid="ha9fd6ca5gebc8g4071ga1d1g3e0dc8dc5888" version="1">This entity is forced to move [1] in a random direction which doesn't provoke &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;.</content>
   <content contentuid="h4fffd2a5g6af5g49ebgbc57gf180d906ab89" version="3">Vitriolic Sphere</content>
-  <content contentuid="hd2c653a3gf141g4791g8c48g2114a03fee7a" version="3">Send  glowing ball of emerald green acid at a creature that deals [1] immediately and [2] at the end of the target's turn.</content>
+  <content contentuid="hd2c653a3gf141g4791g8c48g2114a03fee7a" version="3">Send  glowing ball of emerald green acid at a creature that damages them immediately and at the end of their turn.</content>
   <content contentuid="h559e5458g9da6g4a2fgb019g24ed33a69bab" version="3">Takes [1] at end of their turn.</content>
+  <content contentuid="hab28bf8bg73dbg4ed2g82abg33cbb1bbeecb" version="1">Mental Prison</content>
+  <content contentuid="h167dc145g985ag4706g8d69gc0ffea454275" version="1">On a failed Intelligence &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;, the enemy receives 5d10 Psychic damage. Reduce it's vision and receives damage 10d10 Psychic damage if it moves, is pushed or attacks.</content>
+  <content contentuid="hc1f5f72bg133cg4978g84c8gd6ce81a78568" version="1">Mental Prisoner</content>
+  <content contentuid="hb64747beg4177g4030gacebgf6b16a5480bb" version="1">Receives Psychic damage if attacks, is pushed or moves.</content>
+  <content contentuid="h837f921cg9835g4e6dg808dg6d1325d63e4c" version="1">Summon Construct</content>
+  <content contentuid="h0e322e16g9878g4872g9e6eg085ecadc5ecf" version="1">Call forth a metal construct to fight alongside you. It can &lt;LSTag Type="Spell" Tooltip="Target_Construct_Slam"&gt;Slam&lt;/LSTag&gt; targets and &lt;LSTag Type="Passive" Tooltip="HeatedBody"&gt;burn&lt;/LSTag&gt; creatures that strike it in melee.</content>
+  <content contentuid="hd59e8132g35edg4f22g8e8egee5dd3d7f54e" version="1">The Construct's &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt;, &lt;LSTag Tooltip="HitPoints"&gt;Hit Points&lt;/LSTag&gt; and damage done increases for every &lt;LSTag Tooltip="SpellSlot"&gt;spell slot&lt;/LSTag&gt; above the 4th.</content>
+  <content contentuid="h6032e9b3gc49cg4c0fgb7e0g4878b370686e" version="1">Summon Construct: Metal</content>
+  <content contentuid="hd00cbad9g6753g4b07g9f45g8bc3f78f8d75" version="1">Summon Construct: Multiattack</content>
+  <content contentuid="hfc35e4e5g40a5g4a10gb289gdedd6a48880e" version="1">Can make a number of attacks equal to the spell level used to summon the construct, rounded down.</content>
+  <content contentuid="hd76c0315g1c6eg4c1fg8ab2gbc1dabf1fe86" version="1">Slam your target with a metallic fist.</content>
+  <content contentuid="ha050ed24g7b7dg4bf7g98b7g37b661c426d3" version="1">Heated Body</content>
+  <content contentuid="h53a2c3d6g36a4g43d4gb627gd818cff1c5b8" version="1">A creature that hits the construct with a melee attack takes [1].</content>
 </contentList>

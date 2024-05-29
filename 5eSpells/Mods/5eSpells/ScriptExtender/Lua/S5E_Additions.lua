@@ -15,6 +15,7 @@
 
 local function ResetStats()
         Ext.Stats.LoadStatsFile("Public/5eSpells/Stats/Generated/Data/Spells_2ndLevel.txt", false)
+		Ext.Stats.LoadStatsFile("Public/5eSpells/Stats/Generated/Data/Character_5eSpells.txt", false)
         Ext.Stats.LoadStatsFile("Public/5eSpells/Stats/Generated/Data/Statuses_2ndLevelSpells.txt", false)
 end
 
@@ -300,7 +301,7 @@ Ext.Osiris.RegisterListener("GoldChanged", 2, "after", function (_, _)
 	local party = Osi.DB_Players:Get(nil)
 	for _,p in pairs(party) do
 		local amt = Osi.PartyGetGold(p[1])
-		if amt > 24 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
+		if amt ~= nil and amt > 24 and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
 			Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
 		elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
 			Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
@@ -314,7 +315,7 @@ Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function(level, 
 		local party = Osi.DB_Players:Get(nil)
 		for _,p in pairs(party) do
 			local amt = Osi.PartyGetGold(p[1])
-			if amt > 24 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
+			if amt ~= nil and amt > 24 and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
 				Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
 			elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
 				Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
@@ -328,7 +329,7 @@ Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function (_)
 	local party = Osi.DB_Players:Get(nil)
 	for _,p in pairs(party) do
 		local amt = Osi.PartyGetGold(p[1])
-		if amt > 24 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
+		if amt ~= nil and amt > 24 and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
 			Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
 		elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
 			Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
@@ -445,18 +446,146 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (item, status,
     end
 end)
 
+local lifeTransference = {
+  "Projectile_LifeTransference_2",
+  "Projectile_LifeTransference_4",
+  "Projectile_LifeTransference_6",
+  "Projectile_LifeTransference_8",
+  "Projectile_LifeTransference_10",
+  "Projectile_LifeTransference_12",
+  "Projectile_LifeTransference_14",
+  "Projectile_LifeTransference_16",
+  "Projectile_LifeTransference_18",
+  "Projectile_LifeTransference_20",
+  "Projectile_LifeTransference_22",
+  "Projectile_LifeTransference_24",
+  "Projectile_LifeTransference_26",
+  "Projectile_LifeTransference_28",
+  "Projectile_LifeTransference_30",
+  "Projectile_LifeTransference_32",
+  "Projectile_LifeTransference_34",
+  "Projectile_LifeTransference_36",
+  "Projectile_LifeTransference_38",
+  "Projectile_LifeTransference_40",
+  "Projectile_LifeTransference_42",
+  "Projectile_LifeTransference_44",
+  "Projectile_LifeTransference_46",
+  "Projectile_LifeTransference_48",
+  "Projectile_LifeTransference_50",
+  "Projectile_LifeTransference_52",
+  "Projectile_LifeTransference_54",
+  "Projectile_LifeTransference_56",
+  "Projectile_LifeTransference_58",
+  "Projectile_LifeTransference_60",
+  "Projectile_LifeTransference_62",
+  "Projectile_LifeTransference_64",
+  "Projectile_LifeTransference_66",
+  "Projectile_LifeTransference_68",
+  "Projectile_LifeTransference_70",
+  "Projectile_LifeTransference_72",
+  "Projectile_LifeTransference_74",
+  "Projectile_LifeTransference_76",
+  "Projectile_LifeTransference_78",
+  "Projectile_LifeTransference_80",
+  "Projectile_LifeTransference_82",
+  "Projectile_LifeTransference_84",
+  "Projectile_LifeTransference_86",
+  "Projectile_LifeTransference_88",
+  "Projectile_LifeTransference_90",
+  "Projectile_LifeTransference_92",
+  "Projectile_LifeTransference_94",
+  "Projectile_LifeTransference_96",
+  "Projectile_LifeTransference_98",
+  "Projectile_LifeTransference_100",
+  "Projectile_LifeTransference_102",
+  "Projectile_LifeTransference_104",
+  "Projectile_LifeTransference_106",
+  "Projectile_LifeTransference_108",
+  "Projectile_LifeTransference_110",
+  "Projectile_LifeTransference_112",
+  "Projectile_LifeTransference_114",
+  "Projectile_LifeTransference_116",
+  "Projectile_LifeTransference_118",
+  "Projectile_LifeTransference_120",
+  "Projectile_LifeTransference_122",
+  "Projectile_LifeTransference_124",
+  "Projectile_LifeTransference_126",
+  "Projectile_LifeTransference_128",
+  "Projectile_LifeTransference_130",
+  "Projectile_LifeTransference_132",
+  "Projectile_LifeTransference_134",
+  "Projectile_LifeTransference_136",
+  "Projectile_LifeTransference_138",
+  "Projectile_LifeTransference_140",
+  "Projectile_LifeTransference_142",
+  "Projectile_LifeTransference_144",
+  "Projectile_LifeTransference_146",
+  "Projectile_LifeTransference_148",
+  "Projectile_LifeTransference_150",
+  "Projectile_LifeTransference_152",
+  "Projectile_LifeTransference_154",
+  "Projectile_LifeTransference_156",
+  "Projectile_LifeTransference_158",
+  "Projectile_LifeTransference_160"
+}
+
 -- Life Transference Setup
 Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "before", function (caster, spell, _, _)
-	if spell == "Target_LifeTransference" or spell == "Target_LifeTransference_3" or spell == "Target_LifeTransference_4" or spell == "Target_LifeTransference_5" or spell == "Target_LifeTransference_6" or spell == "Target_LifeTransference_7" or spell == "Target_LifeTransference_8" or spell == "Target_LifeTransference_9" then
+	if spell == "Target_LifeTransference" or spell == "Target_LifeTransference_4" or spell == "Target_LifeTransference_5" or spell == "Target_LifeTransference_6" or spell == "Target_LifeTransference_7" or spell == "Target_LifeTransference_8" or spell == "Target_LifeTransference_9" then
 		local hp = GetHitpoints(caster)
 --		local num = IntegerToString(hp)
 --		Osi.ShowNotification(caster,num)
+		_D("First part works")
 		Osi.SetVarInteger(caster,"BeforeHP",hp)
     end
+
+	if spell == "Target_LifeTransference" then
+		for _, spells in pairs(lifeTransference) do
+			local proj = Ext.Stats.Get(spells)
+			proj.Level = 3
+			proj:Sync()
+		end
+	elseif spell == "Target_LifeTransference_4" then
+		for _, spells in pairs(lifeTransference) do
+			local proj = Ext.Stats.Get(spells)
+			proj.Level = 4
+			proj:Sync()
+		end
+	elseif spell == "Target_LifeTransference_5" then
+		for _, spells in pairs(lifeTransference) do
+			local proj = Ext.Stats.Get(spells)
+			proj.Level = 5
+			proj:Sync()
+		end
+	elseif spell == "Target_LifeTransference_6" then
+		for _, spells in pairs(lifeTransference) do
+			local proj = Ext.Stats.Get(spells)
+			proj.Level = 6
+			proj:Sync()
+		end
+	elseif spell == "Target_LifeTransference_7" then
+		for _, spells in pairs(lifeTransference) do
+			local proj = Ext.Stats.Get(spells)
+			proj.Level = 7
+			proj:Sync()
+		end
+	elseif spell == "Target_LifeTransference_8" then
+		for _, spells in pairs(lifeTransference) do
+			local proj = Ext.Stats.Get(spells)
+			proj.Level = 8
+			proj:Sync()
+		end
+	elseif spell == "Target_LifeTransference_9" then
+		for _, spells in pairs(lifeTransference) do
+			local proj = Ext.Stats.Get(spells)
+			proj.Level = 9
+			proj:Sync()
+		end
+	end
 end)
 
 -- Life Transference Heal
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
+Ext.Osiris.RegisterListener("StatusApplied", 4, "before", function (character, status, causee, _)
 	if status == "LIFE_TRANSFERENCE" then
 		local previoushp = GetVarInteger(causee, "BeforeHP")
 		local currenthp = GetHitpoints(causee)
@@ -464,7 +593,58 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 		hp = previoushp - currenthp
 		hp = hp * 2
 		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
-		Osi.ApplyStatus(character, ltstatus, 0.0, 0)
+		Osi.ApplyStatus(character,ltstatus,0.0,1,causee)
+	elseif status == "LIFE_TRANSFERENCE_4" then
+		local previoushp = GetVarInteger(causee, "BeforeHP")
+		local currenthp = GetHitpoints(causee)
+		_D(previoushp)
+		_D(currenthp)
+		local hp = 0
+		hp = previoushp - currenthp
+		hp = hp * 2
+		_D(hp)
+		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
+		Osi.ApplyStatus(character,ltstatus,0.0,1,causee)
+	elseif status == "LIFE_TRANSFERENCE_5" then
+		local previoushp = GetVarInteger(causee, "BeforeHP")
+		local currenthp = GetHitpoints(causee)
+		local hp = 0
+		hp = previoushp - currenthp
+		hp = hp * 2
+		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
+		Osi.ApplyStatus(character,ltstatus,0.0,1,causee)
+	elseif status == "LIFE_TRANSFERENCE_6" then
+		local previoushp = GetVarInteger(causee, "BeforeHP")
+		local currenthp = GetHitpoints(causee)
+		local hp = 0
+		hp = previoushp - currenthp
+		hp = hp * 2
+		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
+		Osi.ApplyStatus(character,ltstatus,0.0,1,causee)
+	elseif status == "LIFE_TRANSFERENCE_7" then
+		local previoushp = GetVarInteger(causee, "BeforeHP")
+		local currenthp = GetHitpoints(causee)
+		local hp = 0
+		hp = previoushp - currenthp
+		hp = hp * 2
+		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
+		Osi.ApplyStatus(character,ltstatus,0.0,1,causee)
+	elseif status == "LIFE_TRANSFERENCE_8" then
+		local previoushp = GetVarInteger(causee, "BeforeHP")
+		local currenthp = GetHitpoints(causee)
+		local hp = 0
+		hp = previoushp - currenthp
+		hp = hp * 2
+		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
+		Osi.ApplyStatus(character,ltstatus,0.0,1,causee)
+	elseif status == "LIFE_TRANSFERENCE_9" then
+		local previoushp = GetVarInteger(causee, "BeforeHP")
+		local currenthp = GetHitpoints(causee)
+		local hp = 0
+		hp = previoushp - currenthp
+		hp = hp * 2
+		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
+		Osi.ApplyStatus(character,ltstatus,0.0,1,causee)
 	end
 end)
 
@@ -841,31 +1021,184 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
     end
 end)
 
---[[ Boost Checking
+-- Storm Sphere Setup
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
-	if status == "SNEAKING" then
-		for _, boosts in pairs(Ext.Entity.Get(causee).BoostsContainer.Boosts) do
-			if boosts.Type == "ProficiencyBonus" then
-				for _, b in pairs(boosts.Boosts) do
-					if b.ProficiencyBonusBoost.Type == "SavingThrow" then
-						_D(b.ProficiencyBonusBoost.Ability)
+	if status == "STORM_SPHERE_AURA" or status == "STORM_SPHERE_AURA_5" or status == "STORM_SPHERE_AURA_6" or status == "STORM_SPHERE_AURA_7" or status == "STORM_SPHERE_AURA_8" or status == "STORM_SPHERE_AURA_9" then
+		Osi.SetVarObject(causee,"StoreStormSphere",character)
+	end
+end)
+
+-- Storm Sphere SE Status
+Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function (caster, target, spell, _, _, _)
+	if spell == "Target_StormSphere_BoltOfLightning" or spell == "Target_StormSphere_BoltOfLightning_5" or spell == "Target_StormSphere_BoltOfLightning_6" or spell == "Target_StormSphere_BoltOfLightning_7" or spell == "Target_StormSphere_BoltOfLightning_8" or spell == "Target_StormSphere_BoltOfLightning_9" then
+		Osi.ApplyStatus(target,"STORM_SPHERE_SE",6.0,1)
+	end
+end)
+
+-- Storm Sphere Projectile
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
+	local summon = Osi.GetVarObject(causee,"StoreStormSphere")
+	if status == "STORM_SPHERE_PROJECTILE" then
+		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning", -1, summon)
+	elseif status == "STORM_SPHERE_PROJECTILE_5" then
+		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_5", -1, summon)
+	elseif status == "STORM_SPHERE_PROJECTILE_6" then
+		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_6", -1, summon)
+	elseif status == "STORM_SPHERE_PROJECTILE_7" then
+		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_7", -1, summon)
+	elseif status == "STORM_SPHERE_PROJECTILE_8" then
+		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_8", -1, summon)
+	elseif status == "STORM_SPHERE_PROJECTILE_9" then
+		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_9", -1, summon)
+	end
+end)
+
+-- Shadowspawn Teleport
+Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function (caster, spell, _, _, _)
+	if spell == "Shout_Shadowspawn_Teleport" then
+		local summoner = Osi.CharacterGetOwner(caster)
+		Osi.TeleportTo(caster, summoner, "Event", 0, 0, 0, 0, 0)
+	end
+end)
+
+-- Toll the Dead
+Ext.Osiris.RegisterListener("CastedSpell",5, "before",function (character, spell, _, _, _)
+	if spell == "Target_TollTheDead" then
+		Osi.MusicPlayGeneral("II_Gong")
+	end
+end)
+
+-- Spellcasting Ability Status
+Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "before", function (caster, spell, _, _)
+	if Osi.IsCharacter(caster) == 1 then
+		for _, spell in pairs(Ext.Entity.Get(caster).SpellContainer.Spells) do
+			if (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Intelligence") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Intelligence") and Osi.HasActiveStatus(caster,"INTELLIGENCE_SPELLCASTING") == 0 then
+				Osi.ApplyStatus(caster,"INTELLIGENCE_SPELLCASTING",-1.0,1)
+			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Wisdom") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Wisdom") and Osi.HasActiveStatus(caster,"WISDOM_SPELLCASTING") == 0 then
+				Osi.ApplyStatus(caster,"WISDOM_SPELLCASTING",-1.0,1)
+			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Charisma") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Charisma") and Osi.HasActiveStatus(caster,"CHARISMA_SPELLCASTING") == 0 then
+				Osi.ApplyStatus(caster,"CHARISMA_SPELLCASTING",-1.0,1)
+			end
+		end
+	end
+end)
+
+-- Spellcasting Ability Status
+Ext.Osiris.RegisterListener("EnteredForceTurnBased", 1, "before", function (caster)
+	if Osi.IsCharacter(caster) == 1 then
+		for _, spell in pairs(Ext.Entity.Get(caster).SpellContainer.Spells) do
+			if (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Intelligence") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Intelligence") and Osi.HasActiveStatus(caster,"INTELLIGENCE_SPELLCASTING") == 0 then
+				Osi.ApplyStatus(caster,"INTELLIGENCE_SPELLCASTING",-1.0,1)
+			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Wisdom") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Wisdom") and Osi.HasActiveStatus(caster,"WISDOM_SPELLCASTING") == 0 then
+				Osi.ApplyStatus(caster,"WISDOM_SPELLCASTING",-1.0,1)
+			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Charisma") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Charisma") and Osi.HasActiveStatus(caster,"CHARISMA_SPELLCASTING") == 0 then
+				Osi.ApplyStatus(caster,"CHARISMA_SPELLCASTING",-1.0,1)
+			end
+		end
+	end
+end)
+
+-- Spellcasting Ability Status
+Ext.Osiris.RegisterListener("EnteredCombat", 2, "before", function (caster, _)
+	if Osi.IsCharacter(caster) == 1 then
+		for _, spell in pairs(Ext.Entity.Get(caster).SpellContainer.Spells) do
+			if (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Intelligence") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Intelligence") and Osi.HasActiveStatus(caster,"INTELLIGENCE_SPELLCASTING") == 0 then
+				Osi.ApplyStatus(caster,"INTELLIGENCE_SPELLCASTING",-1.0,1)
+			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Wisdom") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Wisdom") and Osi.HasActiveStatus(caster,"WISDOM_SPELLCASTING") == 0 then
+				Osi.ApplyStatus(caster,"WISDOM_SPELLCASTING",-1.0,1)
+			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Charisma") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Charisma") and Osi.HasActiveStatus(caster,"CHARISMA_SPELLCASTING") == 0 then
+				Osi.ApplyStatus(caster,"CHARISMA_SPELLCASTING",-1.0,1)
+			end
+		end
+	end
+end)
+
+local witherAndBloomStatuses = {
+  "WITHER_AND_BLOOM",
+  "WITHER_AND_BLOOM_3",
+  "WITHER_AND_BLOOM_4",
+  "WITHER_AND_BLOOM_5",
+  "WITHER_AND_BLOOM_6",
+  "WITHER_AND_BLOOM_7",
+  "WITHER_AND_BLOOM_8",
+  "WITHER_AND_BLOOM_9"
+}
+
+-- Wither And Bloom
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
+	if string.sub(character,-36) ~= causee and (status == "WITHER_AND_BLOOM" or status == "WITHER_AND_BLOOM_3" or status == "WITHER_AND_BLOOM_4" or status == "WITHER_AND_BLOOM_5" or status == "WITHER_AND_BLOOM_6" or status == "WITHER_AND_BLOOM_7" or status == "WITHER_AND_BLOOM_8" or status == "WITHER_AND_BLOOM_9") then
+		Osi.SetVarObject(string.sub(character,-36),"StoreSourceOfWAB",causee)
+		Osi.ApplyStatus(character,"WITHER_AND_BLOOM_SPELLCASTING",6.0,1,causee)
+	end
+end)
+
+Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (caster, spell, _, _)
+	if spell == "Shout_WitherAndBloom_RegainHP" or spell == "Shout_WitherAndBloom_RegainHP_3_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_3_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_4_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_4_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_4_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_5_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_5_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_5_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_5_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_6_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_6_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_6_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_6_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_6_FiveDie" or spell == "Shout_WitherAndBloom_RegainHP_7_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_7_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_7_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_7_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_7_FiveDie" or spell == "Shout_WitherAndBloom_RegainHP_7_SixDie" or spell == "Shout_WitherAndBloom_RegainHP_8_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_8_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_8_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_8_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_8_FiveDie" or spell == "Shout_WitherAndBloom_RegainHP_8_SixDie" or spell == "Shout_WitherAndBloom_RegainHP_8_SevenDie" or spell == "Shout_WitherAndBloom_RegainHP_9_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_9_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_9_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_9_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_9_FiveDie" or spell == "Shout_WitherAndBloom_RegainHP_9_SixDie" or spell == "Shout_WitherAndBloom_RegainHP_9_SevenDie" or spell == "Shout_WitherAndBloom_RegainHP_9_EightDie" then
+		local source = Osi.GetVarObject(caster,"StoreSourceOfWAB")
+		if string.sub(caster,-36) ~= string.sub(source,-36) and source ~= "NULL_00000000-0000-0000-0000-000000000000" then
+			for _, spell in pairs(Ext.Entity.Get(source).SpellBook.Spells) do
+				if (spell.Id.Prototype == "Target_WitherAndBloom" or spell.Id.Prototype == "Target_WitherAndBloom_3" or spell.Id.Prototype == "Target_WitherAndBloom_4" or spell.Id.Prototype == "Target_WitherAndBloom_5" or spell.Id.Prototype == "Target_WitherAndBloom_6" or spell.Id.Prototype == "Target_WitherAndBloom_7" or spell.Id.Prototype == "Target_WitherAndBloom_8" or spell.Id.Prototype == "Target_WitherAndBloom_9") and spell.SpellCastingAbility == "Intelligence" then
+					local int = Osi.GetAbility(source,"Intelligence")
+					local scastatus = "WITHER_AND_BLOOM_MODIFIER_" .. int
+					if Osi.HasActiveStatus(caster,scastatus) == 0 then
+						Osi.ApplyStatus(caster,scastatus,6.0,1,source)
 					end
-				end
-			elseif boosts.Type == "Resistance" then
-				for _, b in pairs(boosts.Boosts) do
-					_D(b.ResistanceBoost)
+				elseif (spell.Id.Prototype == "Target_WitherAndBloom" or spell.Id.Prototype == "Target_WitherAndBloom_3" or spell.Id.Prototype == "Target_WitherAndBloom_4" or spell.Id.Prototype == "Target_WitherAndBloom_5" or spell.Id.Prototype == "Target_WitherAndBloom_6" or spell.Id.Prototype == "Target_WitherAndBloom_7" or spell.Id.Prototype == "Target_WitherAndBloom_8" or spell.Id.Prototype == "Target_WitherAndBloom_9") and spell.SpellCastingAbility == "Wisdom" then
+					local wis = Osi.GetAbility(source,"Wisdom")
+					local scastatus = "WITHER_AND_BLOOM_MODIFIER_" .. wis
+					if Osi.HasActiveStatus(caster,scastatus) == 0 then
+						Osi.ApplyStatus(caster,scastatus,6.0,1,source)
+					end
+				elseif (spell.Id.Prototype == "Target_WitherAndBloom" or spell.Id.Prototype == "Target_WitherAndBloom_3" or spell.Id.Prototype == "Target_WitherAndBloom_4" or spell.Id.Prototype == "Target_WitherAndBloom_5" or spell.Id.Prototype == "Target_WitherAndBloom_6" or spell.Id.Prototype == "Target_WitherAndBloom_7" or spell.Id.Prototype == "Target_WitherAndBloom_8" or spell.Id.Prototype == "Target_WitherAndBloom_9") and spell.SpellCastingAbility == "Charisma" then
+					local cha = Osi.GetAbility(source,"Charisma")
+					local scastatus = "WITHER_AND_BLOOM_MODIFIER_" .. cha
+					if Osi.HasActiveStatus(caster,scastatus) == 0 then
+						Osi.ApplyStatus(caster,scastatus,6.0,1,source)
+					end
 				end
 			end
 		end
-    end
-end)--]]
+	elseif spell ~= "Shout_WitherAndBloom_RegainHP" then
+		Osi.ApplyStatus(caster,"WITHER_AND_BLOOM_MODIFIER_REMOVAL",0.0,1)
+	end
+end)
 
+-- Dominate Monster Full Control
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
+	if status == "DOMINATE_MONSTER_TOTAL_CONTROL" then
+		Osi.AddPartyFollower(character,causee)
+		Osi.SetVarObject(character,"DominatedSource",causee)
+	end
+end)
+
+-- Dominate Monster Full Control Removal
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function (character, status, causee, _)
+	if status == "DOMINATE_MONSTER_TOTAL_CONTROL" then
+		local source = Osi.GetVarObject(character,"DominatedSource")
+		Osi.RemovePartyFollower(character,source)
+	end
+end)
+
+-- Cantrip Scaling
+Ext.Osiris.RegisterListener("GainedControl", 1, "after", function (character)
+	local level = Osi.GetLevel(character)
+	if level > 16 then
+		local scagtrips = Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices
+		if	Osi.HasSpell(character,"Target_BoomingBlade") == 1 or Osi.HasSpell(character,"Target_GreenFlameBlade") == 1 then
+			Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices="3"
+		end
+	elseif level < 17 then
+		local scagtrips = Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices
+		if	Osi.HasSpell(character,"Target_BoomingBlade") == 1 or Osi.HasSpell(character,"Target_GreenFlameBlade") == 1 then
+			Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices="2"
+		end
+	end
+end)
 
 --[[ Dispel Magic
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(character, status, causee, _)
 	if status == "DISPEL_MAGIC" then
 		local spell = Ext.Entity.Get(character).ServerCharacter:GetStatus(statuses).SourceSpell.Prototype)
-
 	end
 end)
 
