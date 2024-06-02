@@ -1,13 +1,65 @@
 {
   "Spells":{
-    "TCoESpells":{
-      "Enabled":true
-    },
     "Cantrips":{
       "Enabled":true
     },
-    "OtherSpells":{
-      "Enabled":true
+    "TCoE":{
+      "1st Level":{
+        "Enabled":true
+      },
+      "2nd Level":{
+        "Enabled":true
+      },
+      "3rd Level":{
+        "Enabled":true
+      },
+      "4th Level":{
+        "Enabled":true
+      },
+      "5th Level":{
+        "Enabled":true
+      },
+      "6th Level":{
+        "Enabled":true
+      },
+      "7th Level":{
+        "Enabled":true
+      },
+      "8th Level":{
+        "Enabled":true
+      },
+      "9th Level":{
+        "Enabled":true
+      }
+    },
+    "5e":{
+      "1st Level":{
+        "Enabled":true
+      },
+      "2nd Level":{
+        "Enabled":true
+      },
+      "3rd Level":{
+        "Enabled":true
+      },
+      "4th Level":{
+        "Enabled":true
+      },
+      "5th Level":{
+        "Enabled":true
+      },
+      "6th Level":{
+        "Enabled":true
+      },
+      "7th Level":{
+        "Enabled":true
+      },
+      "8th Level":{
+        "Enabled":true
+      },
+      "9th Level":{
+        "Enabled":true
+      }
     }
   }
 }
