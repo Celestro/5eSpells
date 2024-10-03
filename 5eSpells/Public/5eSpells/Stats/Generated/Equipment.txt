@@ -1,14 +1,4 @@
-new equipment "EQP_SpiritualWeapon"
+new equipment "EQP_SummonFey"
 add initialweaponset "Melee"
 add equipmentgroup
-add equipment entry "WPN_SpiritualWeapon"
-
-new equipment "EQP_SpiritualWeapon_Sorcerer"
-add initialweaponset "Melee"
-add equipmentgroup
-add equipment entry "WPN_SpiritualWeapon_Sorcerer"
-
-new equipment "EQP_SpiritualWeapon_Bard"
-add initialweaponset "Melee"
-add equipmentgroup
-add equipment entry "WPN_SpiritualWeapon_Bard"
+add equipment entry "WPN_Shortsword"
