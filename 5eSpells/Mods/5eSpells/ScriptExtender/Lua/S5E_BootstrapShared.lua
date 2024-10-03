@@ -34,7 +34,7 @@ function S5E_Changes()
 	local intdsthunder = Ext.Stats.Get("Interrupt_DivineStrike_Thunder")
 	local intdsthundercrit = Ext.Stats.Get("Interrupt_DivineStrike_Thunder_Critical")
 	local intdsmelee = Ext.Stats.Get("Interrupt_DivineStrike_MeleeWeapon")
-	local intdsmeleecrit = Ext.Stats.Get("Interrupt_DivineStrike_MeleeWeapon")
+	local intdsmeleecrit = Ext.Stats.Get("Interrupt_DivineStrike_MeleeWeapon_Critical")
 	sneakAttack.Conditions = sneakAttack.Conditions .. " and not SpellId('Target_BoomingBlade_SneakAttack') and not SpellId('Target_GreenFlameBlade_SneakAttack')"
 	sneakAttackCritical.Conditions = sneakAttackCritical.Conditions .. " and not SpellId('Target_BoomingBlade_SneakAttack') and not SpellId('Target_GreenFlameBlade_SneakAttack')"
 	intdscold.Conditions = intdscold.Conditions .. " and not SpellId('Target_BoomingBlade_DivineStrike_Cold') and not SpellId('Target_GreenFlameBlade_DivineStrike_Cold')"
@@ -55,9 +55,9 @@ function S5E_Changes()
 	local aoo = Ext.Stats.Get("Interrupt_AttackOfOpportunity")
 	local pam = Ext.Stats.Get("Interrupt_PolearmMaster")
 	local warc = Ext.Stats.Get("Interrupt_WarCaster")
-	aoo.Conditions = aoo.Conditions .. " and (not S5E_IsInvisibleSeen() or S5E_CanSeeInvisible())"
-	pam.Conditions = pam.Conditions .. " and (not S5E_IsInvisibleSeen() or S5E_CanSeeInvisible())"
-	warc.Conditions = warc.Conditions .. " and (not S5E_IsInvisibleSeen() or S5E_CanSeeInvisible())"
+	aoo.Conditions = aoo.Conditions .. " and (not S5E_IsInvisibleSeen() or EXP_CanSeeInvisible())"
+	pam.Conditions = pam.Conditions .. " and (not S5E_IsInvisibleSeen() or EXP_CanSeeInvisible())"
+	warc.Conditions = warc.Conditions .. " and (not S5E_IsInvisibleSeen() or EXP_CanSeeInvisible())"
 
 	local guidance = Ext.Stats.Get("Target_Guidance")
 	local huntersMark = Ext.Stats.Get("Target_HuntersMark")
@@ -69,15 +69,18 @@ function S5E_Changes()
 	trueStrike.TargetConditions = trueStrike.TargetConditions .. " and not IsImmuneToStatus('TRUE_STRIKE')"
 
 	local potentSpellcasting = Ext.Stats.Get("PotentSpellcasting")
-	potentSpellcasting.Boosts = potentSpellcasting.Boosts .. ";IF(SpellId('Target_TollTheDead')):DamageBonus(max(0, WisdomModifier))"
+	potentSpellcasting.Boosts = potentSpellcasting.Boosts .. ";IF(SpellId('Target_TollTheDead') or SpellId('Shout_WordOfRadiance')):DamageBonus(max(0, WisdomModifier))"
 
 	for _, name in pairs(Ext.Stats.GetStats("StatusData")) do
 		local invisstatus = Ext.Stats.Get(name)
 		if invisstatus.StatusType == "INVISIBLE" and string.find(invisstatus.Boosts, "Advantage") and invisstatus.Boosts ~= "IF(not CanSeeInvisible()):Disadvantage(AttackTarget); IF(not CanSeeInvisible(context.Target)):Advantage(AttackRoll);" and invisstatus.Boosts ~= "IF(not CanSeeInvisible()):Disadvantage(AttackTarget); IF(not CanSeeInvisible(context.Target)):Advantage(AttackRoll); Skill(Stealth, 10)" and invisstatus.Boosts ~= "IF(not CanSeeInvisible()):Disadvantage(AttackTarget); IF(not CanSeeInvisible(context.Target)):Advantage(AttackRoll); UnlockSpell(Target_MistyStep_Free)" and invisstatus.Boosts ~= "IF(not CanSeeInvisible()):Disadvantage(AttackTarget); IF(not CanSeeInvisible(context.Target)):Advantage(AttackRoll); Advantage(Skill, Stealth)" then
-			invisstatus.Boosts = string.gsub(invisstatus.Boosts, "Advantage", "IF(not S5E_CanSeeInvisible(context.Target) and not IsElusive(context.Target)):Advantage")
-			invisstatus.Boosts = invisstatus.Boosts .. ";IF(not S5E_CanSeeInvisible() and not IsElusive()):Disadvantage(AttackTarget)"
+			invisstatus.Boosts = string.gsub(invisstatus.Boosts, "Advantage", "IF(not EXP_CanSeeInvisible(context.Target) and not IsElusive(context.Target)):Advantage")
+			invisstatus.Boosts = invisstatus.Boosts .. ";IF(not EXP_CanSeeInvisible() and not IsElusive()):Disadvantage(AttackTarget)"
 		end
 	end
+	
+	local recklessatk = Ext.Stats.Get("Interrupt_RecklessAttack")
+	recklessatk.Conditions = recklessatk.Conditions .. " and not IsElusive(context.Target)"
 
 	local mummymatk = Ext.Stats.Get("Target_Multiattack_Mummy")
 	mummymatk.TargetConditions = "not Self() and not Dead() and HasStatus('SG_Frightened')"
@@ -106,7 +109,7 @@ function S5E_Changes()
 	local hogwolf = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Wolf_2")
 	hogwolf.TargetConditions = "Tagged('SHADOWHEART') and not HasStatus('SG_Frightened')"
 	local hogspider = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Spider_2")
-	hogspider.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('FRIGHTENED')"
+	hogspider.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('SG_Frightened')"
 	
 	local elementalaffinity = Ext.Stats.Get("ELEMENTALAFFINITY_FIRE_EXTRA_DAMAGE_TECHNICAL")
     local elementalgish = Ext.Stats.Get("MAG_ElementalGish_CantripBooster_Amulet_Passive")
@@ -120,12 +123,65 @@ function S5E_Changes()
 	local shadowbladering = Ext.Stats.Get("MAG_Shadow_ShadowBlade_Ring")
 	shadowbladering.Boosts = "UnlockSpell(Shout_ShadowBlade_Ring)"
 
+	local mhnp = Ext.Stats.Get("MAG_Heightened_Necromancy_Passive")
+	if string.find(mhnp.Boosts, "HeightenedNecromancySpellCheck%(%)") then
+		mhnp.Boosts = string.gsub(mhnp.Boosts, "HeightenedNecromancySpellCheck%(%)", "HeightenedNecromancySpellCheck() | HasStringInSpellRoll('SpellAutoResolveOnUndead')")
+	end
+
 --[[   for _, name in pairs(Ext.Stats.GetStats("SpellData")) do
         local spell = Ext.Stats.Get(name)
 		if spell.SpellType == "Target" and (spell.TargetRadius == "MeleeMainWeaponRange" or spell.TargetRadius == "1.5") then
 			spell.TargetConditions = spell.TargetConditions .. " and not HasStatus('LEVITATE_PSION')"
 		end
 	end--]]
+end
+
+function S5E_SpareTheDying()
+	local helpact = Ext.Stats.Get("Target_Help")
+	helpact:SetRawAttribute("SpellProperties","RemoveStatus(SG_Helpable_Condition);RemoveStatus(BURNING);RemoveStatus(SG_Prone);RemoveStatus(SG_Restrained);RemoveStatus(PRONE);RemoveStatus(SLEEPING);RemoveStatus(SLEEP);RemoveStatus(ENSNARING_STRIKE);RemoveStatus(WEB);RemoveStatus(HYPNOTIC_PATTERN)")
+	helpact:SetRawAttribute("SpellSuccess","IF(IsDowned()):ApplyStatus(S5E_STABILIZED,100,-1)")
+	helpact.SpellRoll = "not IsDowned() or SkillCheck(Skill.Medicine,10)"
+end
+
+function S5E_RaiseDead()
+	local revivify = Ext.Stats.Get("Teleportation_Revivify")
+	revivify.OriginTargetConditions = "NotDeadLongerThanAMinute() and " .. revivify.OriginTargetConditions
+	revivify.TooltipPermanentWarnings = "827eba69-f29d-4365-802a-2effbc26a6f8;1"
+	local revivify4 = Ext.Stats.Get("Teleportation_Revivify_4")
+	revivify4.OriginTargetConditions = "NotDeadLongerThanAMinute() and " .. revivify4.OriginTargetConditions
+	revivify4.TooltipPermanentWarnings = "827eba69-f29d-4365-802a-2effbc26a6f8;1"
+	local revivify5 = Ext.Stats.Get("Teleportation_Revivify_5")
+	revivify5.OriginTargetConditions = "NotDeadLongerThanAMinute() and " .. revivify5.OriginTargetConditions
+	revivify5.TooltipPermanentWarnings = "827eba69-f29d-4365-802a-2effbc26a6f8;1"
+	local revivify6 = Ext.Stats.Get("Teleportation_Revivify_6")
+	revivify6.OriginTargetConditions = "NotDeadLongerThanAMinute() and " .. revivify6.OriginTargetConditions
+	revivify6.TooltipPermanentWarnings = "827eba69-f29d-4365-802a-2effbc26a6f8;1"
+	local revivifyscroll = Ext.Stats.Get("Teleportation_Revivify_Scroll")
+	revivifyscroll.OriginTargetConditions = "NotDeadLongerThanAMinute() and " .. revivifyscroll.OriginTargetConditions
+	revivifyscroll.TooltipPermanentWarnings = "827eba69-f29d-4365-802a-2effbc26a6f8;1"
+
+	Ext.Loca.UpdateTranslatedString("h2d014c36g7457g49f8ga0d5g748fb44cb940","Casting Revivify or Raise Dead can bring the creature back to life but Revivify can't if it has been dead for at least 10 turns.")
+
+	local dst = Ext.Stats.Get("DeathSavingThrows")
+	dst.Conditions = "StatusId('DYING')"
+	dst:SetRawAttribute("StatsFunctors", "IF(not HasAnyStatus({'DEAD_TECHNICAL_REMOVAL_STATUS','DEAD_TECHNICAL_REMOVAL_STATUS_2','DEAD_TECHNICAL_REMOVAL_STATUS_3','DEAD_TECHNICAL_REMOVAL_STATUS_4','DEAD_TECHNICAL_REMOVAL_STATUS_5','DEAD_TECHNICAL_REMOVAL_STATUS_6','DEAD_TECHNICAL_REMOVAL_STATUS_7','DEAD_TECHNICAL_REMOVAL_STATUS_8','DEAD_TECHNICAL_REMOVAL_STATUS_9','DEAD_TECHNICAL_REMOVAL_STATUS_10'},{},{},context.Source)):ApplyStatus(DEAD_TECHNICAL,100,10);IF(HasAnyStatus({'DEAD_TECHNICAL_REMOVAL_STATUS','DEAD_TECHNICAL_REMOVAL_STATUS_2','DEAD_TECHNICAL_REMOVAL_STATUS_3','DEAD_TECHNICAL_REMOVAL_STATUS_4','DEAD_TECHNICAL_REMOVAL_STATUS_5','DEAD_TECHNICAL_REMOVAL_STATUS_6','DEAD_TECHNICAL_REMOVAL_STATUS_7','DEAD_TECHNICAL_REMOVAL_STATUS_8','DEAD_TECHNICAL_REMOVAL_STATUS_9','DEAD_TECHNICAL_REMOVAL_STATUS_10'},{},{},context.Source)):ApplyStatus(DEAD_TECHNICAL_SECOND,100,10)")
+	local flags = dst.StatsFunctorContext
+	table.insert(flags, "OnStatusApplied")
+	dst.StatsFunctorContext = flags
+
+	if Ext.Mod.IsModLoaded("a2c4b0fc-e745-41df-81b7-fa53950d86a0") then
+	local revivify7 = Ext.Stats.Get("Teleportation_Revivify_7")
+	revivify7.OriginTargetConditions = "NotDeadLongerThanAMinute() and " .. revivify7.OriginTargetConditions
+	revivify7.TooltipPermanentWarnings = "827eba69-f29d-4365-802a-2effbc26a6f8;1"
+	local revivify8 = Ext.Stats.Get("Teleportation_Revivify_8")
+	revivify8.OriginTargetConditions = "NotDeadLongerThanAMinute() and " .. revivify8.OriginTargetConditions
+	revivify8.TooltipPermanentWarnings = "827eba69-f29d-4365-802a-2effbc26a6f8;1"
+	local revivify9 = Ext.Stats.Get("Teleportation_Revivify_9")
+	revivify9.OriginTargetConditions = "NotDeadLongerThanAMinute() and " .. revivify9.OriginTargetConditions
+	revivify9.TooltipPermanentWarnings = "827eba69-f29d-4365-802a-2effbc26a6f8;1"
+	else
+		return
+	end
 end
 
 Spells = {  
@@ -237,6 +293,7 @@ local bardSpells5thTCoE = {
 	"Target_Command_Container"
 }
 local bardSpells5thOther = {
+	"Target_RaiseDead",
 	"Target_SkillEmpowerment",
 	"Target_SynapticStatic",
 	"Target_CharmMonster",
@@ -269,6 +326,7 @@ local bardSpells6thTCoE = {
 }
 local bardSpells6thOther = {
 	"Target_TrueSeeing",
+	"Target_RaiseDead",
 	"Target_SkillEmpowerment",
 	"Target_SynapticStatic",
 	"Target_CharmMonster",
@@ -302,6 +360,7 @@ local bardSpells7thTCoE = {
 local bardSpells7thOther = {
 	"Target_Regenerate",
 	"Target_TrueSeeing",
+	"Target_RaiseDead",
 	"Target_SkillEmpowerment",
 	"Target_SynapticStatic",
 	"Target_CharmMonster",
@@ -338,6 +397,7 @@ local bardSpells8thOther = {
 	"Target_MindBlank",
 	"Target_Regenerate",
 	"Target_TrueSeeing",
+	"Target_RaiseDead",
 	"Target_SkillEmpowerment",
 	"Target_SynapticStatic",
 	"Target_CharmMonster",
@@ -377,6 +437,7 @@ local bardSpells9thOther = {
 	"Target_MindBlank",
 	"Target_Regenerate",
 	"Target_TrueSeeing",
+	"Target_RaiseDead",
 	"Target_SkillEmpowerment",
 	"Target_SynapticStatic",
 	"Target_CharmMonster",
@@ -505,8 +566,10 @@ local bardMagicalSecrets3rdOther = {
 	"Target_EnemiesAbound",
 	"Target_EruptingEarth",
 	"Target_FlameArrows",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Shout_WaterWalk",
@@ -518,7 +581,7 @@ local bardMagicalSecrets3rdOther = {
 	"Target_FlockOfFamiliars",
 	"Target_HealingSpirit",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Zone_RimesBindingIce",
 	"Shout_ShadowBlade",
@@ -533,7 +596,7 @@ local bardMagicalSecrets3rdOther = {
 	"Shout_DetectEvilAndGood",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Shout_ZephyrStrike",
 	"Target_BoomingBlade",
 	"Target_ControlFlames",
@@ -692,10 +755,12 @@ local bardMagicalSecrets5thOther = {
 	"Target_SteelWindStrike",
 	"Target_StormSphere",
 	"Shout_SwiftQuiver",
+	"Target_ArcaneEye",
 	"Shout_AuraOfLife",
 	"Shout_GuardianOfNature",
 	"Shout_ShadowOfMoil",
 	"Target_SummonBeholderkin",
+	"Target_SummonConstruct",
 	"Target_SummonElemental",
 	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
@@ -703,8 +768,10 @@ local bardMagicalSecrets5thOther = {
 	"Target_EnemiesAbound",
 	"Target_EruptingEarth",
 	"Target_FlameArrows",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Shout_WaterWalk",
@@ -716,7 +783,7 @@ local bardMagicalSecrets5thOther = {
 	"Target_FlockOfFamiliars",
 	"Target_HealingSpirit",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Zone_RimesBindingIce",
 	"Shout_ShadowBlade",
@@ -731,7 +798,7 @@ local bardMagicalSecrets5thOther = {
 	"Shout_DetectEvilAndGood",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Shout_ZephyrStrike",
 	"Target_BoomingBlade",
 	"Target_ControlFlames",
@@ -913,10 +980,12 @@ local bardMagicalSecrets7thOther = {
 	"Target_SteelWindStrike",
 	"Target_StormSphere",
 	"Shout_SwiftQuiver",
+	"Target_ArcaneEye",
 	"Shout_AuraOfLife",
 	"Shout_GuardianOfNature",
 	"Shout_ShadowOfMoil",
 	"Target_SummonBeholderkin",
+	"Target_SummonConstruct",
 	"Target_SummonElemental",
 	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
@@ -924,8 +993,10 @@ local bardMagicalSecrets7thOther = {
 	"Target_EnemiesAbound",
 	"Target_EruptingEarth",
 	"Target_FlameArrows",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Shout_WaterWalk",
@@ -937,7 +1008,7 @@ local bardMagicalSecrets7thOther = {
 	"Target_FlockOfFamiliars",
 	"Target_HealingSpirit",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Zone_RimesBindingIce",
 	"Shout_ShadowBlade",
@@ -952,7 +1023,7 @@ local bardMagicalSecrets7thOther = {
 	"Shout_DetectEvilAndGood",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Shout_ZephyrStrike",
 	"Target_BoomingBlade",
 	"Target_ControlFlames",
@@ -1141,10 +1212,12 @@ local bardMagicalSecrets9thOther = {
 	"Target_SteelWindStrike",
 	"Target_StormSphere",
 	"Shout_SwiftQuiver",
+	"Target_ArcaneEye",
 	"Shout_AuraOfLife",
 	"Shout_GuardianOfNature",
 	"Shout_ShadowOfMoil",
 	"Target_SummonBeholderkin",
+	"Target_SummonConstruct",
 	"Target_SummonElemental",
 	"Projectile_VitriolicSphere",
 	"Target_Antagonize",
@@ -1152,8 +1225,10 @@ local bardMagicalSecrets9thOther = {
 	"Target_EnemiesAbound",
 	"Target_EruptingEarth",
 	"Target_FlameArrows",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Shout_WaterWalk",
@@ -1165,7 +1240,7 @@ local bardMagicalSecrets9thOther = {
 	"Target_FlockOfFamiliars",
 	"Target_HealingSpirit",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Zone_RimesBindingIce",
 	"Shout_ShadowBlade",
@@ -1180,7 +1255,7 @@ local bardMagicalSecrets9thOther = {
 	"Shout_DetectEvilAndGood",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Shout_ZephyrStrike",
 	"Target_BoomingBlade",
 	"Target_ControlFlames",
@@ -1222,6 +1297,7 @@ local clericSpells3rdTCoE = {
 local clericSpells3rdOther = {
 	"Target_CreateFoodAndWater",
 	"Target_LifeTransference",
+	"Target_MagicCircle",
 	"Target_MotivationalSpeech",
 	"Shout_SpiritShroud",
 	"Shout_WaterWalk"
@@ -1230,7 +1306,8 @@ local clericSpells4thOther = {
 	"Shout_AuraOfLife"
 }
 local clericSpells5thOther = {
-	"Target_HolyWeapon"
+	"Target_HolyWeapon",
+	"Target_RaiseDead"
 }
 local clericSpells6thTCoE = {
 	"Zone_Sunbeam"
@@ -1289,6 +1366,7 @@ local druidSpells3rdTCoE = {
 local druidSpells3rdOther = {
 	"Target_EruptingEarth",
 	"Target_FlameArrows",
+	"Target_SummonFey",
 	"Shout_WaterWalk"
 }
 local druidSpells4thTCoE = {
@@ -1323,7 +1401,7 @@ local fighterEKSpells1stOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local fighterEKSpells2ndOther = {
 	"Zone_AganazzarsScorcher",
@@ -1335,10 +1413,11 @@ local fighterEKSpells2ndOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local fighterEKSpells3rdOther = {
 	"Target_IntellectFortress",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Zone_AganazzarsScorcher",
@@ -1350,12 +1429,13 @@ local fighterEKSpells3rdOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local fighterEKSpells4thOther = {
 	"Target_StormSphere",
 	"Projectile_VitriolicSphere",
 	"Target_IntellectFortress",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Zone_AganazzarsScorcher",
@@ -1367,7 +1447,7 @@ local fighterEKSpells4thOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local paladinSpells1stOther = {
 	"Target_Ceremony",
@@ -1380,13 +1460,15 @@ local paladinSpells2ndTCoE = {
 }
 local paladinSpells3rdOther = {
 	"Target_CreateFoodAndWater",
+	"Target_MagicCircle",
 	"Shout_SpiritShroud"
 }
 local paladinSpells4thOther = {
 	"Shout_AuraOfLife"
 }
 local paladinSpells5thOther = {
-	"Target_HolyWeapon"
+	"Target_HolyWeapon",
+	"Target_RaiseDead"
 }
 local rangerSpells1stTCoE = {
 	"Target_Entangle",
@@ -1430,6 +1512,7 @@ local rangerSpells3rdOther = {
 	"Shout_AshardalonsStride",
 	"Target_FlameArrows",
 	"Target_Nondetection",
+	"Target_SummonFey",
 	"Shout_WaterWalk",
 	"Target_HealingSpirit",
 	"Target_SummonBeast",
@@ -1456,6 +1539,7 @@ local rangerSpells4thOther = {
 	"Shout_AshardalonsStride",
 	"Target_FlameArrows",
 	"Target_Nondetection",
+	"Target_SummonFey",
 	"Shout_WaterWalk",
 	"Target_HealingSpirit",
 	"Target_SummonBeast",
@@ -1487,6 +1571,7 @@ local rangerSpells5thOther = {
 	"Shout_AshardalonsStride",
 	"Target_FlameArrows",
 	"Target_Nondetection",
+	"Target_SummonFey",
 	"Shout_WaterWalk",
 	"Target_HealingSpirit",
 	"Target_SummonBeast",
@@ -1497,7 +1582,7 @@ local rangerSpells5thOther = {
 	"Shout_ZephyrStrike"
 }
 local rogueATSpells2ndOther = {
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_NathairsMischief",
 	"Shout_ShadowBlade"
 }
@@ -1505,7 +1590,7 @@ local rogueATSpells3rdOther = {
 	"Target_Antagonize",
 	"Target_Catnap",
 	"Target_EnemiesAbound",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_NathairsMischief",
 	"Shout_ShadowBlade"
 }
@@ -1515,7 +1600,7 @@ local rogueATSpells4thOther = {
 	"Target_Antagonize",
 	"Target_Catnap",
 	"Target_EnemiesAbound",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_NathairsMischief",
 	"Shout_ShadowBlade"
 }
@@ -1544,7 +1629,7 @@ local sorcererSpells1stOther = {
 	"Target_ChaosBolt",
 	"Shout_DetectMagic",
 	"Shout_EarthTremor",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local sorcererSpells2ndTCoE = {
 	"Shout_FlameBlade",
@@ -1559,7 +1644,7 @@ local sorcererSpells2ndOther = {
 	"Target_DustDevil",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -1573,7 +1658,7 @@ local sorcererSpells2ndOther = {
 	"Target_ChaosBolt",
 	"Shout_DetectMagic",
 	"Shout_EarthTremor",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local sorcererSpells3rdTCoE = {
 	"Target_VampiricTouch",
@@ -1599,7 +1684,7 @@ local sorcererSpells3rdOther = {
 	"Target_DustDevil",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -1613,7 +1698,7 @@ local sorcererSpells3rdOther = {
 	"Target_ChaosBolt",
 	"Shout_DetectMagic",
 	"Shout_EarthTremor",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local sorcererSpells4thTCoE = {
 	"Shout_FireShield",
@@ -1644,7 +1729,7 @@ local sorcererSpells4thOther = {
 	"Target_DustDevil",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -1658,7 +1743,7 @@ local sorcererSpells4thOther = {
 	"Target_ChaosBolt",
 	"Shout_DetectMagic",
 	"Shout_EarthTremor",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local sorcererSpells5thTCoE = {
 	"Shout_FireShield",
@@ -1692,7 +1777,7 @@ local sorcererSpells5thOther = {
 	"Target_DustDevil",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -1706,7 +1791,7 @@ local sorcererSpells5thOther = {
 	"Target_ChaosBolt",
 	"Shout_DetectMagic",
 	"Shout_EarthTremor",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local sorcererSpells6thTCoE = {
 	"Target_FleshToStone",
@@ -1743,7 +1828,7 @@ local sorcererSpells6thOther = {
 	"Target_DustDevil",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -1757,7 +1842,7 @@ local sorcererSpells6thOther = {
 	"Target_ChaosBolt",
 	"Shout_DetectMagic",
 	"Shout_EarthTremor",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local sorcererSpells7thTCoE = {
 	"Target_FleshToStone",
@@ -1795,7 +1880,7 @@ local sorcererSpells7thOther = {
 	"Target_DustDevil",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -1809,7 +1894,7 @@ local sorcererSpells7thOther = {
 	"Target_ChaosBolt",
 	"Shout_DetectMagic",
 	"Shout_EarthTremor",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local sorcererSpells8thTCoE = {
 	"Target_FleshToStone",
@@ -1848,7 +1933,7 @@ local sorcererSpells8thOther = {
 	"Target_DustDevil",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -1862,7 +1947,7 @@ local sorcererSpells8thOther = {
 	"Target_ChaosBolt",
 	"Shout_DetectMagic",
 	"Shout_EarthTremor",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local sorcererSpells9thTCoE = {
 	"Target_FleshToStone",
@@ -1902,7 +1987,7 @@ local sorcererSpells9thOther = {
 	"Target_DustDevil",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -1916,7 +2001,7 @@ local sorcererSpells9thOther = {
 	"Target_ChaosBolt",
 	"Shout_DetectMagic",
 	"Shout_EarthTremor",
-	"Zone_TashasCausticBrew"
+	"Zone_CausticBrew"
 }
 local warlockCantrips = {
 	"Target_BoomingBlade",
@@ -1950,7 +2035,9 @@ warlockSpells3rdOther = {
 	"Target_Antagonize",
 	"Target_EnemiesAbound",
 	"Target_IntellectFortress",
+	"Target_MagicCircle",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Shout_BorrowedKnowledge",
@@ -1968,7 +2055,9 @@ warlockSpells4thOther = {
 	"Target_Antagonize",
 	"Target_EnemiesAbound",
 	"Target_IntellectFortress",
+	"Target_MagicCircle",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Shout_BorrowedKnowledge",
@@ -1984,7 +2073,6 @@ warlockSpells5thTCoE = {
 warlockSpells5thOther = {
 	"Target_FarStep",
 	"Projectile_NegativeEnergyFlood",
-	"Target_PlanarBinding",
 	"Target_SynapticStatic",
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
@@ -1993,7 +2081,9 @@ warlockSpells5thOther = {
 	"Target_Antagonize",
 	"Target_EnemiesAbound",
 	"Target_IntellectFortress",
+	"Target_MagicCircle",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Shout_BorrowedKnowledge",
@@ -2042,7 +2132,7 @@ local wizardSpells1stOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Target_UnseenServant"
 }
 local wizardSpells2ndTCoE = {
@@ -2058,7 +2148,7 @@ local wizardSpells2ndOther = {
 	"Target_FlockOfFamiliars",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -2074,7 +2164,7 @@ local wizardSpells2ndOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Target_UnseenServant"
 }
 local wizardSpells3rdTCoE = {
@@ -2090,9 +2180,11 @@ local wizardSpells3rdOther = {
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
 	"Target_LifeTransference",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Zone_AganazzarsScorcher",
@@ -2104,7 +2196,7 @@ local wizardSpells3rdOther = {
 	"Target_FlockOfFamiliars",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -2120,7 +2212,7 @@ local wizardSpells3rdOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Target_UnseenServant"
 }
 local wizardSpells4thTCoE = {
@@ -2128,6 +2220,7 @@ local wizardSpells4thTCoE = {
 	"Target_EnhanceAbility"
 }
 local wizardSpells4thOther = {
+	"Target_ArcaneEye",
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Target_StormSphere",
@@ -2143,9 +2236,11 @@ local wizardSpells4thOther = {
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
 	"Target_LifeTransference",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Zone_AganazzarsScorcher",
@@ -2157,7 +2252,7 @@ local wizardSpells4thOther = {
 	"Target_FlockOfFamiliars",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -2173,7 +2268,7 @@ local wizardSpells4thOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Target_UnseenServant"
 }
 local wizardSpells5thTCoE = {
@@ -2186,6 +2281,7 @@ local wizardSpells5thOther = {
 	"Target_SkillEmpowerment",
 	"Target_SteelWindStrike",
 	"Target_SynapticStatic",
+	"Target_ArcaneEye",
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Target_StormSphere",
@@ -2201,9 +2297,11 @@ local wizardSpells5thOther = {
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
 	"Target_LifeTransference",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Zone_AganazzarsScorcher",
@@ -2215,7 +2313,7 @@ local wizardSpells5thOther = {
 	"Target_FlockOfFamiliars",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -2231,7 +2329,7 @@ local wizardSpells5thOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Target_UnseenServant"
 }
 local wizardSpells6thTCoE = {
@@ -2246,6 +2344,7 @@ local wizardSpells6thOther = {
 	"Target_SkillEmpowerment",
 	"Target_SteelWindStrike",
 	"Target_SynapticStatic",
+	"Target_ArcaneEye",
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Target_StormSphere",
@@ -2261,9 +2360,11 @@ local wizardSpells6thOther = {
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
 	"Target_LifeTransference",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Zone_AganazzarsScorcher",
@@ -2275,7 +2376,7 @@ local wizardSpells6thOther = {
 	"Target_FlockOfFamiliars",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -2291,7 +2392,7 @@ local wizardSpells6thOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Target_UnseenServant"
 }
 local wizardSpells7thTCoE = {
@@ -2307,6 +2408,7 @@ local wizardSpells7thOther = {
 	"Target_SkillEmpowerment",
 	"Target_SteelWindStrike",
 	"Target_SynapticStatic",
+	"Target_ArcaneEye",
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Target_StormSphere",
@@ -2322,9 +2424,11 @@ local wizardSpells7thOther = {
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
 	"Target_LifeTransference",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Zone_AganazzarsScorcher",
@@ -2336,7 +2440,7 @@ local wizardSpells7thOther = {
 	"Target_FlockOfFamiliars",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -2352,7 +2456,7 @@ local wizardSpells7thOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Target_UnseenServant"
 }
 local wizardSpells8thTCoE = {
@@ -2371,6 +2475,7 @@ local wizardSpells8thOther = {
 	"Target_SkillEmpowerment",
 	"Target_SteelWindStrike",
 	"Target_SynapticStatic",
+	"Target_ArcaneEye",
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Target_StormSphere",
@@ -2386,9 +2491,11 @@ local wizardSpells8thOther = {
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
 	"Target_LifeTransference",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Zone_AganazzarsScorcher",
@@ -2400,7 +2507,7 @@ local wizardSpells8thOther = {
 	"Target_FlockOfFamiliars",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -2416,7 +2523,7 @@ local wizardSpells8thOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Target_UnseenServant"
 }
 local wizardSpells9thTCoE = {
@@ -2437,6 +2544,7 @@ local wizardSpells9thOther = {
 	"Target_SkillEmpowerment",
 	"Target_SteelWindStrike",
 	"Target_SynapticStatic",
+	"Target_ArcaneEye",
 	"Target_CharmMonster",
 	"Projectile_RaulothimsPsychicLance",
 	"Target_StormSphere",
@@ -2452,9 +2560,11 @@ local wizardSpells9thOther = {
 	"Target_FlameArrows",
 	"Target_IntellectFortress",
 	"Target_LifeTransference",
+	"Target_MagicCircle",
 	"Projectile_MinuteMeteors",
 	"Target_Nondetection",
 	"Shout_SpiritShroud",
+	"Target_SummonFey",
 	"Target_SummonShadowspawn",
 	"Teleportation_ThunderStep",
 	"Zone_AganazzarsScorcher",
@@ -2466,7 +2576,7 @@ local wizardSpells9thOther = {
 	"Target_FlockOfFamiliars",
 	"Shout_KineticJaunt",
 	"Target_MaximiliansEarthenGrasp",
-	"Target_TashasMindWhip",
+	"Target_MindWhip",
 	"Target_MindSpike",
 	"Target_NathairsMischief",
 	"Zone_RimesBindingIce",
@@ -2482,7 +2592,7 @@ local wizardSpells9thOther = {
 	"Shout_EarthTremor",
 	"Zone_FrostFingers",
 	"Target_Snare",
-	"Zone_TashasCausticBrew",
+	"Zone_CausticBrew",
 	"Target_UnseenServant"
 }
 local cantripList5ES = {
@@ -2495,140 +2605,188 @@ local cantripList5ES = {
   WizardCantrip = "3cae2e56-9871-4cef-bba6-96845ea765fa"
 }
 
-local tcoeList5ES = {
+local tcoe1stLevelList5ES = {
   Bard1stTCoE = "dcb45167-86bd-4297-9b9d-c295be51af5b",
-  Bard2ndTCoE = "7ea8f476-97a1-4256-8f10-afa76a845cce",
-  Bard3rdTCoE = "c213ca01-3767-457b-a5c8-fd4c1dd656e2",
-  Bard4thTCoE = "75e04c40-be8f-40a5-9acc-0b5d59d5f3a6",
-  Bard5thTCoE = "bd71fffb-e4d2-4233-9a31-13d43fba36e3",
-  Bard6thTCoE = "586a8796-34f4-41f5-a3ef-95738561d55d",
-  Bard7thTCoE = "f923e058-b1d9-4b02-98ef-9daaa82a71b6",
-  Bard8thTCoE = "073c09e5-ccb9-4153-a210-001225a30cbb",
-  Bard9thTCoE = "2bbd99d0-21b4-41cc-836e-e386a96fc8e6",
-  BardMS3rdTCoE = "175ceed7-5a53-4f48-823c-41c4f72d18ae",
-  BardMS5thTCoE = "858d4322-9e9f-4aa4-aada-9c68835dc6fe",
-  BardMS7thTCoE = "95f80109-32b7-43f8-a99a-7ee2286a993a",
-  BardMS9thTCoE = "cd83187f-c886-45c2-be81-34083981f240",
-  Cleric3rdTCoE = "21be0992-499f-4c7a-a77a-4430085e947a",
-  Cleric6thTCoE = "f8ba7b05-1237-4eaa-97fa-1d3623d5862b",
   Druid1stTCoE = "2cd54137-2fe5-4100-aad3-df64735a8145",
-  Druid2ndTCoE = "92126d17-7f1a-41d2-ae6c-a8d254d2b135",
-  Druid3rdTCoE = "3156daf5-9266-41d0-b52c-5bc559a98654",
-  Druid4thTCoE = "09c326c9-672c-4198-a4c0-6f07323bde27",
-  Druid5thTCoE = "ff711c12-b59f-4fde-b9ea-6e5c38ec8f23",
-  Druid6thTCoE = "6a4e2167-55f3-4ba8-900f-14666b293e93",
-  Paladin2ndTCoE = "c14c9564-1503-47a1-be19-98e77f22ff59",
   Ranger1stTCoE = "458be063-60d4-4548-ae7d-50117fa0226f",
+  Sorcerer1stTCoE = "92c4751f-6255-4f67-822c-a75d53830b27"
+}
+
+local tcoe2ndLevelList5ES = {
+  Bard2ndTCoE = "7ea8f476-97a1-4256-8f10-afa76a845cce",
+  Druid2ndTCoE = "92126d17-7f1a-41d2-ae6c-a8d254d2b135",
+  Paladin2ndTCoE = "c14c9564-1503-47a1-be19-98e77f22ff59",
   Ranger2ndTCoE = "e7cfb80a-f5c2-4304-8446-9b00ea6a9814",
-  Ranger3rdTCoE = "9a60f649-7f82-4152-90b1-0499c5c9f3e2",
-  Ranger4thTCoE = "7022d937-b2e4-4b6e-a3c5-e168f5c00194",
-  Ranger5thTCoE = "412d77e1-4aa2-4149-aa0e-c835b8c79f32",
-  Sorcerer1stTCoE = "92c4751f-6255-4f67-822c-a75d53830b27",
   Sorcerer2ndTCoE = "f80396e2-cb76-4694-b0db-5c34da61a478",
+  Wizard2ndTCoE = "80c6b070-c3a6-4864-84ca-e78626784eb4"
+}
+
+local tcoe3rdLevelList5ES = {
+  Bard3rdTCoE = "c213ca01-3767-457b-a5c8-fd4c1dd656e2",
+  BardMS3rdTCoE = "175ceed7-5a53-4f48-823c-41c4f72d18ae",
+  Cleric3rdTCoE = "21be0992-499f-4c7a-a77a-4430085e947a",
+  Druid3rdTCoE = "3156daf5-9266-41d0-b52c-5bc559a98654",
+  Ranger3rdTCoE = "9a60f649-7f82-4152-90b1-0499c5c9f3e2",
   Sorcerer3rdTCoE = "dcbaf2ae-1f45-453e-ab83-cd154f8277a4",
+  Wizard3rdTCoE = "22755771-ca11-49f4-b772-13d8b8fecd93"
+}
+
+local tcoe4thLevelList5ES = {
+  Bard4thTCoE = "75e04c40-be8f-40a5-9acc-0b5d59d5f3a6",
+  Druid4thTCoE = "09c326c9-672c-4198-a4c0-6f07323bde27",
+  Ranger4thTCoE = "7022d937-b2e4-4b6e-a3c5-e168f5c00194",
   Sorcerer4thTCoE = "5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c",
+  Wizard4thTCoE = "820b1220-0385-426d-ae15-458dc8a6f5c0"
+}
+
+local tcoe5thLevelList5ES = {
+  Bard5thTCoE = "bd71fffb-e4d2-4233-9a31-13d43fba36e3",
+  BardMS5thTCoE = "858d4322-9e9f-4aa4-aada-9c68835dc6fe",
+  Druid5thTCoE = "ff711c12-b59f-4fde-b9ea-6e5c38ec8f23",
+  Ranger5thTCoE = "412d77e1-4aa2-4149-aa0e-c835b8c79f32",
   Sorcerer5thTCoE = "3276fcfe-e143-4559-b6e0-7d7aa0ffcb53",
-  Sorcerer6thTCoE = "1270a6db-980b-4e3b-bf26-2924da61dfd5",
-  Sorcerer7thTCoE = "9e38e5ae-51e8-4dd4-aad5-869a571b1519",
-  Sorcerer8thTCoE = "5a8a002c-352b-44e9-8233-da7e6112f4b0",
-  Sorcerer9thTCoE = "d58ac072-e079-410b-b167-a5e43723b59f",
   WFiend5thTCoE = "deab57bf-4eec-4085-82f7-87335bce3f5d",
   WGoO5thTCoE = "6d2edca9-71a7-4f3f-89f0-fccfff0bdee5",
   WArchfey5thTCoE = "6d2edca9-71a7-4f3f-89f0-fccfff0bdee5",
-  Wizard2ndTCoE = "80c6b070-c3a6-4864-84ca-e78626784eb4",
-  Wizard3rdTCoE = "22755771-ca11-49f4-b772-13d8b8fecd93",
-  Wizard4thTCoE = "820b1220-0385-426d-ae15-458dc8a6f5c0",
-  Wizard5thTCoE = "f781a25e-d288-43b4-bf5d-3d8d98846687",
-  Wizard6thTCoE = "bc917f22-7f71-4a25-9a77-7d2f91a96a65",
-  Wizard7thTCoE = "dff7917a-0abc-4671-b68f-c03e56212549",
-  Wizard8thTCoE = "f27a2d0a-0d6c-4c01-98a5-60081abf4807",
+  Wizard5thTCoE = "f781a25e-d288-43b4-bf5d-3d8d98846687"
+}
+
+local tcoe6thLevelList5ES = {
+  Bard6thTCoE = "586a8796-34f4-41f5-a3ef-95738561d55d",
+  Cleric6thTCoE = "f8ba7b05-1237-4eaa-97fa-1d3623d5862b",
+  Druid6thTCoE = "6a4e2167-55f3-4ba8-900f-14666b293e93",
+  Sorcerer6thTCoE = "1270a6db-980b-4e3b-bf26-2924da61dfd5",
+  Wizard6thTCoE = "bc917f22-7f71-4a25-9a77-7d2f91a96a65"
+}
+
+local tcoe7thLevelList5ES = {
+  Bard7thTCoE = "f923e058-b1d9-4b02-98ef-9daaa82a71b6",
+  BardMS7thTCoE = "95f80109-32b7-43f8-a99a-7ee2286a993a",
+  Sorcerer7thTCoE = "9e38e5ae-51e8-4dd4-aad5-869a571b1519",
+  Wizard7thTCoE = "dff7917a-0abc-4671-b68f-c03e56212549"
+}
+
+local tcoe8thLevelList5ES = {
+  Bard8thTCoE = "073c09e5-ccb9-4153-a210-001225a30cbb",
+  Sorcerer8thTCoE = "5a8a002c-352b-44e9-8233-da7e6112f4b0",
+  Wizard8thTCoE = "f27a2d0a-0d6c-4c01-98a5-60081abf4807"
+}
+
+local tcoe9thLevelList5ES = {
+  Bard9thTCoE = "2bbd99d0-21b4-41cc-836e-e386a96fc8e6",
+  BardMS9thTCoE = "cd83187f-c886-45c2-be81-34083981f240",
+  Sorcerer9thTCoE = "d58ac072-e079-410b-b167-a5e43723b59f",
   Wizard9thTCoE = "cb123d97-8809-4d71-a0cb-0ecb66177d15"
 }
 
-local othersList5ES = {
+local others1stLevelList5ES = {
   RitualCaster = "8c32c900-a8ea-4f2f-9f6f-eccd0d361a9d",
   Bard1stOther = "dcb45167-86bd-4297-9b9d-c295be51af5b",
-  Bard2ndOther = "7ea8f476-97a1-4256-8f10-afa76a845cce",
-  Bard3rdOther = "c213ca01-3767-457b-a5c8-fd4c1dd656e2",
-  Bard4thOther = "75e04c40-be8f-40a5-9acc-0b5d59d5f3a6",
-  Bard5thOther = "bd71fffb-e4d2-4233-9a31-13d43fba36e3",
-  Bard6thOther = "586a8796-34f4-41f5-a3ef-95738561d55d",
-  Bard7thOther = "f923e058-b1d9-4b02-98ef-9daaa82a71b6",
-  Bard8thOther = "073c09e5-ccb9-4153-a210-001225a30cbb",
-  Bard9thOther = "2bbd99d0-21b4-41cc-836e-e386a96fc8e6",
-  BardMS3rdOther = "175ceed7-5a53-4f48-823c-41c4f72d18ae",
-  BardMS5thOther = "858d4322-9e9f-4aa4-aada-9c68835dc6fe",
-  BardMS7thOther = "95f80109-32b7-43f8-a99a-7ee2286a993a",
-  BardMS9thOther = "cd83187f-c886-45c2-be81-34083981f240",
   Cleric1stOther = "269d1a3b-eed8-4131-8901-a562238f5289",
-  Cleric2ndOther = "2968a3e6-6c8a-4c2e-882a-ad295a2ad8ac",
-  Cleric3rdOther = "21be0992-499f-4c7a-a77a-4430085e947a",
-  Cleric4thOther = "37e9b20b-5fd1-45c5-b1c5-159c42397c83",
-  Cleric5thOther = "b73aeea5-1ff9-4cac-b61d-b5aa6dfe31c2",
-  Cleric6thOther = "f8ba7b05-1237-4eaa-97fa-1d3623d5862b",
-  Cleric7thOther = "11862b36-c2d6-4d2f-b2d7-4af29f8fe31a",
-  Cleric8thOther = "a0df1e32-1c61-4017-939f-44cc7695a924",
-  Cleric9thOther = "9ea2891d-f0f9-42d0-b13d-7f1a5df154c3",
   Druid1stOther = "2cd54137-2fe5-4100-aad3-df64735a8145",
-  Druid2ndOther = "92126d17-7f1a-41d2-ae6c-a8d254d2b135",
-  Druid3rdOther = "3156daf5-9266-41d0-b52c-5bc559a98654",
-  Druid4thOther = "09c326c9-672c-4198-a4c0-6f07323bde27",
-  Druid5thOther = "ff711c12-b59f-4fde-b9ea-6e5c38ec8f23",
-  Druid7thOther = "29c9cf78-3bd6-47dc-88b4-2dce54710124",
-  Druid8thOther = "bdff0cba-d631-4b83-9562-63c0187df380",
-  Druid9thOther = "9e388f0f-7432-4f29-bfe5-5358ebde4491",
   FighterEK1stOther = "32aeba85-13bd-4a6f-8e06-cd4447b746d8",
-  FighterEK2ndOther = "4a86443c-6a21-4b8d-b1bf-55a99e021354",
-  FighterEK3rdOther = "9ca503db-0e4b-4325-b1eb-e2f794a075d6",
-  FighterEK4thOther = "5798e5a8-da36-40bc-acf5-2b736cf607a2",
   Paladin1stOther = "c6288ac5-c68b-40ed-bbdd-2ff388575831",
-  Paladin3rdOther = "d18dec04-478f-41c3-b816-239d5cfcf2a2",
-  Paladin4thOther = "11d0c2a0-41c6-4ec0-98fe-5d987f7e1665",
-  Paladin5thOther = "f351595c-90f7-4804-9e55-18c4d624593c",
   Ranger1stOther = "458be063-60d4-4548-ae7d-50117fa0226f",
-  Ranger2ndOther = "e7cfb80a-f5c2-4304-8446-9b00ea6a9814",
-  Ranger3rdOther = "9a60f649-7f82-4152-90b1-0499c5c9f3e2",
-  Ranger4thOther = "7022d937-b2e4-4b6e-a3c5-e168f5c00194",
-  Ranger5thOther = "412d77e1-4aa2-4149-aa0e-c835b8c79f32",
-  RogueAT2ndOther = "f9fd64f1-f417-4544-94a9-51d8876d68df",
-  RogueAT3rdOther = "c707cc1f-e5ed-4798-909a-3652ad497d24",
-  RogueAT4thOther = "0329cc67-3e67-409c-9b22-fb510a564c98",
   Sorcerer1stOther = "92c4751f-6255-4f67-822c-a75d53830b27",
-  Sorcerer2ndOther = "f80396e2-cb76-4694-b0db-5c34da61a478",
-  Sorcerer3rdOther = "dcbaf2ae-1f45-453e-ab83-cd154f8277a4",
-  Sorcerer4thOther = "5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c",
-  Sorcerer5thOther = "3276fcfe-e143-4559-b6e0-7d7aa0ffcb53",
-  Sorcerer6thOther = "1270a6db-980b-4e3b-bf26-2924da61dfd5",
-  Sorcerer7thOther = "9e38e5ae-51e8-4dd4-aad5-869a571b1519",
-  Sorcerer8thOther = "5a8a002c-352b-44e9-8233-da7e6112f4b0",
-  Sorcerer9thOther = "d58ac072-e079-410b-b167-a5e43723b59f",
   WFiend1stOther = "4823a292-f584-4f7f-8434-6630c72e5411",
-  WFiend2ndOther = "835aeca7-c64a-4aaa-a25c-143aa14a5cec",
-  WFiend3rdOther = "5dec41aa-f16a-434e-b209-50c07e64e4ed",
-  WFiend4thOther = "7ad7dbd0-751b-4bcd-8034-53bcc7bfb19d",
-  WFiend5thOther = "deab57bf-4eec-4085-82f7-87335bce3f5d",
   WGoO1stOther = "65952d48-bb16-4ad7-b173-532182bf7770",
-  WGoO2ndOther = "fe101a94-8619-49b2-859d-a68c2c291054",
-  WGoO3rdOther = "30e9b761-6be0-418e-bb28-5103c00c663b",
-  WGoO4thOther = "b64e527e-1f97-4125-84f7-78376ab1440b",
-  WGoO5thOther = "6d2edca9-71a7-4f3f-89f0-fccfff0bdee5",
   WArchfey1stOther = "e0099b15-2599-4cba-a54b-b25ae03d6519",
+  Wizard1stOther = "11f331b0-e8b7-473b-9d1f-19e8e4178d7d"
+}
+
+local others2ndLevelList5ES = {
+  Bard2ndOther = "7ea8f476-97a1-4256-8f10-afa76a845cce",
+  Cleric2ndOther = "2968a3e6-6c8a-4c2e-882a-ad295a2ad8ac",
+  Druid2ndOther = "92126d17-7f1a-41d2-ae6c-a8d254d2b135",
+  FighterEK2ndOther = "4a86443c-6a21-4b8d-b1bf-55a99e021354",
+  Ranger2ndOther = "e7cfb80a-f5c2-4304-8446-9b00ea6a9814",
+  RogueAT2ndOther = "f9fd64f1-f417-4544-94a9-51d8876d68df",
+  Sorcerer2ndOther = "f80396e2-cb76-4694-b0db-5c34da61a478",
+  WFiend2ndOther = "835aeca7-c64a-4aaa-a25c-143aa14a5cec",
+  WGoO2ndOther = "fe101a94-8619-49b2-859d-a68c2c291054",
   WArchfey2ndOther = "0cc2c8ab-9bbc-43a7-a66d-08e47da4c172",
+  Wizard2ndOther = "80c6b070-c3a6-4864-84ca-e78626784eb4"
+}
+
+local others3rdLevelList5ES = {
+  Bard3rdOther = "c213ca01-3767-457b-a5c8-fd4c1dd656e2",
+  BardMS3rdOther = "175ceed7-5a53-4f48-823c-41c4f72d18ae",
+  Cleric3rdOther = "21be0992-499f-4c7a-a77a-4430085e947a",
+  Druid3rdOther = "3156daf5-9266-41d0-b52c-5bc559a98654",
+  FighterEK3rdOther = "9ca503db-0e4b-4325-b1eb-e2f794a075d6",
+  Paladin3rdOther = "d18dec04-478f-41c3-b816-239d5cfcf2a2",
+  Ranger3rdOther = "9a60f649-7f82-4152-90b1-0499c5c9f3e2",
+  RogueAT3rdOther = "c707cc1f-e5ed-4798-909a-3652ad497d24",
+  Sorcerer3rdOther = "dcbaf2ae-1f45-453e-ab83-cd154f8277a4",
+  WFiend3rdOther = "5dec41aa-f16a-434e-b209-50c07e64e4ed",
+  WGoO3rdOther = "30e9b761-6be0-418e-bb28-5103c00c663b",
   WArchfey3rdOther = "f18ad912-e2f4-47a9-8744-73d6a51c2941",
+  Wizard3rdOther = "22755771-ca11-49f4-b772-13d8b8fecd93"
+}
+
+local others4thLevelList5ES = {
+  Bard4thOther = "75e04c40-be8f-40a5-9acc-0b5d59d5f3a6",
+  Cleric4thOther = "37e9b20b-5fd1-45c5-b1c5-159c42397c83",
+  Druid4thOther = "09c326c9-672c-4198-a4c0-6f07323bde27",
+  FighterEK4thOther = "5798e5a8-da36-40bc-acf5-2b736cf607a2",
+  Paladin4thOther = "11d0c2a0-41c6-4ec0-98fe-5d987f7e1665",
+  Ranger4thOther = "7022d937-b2e4-4b6e-a3c5-e168f5c00194",
+  RogueAT4thOther = "0329cc67-3e67-409c-9b22-fb510a564c98",
+  Sorcerer4thOther = "5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c",
+  WFiend4thOther = "7ad7dbd0-751b-4bcd-8034-53bcc7bfb19d",
+  WGoO4thOther = "b64e527e-1f97-4125-84f7-78376ab1440b",
   WArchfey4thOther = "c3d8a4a5-9dae-4193-8322-a5d1c5b89f47",
+  Wizard4thOther = "820b1220-0385-426d-ae15-458dc8a6f5c0"
+}
+
+local others5thLevelList5ES = {
+  Bard5thOther = "bd71fffb-e4d2-4233-9a31-13d43fba36e3",
+  BardMS5thOther = "858d4322-9e9f-4aa4-aada-9c68835dc6fe",
+  Cleric5thOther = "b73aeea5-1ff9-4cac-b61d-b5aa6dfe31c2",
+  Druid5thOther = "ff711c12-b59f-4fde-b9ea-6e5c38ec8f23",
+  Paladin5thOther = "f351595c-90f7-4804-9e55-18c4d624593c",
+  Ranger5thOther = "412d77e1-4aa2-4149-aa0e-c835b8c79f32",
+  Sorcerer5thOther = "3276fcfe-e143-4559-b6e0-7d7aa0ffcb53",
+  WFiend5thOther = "deab57bf-4eec-4085-82f7-87335bce3f5d",
+  WGoO5thOther = "6d2edca9-71a7-4f3f-89f0-fccfff0bdee5",
   WArchfey5thOther = "0a9b924f-64fb-4f22-b975-5eeedc99b2fd",
+  Wizard5thOther = "f781a25e-d288-43b4-bf5d-3d8d98846687"
+}
+
+local others6thLevelList5ES = {
+  Bard6thOther = "586a8796-34f4-41f5-a3ef-95738561d55d",
+  Cleric6thOther = "f8ba7b05-1237-4eaa-97fa-1d3623d5862b",
+  Sorcerer6thOther = "1270a6db-980b-4e3b-bf26-2924da61dfd5",
   Warlock6thOther = "e6ccab5e-3b3b-4b34-8fa2-1058dff2b3e6",
+  Wizard6thOther = "bc917f22-7f71-4a25-9a77-7d2f91a96a65"
+}
+
+local others7thLevelList5ES = {
+  Bard7thOther = "f923e058-b1d9-4b02-98ef-9daaa82a71b6",
+  BardMS7thOther = "95f80109-32b7-43f8-a99a-7ee2286a993a",
+  Cleric7thOther = "11862b36-c2d6-4d2f-b2d7-4af29f8fe31a",
+  Druid7thOther = "29c9cf78-3bd6-47dc-88b4-2dce54710124",
+  Sorcerer7thOther = "9e38e5ae-51e8-4dd4-aad5-869a571b1519",
   Warlock7thOther = "388cd3b0-914a-44b6-a828-1315323b9fd7",
+  Wizard7thOther = "dff7917a-0abc-4671-b68f-c03e56212549"
+}
+
+local others8thLevelList5ES = {
+  Bard8thOther = "073c09e5-ccb9-4153-a210-001225a30cbb",
+  Cleric8thOther = "a0df1e32-1c61-4017-939f-44cc7695a924",
+  Druid8thOther = "bdff0cba-d631-4b83-9562-63c0187df380",
+  Sorcerer8thOther = "5a8a002c-352b-44e9-8233-da7e6112f4b0",
   Warlock8thOther = "070495e1-ccf4-4c05-9add-61c5010b8204",
+  Wizard8thOther = "f27a2d0a-0d6c-4c01-98a5-60081abf4807"
+}
+
+local others9thLevelList5ES = {
+  Bard9thOther = "2bbd99d0-21b4-41cc-836e-e386a96fc8e6",
+  BardMS9thOther = "cd83187f-c886-45c2-be81-34083981f240",
+  Cleric9thOther = "9ea2891d-f0f9-42d0-b13d-7f1a5df154c3",
+  Druid9thOther = "9e388f0f-7432-4f29-bfe5-5358ebde4491",
+  Sorcerer9thOther = "d58ac072-e079-410b-b167-a5e43723b59f",
   Warlock9thOther = "47766c27-e791-4e6e-9b3d-2bb379106e62",
-  Wizard1stOther = "11f331b0-e8b7-473b-9d1f-19e8e4178d7d",
-  Wizard2ndOther = "80c6b070-c3a6-4864-84ca-e78626784eb4",
-  Wizard3rdOther = "22755771-ca11-49f4-b772-13d8b8fecd93",
-  Wizard4thOther = "820b1220-0385-426d-ae15-458dc8a6f5c0",
-  Wizard5thOther = "f781a25e-d288-43b4-bf5d-3d8d98846687",
-  Wizard6thOther = "bc917f22-7f71-4a25-9a77-7d2f91a96a65",
-  Wizard7thOther = "dff7917a-0abc-4671-b68f-c03e56212549",
-  Wizard8thOther = "f27a2d0a-0d6c-4c01-98a5-60081abf4807",
   Wizard9thOther = "cb123d97-8809-4d71-a0cb-0ecb66177d15"
 }
 
@@ -2663,534 +2821,577 @@ local function OnStatsLoaded()
 	  SpellListID = cantripList5ES.WizardCantrip
 	},
 }
-
-	local tcoeadditions = {
+	local tcoe1stleveladditions = {
 	Bard1stTCoE = {
 	  Spells = bardSpells1stTCoE,
-	  SpellListID = tcoeList5ES.Bard1stTCoE
-	},
-	Bard2ndTCoE = {
-	  Spells = bardSpells2ndTCoE,
-	  SpellListID = tcoeList5ES.Bard2ndTCoE
-	},
-	Bard3rdTCoE = {
-	  Spells = bardSpells3rdTCoE,
-	  SpellListID = tcoeList5ES.Bard3rdTCoE
-	},
-	Bard4thTCoE = {
-	  Spells = bardSpells4thTCoE,
-	  SpellListID = tcoeList5ES.Bard4thTCoE
-	},
-	Bard5thTCoE = {
-	  Spells = bardSpells5thTCoE,
-	  SpellListID = tcoeList5ES.Bard5thTCoE
-	},
-	Bard6thTCoE = {
-	  Spells = bardSpells6thTCoE,
-	  SpellListID = tcoeList5ES.Bard6thTCoE
-	},
-	Bard7thTCoE = {
-	  Spells = bardSpells7thTCoE,
-	  SpellListID = tcoeList5ES.Bard7thTCoE
-	},
-	Bard8thTCoE = {
-	  Spells = bardSpells8thTCoE,
-	  SpellListID = tcoeList5ES.Bard8thTCoE
-	},
-	Bard9thTCoE = {
-	  Spells = bardSpells9thTCoE,
-	  SpellListID = tcoeList5ES.Bard9thTCoE
-	},
-	BardMS3rdTCoE = {
-	  Spells = bardMagicalSecrets3rdTCoE,
-	  SpellListID = tcoeList5ES.BardMS3rdTCoE
-	},
-	BardMS5thTCoE = {
-	  Spells = bardMagicalSecrets5thTCoE,
-	  SpellListID = tcoeList5ES.BardMS5thTCoE
-	},
-	BardMS7thTCoE = {
-	  Spells = bardMagicalSecrets7thTCoE,
-	  SpellListID = tcoeList5ES.BardMS7thTCoE
-	},
-	BardMS9thTCoE = {
-	  Spells = bardMagicalSecrets9thTCoE,
-	  SpellListID = tcoeList5ES.BardMS9thTCoE
-	},
-	Cleric3rdTCoE = {
-	  Spells = clericSpells3rdTCoE,
-	  SpellListID = tcoeList5ES.Cleric3rdTCoE
-	},
-	Cleric6thTCoE = {
-	  Spells = clericSpells6thTCoE,
-	  SpellListID = tcoeList5ES.Cleric6thTCoE
+	  SpellListID = tcoe1stLevelList5ES.Bard1stTCoE
 	},
 	Druid1stTCoE = {
 	  Spells = druidSpells1stTCoE,
-	  SpellListID = tcoeList5ES.Druid1stTCoE
-	},
-	Druid2ndTCoE = {
-	  Spells = druidSpells2ndTCoE,
-	  SpellListID = tcoeList5ES.Druid2ndTCoE
-	},
-	Druid3rdTCoE = {
-	  Spells = druidSpells3rdTCoE,
-	  SpellListID = tcoeList5ES.Druid3rdTCoE
-	},
-	Druid4thTCoE = {
-	  Spells = druidSpells4thTCoE,
-	  SpellListID = tcoeList5ES.Druid4thTCoE
-	},
-	Druid5thTCoE = {
-	  Spells = druidSpells5thTCoE,
-	  SpellListID = tcoeList5ES.Druid5thTCoE
-	},
-	Druid6thTCoE = {
-	  Spells = druidSpells6thTCoE,
-	  SpellListID = tcoeList5ES.Druid6thTCoE
-	},
-	Paladin2ndTCoE = {
-	  Spells = paladinSpells2ndTCoE,
-	  SpellListID = tcoeList5ES.Paladin2ndTCoE
+	  SpellListID = tcoe1stLevelList5ES.Druid1stTCoE
 	},
 	Ranger1stTCoE = {
 	  Spells = rangerSpells1stTCoE,
-	  SpellListID = tcoeList5ES.Ranger1stTCoE
-	},
-	Ranger2ndTCoE = {
-	  Spells = rangerSpells2ndTCoE,
-	  SpellListID = tcoeList5ES.Ranger2ndTCoE
-	},
-	Ranger3rdTCoE = {
-	  Spells = rangerSpells3rdTCoE,
-	  SpellListID = tcoeList5ES.Ranger3rdTCoE
-	},
-	Ranger4thTCoE = {
-	  Spells = rangerSpells4thTCoE,
-	  SpellListID = tcoeList5ES.Ranger4thTCoE
-	},
-	Ranger5thTCoE = {
-	  Spells = rangerSpells5thTCoE,
-	  SpellListID = tcoeList5ES.Ranger5thTCoE
+	  SpellListID = tcoe1stLevelList5ES.Ranger1stTCoE
 	},
 	Sorcerer1stTCoE = {
 	  Spells = sorcererSpells1stTCoE,
-	  SpellListID = tcoeList5ES.Sorcerer1stTCoE
-	},
-	Sorcerer2ndTCoE = {
-	  Spells = sorcererSpells2ndTCoE,
-	  SpellListID = tcoeList5ES.Sorcerer2ndTCoE
-	},
-	Sorcerer3rdTCoE = {
-	  Spells = sorcererSpells3rdTCoE,
-	  SpellListID = tcoeList5ES.Sorcerer3rdTCoE
-	},
-	Sorcerer4thTCoE = {
-	  Spells = sorcererSpells4thTCoE,
-	  SpellListID = tcoeList5ES.Sorcerer4thTCoE
-	},
-	Sorcerer5thTCoE = {
-	  Spells = sorcererSpells5thTCoE,
-	  SpellListID = tcoeList5ES.Sorcerer5thTCoE
-	},
-	Sorcerer6thTCoE = {
-	  Spells = sorcererSpells6thTCoE,
-	  SpellListID = tcoeList5ES.Sorcerer6thTCoE
-	},
-	Sorcerer7thTCoE = {
-	  Spells = sorcererSpells7thTCoE,
-	  SpellListID = tcoeList5ES.Sorcerer7thTCoE
-	},
-	Sorcerer8thTCoE = {
-	  Spells = sorcererSpells8thTCoE,
-	  SpellListID = tcoeList5ES.Sorcerer8thTCoE
-	},
-	Sorcerer9thTCoE = {
-	  Spells = sorcererSpells9thTCoE,
-	  SpellListID = tcoeList5ES.Sorcerer9thTCoE
-	},
-	Fiend5thTCoE = {
-	  Spells = warlockSpells5thTCoE,
-	  SpellListID = tcoeList5ES.WFiend5thTCoE
-	},
-	GoO5thTCoE = {
-	  Spells = warlockSpells5thTCoE,
-	  SpellListID = tcoeList5ES.WGoO5thTCoE
-	},
-	Archfey5thTCoE = {
-	  Spells = warlockSpells5thTCoE,
-	  SpellListID = tcoeList5ES.WArchfey5thTCoE
-	},
-	Wizard2ndTCoE = {
-	  Spells = wizardSpells2ndTCoE,
-	  SpellListID = tcoeList5ES.Wizard2ndTCoE
-	},
-	Wizard3rdTCoE = {
-	  Spells = wizardSpells3rdTCoE,
-	  SpellListID = tcoeList5ES.Wizard3rdTCoE
-	},
-	Wizard4thTCoE = {
-	  Spells = wizardSpells4thTCoE,
-	  SpellListID = tcoeList5ES.Wizard4thTCoE
-	},
-	Wizard5thTCoE = {
-	  Spells = wizardSpells5thTCoE,
-	  SpellListID = tcoeList5ES.Wizard5thTCoE
-	},
-	Wizard6thTCoE = {
-	  Spells = wizardSpells6thTCoE,
-	  SpellListID = tcoeList5ES.Wizard6thTCoE
-	},
-	Wizard7thTCoE = {
-	  Spells = wizardSpells7thTCoE,
-	  SpellListID = tcoeList5ES.Wizard7thTCoE
-	},
-	Wizard8thTCoE = {
-	  Spells = wizardSpells8thTCoE,
-	  SpellListID = tcoeList5ES.Wizard8thTCoE
-	},
-	Wizard9thTCoE = {
-	  Spells = wizardSpells9thTCoE,
-	  SpellListID = tcoeList5ES.Wizard9thTCoE
+	  SpellListID = tcoe1stLevelList5ES.Sorcerer1stTCoE
 	},
 }
 
-	local othersadditions = {
+	local tcoe2ndleveladditions = {
+	Bard2ndTCoE = {
+	  Spells = bardSpells2ndTCoE,
+	  SpellListID = tcoe2ndLevelList5ES.Bard2ndTCoE
+	},
+	Druid2ndTCoE = {
+	  Spells = druidSpells2ndTCoE,
+	  SpellListID = tcoe2ndLevelList5ES.Druid2ndTCoE
+	},
+	Paladin2ndTCoE = {
+	  Spells = paladinSpells2ndTCoE,
+	  SpellListID = tcoe2ndLevelList5ES.Paladin2ndTCoE
+	},
+	Ranger2ndTCoE = {
+	  Spells = rangerSpells2ndTCoE,
+	  SpellListID = tcoe2ndLevelList5ES.Ranger2ndTCoE
+	},
+	Sorcerer2ndTCoE = {
+	  Spells = sorcererSpells2ndTCoE,
+	  SpellListID = tcoe2ndLevelList5ES.Sorcerer2ndTCoE
+	},
+	Wizard2ndTCoE = {
+	  Spells = wizardSpells2ndTCoE,
+	  SpellListID = tcoe2ndLevelList5ES.Wizard2ndTCoE
+	},
+}
+
+	local tcoe3rdleveladditions = {
+	Bard3rdTCoE = {
+	  Spells = bardSpells3rdTCoE,
+	  SpellListID = tcoe3rdLevelList5ES.Bard3rdTCoE
+	},
+	BardMS3rdTCoE = {
+	  Spells = bardMagicalSecrets3rdTCoE,
+	  SpellListID = tcoe3rdLevelList5ES.BardMS3rdTCoE
+	},
+	Cleric3rdTCoE = {
+	  Spells = clericSpells3rdTCoE,
+	  SpellListID = tcoe3rdLevelList5ES.Cleric3rdTCoE
+	},
+	Druid3rdTCoE = {
+	  Spells = druidSpells3rdTCoE,
+	  SpellListID = tcoe3rdLevelList5ES.Druid3rdTCoE
+	},
+	Ranger3rdTCoE = {
+	  Spells = rangerSpells3rdTCoE,
+	  SpellListID = tcoe3rdLevelList5ES.Ranger3rdTCoE
+	},
+	Sorcerer3rdTCoE = {
+	  Spells = sorcererSpells3rdTCoE,
+	  SpellListID = tcoe3rdLevelList5ES.Sorcerer3rdTCoE
+	},
+	Wizard3rdTCoE = {
+	  Spells = wizardSpells3rdTCoE,
+	  SpellListID = tcoe3rdLevelList5ES.Wizard3rdTCoE
+	},
+}
+
+	local tcoe4thleveladditions = {
+	Bard4thTCoE = {
+	  Spells = bardSpells4thTCoE,
+	  SpellListID = tcoe4thLevelList5ES.Bard4thTCoE
+	},
+	Druid4thTCoE = {
+	  Spells = druidSpells4thTCoE,
+	  SpellListID = tcoe4thLevelList5ES.Druid4thTCoE
+	},
+	Ranger4thTCoE = {
+	  Spells = rangerSpells4thTCoE,
+	  SpellListID = tcoe4thLevelList5ES.Ranger4thTCoE
+	},
+	Sorcerer4thTCoE = {
+	  Spells = sorcererSpells4thTCoE,
+	  SpellListID = tcoe4thLevelList5ES.Sorcerer4thTCoE
+	},
+	Wizard4thTCoE = {
+	  Spells = wizardSpells4thTCoE,
+	  SpellListID = tcoe4thLevelList5ES.Wizard4thTCoE
+	},
+}
+
+	local tcoe5thleveladditions = {
+	Bard5thTCoE = {
+	  Spells = bardSpells5thTCoE,
+	  SpellListID = tcoe5thLevelList5ES.Bard5thTCoE
+	},
+	BardMS5thTCoE = {
+	  Spells = bardMagicalSecrets5thTCoE,
+	  SpellListID = tcoe5thLevelList5ES.BardMS5thTCoE
+	},
+	Druid5thTCoE = {
+	  Spells = druidSpells5thTCoE,
+	  SpellListID = tcoe5thLevelList5ES.Druid5thTCoE
+	},
+	Ranger5thTCoE = {
+	  Spells = rangerSpells5thTCoE,
+	  SpellListID = tcoe5thLevelList5ES.Ranger5thTCoE
+	},
+	Sorcerer5thTCoE = {
+	  Spells = sorcererSpells5thTCoE,
+	  SpellListID = tcoe5thLevelList5ES.Sorcerer5thTCoE
+	},
+	Fiend5thTCoE = {
+	  Spells = warlockSpells5thTCoE,
+	  SpellListID = tcoe5thLevelList5ES.WFiend5thTCoE
+	},
+	GoO5thTCoE = {
+	  Spells = warlockSpells5thTCoE,
+	  SpellListID = tcoe5thLevelList5ES.WGoO5thTCoE
+	},
+	Archfey5thTCoE = {
+	  Spells = warlockSpells5thTCoE,
+	  SpellListID = tcoe5thLevelList5ES.WArchfey5thTCoE
+	},
+	Wizard5thTCoE = {
+	  Spells = wizardSpells5thTCoE,
+	  SpellListID = tcoe5thLevelList5ES.Wizard5thTCoE
+	},
+}
+
+	local tcoe6thleveladditions = {
+	Bard6thTCoE = {
+	  Spells = bardSpells6thTCoE,
+	  SpellListID = tcoe6thLevelList5ES.Bard6thTCoE
+	},
+	Cleric6thTCoE = {
+	  Spells = clericSpells6thTCoE,
+	  SpellListID = tcoe6thLevelList5ES.Cleric6thTCoE
+	},
+	Druid6thTCoE = {
+	  Spells = druidSpells6thTCoE,
+	  SpellListID = tcoe6thLevelList5ES.Druid6thTCoE
+	},
+	Sorcerer6thTCoE = {
+	  Spells = sorcererSpells6thTCoE,
+	  SpellListID = tcoe6thLevelList5ES.Sorcerer6thTCoE
+	},
+	Wizard6thTCoE = {
+	  Spells = wizardSpells6thTCoE,
+	  SpellListID = tcoe6thLevelList5ES.Wizard6thTCoE
+	},
+}
+
+	local tcoe7thleveladditions = {
+	Bard7thTCoE = {
+	  Spells = bardSpells7thTCoE,
+	  SpellListID = tcoe7thLevelList5ES.Bard7thTCoE
+	},
+	BardMS7thTCoE = {
+	  Spells = bardMagicalSecrets7thTCoE,
+	  SpellListID = tcoe7thLevelList5ES.BardMS7thTCoE
+	},
+	Sorcerer7thTCoE = {
+	  Spells = sorcererSpells7thTCoE,
+	  SpellListID = tcoe7thLevelList5ES.Sorcerer7thTCoE
+	},
+	Wizard7thTCoE = {
+	  Spells = wizardSpells7thTCoE,
+	  SpellListID = tcoe7thLevelList5ES.Wizard7thTCoE
+	},
+}
+
+	local tcoe8thleveladditions = {
+	Bard8thTCoE = {
+	  Spells = bardSpells8thTCoE,
+	  SpellListID = tcoe8thLevelList5ES.Bard8thTCoE
+	},
+	Sorcerer8thTCoE = {
+	  Spells = sorcererSpells8thTCoE,
+	  SpellListID = tcoe8thLevelList5ES.Sorcerer8thTCoE
+	},
+	Wizard8thTCoE = {
+	  Spells = wizardSpells8thTCoE,
+	  SpellListID = tcoe8thLevelList5ES.Wizard8thTCoE
+	},
+}
+
+	local tcoe9thleveladditions = {
+	Bard9thTCoE = {
+	  Spells = bardSpells9thTCoE,
+	  SpellListID = tcoe9thLevelList5ES.Bard9thTCoE
+	},
+	BardMS9thTCoE = {
+	  Spells = bardMagicalSecrets9thTCoE,
+	  SpellListID = tcoe9thLevelList5ES.BardMS9thTCoE
+	},
+	Sorcerer9thTCoE = {
+	  Spells = sorcererSpells9thTCoE,
+	  SpellListID = tcoe9thLevelList5ES.Sorcerer9thTCoE
+	},
+	Wizard9thTCoE = {
+	  Spells = wizardSpells9thTCoE,
+	  SpellListID = tcoe9thLevelList5ES.Wizard9thTCoE
+	},
+}
+
+	local others1stleveladditions = {
 	RCSpells = {
 	  Spells = ritualCaster,
-	  SpellListID = othersList5ES.RitualCaster
+	  SpellListID = others1stLevelList5ES.RitualCaster
 	},
 	Bard1stOther = {
 	  Spells = bardSpells1stOther,
-	  SpellListID = othersList5ES.Bard1stOther
-	},
-	Bard2ndOther = {
-	  Spells = bardSpells2ndOther,
-	  SpellListID = othersList5ES.Bard2ndOther
-	},
-	Bard3rdOther = {
-	  Spells = bardSpells3rdOther,
-	  SpellListID = othersList5ES.Bard3rdOther
-	},
-	Bard4thOther = {
-	  Spells = bardSpells4thOther,
-	  SpellListID = othersList5ES.Bard4thOther
-	},
-	Bard5thOther = {
-	  Spells = bardSpells5thOther,
-	  SpellListID = othersList5ES.Bard5thOther
-	},
-	Bard6thOther = {
-	  Spells = bardSpells6thOther,
-	  SpellListID = othersList5ES.Bard6thOther
-	},
-	Bard7thOther = {
-	  Spells = bardSpells7thOther,
-	  SpellListID = othersList5ES.Bard7thOther
-	},
-	Bard8thOther = {
-	  Spells = bardSpells8thOther,
-	  SpellListID = othersList5ES.Bard8thOther
-	},
-	Bard9thOther = {
-	  Spells = bardSpells9thOther,
-	  SpellListID = othersList5ES.Bard9thOther
-	},
-	BardMS3rdOther = {
-	  Spells = bardMagicalSecrets3rdOther,
-	  SpellListID = othersList5ES.BardMS3rdOther
-	},
-	BardMS5thOther = {
-	  Spells = bardMagicalSecrets5thOther,
-	  SpellListID = othersList5ES.BardMS5thOther
-	},
-	BardMS7thOther = {
-	  Spells = bardMagicalSecrets7thOther,
-	  SpellListID = othersList5ES.BardMS7thOther
-	},
-	BardMS9thOther = {
-	  Spells = bardMagicalSecrets9thOther,
-	  SpellListID = othersList5ES.BardMS9thOther
+	  SpellListID = others1stLevelList5ES.Bard1stOther
 	},
 	Cleric1stOther = {
 	  Spells = clericSpells1stOther,
-	  SpellListID = othersList5ES.Cleric1stOther
-	},
-	Cleric2ndOther = {
-	  Spells = clericSpells2ndOther,
-	  SpellListID = othersList5ES.Cleric2ndOther
-	},
-	Cleric3rdOther = {
-	  Spells = clericSpells3rdOther,
-	  SpellListID = othersList5ES.Cleric3rdOther
-	},
-	Cleric4thOther = {
-	  Spells = clericSpells3rdOther,
-	  SpellListID = othersList5ES.Cleric4thOther
-	},
-	Cleric5thOther = {
-	  Spells = clericSpells5thOther,
-	  SpellListID = othersList5ES.Cleric5thOther
-	},
-	Cleric6thOther = {
-	  Spells = clericSpells6thOther,
-	  SpellListID = othersList5ES.Cleric6thOther
-	},
-	Cleric7thOther = {
-	  Spells = clericSpells7thOther,
-	  SpellListID = othersList5ES.Cleric7thOther
-	},
-	Cleric8thOther = {
-	  Spells = clericSpells8thOther,
-	  SpellListID = othersList5ES.Cleric8thOther
-	},
-	Cleric9thOther = {
-	  Spells = clericSpells9thOther,
-	  SpellListID = othersList5ES.Cleric9thOther
+	  SpellListID = others1stLevelList5ES.Cleric1stOther
 	},
 	Druid1stOther = {
 	  Spells = druidSpells1stOther,
-	  SpellListID = othersList5ES.Druid1stOther
-	},
-	Druid2ndOther = {
-	  Spells = druidSpells2ndOther,
-	  SpellListID = othersList5ES.Druid2ndOther
-	},
-	Druid3rdOther = {
-	  Spells = druidSpells3rdOther,
-	  SpellListID = othersList5ES.Druid3rdOther
-	},
-	Druid4thOther = {
-	  Spells = druidSpells4thOther,
-	  SpellListID = othersList5ES.Druid4thOther
-	},
-	Druid5thOther = {
-	  Spells = druidSpells5thOther,
-	  SpellListID = othersList5ES.Druid5thOther
-	},
-	Druid7thOther = {
-	  Spells = druidSpells7thOther,
-	  SpellListID = othersList5ES.Druid7thOther
-	},
-	Druid8thOther = {
-	  Spells = druidSpells8thOther,
-	  SpellListID = othersList5ES.Druid8thOther
-	},
-	Druid9thOther = {
-	  Spells = druidSpells9thOther,
-	  SpellListID = othersList5ES.Druid9thOther
+	  SpellListID = others1stLevelList5ES.Druid1stOther
 	},
 	FighterEK1stOther = {
 	  Spells = fighterEKSpells1stOther,
-	  SpellListID = othersList5ES.FighterEK1stOther
-	},
-	FighterEK2ndOther = {
-	  Spells = fighterEKSpells2ndOther,
-	  SpellListID = othersList5ES.FighterEK2ndOther
-	},
-	FighterEK3rdOther = {
-	  Spells = fighterEKSpells3rdOther,
-	  SpellListID = othersList5ES.FighterEK3rdOther
-	},
-	FighterEK4thOther = {
-	  Spells = fighterEKSpells4thOther,
-	  SpellListID = othersList5ES.FighterEK4thOther
+	  SpellListID = others1stLevelList5ES.FighterEK1stOther
 	},
 	Paladin1stOther = {
 	  Spells = paladinSpells1stOther,
-	  SpellListID = othersList5ES.Paladin1stOther
-	},
-	Paladin3rdOther = {
-	  Spells = paladinSpells3rdOther,
-	  SpellListID = othersList5ES.Paladin3rdOther
-	},
-	Paladin4thOther = {
-	  Spells = paladinSpells4thOther,
-	  SpellListID = othersList5ES.Paladin4thOther
-	},
-	Paladin5thOther = {
-	  Spells = paladinSpells5thOther,
-	  SpellListID = othersList5ES.Paladin5thOther
+	  SpellListID = others1stLevelList5ES.Paladin1stOther
 	},
 	Ranger1stOther = {
 	  Spells = rangerSpells1stOther,
-	  SpellListID = othersList5ES.Ranger1stOther
-	},
-	Ranger2ndOther = {
-	  Spells = rangerSpells2ndOther,
-	  SpellListID = othersList5ES.Ranger2ndOther
-	},
-	Ranger3rdOther = {
-	  Spells = rangerSpells3rdOther,
-	  SpellListID = othersList5ES.Ranger3rdOther
-	},
-	Ranger4thOther = {
-	  Spells = rangerSpells4thOther,
-	  SpellListID = othersList5ES.Ranger4thOther
-	},
-	Ranger5thOther = {
-	  Spells = rangerSpells5thOther,
-	  SpellListID = othersList5ES.Ranger5thOther
-	},
-	RogueAT2ndOther = {
-	  Spells = rogueATSpells2ndOther,
-	  SpellListID = othersList5ES.RogueAT2ndOther
-	},
-	RogueAT3rdOther = {
-	  Spells = rogueATSpells3rdOther,
-	  SpellListID = othersList5ES.RogueAT3rdOther
-	},
-	RogueAT4thOther = {
-	  Spells = rogueATSpells4thOther,
-	  SpellListID = othersList5ES.RogueAT4thOther
+	  SpellListID = others1stLevelList5ES.Ranger1stOther
 	},
 	Sorcerer1stOther = {
 	  Spells = sorcererSpells1stOther,
-	  SpellListID = othersList5ES.Sorcerer1stOther
-	},
-	Sorcerer2ndOther = {
-	  Spells = sorcererSpells2ndOther,
-	  SpellListID = othersList5ES.Sorcerer2ndOther
-	},
-	Sorcerer3rdOther = {
-	  Spells = sorcererSpells3rdOther,
-	  SpellListID = othersList5ES.Sorcerer3rdOther
-	},
-	Sorcerer4thOther = {
-	  Spells = sorcererSpells4thOther,
-	  SpellListID = othersList5ES.Sorcerer4thOther
-	},
-	Sorcerer5thOther = {
-	  Spells = sorcererSpells5thOther,
-	  SpellListID = othersList5ES.Sorcerer5thOther
-	},
-	Sorcerer6thOther = {
-	  Spells = sorcererSpells6thOther,
-	  SpellListID = othersList5ES.Sorcerer6thOther
-	},
-	Sorcerer7thOther = {
-	  Spells = sorcererSpells7thOther,
-	  SpellListID = othersList5ES.Sorcerer7thOther
-	},
-	Sorcerer8thOther = {
-	  Spells = sorcererSpells8thOther,
-	  SpellListID = othersList5ES.Sorcerer8thOther
-	},
-	Sorcerer9thOther = {
-	  Spells = sorcererSpells9thOther,
-	  SpellListID = othersList5ES.Sorcerer9thOther
+	  SpellListID = others1stLevelList5ES.Sorcerer1stOther
 	},
 	Fiend1stOther = {
 	  Spells = warlockSpells1stOther,
-	  SpellListID = othersList5ES.WFiend1stOther
-	},
-	Fiend2ndOther = {
-	  Spells = warlockSpells2ndOther,
-	  SpellListID = othersList5ES.WFiend2ndOther
-	},
-	Fiend3rdOther = {
-	  Spells = warlockSpells3rdOther,
-	  SpellListID = othersList5ES.WFiend3rdOther
-	},
-	Fiend4thOther = {
-	  Spells = warlockSpells4thOther,
-	  SpellListID = othersList5ES.WFiend4thOther
-	},
-	Fiend5thOther = {
-	  Spells = warlockSpells5thOther,
-	  SpellListID = othersList5ES.WFiend5thOther
+	  SpellListID = others1stLevelList5ES.WFiend1stOther
 	},
 	GoO1stOther = {
 	  Spells = warlockSpells1stOther,
-	  SpellListID = othersList5ES.WGoO1stOther
-	},
-	GoO2ndOther = {
-	  Spells = warlockSpells2ndOther,
-	  SpellListID = othersList5ES.WGoO2ndOther
-	},
-	GoO3rdOther = {
-	  Spells = warlockSpells3rdOther,
-	  SpellListID = othersList5ES.WGoO3rdOther
-	},
-	GoO4thOther = {
-	  Spells = warlockSpells4thOther,
-	  SpellListID = othersList5ES.WGoO4thOther
-	},
-	GoO5thOther = {
-	  Spells = warlockSpells5thOther,
-	  SpellListID = othersList5ES.WGoO5thOther
+	  SpellListID = others1stLevelList5ES.WGoO1stOther
 	},
 	Archfey1stOther = {
 	  Spells = warlockSpells1stOther,
-	  SpellListID = othersList5ES.WArchfey1stOther
-	},
-	Archfey2ndOther = {
-	  Spells = warlockSpells2ndOther,
-	  SpellListID = othersList5ES.WArchfey2ndOther
-	},
-	Archfey3rdOther = {
-	  Spells = warlockSpells3rdOther,
-	  SpellListID = othersList5ES.WArchfey3rdOther
-	},
-	Archfey4thOther = {
-	  Spells = warlockSpells4thOther,
-	  SpellListID = othersList5ES.WArchfey4thOther
-	},
-	Archfey5thOther = {
-	  Spells = warlockSpells5thOther,
-	  SpellListID = othersList5ES.WArchfey5thOther
-	},
-	Warlock6thOther = {
-	  Spells = warlockSpells6thOther,
-	  SpellListID = othersList5ES.Warlock6thOther
-	},
-	Warlock7thOther = {
-	  Spells = warlockSpells7thOther,
-	  SpellListID = othersList5ES.Warlock7thOther
-	},
-	Warlock8thOther = {
-	  Spells = warlockSpells8thOther,
-	  SpellListID = othersList5ES.Warlock8thOther
-	},
-	Warlock9thOther = {
-	  Spells = warlockSpells9thOther,
-	  SpellListID = othersList5ES.Warlock9thOther
+	  SpellListID = others1stLevelList5ES.WArchfey1stOther
 	},
 	Wizard1stOther = {
 	  Spells = wizardSpells1stOther,
-	  SpellListID = othersList5ES.Wizard1stOther
+	  SpellListID = others1stLevelList5ES.Wizard1stOther
+	},
+}
+
+	local others2ndleveladditions = {
+	Bard2ndOther = {
+	  Spells = bardSpells2ndOther,
+	  SpellListID = others2ndLevelList5ES.Bard2ndOther
+	},
+	Cleric2ndOther = {
+	  Spells = clericSpells2ndOther,
+	  SpellListID = others2ndLevelList5ES.Cleric2ndOther
+	},
+	Druid2ndOther = {
+	  Spells = druidSpells2ndOther,
+	  SpellListID = others2ndLevelList5ES.Druid2ndOther
+	},
+	FighterEK2ndOther = {
+	  Spells = fighterEKSpells2ndOther,
+	  SpellListID = others2ndLevelList5ES.FighterEK2ndOther
+	},
+	Ranger2ndOther = {
+	  Spells = rangerSpells2ndOther,
+	  SpellListID = others2ndLevelList5ES.Ranger2ndOther
+	},
+	Sorcerer2ndOther = {
+	  Spells = sorcererSpells2ndOther,
+	  SpellListID = others2ndLevelList5ES.Sorcerer2ndOther
+	},
+	Fiend2ndOther = {
+	  Spells = warlockSpells2ndOther,
+	  SpellListID = others2ndLevelList5ES.WFiend2ndOther
+	},
+	GoO2ndOther = {
+	  Spells = warlockSpells2ndOther,
+	  SpellListID = others2ndLevelList5ES.WGoO2ndOther
+	},
+	Archfey2ndOther = {
+	  Spells = warlockSpells2ndOther,
+	  SpellListID = others2ndLevelList5ES.WArchfey2ndOther
 	},
 	Wizard2ndOther = {
 	  Spells = wizardSpells2ndOther,
-	  SpellListID = othersList5ES.Wizard2ndOther
+	  SpellListID = others2ndLevelList5ES.Wizard2ndOther
+	},
+}
+
+	local others3rdleveladditions = {
+	Bard3rdOther = {
+	  Spells = bardSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.Bard3rdOther
+	},
+	BardMS3rdOther = {
+	  Spells = bardMagicalSecrets3rdOther,
+	  SpellListID = others3rdLevelList5ES.BardMS3rdOther
+	},
+	Cleric3rdOther = {
+	  Spells = clericSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.Cleric3rdOther
+	},
+	Druid3rdOther = {
+	  Spells = druidSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.Druid3rdOther
+	},
+	FighterEK3rdOther = {
+	  Spells = fighterEKSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.FighterEK3rdOther
+	},
+	Paladin3rdOther = {
+	  Spells = paladinSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.Paladin3rdOther
+	},
+	Ranger3rdOther = {
+	  Spells = rangerSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.Ranger3rdOther
+	},
+	RogueAT3rdOther = {
+	  Spells = rogueATSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.RogueAT3rdOther
+	},
+	Sorcerer3rdOther = {
+	  Spells = sorcererSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.Sorcerer3rdOther
+	},
+	Fiend3rdOther = {
+	  Spells = warlockSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.WFiend3rdOther
+	},
+	GoO3rdOther = {
+	  Spells = warlockSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.WGoO3rdOther
+	},
+	Archfey3rdOther = {
+	  Spells = warlockSpells3rdOther,
+	  SpellListID = others3rdLevelList5ES.WArchfey3rdOther
 	},
 	Wizard3rdOther = {
 	  Spells = wizardSpells3rdOther,
-	  SpellListID = othersList5ES.Wizard3rdOther
+	  SpellListID = others3rdLevelList5ES.Wizard3rdOther
+	},
+}
+
+	local others4thleveladditions = {
+	Bard4thOther = {
+	  Spells = bardSpells4thOther,
+	  SpellListID = others4thLevelList5ES.Bard4thOther
+	},
+	Cleric4thOther = {
+	  Spells = clericSpells4thOther,
+	  SpellListID = others4thLevelList5ES.Cleric4thOther
+	},
+	Druid4thOther = {
+	  Spells = druidSpells4thOther,
+	  SpellListID = others4thLevelList5ES.Druid4thOther
+	},
+	FighterEK4thOther = {
+	  Spells = fighterEKSpells4thOther,
+	  SpellListID = others4thLevelList5ES.FighterEK4thOther
+	},
+	Paladin4thOther = {
+	  Spells = paladinSpells4thOther,
+	  SpellListID = others4thLevelList5ES.Paladin4thOther
+	},
+	Ranger4thOther = {
+	  Spells = rangerSpells4thOther,
+	  SpellListID = others4thLevelList5ES.Ranger4thOther
+	},
+	RogueAT4thOther = {
+	  Spells = rogueATSpells4thOther,
+	  SpellListID = others4thLevelList5ES.RogueAT4thOther
+	},
+	Sorcerer4thOther = {
+	  Spells = sorcererSpells4thOther,
+	  SpellListID = others4thLevelList5ES.Sorcerer4thOther
+	},
+	Fiend4thOther = {
+	  Spells = warlockSpells4thOther,
+	  SpellListID = others4thLevelList5ES.WFiend4thOther
+	},
+	GoO4thOther = {
+	  Spells = warlockSpells4thOther,
+	  SpellListID = others4thLevelList5ES.WGoO4thOther
+	},
+	Archfey4thOther = {
+	  Spells = warlockSpells4thOther,
+	  SpellListID = others4thLevelList5ES.WArchfey4thOther
 	},
 	Wizard4thOther = {
 	  Spells = wizardSpells4thOther,
-	  SpellListID = othersList5ES.Wizard4thOther
+	  SpellListID = others4thLevelList5ES.Wizard4thOther
+	},
+}
+
+	local others5thleveladditions = {
+	Bard5thOther = {
+	  Spells = bardSpells5thOther,
+	  SpellListID = others5thLevelList5ES.Bard5thOther
+	},
+	BardMS5thOther = {
+	  Spells = bardMagicalSecrets5thOther,
+	  SpellListID = others5thLevelList5ES.BardMS5thOther
+	},
+	Cleric5thOther = {
+	  Spells = clericSpells5thOther,
+	  SpellListID = others5thLevelList5ES.Cleric5thOther
+	},
+	Druid5thOther = {
+	  Spells = druidSpells5thOther,
+	  SpellListID = others5thLevelList5ES.Druid5thOther
+	},
+	Paladin5thOther = {
+	  Spells = paladinSpells5thOther,
+	  SpellListID = others5thLevelList5ES.Paladin5thOther
+	},
+	Ranger5thOther = {
+	  Spells = rangerSpells5thOther,
+	  SpellListID = others5thLevelList5ES.Ranger5thOther
+	},
+	Sorcerer5thOther = {
+	  Spells = sorcererSpells5thOther,
+	  SpellListID = others5thLevelList5ES.Sorcerer5thOther
+	},
+	Fiend5thOther = {
+	  Spells = warlockSpells5thOther,
+	  SpellListID = others5thLevelList5ES.WFiend5thOther
+	},
+	GoO5thOther = {
+	  Spells = warlockSpells5thOther,
+	  SpellListID = others5thLevelList5ES.WGoO5thOther
+	},
+	Archfey5thOther = {
+	  Spells = warlockSpells5thOther,
+	  SpellListID = others5thLevelList5ES.WArchfey5thOther
 	},
 	Wizard5thOther = {
 	  Spells = wizardSpells5thOther,
-	  SpellListID = othersList5ES.Wizard5thOther
+	  SpellListID = others5thLevelList5ES.Wizard5thOther
+	},
+}
+
+	local others6thleveladditions = {
+	Bard6thOther = {
+	  Spells = bardSpells6thOther,
+	  SpellListID = others6thLevelList5ES.Bard6thOther
+	},
+	Cleric6thOther = {
+	  Spells = clericSpells6thOther,
+	  SpellListID = others6thLevelList5ES.Cleric6thOther
+	},
+	Sorcerer6thOther = {
+	  Spells = sorcererSpells6thOther,
+	  SpellListID = others6thLevelList5ES.Sorcerer6thOther
+	},
+	Warlock6thOther = {
+	  Spells = warlockSpells6thOther,
+	  SpellListID = others6thLevelList5ES.Warlock6thOther
 	},
 	Wizard6thOther = {
 	  Spells = wizardSpells6thOther,
-	  SpellListID = othersList5ES.Wizard6thOther
+	  SpellListID = others6thLevelList5ES.Wizard6thOther
+	},
+}
+
+	local others7thleveladditions = {
+	Bard7thOther = {
+	  Spells = bardSpells7thOther,
+	  SpellListID = others7thLevelList5ES.Bard7thOther
+	},
+	BardMS7thOther = {
+	  Spells = bardMagicalSecrets7thOther,
+	  SpellListID = others7thLevelList5ES.BardMS7thOther
+	},
+	Cleric7thOther = {
+	  Spells = clericSpells7thOther,
+	  SpellListID = others7thLevelList5ES.Cleric7thOther
+	},
+	Druid7thOther = {
+	  Spells = druidSpells7thOther,
+	  SpellListID = others7thLevelList5ES.Druid7thOther
+	},
+	Sorcerer7thOther = {
+	  Spells = sorcererSpells7thOther,
+	  SpellListID = others7thLevelList5ES.Sorcerer7thOther
+	},
+	Warlock7thOther = {
+	  Spells = warlockSpells7thOther,
+	  SpellListID = others7thLevelList5ES.Warlock7thOther
 	},
 	Wizard7thOther = {
 	  Spells = wizardSpells7thOther,
-	  SpellListID = othersList5ES.Wizard7thOther
+	  SpellListID = others7thLevelList5ES.Wizard7thOther
+	},
+}
+
+	local others8thleveladditions = {
+	Bard8thOther = {
+	  Spells = bardSpells8thOther,
+	  SpellListID = others8thLevelList5ES.Bard8thOther
+	},
+	Cleric8thOther = {
+	  Spells = clericSpells8thOther,
+	  SpellListID = others8thLevelList5ES.Cleric8thOther
+	},
+	Druid8thOther = {
+	  Spells = druidSpells8thOther,
+	  SpellListID = others8thLevelList5ES.Druid8thOther
+	},
+	Sorcerer8thOther = {
+	  Spells = sorcererSpells8thOther,
+	  SpellListID = others8thLevelList5ES.Sorcerer8thOther
+	},
+	Warlock8thOther = {
+	  Spells = warlockSpells8thOther,
+	  SpellListID = others8thLevelList5ES.Warlock8thOther
 	},
 	Wizard8thOther = {
 	  Spells = wizardSpells8thOther,
-	  SpellListID = othersList5ES.Wizard8thOther
+	  SpellListID = others8thLevelList5ES.Wizard8thOther
+	},
+}
+
+	local others9thleveladditions = {
+	Bard9thOther = {
+	  Spells = bardSpells9thOther,
+	  SpellListID = others9thLevelList5ES.Bard9thOther
+	},
+	BardMS9thOther = {
+	  Spells = bardMagicalSecrets9thOther,
+	  SpellListID = others9thLevelList5ES.BardMS9thOther
+	},
+	Cleric9thOther = {
+	  Spells = clericSpells9thOther,
+	  SpellListID = others9thLevelList5ES.Cleric9thOther
+	},
+	Druid9thOther = {
+	  Spells = druidSpells9thOther,
+	  SpellListID = others9thLevelList5ES.Druid9thOther
+	},
+	Sorcerer9thOther = {
+	  Spells = sorcererSpells9thOther,
+	  SpellListID = others9thLevelList5ES.Sorcerer9thOther
+	},
+	Warlock9thOther = {
+	  Spells = warlockSpells9thOther,
+	  SpellListID = others9thLevelList5ES.Warlock9thOther
 	},
 	Wizard9thOther = {
 	  Spells = wizardSpells9thOther,
-	  SpellListID = othersList5ES.Wizard9thOther
+	  SpellListID = others9thLevelList5ES.Wizard9thOther
 	},
 }
 
@@ -3224,19 +3425,46 @@ function formatting(file)
 	return result
 end
 
+config = {}
+folder = "5eSpells"
+filepath = "5eSpells.json"
+filepath_RAW = "5eSpells_RAW.json"
+
+function config.modpath(filepath)
+    return folder .. '/' .. filepath
+end
+
+function config.modpath(filepath_RAW)
+    return folder .. '/' .. filepath_RAW
+end
+
 function writing()
-	local default = '{"Spells":{"Cantrips":{"Enabled":true},"TCoE":{"Enabled":true},"AllOthers":{"Enabled":true}}}'
+	local default = '{"Spells":{"Cantrips":{"Enabled":true},"TCoE":{"1st Level":{"Enabled":true},"2nd Level":{"Enabled":true},"3rd Level":{"Enabled":true},"4th Level":{"Enabled":true},"5th Level":{"Enabled":true},"6th Level":{"Enabled":true},"7th Level":{"Enabled":true},"8th Level":{"Enabled":true},"9th Level":{"Enabled":true}},"5e":{"1st Level":{"Enabled":true},"2nd Level":{"Enabled":true},"3rd Level":{"Enabled":true},"4th Level":{"Enabled":true},"5th Level":{"Enabled":true},"6th Level":{"Enabled":true},"7th Level":{"Enabled":true},"8th Level":{"Enabled":true},"9th Level":{"Enabled":true}}}}'
+	local defaultraw = '{"RAW Adjustments":{"Spare the Dying":{"Enabled":false},"Raise Dead":{"Enabled":false}}}'
 	local defaultJson = formatting(default)
-	Ext.IO.SaveFile("5eSpells.json", defaultJson)
+	local defaultRawJson = formatting(defaultraw)
+	Ext.IO.SaveFile(config.modpath(filepath), defaultJson)
+	Ext.IO.SaveFile(config.modpath(filepath_RAW), defaultRawJson)
 end
 
 function reading()
-	local status, file = pcall(Ext.IO.LoadFile, "5eSpells.json")
+	local status, file = pcall(Ext.IO.LoadFile, config.modpath(filepath))
+	local status_raw, file_raw = pcall(Ext.IO.LoadFile, config.modpath(filepath_RAW))
 	if not status or not file then
-		print(string.format("5eSpells: Creating configuration at %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\5eSpells.json"))
+		print(string.format("5eSpells: Creating configuration at %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\5eSpells\\5eSpells.json"))
 		writing()
-		status, file = pcall(Ext.IO.LoadFile, "5eSpells.json")
+		status, file = pcall(Ext.IO.LoadFile, config.modpath(filepath))
 		if not status or not file then
+			print("ERROR: Failed to load config file after writing default config")
+			return nil
+		end
+	end
+
+	if not status_raw or not file_raw then
+		print(string.format("5eSpells: Creating configuration at %%LOCALAPPDATA%%\\Larian Studios\\Baldur's Gate 3\\Script Extender\\5eSpells\\5eSpells_RAW.json"))
+		writing()
+		status_raw, file_raw = pcall(Ext.IO.LoadFile, config.modpath(filepath_RAW))
+		if not status_raw or not file_raw then
 			print("ERROR: Failed to load config file after writing default config")
 			return nil
 		end
@@ -3247,29 +3475,161 @@ function reading()
 		return nil
 	end
 	Table = result
+
+	local status_raw, result_raw = pcall(Ext.Json.Parse, file_raw)
+	if not status_raw then
+		return nil
+	end
+	Table_RAW = result_raw
 end
 
 reading()
 
-	local tcoeconfig = Table["Spells"]["TCoE"]
+	local tcoe1stconfig = Table["Spells"]["TCoE"]["1st Level"]
+	local tcoe2ndconfig = Table["Spells"]["TCoE"]["2nd Level"]
+	local tcoe3rdconfig = Table["Spells"]["TCoE"]["3rd Level"]
+	local tcoe4thconfig = Table["Spells"]["TCoE"]["4th Level"]
+	local tcoe5thconfig = Table["Spells"]["TCoE"]["5th Level"]
+	local tcoe6thconfig = Table["Spells"]["TCoE"]["6th Level"]
+	local tcoe7thconfig = Table["Spells"]["TCoE"]["7th Level"]
+	local tcoe8thconfig = Table["Spells"]["TCoE"]["8th Level"]
+	local tcoe9thconfig = Table["Spells"]["TCoE"]["9th Level"]
 	local cantripsconfig = Table["Spells"]["Cantrips"]
-	local otherspellsconfig = Table["Spells"]["AllOthers"]
-	local tcoeenabled = tcoeconfig["Enabled"]
+	local others1stconfig = Table["Spells"]["5e"]["1st Level"]
+	local others2ndconfig = Table["Spells"]["5e"]["2nd Level"]
+	local others3rdconfig = Table["Spells"]["5e"]["3rd Level"]
+	local others4thconfig = Table["Spells"]["5e"]["4th Level"]
+	local others5thconfig = Table["Spells"]["5e"]["5th Level"]
+	local others6thconfig = Table["Spells"]["5e"]["6th Level"]
+	local others7thconfig = Table["Spells"]["5e"]["7th Level"]
+	local others8thconfig = Table["Spells"]["5e"]["8th Level"]
+	local others9thconfig = Table["Spells"]["5e"]["9th Level"]
+	local s5e_std = Table_RAW["RAW Adjustments"]["Spare the Dying"]
+	local s5e_rd = Table_RAW["RAW Adjustments"]["Raise Dead"]
 	local cantripsenabled = cantripsconfig["Enabled"]
-	local otherspellsenabled = otherspellsconfig["Enabled"]
-	if	tcoeenabled == true then
-		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) spells config is enabled."))
-		S5E_SpellLists(tcoeadditions)
-	end
-
+	local tcoe1stlevelenabled = tcoe1stconfig["Enabled"]
+	local tcoe2ndlevelenabled = tcoe2ndconfig["Enabled"]
+	local tcoe3rdlevelenabled = tcoe3rdconfig["Enabled"]
+	local tcoe4thlevelenabled = tcoe4thconfig["Enabled"]
+	local tcoe5thlevelenabled = tcoe5thconfig["Enabled"]
+	local tcoe6thlevelenabled = tcoe6thconfig["Enabled"]
+	local tcoe7thlevelenabled = tcoe7thconfig["Enabled"]
+	local tcoe8thlevelenabled = tcoe8thconfig["Enabled"]
+	local tcoe9thlevelenabled = tcoe9thconfig["Enabled"]
+	local others1stlevelenabled = others1stconfig["Enabled"]
+	local others2ndlevelenabled = others2ndconfig["Enabled"]
+	local others3rdlevelenabled = others3rdconfig["Enabled"]
+	local others4thlevelenabled = others4thconfig["Enabled"]
+	local others5thlevelenabled = others5thconfig["Enabled"]
+	local others6thlevelenabled = others6thconfig["Enabled"]
+	local others7thlevelenabled = others7thconfig["Enabled"]
+	local others8thlevelenabled = others8thconfig["Enabled"]
+	local others9thlevelenabled = others9thconfig["Enabled"]
+	local s5e_stdenabled = s5e_std["Enabled"]
+	local s5e_rdenabled = s5e_rd["Enabled"]
 	if	cantripsenabled == true then
 		print(string.format("5eSpells: Cantrips from 5eSpells config is enabled."))
 		S5E_SpellLists(cantripadditions)
 	end
 
-	if	otherspellsenabled == true then
-		print(string.format("5eSpells: Non-cantrip and non-TCoE spells from 5eSpells config is enabled."))
-		S5E_SpellLists(othersadditions)
+	if	tcoe1stlevelenabled == true then
+		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) 1st level spells config is enabled."))
+		S5E_SpellLists(tcoe1stleveladditions)
+	end
+
+	if	tcoe2ndlevelenabled == true then
+		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) 2nd level spells config is enabled."))
+		S5E_SpellLists(tcoe2ndleveladditions)
+	end
+	
+	if	tcoe3rdlevelenabled == true then
+		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) 3rd level spells config is enabled."))
+		S5E_SpellLists(tcoe3rdleveladditions)
+	end
+
+	if	tcoe4thlevelenabled == true then
+		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) 4th level spells config is enabled."))
+		S5E_SpellLists(tcoe4thleveladditions)
+	end
+	
+	if	tcoe5thlevelenabled == true then
+		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) 5th level spells config is enabled."))
+		S5E_SpellLists(tcoe5thleveladditions)
+	end
+
+	if	tcoe6thlevelenabled == true then
+		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) 6th level spells config is enabled."))
+		S5E_SpellLists(tcoe6thleveladditions)
+	end
+	
+	if	tcoe7thlevelenabled == true then
+		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) 7th level spells config is enabled."))
+		S5E_SpellLists(tcoe7thleveladditions)
+	end
+	
+	if	tcoe8thlevelenabled == true then
+		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) 8th level spells config is enabled."))
+		S5E_SpellLists(tcoe8thleveladditions)
+	end
+	
+	if	tcoe9thlevelenabled == true then
+		print(string.format("5eSpells: Tasha's Calduron of Everything (TCoE) 9th level spells config is enabled."))
+		S5E_SpellLists(tcoe9thleveladditions)
+	end
+
+	if	others1stlevelenabled == true then
+		print(string.format("5eSpells: Additional 5e Spells 1st level spells config is enabled."))
+		S5E_SpellLists(others1stleveladditions)
+	end
+
+	if	others2ndlevelenabled == true then
+		print(string.format("5eSpells: Additional 5e Spells 2nd level spells config is enabled."))
+		S5E_SpellLists(others2ndleveladditions)
+	end
+
+	if	others3rdlevelenabled == true then
+		print(string.format("5eSpells: Additional 5e Spells 3rd level spells config is enabled."))
+		S5E_SpellLists(others3rdleveladditions)
+	end
+
+	if	others4thlevelenabled == true then
+		print(string.format("5eSpells: Additional 5e Spells 4th level spells config is enabled."))
+		S5E_SpellLists(others4thleveladditions)
+	end
+
+	if	others5thlevelenabled == true then
+		print(string.format("5eSpells: Additional 5e Spells 5th level spells config is enabled."))
+		S5E_SpellLists(others5thleveladditions)
+	end
+
+	if	others6thlevelenabled == true then
+		print(string.format("5eSpells: Additional 5e Spells 6th level spells config is enabled."))
+		S5E_SpellLists(others6thleveladditions)
+	end
+
+	if	others7thlevelenabled == true then
+		print(string.format("5eSpells: Additional 5e Spells 7th level spells config is enabled."))
+		S5E_SpellLists(others7thleveladditions)
+	end
+
+	if	others8thlevelenabled == true then
+		print(string.format("5eSpells: Additional 5e Spells 8th level spells config is enabled."))
+		S5E_SpellLists(others8thleveladditions)
+	end
+
+	if	others9thlevelenabled == true then
+		print(string.format("5eSpells: Additional 5e Spells 9th level spells config is enabled."))
+		S5E_SpellLists(others9thleveladditions)
+	end
+
+	if	s5e_stdenabled == true then
+		print(string.format("5eSpells: Modifying the Help action."))
+		S5E_SpareTheDying()
+	end
+
+	if	s5e_rdenabled == true then
+		print(string.format("5eSpells: Modifying the Revivify spell and the scroll."))
+		S5E_RaiseDead()
 	end
 end
 Ext.Events.StatsLoaded:Subscribe(OnStatsLoaded)
@@ -3281,10 +3641,10 @@ if additions ~= nil then
                 local spellList = Spells["SpellList"]
                 local list = Ext.StaticData.Get(add.SpellListID, "SpellList")
                 list[spellList] = Set(list[spellList], add.Spells)
-                end
-            end
-        end
-    end
+			end
+		end
+	end
+end
 
 function Set(spelllist, spells)
   local result = {}

@@ -21,6 +21,18 @@ end
 
 Ext.Events.ResetCompleted:Subscribe(ResetStats)--]]
 
+function DelayedCall(delayInMs, func)
+    local startTime = Ext.Utils.MonotonicTime()
+    local handlerId;
+    handlerId = Ext.Events.Tick:Subscribe(function()
+        local endTime = Ext.Utils.MonotonicTime()
+        if (endTime - startTime > delayInMs) then
+            Ext.Events.Tick:Unsubscribe(handlerId)
+            func()
+        end
+    end) 
+end
+
 local function GetEntityStatus(entity, statusId)
     if entity.ServerCharacter ~= nil then
         return entity.ServerCharacter:GetStatus(statusId)
@@ -789,9 +801,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 
 	for _, dbstatus in pairs(dragonsBreathStatuses) do
 		if string.sub(character,-36) == causee and status == dbstatus then
-			_D("This works")
 			for _, dbstatus in pairs(Ext.Entity.Get(causee).ServerCharacter.StatusManager.Statuses) do
-				_D("This works")
 				if dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 4 then
 					Osi.ApplyStatus(character,"DRAGONS_BREATH_INTELLIGENCE",60.0,1,causee)
 				elseif dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 5 then
@@ -816,7 +826,8 @@ end)
 
 Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (caster, spell, _, _)
 	local source = Osi.GetVarObject(caster,"StoreSource")
-	if spell == "Projectile_MagicStone" and caster ~= source then
+	if spell == "Projectile_MagicStone" and caster ~= source and source ~= "NULL_00000000-0000-0000-0000-000000000000" then
+		_D("Check")
 		for _, spell in pairs(Ext.Entity.Get(source).SpellBook.Spells) do
 			if spell.Id.Prototype == "Target_MagicStone" and spell.SpellCastingAbility == "Intelligence" then
 				local int = Osi.GetAbility(caster,"Intelligence") - Osi.GetAbility(source,"Intelligence")
@@ -841,7 +852,7 @@ Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (cast
 		local pbstatus = "MAGIC_STONE_PROFICIENCY_BONUS_" .. pb
 		Osi.ApplyStatus(caster,pbstatus,-1.0,1,source)
 		end
-	elseif (spell == "Zone_DragonsBreath_Fire" or spell == "Zone_DragonsBreath_Cold" or spell == "Zone_DragonsBreath_Lightning" or spell == "Zone_DragonsBreath_Poison" or spell == "Zone_DragonsBreath_Acid" or spell == "Zone_DragonsBreath_Fire_3" or spell == "Zone_DragonsBreath_Cold_3" or spell == "Zone_DragonsBreath_Lightning_3" or spell == "Zone_DragonsBreath_Poison_3" or spell == "Zone_DragonsBreath_Acid_3" or spell == "Zone_DragonsBreath_Fire_4" or spell == "Zone_DragonsBreath_Cold_4" or spell == "Zone_DragonsBreath_Lightning_4" or spell == "Zone_DragonsBreath_Poison_4" or spell == "Zone_DragonsBreath_Acid_4" or spell == "Zone_DragonsBreath_Fire_5" or spell == "Zone_DragonsBreath_Cold_5" or spell == "Zone_DragonsBreath_Lightning_5" or spell == "Zone_DragonsBreath_Poison_5" or spell == "Zone_DragonsBreath_Acid_5" or spell == "Zone_DragonsBreath_Fire_6" or spell == "Zone_DragonsBreath_Cold_6" or spell == "Zone_DragonsBreath_Lightning_6" or spell == "Zone_DragonsBreath_Poison_6" or spell == "Zone_DragonsBreath_Acid_6" or spell == "Zone_DragonsBreath_Fire_7" or spell == "Zone_DragonsBreath_Cold_7" or spell == "Zone_DragonsBreath_Lightning_7" or spell == "Zone_DragonsBreath_Poison_7" or spell == "Zone_DragonsBreath_Acid_7" or spell == "Zone_DragonsBreath_Fire_8" or spell == "Zone_DragonsBreath_Cold_8" or spell == "Zone_DragonsBreath_Lightning_8" or spell == "Zone_DragonsBreath_Poison_8" or spell == "Zone_DragonsBreath_Acid_8" or spell == "Zone_DragonsBreath_Fire_9" or spell == "Zone_DragonsBreath_Cold_9" or spell == "Zone_DragonsBreath_Lightning_9" or spell == "Zone_DragonsBreath_Poison_9" or spell == "Zone_DragonsBreath_Acid_9") and caster ~= source then
+	elseif (spell == "Zone_DragonsBreath_Fire" or spell == "Zone_DragonsBreath_Cold" or spell == "Zone_DragonsBreath_Lightning" or spell == "Zone_DragonsBreath_Poison" or spell == "Zone_DragonsBreath_Acid" or spell == "Zone_DragonsBreath_Fire_3" or spell == "Zone_DragonsBreath_Cold_3" or spell == "Zone_DragonsBreath_Lightning_3" or spell == "Zone_DragonsBreath_Poison_3" or spell == "Zone_DragonsBreath_Acid_3" or spell == "Zone_DragonsBreath_Fire_4" or spell == "Zone_DragonsBreath_Cold_4" or spell == "Zone_DragonsBreath_Lightning_4" or spell == "Zone_DragonsBreath_Poison_4" or spell == "Zone_DragonsBreath_Acid_4" or spell == "Zone_DragonsBreath_Fire_5" or spell == "Zone_DragonsBreath_Cold_5" or spell == "Zone_DragonsBreath_Lightning_5" or spell == "Zone_DragonsBreath_Poison_5" or spell == "Zone_DragonsBreath_Acid_5" or spell == "Zone_DragonsBreath_Fire_6" or spell == "Zone_DragonsBreath_Cold_6" or spell == "Zone_DragonsBreath_Lightning_6" or spell == "Zone_DragonsBreath_Poison_6" or spell == "Zone_DragonsBreath_Acid_6" or spell == "Zone_DragonsBreath_Fire_7" or spell == "Zone_DragonsBreath_Cold_7" or spell == "Zone_DragonsBreath_Lightning_7" or spell == "Zone_DragonsBreath_Poison_7" or spell == "Zone_DragonsBreath_Acid_7" or spell == "Zone_DragonsBreath_Fire_8" or spell == "Zone_DragonsBreath_Cold_8" or spell == "Zone_DragonsBreath_Lightning_8" or spell == "Zone_DragonsBreath_Poison_8" or spell == "Zone_DragonsBreath_Acid_8" or spell == "Zone_DragonsBreath_Fire_9" or spell == "Zone_DragonsBreath_Cold_9" or spell == "Zone_DragonsBreath_Lightning_9" or spell == "Zone_DragonsBreath_Poison_9" or spell == "Zone_DragonsBreath_Acid_9") and caster ~= source and source ~= "NULL_00000000-0000-0000-0000-000000000000" then
 		for _, spell in pairs(Ext.Entity.Get(source).SpellBook.Spells) do
 			for dbaction, dbspell in pairs(dragonsBreathSpells) do
 				if spell.Id.Prototype == dbspell and spell.SpellCastingAbility == "Intelligence" then
@@ -868,7 +879,7 @@ Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (cast
 		local pb = Ext.Entity.Get(source).Stats.ProficiencyBonus
 		local pbstatus = "DRAGONS_BREATH_PROFICIENCY_BONUS_" .. pb
 		Osi.ApplyStatus(caster,pbstatus,-1.0,1,source)			
-	elseif (spell ~= "Projectile_MagicStone" and spell ~= "Zone_DragonsBreath_Fire" and spell ~= "Zone_DragonsBreath_Cold" and spell ~= "Zone_DragonsBreath_Lightning" and spell ~= "Zone_DragonsBreath_Poison" and spell ~= "Zone_DragonsBreath_Acid" and spell ~= "Zone_DragonsBreath_Fire_3" and spell ~= "Zone_DragonsBreath_Cold_3" and spell ~= "Zone_DragonsBreath_Lightning_3" and spell ~= "Zone_DragonsBreath_Poison_3" and spell ~= "Zone_DragonsBreath_Acid_3" and spell ~= "Zone_DragonsBreath_Fire_4" and spell ~= "Zone_DragonsBreath_Cold_4" and spell ~= "Zone_DragonsBreath_Lightning_4" and spell ~= "Zone_DragonsBreath_Poison_4" and spell ~= "Zone_DragonsBreath_Acid_4" and spell ~= "Zone_DragonsBreath_Fire_5" and spell ~= "Zone_DragonsBreath_Cold_5" and spell ~= "Zone_DragonsBreath_Lightning_5" and spell ~= "Zone_DragonsBreath_Poison_5" and spell ~= "Zone_DragonsBreath_Acid_5" and spell ~= "Zone_DragonsBreath_Fire_6" and spell ~= "Zone_DragonsBreath_Cold_6" and spell ~= "Zone_DragonsBreath_Lightning_6" and spell ~= "Zone_DragonsBreath_Poison_6" and spell ~= "Zone_DragonsBreath_Acid_6" and spell ~= "Zone_DragonsBreath_Fire_7" and spell ~= "Zone_DragonsBreath_Cold_7" and spell ~= "Zone_DragonsBreath_Lightning_7" and spell ~= "Zone_DragonsBreath_Poison_7" and spell ~= "Zone_DragonsBreath_Acid_7" and spell ~= "Zone_DragonsBreath_Fire_8" and spell ~= "Zone_DragonsBreath_Cold_8" and spell ~= "Zone_DragonsBreath_Lightning_8" and spell ~= "Zone_DragonsBreath_Poison_8" and spell ~= "Zone_DragonsBreath_Acid_8" and spell ~= "Zone_DragonsBreath_Fire_9" and spell ~= "Zone_DragonsBreath_Cold_9" and spell ~= "Zone_DragonsBreath_Lightning_9" and spell ~= "Zone_DragonsBreath_Poison_9" and spell ~= "Zone_DragonsBreath_Acid_9") and caster ~= source then
+	elseif (spell ~= "Projectile_MagicStone" and spell ~= "Zone_DragonsBreath_Fire" and spell ~= "Zone_DragonsBreath_Cold" and spell ~= "Zone_DragonsBreath_Lightning" and spell ~= "Zone_DragonsBreath_Poison" and spell ~= "Zone_DragonsBreath_Acid" and spell ~= "Zone_DragonsBreath_Fire_3" and spell ~= "Zone_DragonsBreath_Cold_3" and spell ~= "Zone_DragonsBreath_Lightning_3" and spell ~= "Zone_DragonsBreath_Poison_3" and spell ~= "Zone_DragonsBreath_Acid_3" and spell ~= "Zone_DragonsBreath_Fire_4" and spell ~= "Zone_DragonsBreath_Cold_4" and spell ~= "Zone_DragonsBreath_Lightning_4" and spell ~= "Zone_DragonsBreath_Poison_4" and spell ~= "Zone_DragonsBreath_Acid_4" and spell ~= "Zone_DragonsBreath_Fire_5" and spell ~= "Zone_DragonsBreath_Cold_5" and spell ~= "Zone_DragonsBreath_Lightning_5" and spell ~= "Zone_DragonsBreath_Poison_5" and spell ~= "Zone_DragonsBreath_Acid_5" and spell ~= "Zone_DragonsBreath_Fire_6" and spell ~= "Zone_DragonsBreath_Cold_6" and spell ~= "Zone_DragonsBreath_Lightning_6" and spell ~= "Zone_DragonsBreath_Poison_6" and spell ~= "Zone_DragonsBreath_Acid_6" and spell ~= "Zone_DragonsBreath_Fire_7" and spell ~= "Zone_DragonsBreath_Cold_7" and spell ~= "Zone_DragonsBreath_Lightning_7" and spell ~= "Zone_DragonsBreath_Poison_7" and spell ~= "Zone_DragonsBreath_Acid_7" and spell ~= "Zone_DragonsBreath_Fire_8" and spell ~= "Zone_DragonsBreath_Cold_8" and spell ~= "Zone_DragonsBreath_Lightning_8" and spell ~= "Zone_DragonsBreath_Poison_8" and spell ~= "Zone_DragonsBreath_Acid_8" and spell ~= "Zone_DragonsBreath_Fire_9" and spell ~= "Zone_DragonsBreath_Cold_9" and spell ~= "Zone_DragonsBreath_Lightning_9" and spell ~= "Zone_DragonsBreath_Poison_9" and spell ~= "Zone_DragonsBreath_Acid_9") and caster ~= source and source ~= "NULL_00000000-0000-0000-0000-000000000000" then
 		for dbaction, dbspell in pairs(dragonsBreathSpells) do
 			if Osi.HasSpell(caster,"Projectile_MagicStone") == 1 or Osi.HasSpell(caster,dbaction) == 1 then
 				Osi.ApplyStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL",0.0,1,source)
@@ -1069,48 +1080,21 @@ Ext.Osiris.RegisterListener("CastedSpell",5, "before",function (character, spell
 end)
 
 -- Spellcasting Ability Status
-Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "before", function (caster, spell, _, _)
-	if Osi.IsCharacter(caster) == 1 then
-		for _, spell in pairs(Ext.Entity.Get(caster).SpellContainer.Spells) do
-			if (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Intelligence") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Intelligence") and Osi.HasActiveStatus(caster,"INTELLIGENCE_SPELLCASTING") == 0 then
-				Osi.ApplyStatus(caster,"INTELLIGENCE_SPELLCASTING",-1.0,1)
-			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Wisdom") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Wisdom") and Osi.HasActiveStatus(caster,"WISDOM_SPELLCASTING") == 0 then
-				Osi.ApplyStatus(caster,"WISDOM_SPELLCASTING",-1.0,1)
-			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Charisma") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Charisma") and Osi.HasActiveStatus(caster,"CHARISMA_SPELLCASTING") == 0 then
-				Osi.ApplyStatus(caster,"CHARISMA_SPELLCASTING",-1.0,1)
+Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function(level, _)
+    if level ~= "SYS_CC_I" then
+		local party = Osi.DB_Players:Get(nil)
+		for _,p in pairs(party) do
+			for _, spell in pairs(Ext.Entity.Get(p[1]).SpellContainer.Spells) do
+				if (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Intelligence") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Intelligence") and Osi.HasActiveStatus(p[1],"INTELLIGENCE_SPELLCASTING") == 0 then
+					Osi.ApplyStatus(p[1],"INTELLIGENCE_SPELLCASTING",-1.0,1)
+				elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Wisdom") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Wisdom") and Osi.HasActiveStatus(p[1],"WISDOM_SPELLCASTING") == 0 then
+					Osi.ApplyStatus(p[1],"WISDOM_SPELLCASTING",-1.0,1)
+				elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Charisma") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Charisma") and Osi.HasActiveStatus(p[1],"CHARISMA_SPELLCASTING") == 0 then
+					Osi.ApplyStatus(p[1],"CHARISMA_SPELLCASTING",-1.0,1)
+				end
 			end
 		end
-	end
-end)
-
--- Spellcasting Ability Status
-Ext.Osiris.RegisterListener("EnteredForceTurnBased", 1, "before", function (caster)
-	if Osi.IsCharacter(caster) == 1 then
-		for _, spell in pairs(Ext.Entity.Get(caster).SpellContainer.Spells) do
-			if (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Intelligence") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Intelligence") and Osi.HasActiveStatus(caster,"INTELLIGENCE_SPELLCASTING") == 0 then
-				Osi.ApplyStatus(caster,"INTELLIGENCE_SPELLCASTING",-1.0,1)
-			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Wisdom") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Wisdom") and Osi.HasActiveStatus(caster,"WISDOM_SPELLCASTING") == 0 then
-				Osi.ApplyStatus(caster,"WISDOM_SPELLCASTING",-1.0,1)
-			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Charisma") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Charisma") and Osi.HasActiveStatus(caster,"CHARISMA_SPELLCASTING") == 0 then
-				Osi.ApplyStatus(caster,"CHARISMA_SPELLCASTING",-1.0,1)
-			end
-		end
-	end
-end)
-
--- Spellcasting Ability Status
-Ext.Osiris.RegisterListener("EnteredCombat", 2, "before", function (caster, _)
-	if Osi.IsCharacter(caster) == 1 then
-		for _, spell in pairs(Ext.Entity.Get(caster).SpellContainer.Spells) do
-			if (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Intelligence") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Intelligence") and Osi.HasActiveStatus(caster,"INTELLIGENCE_SPELLCASTING") == 0 then
-				Osi.ApplyStatus(caster,"INTELLIGENCE_SPELLCASTING",-1.0,1)
-			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Wisdom") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Wisdom") and Osi.HasActiveStatus(caster,"WISDOM_SPELLCASTING") == 0 then
-				Osi.ApplyStatus(caster,"WISDOM_SPELLCASTING",-1.0,1)
-			elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Charisma") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Charisma") and Osi.HasActiveStatus(caster,"CHARISMA_SPELLCASTING") == 0 then
-				Osi.ApplyStatus(caster,"CHARISMA_SPELLCASTING",-1.0,1)
-			end
-		end
-	end
+    end
 end)
 
 local witherAndBloomStatuses = {
@@ -1158,7 +1142,7 @@ Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (cast
 				end
 			end
 		end
-	elseif spell ~= "Shout_WitherAndBloom_RegainHP" then
+	elseif spell == "Shout_WitherAndBloom_RegainHP" or spell ~= "Shout_WitherAndBloom_RegainHP_3_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_3_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_4_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_4_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_4_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_5_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_5_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_5_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_5_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_FiveDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_FiveDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_SixDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_FiveDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_SixDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_SevenDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_FiveDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_SixDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_SevenDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_EightDie" then
 		Osi.ApplyStatus(caster,"WITHER_AND_BLOOM_MODIFIER_REMOVAL",0.0,1)
 	end
 end)
@@ -1191,6 +1175,20 @@ Ext.Osiris.RegisterListener("GainedControl", 1, "after", function (character)
 		local scagtrips = Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices
 		if	Osi.HasSpell(character,"Target_BoomingBlade") == 1 or Osi.HasSpell(character,"Target_GreenFlameBlade") == 1 then
 			Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices="2"
+		end
+	end
+end)
+
+-- Weapon Equipping
+Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", function (item, object2, character, addtype)
+	if Osi.HasSpell(character,"Shout_ShadowBlade") == 1 and item == "UNI_HUM_ShadowBlade_66d6cbd5-c231-4fc4-a3b7-80f781b579f7" then
+	local mainwep = Osi.GetEquippedItem(character, "Melee Main Weapon")
+	local mainweapon = Osi.GetTemplate(mainwep)
+		if mainweapon ~= "UNI_HUM_ShadowBlade_66d6cbd5-c231-4fc4-a3b7-80f781b579f7" then
+			Osi.Unequip(character,mainwep)
+			DelayedCall(100, function ()
+				Osi.Equip(character,mainwep)
+			end)
 		end
 	end
 end)
