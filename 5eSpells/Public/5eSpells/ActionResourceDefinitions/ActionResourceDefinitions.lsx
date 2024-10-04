@@ -27,9 +27,9 @@
                     <attribute id="UpdatesSpellPowerLevel" type="bool" value="false"/>
                 </node>
                 <node id="ActionResourceDefinition">
-                    <attribute id="Description" type="TranslatedString" handle="h099bc203g4807g43b6g9f63gafb633f28c44" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="c97efed3f85f47e28d8673d747421ef2" version="1"/>
                     <attribute id="DiceType" type="uint32" value="0" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="h84778cbcgd7a6g4895gae48gfd63e63df756" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="84778cbc-d7a6-4895-ae48-fd63e63df756" version="1"/>
                     <attribute id="IsSpellResource" type="bool" value="false"/>
                     <attribute id="MaxLevel" type="uint32" value="0"/>
                     <attribute id="Name" type="FixedString" value="MinuteMeteors"/>
@@ -40,8 +40,8 @@
                     <attribute id="UpdatesSpellPowerLevel" type="bool" value="false"/>
                 </node>
                 <node id="ActionResourceDefinition">
-                    <attribute id="Description" type="TranslatedString" handle="h6ad98a23gbd9ag4ba4gbf35g1d353cae8bca" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="hbd8664f8g0061g4283gbcb3g7835805f57a3" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="f588083033e249c4aa82a687106cbeb4" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="bd8664f8-0061-4283-bcb3-7835805f57a3" version="1"/>
                     <attribute id="IsSpellResource" type="bool" value="false"/>
                     <attribute id="MaxLevel" type="uint32" value="0"/>
                     <attribute id="Name" type="FixedString" value="FlameArrows"/>
