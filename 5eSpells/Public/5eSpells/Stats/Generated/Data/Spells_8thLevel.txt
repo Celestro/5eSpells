@@ -149,7 +149,6 @@ data "ExplodeRadius" "1"
 data "TargetConditions" "Character() and HasStatus('HOLY_AURA_ENEMY')"
 data "Trajectories" "c63c4527-1bdf-4635-ad59-7d7e2f666fa3"
 data "CastTextEvent" "Cast"
-data "SpellAnimation" ",,;,,;6889097a-f94b-4a09-82f5-b2a2ed1eb796,,;,,;,,;,,;,,;,,;,,"
 
 new entry "Target_MaddeningDarkness"
 type "SpellData"

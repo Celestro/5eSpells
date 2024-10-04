@@ -53,8 +53,3 @@ type "Object"
 using "OBJ_BoulderThrowable"
 data "Weight" "10"
 data "GameSize" "Small"
-
-new entry "MAG_Shadow_ShadowBlade_Ring"
-type "Armor"
-using "MAG_Shadow_ShadowBlade_Ring"
-data "Boosts" "UnlockSpell(Shout_ShadowBlade_Ring)"

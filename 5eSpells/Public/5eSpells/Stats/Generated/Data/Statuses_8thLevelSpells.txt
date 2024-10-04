@@ -111,7 +111,6 @@ data "OnTickSuccess" "DealDamage(4d8,Psychic,Magical)"
 data "OnTickFail" "DealDamage(8d8,Psychic,Magical)"
 data "StatusEffect" "fcd606f1-32af-4065-90b0-bc96a5f32374"
 data "StatusEffectOnTurn" "5b3d9c97-0687-4552-bdf0-371b14361b84"
-data "StatusPropertyFlags" "DisablePortraitIndicator;DisableCombatlog;DisableOverhead"
 
 new entry "MIND_BLANK"
 type "StatusData"
