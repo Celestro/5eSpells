@@ -37,7 +37,7 @@
                     <attribute id="UUID" type="guid" value="056e5fdc-92fa-49b3-8104-6bb3d055fee3"/>
                 </node>
                 <node id="TooltipExtraTexts">
-                    <attribute id="Text" type="TranslatedString" handle="08c0f5f8-ea94-4e51-8a6b-20cbcd4cb7f1" version="1"/>
+                    <attribute id="Text" type="TranslatedString" handle="h08c0f5f8gea94g4e51g8a6bg20cbcd4cb7f1" version="1"/>
                     <attribute id="UUID" type="guid" value="d6bfba46-4ec2-44ec-b945-8f7aef9916bd"/>
                 </node>
                 <node id="TooltipExtraTexts">
@@ -49,8 +49,9 @@
                     <attribute id="UUID" type="guid" value="640fba72-8885-495e-b5ae-072451caaa89"/>
                 </node>
                 <node id="TooltipExtraTexts">
-                    <attribute id="Text" type="TranslatedString" handle="dabb276c955d4a21a93e01e5d669a151" version="1"/>
-                    <attribute id="UUID" type="guid" value="0623ecc839d9446aa003aa3e56636d32"/>
+                    <attribute id="Name" type="FixedString" value="Flock of Familiars Warning"/>
+                    <attribute id="Text" type="TranslatedString" handle="haacecadfg6affg48bcgb76cgb5ec63af4309" version="1"/>
+                    <attribute id="UUID" type="guid" value="781f7253-384d-4057-977e-4b4431960c72"/>
                 </node>
                 <node id="TooltipExtraTexts"> Psychic Lance On Save
                     <attribute id="Text" type="TranslatedString" handle="5c255d93-77e1-43e2-84c4-e9ed3d826467" version="1"/>
@@ -77,12 +78,12 @@
                     <attribute id="UUID" type="guid" value="ebeb3c31eb71492fb1ca88f7716b7004"/>
                 </node>
                 <node id="TooltipExtraTexts"> Synaptic Static On Save
-                    <attribute id="Text" type="TranslatedString" handle="5a6e089bbceb4efdba28b65f473ebc54" version="1"/>
-                    <attribute id="UUID" type="guid" value="6427bd874cba483fa485b9f640f838a5"/>
+                    <attribute id="Text" type="TranslatedString" handle="h53fa6c53gf390g4618gb0b0g470f3e2c0af9" version="1"/>
+                    <attribute id="UUID" type="guid" value="ddf56bf1-a84c-4c96-b428-13c247d3a05e"/>
                 </node>
                 <node id="TooltipExtraTexts"> Synaptic Static Immunity
-                    <attribute id="Text" type="TranslatedString" handle="cb461e3d44c24dbfbac33e595fb7fd45" version="1"/>
-                    <attribute id="UUID" type="guid" value="c3e00c0b30c8483e95202511776232a4"/>
+                    <attribute id="Text" type="TranslatedString" handle="h208f6140g575bg4853ga46eg5a7853ed36cd" version="1"/>
+                    <attribute id="UUID" type="guid" value="b82e82bd-f45a-47a7-9d08-6013419f0d37"/>
                 </node>
                 <node id="TooltipExtraTexts"> Ceremony Gold Cost Warning
                     <attribute id="Text" type="TranslatedString" handle="h1ca7f387g3a91g4acaga9cbge2f2e1f0d420" version="1"/>
@@ -99,6 +100,10 @@
                 <node id="TooltipExtraTexts"> Revivify Warning
                     <attribute id="Text" type="TranslatedString" handle="h594030a5g2014g4d84g9e80g4d82279b3836" version="1"/>
                     <attribute id="UUID" type="guid" value="827eba69-f29d-4365-802a-2effbc26a6f8"/>
+                </node>
+                <node id="TooltipExtraTexts"> Borrowed Knowledge Warning
+                    <attribute id="Text" type="TranslatedString" handle="h1651ca7bgf1a5g4bbagbf3bg326e18296621" version="1"/>
+                    <attribute id="UUID" type="guid" value="0df979d7-3c75-43b4-a666-cafb7eeb748b"/>
                 </node>
             </children>
         </node>

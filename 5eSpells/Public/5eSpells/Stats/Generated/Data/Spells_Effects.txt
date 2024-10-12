@@ -238,7 +238,6 @@ data "SpellProperties" "ApplyStatus(TELEPORT_EXPLOSION,100,0)"
 data "ExplodeRadius" "3"
 data "TargetConditions" "Ally()"
 data "Trajectories" "f346b284-854e-4dd9-b87c-3938f5178265"
-data "DisplayName" "Teleport"
 data "CastTextEvent" "Cast"
 
 new entry "Projectile_SteelWindStrike_Explosion"

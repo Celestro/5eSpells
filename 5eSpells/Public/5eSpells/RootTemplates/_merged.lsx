@@ -7599,6 +7599,45 @@
 						</node>
 					</children>
 				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="f413b9de-7a7b-4933-b9ee-54958df0823b" />
+					<attribute id="Name" type="LSString" value="VFX_Projectile_SteelWindStrike" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="Type" type="FixedString" value="projectile" />
+					<attribute id="ParentTemplateId" type="FixedString" value="" />
+					<attribute id="Flag" type="uint8" value="0" />
+					<attribute id="GroupID" type="uint32" value="0" />
+					<attribute id="VisualTemplate" type="FixedString" value="" />
+					<attribute id="PhysicsTemplate" type="FixedString" value="" />
+					<attribute id="PhysicsOpenTemplate" type="FixedString" value="" />
+					<attribute id="CameraOffset" type="fvec3" value="0 0 0" />
+					<attribute id="CastBone" type="FixedString" value="Dummy_CastFX" />
+					<attribute id="ImpactFX" type="FixedString" value="VFX_Projectiles_Force_MagicMissile_Impact_01" />
+					<attribute id="TrailFX" type="FixedString" value="" />
+					<attribute id="PreviewPathImpactFX" type="FixedString" value="VFX_UI_DestinationBeam_Projectile_01" />
+					<attribute id="ImpactSoundResourceID" type="FixedString" value="e11a1c71-5181-7a7d-5abc-4ed596ff09a3" />
+					<attribute id="RotateImpact" type="bool" value="False" />
+					<attribute id="DetachBeam" type="bool" value="True" />
+					<attribute id="NeedsImpactSFX" type="bool" value="True" />
+					<attribute id="OffsetMin_Bezier3" type="fvec2" value="0 0" />
+					<attribute id="ShiftBMin_Bezier4" type="float" value="0.25" />
+					<attribute id="ShiftBMax_Bezier4" type="float" value="0.25" />
+					<attribute id="VelocityMode" type="uint8" value="0" />
+					<attribute id="InitialSpeed" type="float" value="100" />
+					<attribute id="Acceleration" type="float" value="0.1" />
+					<attribute id="CurveResourceId" type="FixedString" value="" />
+					<children>
+						<node id="Bounds" />
+					</children>
+				</node>
+				<node id="GameObjects">
+					<attribute id="MapKey" type="FixedString" value="38763a93-c929-4dc4-81ad-0f63e06c9008" />
+					<attribute id="Name" type="LSString" value="VFX_Projectile_SteelWindStrike_2" />
+					<attribute id="LevelName" type="FixedString" value="" />
+					<attribute id="Type" type="FixedString" value="projectile" />
+					<attribute id="ParentTemplateId" type="FixedString" value="f05351a0-27b7-4f68-94a8-4965a8876c5e" />
+					<attribute id="TrajectoryType" type="uint8" value="2" />
+				</node>
 			</children>
 		</node>
 	</region>
