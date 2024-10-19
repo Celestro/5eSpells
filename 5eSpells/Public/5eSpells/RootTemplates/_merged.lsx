@@ -2018,7 +2018,7 @@
 						<node id="SkillList">
 							<children>
 								<node id="Skill">
-									<attribute id="AIFlags" type="uint8" value="0" />
+									<attribute id="AIFlags" type="uint16" value="0" />
 									<attribute id="CasualExplorer" type="bool" value="True" />
 									<attribute id="Classic" type="bool" value="True" />
 									<attribute id="HonorHardcore" type="bool" value="True" />
@@ -2048,7 +2048,7 @@
 									</children>
 								</node>
 								<node id="Skill">
-									<attribute id="AIFlags" type="uint8" value="0" />
+									<attribute id="AIFlags" type="uint16" value="0" />
 									<attribute id="CasualExplorer" type="bool" value="True" />
 									<attribute id="Classic" type="bool" value="True" />
 									<attribute id="HonorHardcore" type="bool" value="True" />
@@ -3050,7 +3050,7 @@
 					<attribute id="Flag" type="int32" value="0" />
 					<attribute id="HasGameplayValue" type="bool" value="False" />
 					<attribute id="ImpactFX" type="FixedString" value="VFX_Beams_Debuff_Spectator_FearRay_Impact_01" />
-					<attribute id="GroundImpactFX" type="FixedString" value="VFX_Spells_Cast_Damage_Force_ProjectileBeam_EldritchBlast_Impact_Ground_01" />
+					<attribute id="GroundImpactFX" type="LSString" value="VFX_Spells_Cast_Damage_Force_ProjectileBeam_EldritchBlast_Impact_Ground_01" />
 					<attribute id="InitialSpeed" type="float" value="180" />
 					<attribute id="LevelName" type="FixedString" value="" />
 					<attribute id="MapKey" type="FixedString" value="e5b01840-49c3-11ee-be56-0242ac120002" />
@@ -7605,7 +7605,7 @@
 					<attribute id="LevelName" type="FixedString" value="" />
 					<attribute id="Type" type="FixedString" value="projectile" />
 					<attribute id="ParentTemplateId" type="FixedString" value="" />
-					<attribute id="Flag" type="uint8" value="0" />
+					<attribute id="Flag" type="int32" value="0" />
 					<attribute id="GroupID" type="uint32" value="0" />
 					<attribute id="VisualTemplate" type="FixedString" value="" />
 					<attribute id="PhysicsTemplate" type="FixedString" value="" />
@@ -7635,7 +7635,7 @@
 					<attribute id="Name" type="LSString" value="VFX_Projectile_SteelWindStrike_2" />
 					<attribute id="LevelName" type="FixedString" value="" />
 					<attribute id="Type" type="FixedString" value="projectile" />
-					<attribute id="ParentTemplateId" type="FixedString" value="f05351a0-27b7-4f68-94a8-4965a8876c5e" />
+					<attribute id="ParentTemplateId" type="FixedString" value="f413b9de-7a7b-4933-b9ee-54958df0823b" />
 					<attribute id="TrajectoryType" type="uint8" value="2" />
 				</node>
 			</children>

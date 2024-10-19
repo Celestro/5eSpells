@@ -924,7 +924,8 @@ data "RemoveConditions" "(IsStatusEvent(StatusEvent.OnAttacked) and (SpellId('Ta
 data "RemoveEvents" "OnAttacked;OnHeal"
 data "StatusPropertyFlags" "ApplyToDead;IgnoreResting"
 
-new entry "WEAPON_SWAP_TECHNICAL"
+new entry "GENERATE_GOLD"
 type "StatusData"
 data "StatusType" "BOOST"
-data "StackId" "WEAPON_SWAP_TECHNICAL"
+data "StackId" "GENERATE_GOLD"
+data "StatusPropertyFlags" "ApplyToDead;IgnoreResting"

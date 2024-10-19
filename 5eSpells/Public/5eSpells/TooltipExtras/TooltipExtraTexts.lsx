@@ -29,7 +29,7 @@
                     <attribute id="UUID" type="guid" value="90a25266-a34c-4209-9a6c-279a9c8aa347"/>
                 </node>
                 <node id="TooltipExtraTexts">
-                    <attribute id="Text" type="TranslatedString" handle="5dfb4398-fe17-4bdf-ae03-770adcd46dc7" version="1"/>
+                    <attribute id="Text" type="TranslatedString" handle="h5dfb4398gfe17g4bdfgae03g770adcd46dc7" version="1"/>
                     <attribute id="UUID" type="guid" value="04343be9-9ce4-41fa-b118-c57df351e2d2"/>
                 </node>
                 <node id="TooltipExtraTexts"> Gust Creature
