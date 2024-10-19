@@ -1,0 +1,553 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_S5E_SteelWindStrike("Target_SteelWindStrike");
+DB_S5E_SteelWindStrike("Target_SteelWindStrike_6");
+DB_S5E_SteelWindStrike("Target_SteelWindStrike_7");
+DB_S5E_SteelWindStrike("Target_SteelWindStrike_8");
+DB_S5E_SteelWindStrike("Target_SteelWindStrike_9");
+
+DB_S5E_ThunderStep("Teleportation_ThunderStep", "Projectile_ThunderStep_Explosion");
+DB_S5E_ThunderStep("Teleportation_ThunderStep_4", "Projectile_ThunderStep_4_Explosion");
+DB_S5E_ThunderStep("Teleportation_ThunderStep_5", "Projectile_ThunderStep_5_Explosion");
+DB_S5E_ThunderStep("Teleportation_ThunderStep_6", "Projectile_ThunderStep_6_Explosion");
+DB_S5E_ThunderStep("Teleportation_ThunderStep_7", "Projectile_ThunderStep_7_Explosion");
+DB_S5E_ThunderStep("Teleportation_ThunderStep_8", "Projectile_ThunderStep_8_Explosion");
+DB_S5E_ThunderStep("Teleportation_ThunderStep_9", "Projectile_ThunderStep_9_Explosion");
+
+DB_S5E_RemoveFeeblemind("Target_Heal");
+DB_S5E_RemoveFeeblemind("Target_Heal_6");
+DB_S5E_RemoveFeeblemind("Target_Heal_7");
+DB_S5E_RemoveFeeblemind("Target_Heal_8");
+DB_S5E_RemoveFeeblemind("Target_Heal_9");
+DB_S5E_RemoveFeeblemind("Target_GreaterRestoration");
+DB_S5E_RemoveFeeblemind("Target_GreaterRestoration_6");
+DB_S5E_RemoveFeeblemind("Target_GreaterRestoration_7");
+DB_S5E_RemoveFeeblemind("Target_GreaterRestoration_8");
+DB_S5E_RemoveFeeblemind("Target_GreaterRestoration_9");
+
+DB_S5E_PowerWordHeal("Target_PowerWordHeal");
+
+DB_S5E_StormSphere("STORM_SPHERE_AURA", "Target_StormSphere_BoltOfLightning", "Projectile_StormSphere_BoltOfLightning", "STORM_SPHERE_PROJECTILE");
+DB_S5E_StormSphere("STORM_SPHERE_AURA_5", "Target_StormSphere_BoltOfLightning_5", "Projectile_StormSphere_BoltOfLightning_5", "STORM_SPHERE_PROJECTILE_5");
+DB_S5E_StormSphere("STORM_SPHERE_AURA_6", "Target_StormSphere_BoltOfLightning_6", "Projectile_StormSphere_BoltOfLightning_6", "STORM_SPHERE_PROJECTILE_6");
+DB_S5E_StormSphere("STORM_SPHERE_AURA_7", "Target_StormSphere_BoltOfLightning_7", "Projectile_StormSphere_BoltOfLightning_7", "STORM_SPHERE_PROJECTILE_7");
+DB_S5E_StormSphere("STORM_SPHERE_AURA_8", "Target_StormSphere_BoltOfLightning_8", "Projectile_StormSphere_BoltOfLightning_8", "STORM_SPHERE_PROJECTILE_8");
+DB_S5E_StormSphere("STORM_SPHERE_AURA_9", "Target_StormSphere_BoltOfLightning_9", "Projectile_StormSphere_BoltOfLightning_9", "STORM_SPHERE_PROJECTILE_9");
+
+DB_S5E_Ceremony("Target_Ceremony_BlessWater");
+DB_S5E_Ceremony("Target_Ceremony_BlessWater_2");
+DB_S5E_Ceremony("Target_Ceremony_BlessWater_3");
+DB_S5E_Ceremony("Target_Ceremony_BlessWater_4");
+DB_S5E_Ceremony("Target_Ceremony_BlessWater_5");
+DB_S5E_Ceremony("Target_Ceremony_BlessWater_6");
+DB_S5E_Ceremony("Target_Ceremony_BlessWater_7");
+DB_S5E_Ceremony("Target_Ceremony_BlessWater_8");
+DB_S5E_Ceremony("Target_Ceremony_BlessWater_9");
+DB_S5E_Ceremony("Target_Ceremony_ComingOfAge");
+DB_S5E_Ceremony("Target_Ceremony_ComingOfAge_2");
+DB_S5E_Ceremony("Target_Ceremony_ComingOfAge_3");
+DB_S5E_Ceremony("Target_Ceremony_ComingOfAge_4");
+DB_S5E_Ceremony("Target_Ceremony_ComingOfAge_5");
+DB_S5E_Ceremony("Target_Ceremony_ComingOfAge_6");
+DB_S5E_Ceremony("Target_Ceremony_ComingOfAge_7");
+DB_S5E_Ceremony("Target_Ceremony_ComingOfAge_8");
+DB_S5E_Ceremony("Target_Ceremony_ComingOfAge_9");
+DB_S5E_Ceremony("Target_Ceremony_Dedication");
+DB_S5E_Ceremony("Target_Ceremony_Dedication_2");
+DB_S5E_Ceremony("Target_Ceremony_Dedication_3");
+DB_S5E_Ceremony("Target_Ceremony_Dedication_4");
+DB_S5E_Ceremony("Target_Ceremony_Dedication_5");
+DB_S5E_Ceremony("Target_Ceremony_Dedication_6");
+DB_S5E_Ceremony("Target_Ceremony_Dedication_7");
+DB_S5E_Ceremony("Target_Ceremony_Dedication_8");
+DB_S5E_Ceremony("Target_Ceremony_Dedication_9");
+
+DB_S5E_Ceremony_BlessWater(CONS_Drink_Water_A_640302a8-d841-44d6-996d-2addda644306);
+DB_S5E_Ceremony_BlessWater(CONS_Drink_Water_A_Wicker_00253e1b-375c-4ef4-8808-974cab615ff7);
+DB_S5E_Ceremony_BlessWater(CONS_Drink_Water_Bottle_A_d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c);
+DB_S5E_Ceremony_BlessWater(CONS_Drink_Water_B_Wicker_e8e427ac-9078-4471-85f2-4b8bbc3e00b5);
+DB_S5E_Ceremony_BlessWater(CONS_Drink_Water_Bottle_B_6f5abf98-cca0-43a7-a064-10c17643bb72);
+DB_S5E_Ceremony_BlessWater(CONS_Drink_Water_B_94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a);
+DB_S5E_Ceremony_BlessWater(CONS_Drink_Water_Jug_A_cb2e851f-8a75-4899-b705-0f079e8e55bc);
+
+DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_640302a8-d841-44d6-996d-2addda644306);
+DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_00253e1b-375c-4ef4-8808-974cab615ff7);
+DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c);
+DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_e8e427ac-9078-4471-85f2-4b8bbc3e00b5);
+DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_6f5abf98-cca0-43a7-a064-10c17643bb72);
+DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a);
+DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_cb2e851f-8a75-4899-b705-0f079e8e55bc);
+KBSECTION
+// Ceremony
+
+IF
+GoldChanged(_,_)
+AND
+DB_Players(_Character)
+AND
+PartyGetGold(_Character,_Gold)
+AND
+_Gold > 24
+AND
+HasActiveStatus(_Character,"CEREMONY_GOLD_COST",0)
+THEN
+ApplyStatus(_Character,"CEREMONY_GOLD_COST",-1.0,1,_Character);
+
+IF
+GoldChanged(_,_)
+AND
+DB_Players(_Character)
+AND
+PartyGetGold(_Character,_Gold)
+AND
+_Gold < 25
+AND
+HasActiveStatus(_Character,"CEREMONY_GOLD_COST",1)
+THEN
+RemoveStatus(_Character,"CEREMONY_GOLD_COST");
+
+IF
+LevelGameplayStarted("SYS_CC_I",_)
+AND
+DB_Players(_Character)
+AND
+PartyGetGold(_Character,_Gold)
+AND
+_Gold > 24
+AND
+HasActiveStatus(_Character,"CEREMONY_GOLD_COST",0)
+THEN
+ApplyStatus(_Character,"CEREMONY_GOLD_COST",-1.0,1,_Character);
+
+IF
+LevelGameplayStarted("SYS_CC_I",_)
+AND
+DB_Players(_Character)
+AND
+PartyGetGold(_Character,_Gold)
+AND
+_Gold < 25
+AND
+HasActiveStatus(_Character,"CEREMONY_GOLD_COST",1)
+THEN
+RemoveStatus(_Character,"CEREMONY_GOLD_COST");
+
+IF
+LeveledUp(_)
+AND
+DB_Players(_Character)
+AND
+PartyGetGold(_Character,_Gold)
+AND
+_Gold > 24
+AND
+HasActiveStatus(_Character,"CEREMONY_GOLD_COST",0)
+THEN
+ApplyStatus(_Character,"CEREMONY_GOLD_COST",-1.0,1,_Character);
+
+IF
+LeveledUp(_)
+AND
+DB_Players(_Character)
+AND
+PartyGetGold(_Character,_Gold)
+AND
+_Gold < 25
+AND
+HasActiveStatus(_Character,"CEREMONY_GOLD_COST",1)
+THEN
+RemoveStatus(_Character,"CEREMONY_GOLD_COST");
+
+IF
+CastedSpell((CHARACTER)_Character,_Spell,_,_,_)
+AND
+DB_S5E_Ceremony(_Spell)
+THEN
+PartyAddGold(_Character,-25);
+ApplyStatus((CHARACTER)_Character,"GOLD_COST_PROC",6.0,0);
+
+IF
+StatusApplied((CHARACTER)_Character,"GOLD_COST_PROC",_,_)
+AND
+DB_Players(_Character)
+AND
+PartyGetGold(_Character,_Gold)
+AND
+_Gold > 24
+AND
+HasActiveStatus(_Character,"CEREMONY_GOLD_COST",0)
+THEN
+ApplyStatus(_Character,"CEREMONY_GOLD_COST",-1.0,0);
+
+IF
+StatusApplied((CHARACTER)_Character,"GOLD_COST_PROC",_,_)
+AND
+DB_Players(_Character)
+AND
+PartyGetGold(_Character,_Gold)
+AND
+_Gold < 25
+AND
+HasActiveStatus(_Character,"CEREMONY_GOLD_COST",1)
+THEN
+RemoveStatus(_Character,"CEREMONY_GOLD_COST");
+
+IF
+TemplateAddedTo(_Template,_,_Character,_)
+AND
+DB_S5E_Ceremony_BlessWater(_Template)
+AND
+HasActiveStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL",0)
+THEN
+ApplyStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL",-1.0,1,_Character);
+
+IF
+TemplateRemovedFrom(_Template,_,_Character)
+AND
+DB_S5E_Ceremony_BlessWater(_Template)
+AND
+HasActiveStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL",1)
+THEN
+RemoveStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL");
+
+IF
+StatusApplied((CHARACTER)_Character,"CEREMONY_BLESSED_WATER",_,_)
+AND
+DB_S5E_Ceremony_BlessWaterTemplate(_Template)
+AND
+GetItemByTemplateInInventory(_Template,_Character,_Water)
+THEN
+TemplateAddTo((ITEMROOT)_edabfdca-3371-405f-8358-850718a61fdb,_Character,1,1);
+TemplateRemoveFromUser(_Template,_Character,1);
+
+// Dominate Monster
+
+IF
+StatusApplied((CHARACTER)_Character,"DOMINATE_MONSTER_TOTAL_CONTROL",(CHARACTER)_Source,_)
+THEN
+AddPartyFollower((CHARACTER)_Character,(CHARACTER)_Source);
+SetVarObject((CHARACTER)_Character,"DominatedSource",(CHARACTER)_Source);
+
+IF
+StatusRemoved((CHARACTER)_Character,"DOMINATE_MONSTER_TOTAL_CONTROL",_,_)
+AND
+GetVarObject((CHARACTER)_Character,"DominatedSource",(CHARACTER)_Source)
+THEN
+RemovePartyFollower((CHARACTER)_Character,(CHARACTER)_Source);
+
+// Feeblemind
+
+IF
+UsingSpellOnTarget(_Character,_Target,_Spell,_,_,_)
+AND
+DB_S5E_RemoveFeeblemind(_Spell)
+THEN
+RemoveStatus(_Target,"FEEBLEMIND",_Character);
+
+IF
+UsingSpellOnTarget(_Character,_Target,_Spell,_,_,_)
+AND
+DB_S5E_RemoveFeeblemind(_Spell)
+THEN
+RemoveStatus(_Target,"FEEBLEMIND",_Character);
+
+// Infestation
+
+IF
+StatusAttempt(_Character,"INFESTATION",_Source,_)
+AND
+Random(4,_Ran)
+THEN
+SetVarInteger(_Character,"InfestationMovement",_Ran);
+
+IF
+StatusApplied((CHARACTER)_Character,"INFESTATION",_Source,_)
+AND
+GetPosition((CHARACTER)_Character,_X,_Y,_Z)
+AND
+FindValidPosition(_X, _Y, _Z, 2.0, (CHARACTER)_Character, 0, _VX, _VY, _VZ)
+AND
+GetVarInteger((CHARACTER)_Character,"InfestationMovement",_Ran)
+AND
+_Ran == 0
+AND
+RealSum(_VZ, 1.5, _NewVZ)
+THEN
+CharacterMoveToPosition((CHARACTER)_Character, _VX, _VY, _NewVZ, "Run", "Infestation", 5);
+
+IF
+StatusApplied((CHARACTER)_Character,"INFESTATION",_Source,_)
+AND
+GetPosition((CHARACTER)_Character,_X,_Y,_Z)
+AND
+FindValidPosition(_X, _Y, _Z, 2.0, (CHARACTER)_Character, 1, _VX, _VY, _VZ)
+AND
+GetVarInteger((CHARACTER)_Character,"InfestationMovement",_Ran)
+AND
+_Ran == 1
+AND
+RealSubtract(_VZ, 1.5, _NewVZ)
+THEN
+CharacterMoveToPosition((CHARACTER)_Character, _VX, _VY, _NewVZ, "Run", "Infestation", 5);
+
+IF
+StatusApplied((CHARACTER)_Character,"INFESTATION",_Source,_)
+AND
+GetPosition((CHARACTER)_Character,_X,_Y,_Z)
+AND
+FindValidPosition(_X, _Y, _Z, 2.0, (CHARACTER)_Character, 1, _VX, _VY, _VZ)
+AND
+GetVarInteger((CHARACTER)_Character,"InfestationMovement",_Ran)
+AND
+_Ran == 2
+AND
+RealSum(_VX, 1.5, _NewVX)
+THEN
+CharacterMoveToPosition((CHARACTER)_Character, _NewVX, _VY, _VZ, "Run", "Infestation", 5);
+
+IF
+StatusApplied((CHARACTER)_Character,"INFESTATION",_Source,_)
+AND
+GetPosition((CHARACTER)_Character,_X,_Y,_Z)
+AND
+FindValidPosition(_X, _Y, _Z, 2.0, (CHARACTER)_Character, 1, _VX, _VY, _VZ)
+AND
+GetVarInteger((CHARACTER)_Character,"InfestationMovement",_Ran)
+AND
+_Ran == 3
+AND
+RealSubtract(_VX, 1.5, _NewVX)
+THEN
+CharacterMoveToPosition((CHARACTER)_Character, _NewVX, _VY, _VZ, "Run", "Infestation", 5);
+
+// Kinetic Jaunt
+
+IF
+GainedControl(_Character)
+AND
+HasActiveStatus(_Character,"KINETIC_JAUNT",1)
+THEN
+ApplyStatus(_Character,"KINETIC_JAUNT_AURA",6.0,0,_Character);
+
+IF
+GainedControl(_Character)
+AND
+HasActiveStatus(_Character,"KINETIC_JAUNT_WALKTHROUGH",1)
+THEN
+RemoveStatus(_Character,"KINETIC_JAUNT_WALKTHROUGH");
+
+// Nathair's Mischief
+
+IF
+StatusApplied(_Item, "NATHAIRS_MISCHIEF", _Character, _)
+THEN
+SetVarObject(_Character,"NathairsMischiefOwner",_Item);
+
+IF
+StatusApplied(_Item, "NATHAIRS_MISCHIEF_MOVE", _Character, _)
+THEN
+SetVarObject(_Character,"NathairsMischiefOwner",_Item);
+
+IF
+StatusApplied(_Character, "NATHAIRS_MISCHIEF_PROC", _, _)
+AND
+GetVarObject(_Character,"NathairsMischiefOwner",_Item)
+THEN
+ApplyStatus(_Item,"NATHAIRS_MISCHIEF_EFFECT",6.0,1,_Character);
+
+IF
+StatusAttempt(_Item, "NATHAIRS_MISCHIEF_EFFECT", _Character, _)
+AND
+Random(4,_Ran)
+THEN
+SetVarInteger(_Character,"NathairsMischiefNum",_Ran);
+SetVarObject(_Character,"NathairsMischiefObj",_Item);
+
+IF
+StatusApplied(_Item, "NATHAIRS_MISCHIEF_EFFECT", _Character, _)
+AND
+GetVarInteger(_Character,"NathairsMischiefNum",_Ran)
+AND
+GetVarObject(_Character,"NathairsMischiefObj",_Item)
+AND
+_Ran == 0
+THEN
+DebugText(_Character,"Rolled 0");
+CreateExplosion(_Item,"Projectile_NathairsMischief_Charmed", -1, _Character);
+
+IF
+StatusApplied(_Item, "NATHAIRS_MISCHIEF_EFFECT", _Character, _)
+AND
+GetVarInteger(_Character,"NathairsMischiefNum",_Ran)
+AND
+GetVarObject(_Character,"NathairsMischiefObj",_Item)
+AND
+_Ran == 1
+THEN
+DebugText(_Character,"Rolled 1");
+CreateExplosion(_Item,"Projectile_NathairsMischief_Blinded", -1, _Character);
+
+IF
+StatusApplied(_Item, "NATHAIRS_MISCHIEF_EFFECT", _Character, _)
+AND
+GetVarInteger(_Character,"NathairsMischiefNum",_Ran)
+AND
+GetVarObject(_Character,"NathairsMischiefObj",_Item)
+AND
+_Ran == 2
+THEN
+DebugText(_Character,"Rolled 2");
+CreateExplosion(_Item,"Projectile_NathairsMischief_Incapacitated", -1, _Character);
+
+IF
+StatusApplied(_Item, "NATHAIRS_MISCHIEF_EFFECT", _Character, _)
+AND
+GetVarInteger(_Character,"NathairsMischiefNum",_Ran)
+AND
+GetVarObject(_Character,"NathairsMischiefObj",_Item)
+AND
+_Ran == 3
+THEN
+DebugText(_Character,"Rolled 3");
+CreateExplosion(_Item,"Projectile_NathairsMischief_DifficultTerrain", -1, _Character);
+
+// Power Word Heal
+
+IF
+UsingSpellOnTarget(_Character,_Target,"Target_PowerWordHeal",_,_,_)
+AND
+HasActiveStatusWithGroup(_Target,"SG_Prone",1)
+THEN
+ApplyStatus(_Target,"POWER_WORD_HEAL_INTERRUPT",6.0,1);
+
+IF
+UsingSpellOnTarget(_Character,_Target,"Target_PowerWordHeal",_,_,_)
+AND
+HasActiveStatus(_Target,"SG_RAW_Prone",1)
+THEN
+ApplyStatus(_Target,"POWER_WORD_HEAL_INTERRUPT",6.0,1);
+
+IF
+UsingSpellOnTarget(_Character,_Target,_Spell,_,_,_)
+AND NOT
+DB_S5E_PowerWordHeal(_Spell)
+AND
+HasActiveStatusWithGroup(_Target,"SG_Prone",1)
+THEN
+RemoveStatus(_Target,"POWER_WORD_HEAL_INTERRUPT");
+RemoveStatus(_Target,"POWER_WORD_HEAL_TECHNICAL");
+
+IF
+UsingSpellOnTarget(_Character,_Target,_Spell,_,_,_)
+AND NOT
+DB_S5E_PowerWordHeal(_Spell)
+AND
+HasActiveStatus(_Target,"SG_RAW_Prone",1)
+THEN
+RemoveStatus(_Target,"POWER_WORD_HEAL_INTERRUPT");
+RemoveStatus(_Target,"POWER_WORD_HEAL_TECHNICAL");
+
+// Shadowspawn
+
+IF
+UsingSpell((CHARACTER)_Character, "Shout_Shadowspawn_Teleport", _, _, _)
+AND
+CharacterGetOwner((CHARACTER)_Character,(CHARACTER)_Summoner)
+THEN
+TeleportTo((CHARACTER)_Character, (CHARACTER)_Summoner, "Event", 0, 0, 0, 0, 0);
+
+// Steel Wind Strike
+
+IF
+StartedPreviewingSpell(_Character, _Spell, _, _)
+AND
+DB_S5E_SteelWindStrike(_Spell)
+AND
+GetPosition(_Character,_X,_Y,_Z)
+THEN
+DB_SteelWindStrikePos(_Character,_X,_Y,_Z);
+
+IF
+CastedSpell(_Character, _Spell, _, _, _)
+AND
+DB_S5E_SteelWindStrike(_Spell)
+AND
+DB_SteelWindStrikePos(_Character,_X,_Y,_Z)
+THEN
+RealtimeObjectTimerLaunch(_Character, "SteelWindStrikeTimer", 100);
+
+IF
+ObjectTimerFinished(_Character, "SteelWindStrikeTimer")
+AND
+DB_SteelWindStrikePos(_Character,_X,_Y,_Z)
+THEN
+TeleportToPosition(_Character,_X,_Y,_Z,"",0,0,0,0,1);
+
+// Storm Sphere
+
+IF
+StatusApplied(_Character, _Status, _Source, _)
+AND
+DB_S5E_StormSphere(_Status,_Spell,_Projectile, _Status2)
+THEN
+SetVarObject(_Source,"StoreStormSphere",_Character);
+
+IF
+UsingSpellOnTarget(_Character, _Target, _Spell, _, _, _)
+AND
+DB_S5E_StormSphere(_Status,_Spell,_Projectile, _Status2)
+THEN
+ApplyStatus(_Target,"STORM_SPHERE_SE",6.0,1);
+
+IF
+StatusApplied(_Character, _Status2, _Source, _)
+AND
+DB_S5E_StormSphere(_Status,_Spell,_Projectile, _Status2)
+AND
+GetVarObject(_Source,"StoreStormSphere",_Summon)
+THEN
+CreateExplosion(_Character, _Projectile, -1, _Summon);
+
+// Toll the Dead
+
+IF
+UsingSpell(_Character, "Target_TolltheDead", _, _, _)
+THEN
+MusicPlayGeneral("II_Gong");
+
+// Thunder Step
+
+IF
+UsingSpell(_Character, _Spell, _, _, _)
+AND
+DB_S5E_ThunderStep(_Spell, _Explosion)
+AND
+GetPosition(_Character,_X,_Y,_Z)
+THEN
+SetVarFloat(_Character,"X",_X);
+SetVarFloat(_Character,"Y",_Y);
+SetVarFloat(_Character,"Z",_Z);
+
+IF
+CastedSpell(_Character, _Spell, _, _, _)
+AND
+DB_S5E_ThunderStep(_Spell, _Explosion)
+AND
+GetVarFloat(_Character,"X",_X)
+AND
+GetVarFloat(_Character,"Y",_Y)
+AND
+GetVarFloat(_Character,"Z",_Z)
+THEN
+CreateExplosionAtPosition(_X,_Y,_Z,_Explosion,-1,_Character);
+
+// Test
+
+IF
+StatusApplied((CHARACTER)_Character, "GENERATE_GOLD", _, _)
+THEN
+PartyAddGold(_Character,25);
+EXITSECTION
+
+ENDEXITSECTION

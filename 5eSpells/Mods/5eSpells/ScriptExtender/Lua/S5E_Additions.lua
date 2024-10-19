@@ -308,7 +308,7 @@ Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster,
     end
 end)
 
--- Gold Tracking
+--[[ Gold Tracking
 Ext.Osiris.RegisterListener("GoldChanged", 2, "after", function (_, _)
 	local party = Osi.DB_Players:Get(nil)
 	for _,p in pairs(party) do
@@ -426,37 +426,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 	elseif	status == "CEREMONY_BLESSED_WATER" and not item1 and not item2 and not item3 and not item4 and not item5 and not item6 and not item7 then
 		Osi.ApplyStatus(character, "CEREMONY_BLESSED_WATER_NONE", 6.0, 1, character)
     end
-end)
-
--- Nathair's Mischief Owner
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (item, status, causee, _)
-	if	status == "NATHAIRS_MISCHIEF" or status == "NATHAIRS_MISCHIEF_MOVE" then
-		Osi.SetVarObject(causee,"NathairsMischiefOwner",item)
-	end
-
-	if status == "NATHAIRS_MISCHIEF_PROC" then
-		local nmitem = Osi.GetVarObject(causee, "NathairsMischiefOwner")
-		Osi.ApplyStatus(nmitem,"NATHAIRS_MISCHIEF_EFFECT",6.0,1,causee)
-    end
-end)
-
--- Nathair's Mischief
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (item, status, causee, _)
-	if	status == "NATHAIRS_MISCHIEF_EFFECT" then
-		local number = Random(4)
---		local num = IntegerToString(number)
---		Osi.ShowNotification(causee,num)
-		if	number == 0 then
-			Osi.CreateExplosion(item,"Projectile_NathairsMischief_Charmed", -1, causee)
-		elseif	number == 1 then
-			Osi.CreateExplosion(item,"Projectile_NathairsMischief_Blinded", -1, causee)
-		elseif	number == 2 then
-			Osi.CreateExplosion(item,"Projectile_NathairsMischief_Incapacitated", -1, causee)
-		elseif	number == 3 then
-			Osi.CreateExplosion(item,"Projectile_NathairsMischief_DifficultTerrain", -1, causee)
-		end
-    end
-end)
+end)--]]
 
 local lifeTransference = {
   "Projectile_LifeTransference_2",
@@ -660,7 +630,7 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "before", function (character, s
 	end
 end)
 
--- Thunder Step
+--[[ Thunder Step
 Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, _, _, _)
 	local x, y, z = GetPosition(caster)
 	if spell == "Teleportation_ThunderStep" or spell == "Teleportation_ThunderStep_4" or spell == "Teleportation_ThunderStep_5" or spell == "Teleportation_ThunderStep_6" or spell == "Teleportation_ThunderStep_7" or spell == "Teleportation_ThunderStep_8" or spell == "Teleportation_ThunderStep_9" then
@@ -690,16 +660,16 @@ Ext.Osiris.RegisterListener("CastSpell", 5, "after", function (caster, spell, _,
 	elseif spell == "Teleportation_ThunderStep_9" then
 		Osi.CreateExplosionAtPosition(x, y, z, "Projectile_ThunderStep_9_Explosion", -1, caster)
 	end
-end)
+end)--]]
 
--- Kinetic Jaunt
+--[[ Kinetic Jaunt
 Ext.Osiris.RegisterListener("GainedControl", 1, "after", function(character)
 	if	Osi.HasActiveStatus(character,"KINETIC_JAUNT") == 1 then
 		Osi.ApplyStatus(character,"KINETIC_JAUNT_AURA",6.0,0,character)
 	elseif	Osi.HasActiveStatus(character,"KINETIC_JAUNT_WALKTHROUGH") == 1 then
 		Osi.RemoveStatus(character,"KINETIC_JAUNT_WALKTHROUGH")
 	end
-end)
+end)--]]
 
 local dragonsBreathStatuses = {
   "DRAGONS_BREATH_FIRE",
@@ -978,22 +948,22 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
     end
 end)
 
--- Heal
+--[[ Heal
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
 	if (spell == "Target_Heal" or spell == "Target_Heal_7" or spell == "Target_Heal_8" or spell == "Target_Heal_9" or spell == "Target_GreaterRestoration" or spell == "Target_GreaterRestoration_6" or spell == "Target_GreaterRestoration_7" or spell == "Target_GreaterRestoration_8" or spell == "Target_GreaterRestoration_9") and Osi.HasActiveStatus(target,"FEEBLEMIND") == 1 then
 		Osi.RemoveStatus(target,"FEEBLEMIND")
     end
-end)
+end)--]]
 
--- Power Word Heal
+--[[ Power Word Heal
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
-	if spell == "Target_PowerWordHeal" and Osi.HasActiveStatusWithGroup(target,"SG_Prone") == 1 then
+	if spell == "Target_PowerWordHeal" and (Osi.HasActiveStatusWithGroup(target,"SG_Prone") == 1 or Osi.HasActiveStatus(target,"SG_RAW_Prone") == 1) then
 		Osi.ApplyStatus(target,"POWER_WORD_HEAL_INTERRUPT",6.0,1)
-	elseif spell ~= "Target_PowerWordHeal" and Osi.HasActiveStatusWithGroup(target,"SG_Prone") == 1 then
+	elseif spell ~= "Target_PowerWordHeal" and (Osi.HasActiveStatusWithGroup(target,"SG_Prone") == 1 or Osi.HasActiveStatus(target,"SG_RAW_Prone") == 1) then
 		Osi.RemoveStatus(target,"POWER_WORD_HEAL_INTERRUPT")
 		Osi.RemoveStatus(target,"POWER_WORD_HEAL_TECHNICAL")
     end
-end)
+end)--]]
 
 ---@param diceAmount integer
 ---@param faces integer
@@ -1010,7 +980,7 @@ function RollDice(diceAmount, faces, minDieValue, maxDieValue)
     return total
 end
 
--- Infestation
+--[[ Infestation
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
 	if status == "INFESTATION" then
 		local x, y, z = Osi.GetPosition(character)
@@ -1030,9 +1000,9 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 20)
 		end
     end
-end)
+end)--]]
 
--- Storm Sphere Setup
+--[[ Storm Sphere Setup
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
 	if status == "STORM_SPHERE_AURA" or status == "STORM_SPHERE_AURA_5" or status == "STORM_SPHERE_AURA_6" or status == "STORM_SPHERE_AURA_7" or status == "STORM_SPHERE_AURA_8" or status == "STORM_SPHERE_AURA_9" then
 		Osi.SetVarObject(causee,"StoreStormSphere",character)
@@ -1062,22 +1032,22 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
 	elseif status == "STORM_SPHERE_PROJECTILE_9" then
 		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_9", -1, summon)
 	end
-end)
+end)--]]
 
--- Shadowspawn Teleport
+--[[ Shadowspawn Teleport
 Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function (caster, spell, _, _, _)
 	if spell == "Shout_Shadowspawn_Teleport" then
 		local summoner = Osi.CharacterGetOwner(caster)
 		Osi.TeleportTo(caster, summoner, "Event", 0, 0, 0, 0, 0)
 	end
-end)
+end)--]]
 
--- Toll the Dead
+--[[ Toll the Dead
 Ext.Osiris.RegisterListener("CastedSpell",5, "before",function (character, spell, _, _, _)
 	if spell == "Target_TollTheDead" then
 		Osi.MusicPlayGeneral("II_Gong")
 	end
-end)
+end)--]]
 
 -- Spellcasting Ability Status
 Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function(level, _)
@@ -1147,7 +1117,7 @@ Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (cast
 	end
 end)
 
--- Dominate Monster Full Control
+--[[ Dominate Monster Full Control
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
 	if status == "DOMINATE_MONSTER_TOTAL_CONTROL" then
 		Osi.AddPartyFollower(character,causee)
@@ -1161,23 +1131,7 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function (character, st
 		local source = Osi.GetVarObject(character,"DominatedSource")
 		Osi.RemovePartyFollower(character,source)
 	end
-end)
-
--- Cantrip Scaling
-Ext.Osiris.RegisterListener("GainedControl", 1, "after", function (character)
-	local level = Osi.GetLevel(character)
-	if level > 16 then
-		local scagtrips = Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices
-		if	Osi.HasSpell(character,"Target_BoomingBlade") == 1 or Osi.HasSpell(character,"Target_GreenFlameBlade") == 1 then
-			Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices="3"
-		end
-	elseif level < 17 then
-		local scagtrips = Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices
-		if	Osi.HasSpell(character,"Target_BoomingBlade") == 1 or Osi.HasSpell(character,"Target_GreenFlameBlade") == 1 then
-			Ext.StaticData.Get("a4a2e91f-ff4a-4e83-ad8a-d2dd66401c3f","LevelMap").LevelMaps[12].AmountOfDices="2"
-		end
-	end
-end)
+end)--]]
 
 -- Weapon Equipping
 Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", function (item, object2, character, addtype)
