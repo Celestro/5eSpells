@@ -53,3 +53,13 @@ type "Object"
 using "OBJ_BoulderThrowable"
 data "Weight" "10"
 data "GameSize" "Small"
+
+new entry "CONS_DRINK_Water"
+type "Object"
+using "CONS_DRINK_Water"
+data "StatusInInventory" "CEREMONY_BLESSED_WATER_TECHNICAL"
+
+new entry "CONS_DRINK_Water_Bottle"
+type "Object"
+using "CONS_DRINK_Water_Bottle"
+data "StatusInInventory" "CEREMONY_BLESSED_WATER_TECHNICAL"

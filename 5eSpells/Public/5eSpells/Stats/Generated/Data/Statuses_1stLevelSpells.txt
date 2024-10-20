@@ -1049,7 +1049,7 @@ new entry "CEREMONY_BLESSED_WATER_TECHNICAL"
 type "StatusData"
 data "StatusType" "BOOST"
 data "StackId" "CEREMONY_BLESSED_WATER_TECHNICAL"
-data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator;IgnoreResting"
+data "StatusPropertyFlags" "DisableCombatlog;DisableOverhead;DisablePortraitIndicator"
 
 new entry "CEREMONY_BLESSED_WATER"
 type "StatusData"
