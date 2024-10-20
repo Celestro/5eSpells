@@ -379,7 +379,7 @@ Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", function (template, _
     end
 end)
 
--- Ceremony Bless Water Part 2
+]]-- Ceremony Bless Water Part 2
 Ext.Osiris.RegisterListener("TemplateRemovedFrom", 3, "after", function (_, _, character)
 	local item = GetItemByTemplateInInventory("640302a8-d841-44d6-996d-2addda644306", character)
 	local item2 = GetItemByTemplateInInventory("00253e1b-375c-4ef4-8808-974cab615ff7", character)
@@ -390,6 +390,7 @@ Ext.Osiris.RegisterListener("TemplateRemovedFrom", 3, "after", function (_, _, c
 	local item7 = GetItemByTemplateInInventory("cb2e851f-8a75-4899-b705-0f079e8e55bc",character)
 	if	Osi.HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 1 and not (item or item2 or item3 or item4 or item5 or item6 or item7) then
 		Osi.RemoveStatus(character, "CEREMONY_BLESSED_WATER_TECHNICAL")
+		_D("Water was removed so removing status")
     end
 end)
 

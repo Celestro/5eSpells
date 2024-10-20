@@ -193,23 +193,29 @@ HasActiveStatus(_Character,"CEREMONY_GOLD_COST",1)
 THEN
 RemoveStatus(_Character,"CEREMONY_GOLD_COST");
 
-IF
-TemplateAddedTo(_Template,_,_Character,_)
-AND
-DB_S5E_Ceremony_BlessWater(_Template)
-AND
-HasActiveStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL",0)
-THEN
-ApplyStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL",-1.0,1,_Character);
+//IF
+//TemplateAddedTo(_Template,_Object,_Character,_)
+//AND
+//DB_S5E_Ceremony_BlessWater(_Template)
+//AND
+//HasActiveStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL",0)
+//AND
+//GUIDToString(_Object, _Item)
+//THEN
+//ApplyStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL",-1.0,1,_Character);
+//DebugText(_Character,_Item);
 
-IF
-TemplateRemovedFrom(_Template,_,_Character)
-AND
-DB_S5E_Ceremony_BlessWater(_Template)
-AND
-HasActiveStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL",1)
-THEN
-RemoveStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL");
+//IF
+//TemplateRemovedFrom(_Template,_Object,_Character)
+//AND
+//DB_S5E_Ceremony_BlessWater(_Template)
+//AND
+//HasActiveStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL",1)
+//AND
+//GUIDToString(_Object, _Item)
+//THEN
+//RemoveStatus(_Character,"CEREMONY_BLESSED_WATER_TECHNICAL");
+//DebugText(_Character,_Item);
 
 IF
 StatusApplied((CHARACTER)_Character,"CEREMONY_BLESSED_WATER",_,_)
@@ -528,9 +534,10 @@ THEN
 SetVarFloat(_Character,"X",_X);
 SetVarFloat(_Character,"Y",_Y);
 SetVarFloat(_Character,"Z",_Z);
+DebugText(_Character,"First part");
 
 IF
-CastedSpell(_Character, _Spell, _, _, _)
+CastSpell((CHARACTER)_Character, _Spell, _, _, _)
 AND
 DB_S5E_ThunderStep(_Spell, _Explosion)
 AND
@@ -541,6 +548,7 @@ AND
 GetVarFloat(_Character,"Z",_Z)
 THEN
 CreateExplosionAtPosition(_X,_Y,_Z,_Explosion,-1,_Character);
+DebugText(_Character,"Is this part working");
 
 // Test
 
@@ -548,6 +556,7 @@ IF
 StatusApplied((CHARACTER)_Character, "GENERATE_GOLD", _, _)
 THEN
 PartyAddGold(_Character,25);
+DebugText(_Character,"Works");
 EXITSECTION
 
 ENDEXITSECTION
