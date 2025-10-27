@@ -1,54 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <save>
-    <version major="4" minor="7" revision="0" build="1"/>
+    <version major="4" minor="8" revision="0" build="10"/>
     <region id="Config">
         <node id="root">
             <children>
+                <node id="Conflicts"/>
                 <node id="Dependencies">
                     <children>
                         <node id="ModuleShortDesc">
                             <attribute id="Folder" type="LSString" value="GustavDev"/>
-                            <attribute id="MD5" type="LSString" value="41a84b6995c086ff5e1d5106196054fc"/>
+                            <attribute id="MD5" type="LSString" value="2e9af2654d534fbc4f03aff64d77836f"/>
                             <attribute id="Name" type="LSString" value="GustavDev"/>
                             <attribute id="PublishHandle" type="uint64" value="0"/>
-                            <attribute id="UUID" type="FixedString" value="28ac9ce2-2aba-8cda-b3b5-6e922f71b6b8"/>
-                            <attribute id="Version64" type="int64" value="145100350499759285"/>
+                            <attribute id="UUID" type="guid" value="28ac9ce2-2aba-8cda-b3b5-6e922f71b6b8"/>
+                            <attribute id="Version64" type="int64" value="145241130939120737"/>
                         </node>
                     </children>
                 </node>
                 <node id="ModuleInfo">
-                    <attribute id="Author" type="LSString" value=""/>
+                    <attribute id="Author" type="LSString" value="Celes/DiZ"/>
                     <attribute id="CharacterCreationLevelName" type="FixedString" value=""/>
                     <attribute id="Description" type="LSString" value=""/>
-                    <attribute id="FileSize" type="uint32" value="0"/>
+                    <attribute id="FileSize" type="uint64" value="0"/>
                     <attribute id="Folder" type="LSString" value="5eSpells"/>
                     <attribute id="LobbyLevelName" type="FixedString" value=""/>
-                    <attribute id="MD5" type="LSString" value="b82ffb7fa301d4d5adbc1cca38177ff9"/>
-                    <attribute id="MainMenuBackgroundVideo" type="FixedString" value=""/>
+                    <attribute id="MD5" type="LSString" value="601e5bcafca57809821a6f15c2220df9"/>
                     <attribute id="MenuLevelName" type="FixedString" value=""/>
                     <attribute id="Name" type="LSString" value="5eSpells"/>
                     <attribute id="NumPlayers" type="uint8" value="4"/>
                     <attribute id="PhotoBooth" type="FixedString" value=""/>
-                    <attribute id="PublishDate" type="uint64" value="0"/>
-                    <attribute id="PublishDownloads" type="uint32" value="0"/>
                     <attribute id="PublishHandle" type="uint64" value="0"/>
-                    <attribute id="PublishMatureContent" type="bool" value="false"/>
-                    <attribute id="PublishRating" type="uint8" value="0"/>
-                    <attribute id="PublishUpdated" type="uint64" value="0"/>
                     <attribute id="StartupLevelName" type="FixedString" value=""/>
-                    <attribute id="Tags" type="LSString" value=""/>
-                    <attribute id="Type" type="FixedString" value="Mod"/>
                     <attribute id="UUID" type="FixedString" value="fb5f528d-4d48-4bf2-a668-2274d3cfba96"/>
-                    <attribute id="Version64" type="int64" value="36028797018963968"/>
+                    <attribute id="Version64" type="int64" value="72620543991349252"/>
                     <children>
                         <node id="PublishVersion">
                             <attribute id="Version64" type="int64" value="144255927717110991"/>
                         </node>
-                        <node id="Scripts"/>
-                        <node id="TargetModes">
+                        <node id="Scripts">
                             <children>
-                                <node id="Target">
-                                    <attribute id="Object" type="FixedString" value="Story"/>
+                                <node id="Script">
+                                    <attribute id="UUID" type="FixedString" value="1953f77d-a201-45d7-a194-9b84c34b8461"/>
+                                    <children>
+                                        <node id="Parameters">
+                                            <children>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="HardcoreOnly"/>
+                                                    <attribute id="Type" type="int32" value="1"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                            </children>
+                                        </node>
+                                    </children>
+                                </node>
+                                <node id="Script">
+                                    <attribute id="UUID" type="FixedString" value="0d6510f5-50a3-4ecd-83d8-134c9a640324"/>
+                                    <children>
+                                        <node id="Parameters">
+                                            <children>
+                                                <node id="Parameter">
+                                                    <attribute id="MapKey" type="FixedString" value="HardcoreOnly"/>
+                                                    <attribute id="Type" type="int32" value="1"/>
+                                                    <attribute id="Value" type="LSString" value="0"/>
+                                                </node>
+                                            </children>
+                                        </node>
+                                    </children>
                                 </node>
                             </children>
                         </node>

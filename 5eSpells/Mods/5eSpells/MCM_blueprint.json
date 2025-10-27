@@ -1,0 +1,276 @@
+{
+    "SchemaVersion": 1,
+    "ModName": "5eSpells",
+    "Optional": true,
+    "Tabs": [
+        {
+            "TabName": "Remove Spells",
+            "TabId": "remove_spells",
+            "Sections": [
+                {
+                    "SectionId": "5e_spells",
+                    "SectionName": "5e Spells",
+                    "SectionDescription": "The following settings allow you to customize which spells of a given level added by 5e Spells are removed while one setting allows you to add exemptions to a list.",
+					"Settings": [
+						{
+							"Id": "Cantrips",
+							"Name": "Cantrips Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the cantrips created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "h98ba5bfaga7a7g4f6agb424ge350864bb1d5",
+								"NameHandle": "hd4954ea8g1bbdg41f3gaa85g49398d22250b"}
+						},
+						{
+							"Id": "5e1st",
+							"Name": "5e 1st Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 1st level spells created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "ha7cbf68age7ddg42e8g908ag28bf38fb2ff8",
+								"NameHandle": "hed349bb5g9f0dg435eg8600g66865307ae75"}
+						},
+						{
+							"Id": "5e2nd",
+							"Name": "5e 2nd Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 2nd level spells created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "ha255465egecabg4157ga92agfeadf8e7995c",
+								"NameHandle": "h460df105ge18fg4820g9663ga7760dc7cfb9"}
+						},
+						{
+							"Id": "5e3rd",
+							"Name": "5e 3rd Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 3rd level spells created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "h307cf9ccg905eg4673g874bgbeec7318725b",
+								"NameHandle": "h2b5bfb0dgabd9g4e44gb2bbga37fa170640d"}
+						},
+						{
+							"Id": "5e4th",
+							"Name": "5e 4th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 4th level spells created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "h71c87123gc5abg44f2gad2cgb3a92d0f2925",
+								"NameHandle": "h3f0c8de2g8388g4f95g9270gd79c470a43b9"}
+						},
+						{
+							"Id": "5e5th",
+							"Name": "5e 5th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 5th level spells created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "h1ad1d3f3g8925g4b73g9790g8cfbcbb80926",
+								"NameHandle": "hb1a56850gfda5g4d93gb448g1e1f67fe6eec"}
+						},
+						{
+							"Id": "5e6th",
+							"Name": "5e 6th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 6th level spells created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "h4f5d22ceg5084g4c98gba18gb49d55aaec3e",
+								"NameHandle": "h4bfadf4dgcdd7g431eg947dgf18789919b88"}
+						},
+						{
+							"Id": "5e7th",
+							"Name": "5e 7th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 7th level spells created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "hae0080f4gc3c3g4210gbf1fga04216162d18",
+								"NameHandle": "h2ac9050cgf1b4g4a0bg8b03g2b06bfa2019a"}
+						},
+						{
+							"Id": "5e8th",
+							"Name": "5e 8th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 8th level spells created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "h35567527g7f11g46abgbaddg48f0febbf1b7",
+								"NameHandle": "h5ac44a29ga634g4ae8ga8ffg70a7c8249e28"}
+						},
+						{
+							"Id": "5e9th",
+							"Name": "5e 9th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 9th level spells created by 5e Spells.",
+							"Handles": {"DescriptionHandle": "hf61a668bg92cfg4f1eg9b71g9af815f0e8e3",
+								"NameHandle": "hcab26df3g6f15g472cga705g090769298493"}
+						},
+						{
+							"Id": "SpellExemptions",
+							"Name": "Spell Exemptions",
+							"Type": "list_v2",
+							"Description": "List specific spell IDs to exempt certain 5e Spells from removal.",
+							"Handles": {"DescriptionHandle": "hfec7ad79g2145g4633ga880gb915a633e267",
+								"NameHandle": "hf28a4b67g666bg4241g9994gcc9d11ca5955"},
+							"Default": {
+								"enabled": false,
+								"elements": [
+									{
+										"name": "ADD_SPELL_ID_NAMES_HERE",
+										"enabled": true
+									}
+								]
+							},
+							"Options": {
+								"AllowReordering": true,
+								"PageSize": 5,
+								"ShowSearchBar": true
+							}
+						}
+					],
+                    "Handles": {
+                        "NameHandle": "hc8f21b4bg77fcg4ef9g9c25gd1da85946a8e",
+                        "DescriptionHandle": "he5c9654cg8cf6g4647g81a2gf2da4df5eb3f"
+                    }
+				},
+                {
+                    "SectionId": "tcoe_spells",
+                    "SectionName": "Tasha's Cauldron of Everything (TCoE) Spells",
+                    "SectionDescription": "The following settings allow you to remove additional spells added to class spell lists of a given level that were introduced in the title DnD 5e sourcebook.",
+                    "Settings": [
+						{
+							"Id": "TCoE1st",
+							"Name": "TCoE 1st Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 1st level spells added by 5e Spells to spell lists.",
+							"Handles": {"DescriptionHandle": "hc9bab164g490dg4903gad11g9306363f5614",
+								"NameHandle": "h48bf81e6g8b1fg424agb567g5769b17a0e87"}
+						},
+						{
+							"Id": "TCoE2nd",
+							"Name": "TCoE 2nd Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 2nd level spells added by 5e Spells to spell lists.",
+							"Handles": {"DescriptionHandle": "h421e10ecgf129g455fg963cg6bd58e79d141",
+								"NameHandle": "hf70b166fge33dg49a0gbb13gc456b39feed6"}
+						},
+						{
+							"Id": "TCoE3rd",
+							"Name": "TCoE 3rd Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 3rd level spells added by 5e Spells to spell lists.",
+							"Handles": {"DescriptionHandle": "h7fb2271fg58c5g4be0gbe60g7b9e12ae62ab",
+								"NameHandle": "he49531e7g0250g4459g8026g0b8c3940a4ed"}
+						},
+						{
+							"Id": "TCoE4th",
+							"Name": "TCoE 4th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 4th level spells added by 5e Spells to spell lists.",
+							"Handles": {"DescriptionHandle": "h097148ecg6d93g4291g8320g868837f3741c",
+								"NameHandle": "h35ce5592g47f2g4a7cgb95eg31c83f3ef9af"}
+						},
+						{
+							"Id": "TCoE5th",
+							"Name": "TCoE 5th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 5th level spells added by 5e Spells to spell lists.",
+							"Handles": {"DescriptionHandle": "h3c02cbf5gf524g4ca1gbafeg5d8ccdb37cdc",
+								"NameHandle": "h4552d762g8540g4a50g9800g52b43f5f2d13"}
+						},
+						{
+							"Id": "TCoE6th",
+							"Name": "TCoE 6th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 6th level spells added by 5e Spells to spell lists.",
+							"Handles": {"DescriptionHandle": "h1805559cg571ag4f5eg8d82gf426cbbe6789",
+								"NameHandle": "h2b36c4b0gf70fg4a4eg83afg95f01c76f8c3"}
+						},
+						{
+							"Id": "TCoE7th",
+							"Name": "TCoE 7th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 7th level spells added by 5e Spells to spell lists.",
+							"Handles": {"DescriptionHandle": "h27580c82g2d02g4d89ga0adgbe34072564a7",
+								"NameHandle": "hfd0c4ab1g84c8g4d19gae7agdba6b51cb664"}
+						},
+						{
+							"Id": "TCoE8th",
+							"Name": "TCoE 8th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 8th level spells added by 5e Spells to spell lists.",
+							"Handles": {"DescriptionHandle": "h334f922dgefaeg43cfgb610g9b97a334d386",
+								"NameHandle": "hedbbb4c4g7c2bg47abga42fg3f3b524af503"}
+						},
+						{
+							"Id": "TCoE9th",
+							"Name": "TCoE 9th Level Spells",
+							"Type": "checkbox",
+							"Default": false,
+							"Description": "Enable to remove the additional 9th level spells added by 5e Spells to spell lists.",
+							"Handles": {"DescriptionHandle": "h414589a4g2e28g428fga06agc8f52e1a0d2c",
+								"NameHandle": "h28a8ad2fg352fg4230g938dge0f7106ebb31"}
+						}
+                    ],
+                    "Handles": {
+                        "NameHandle": "h668c2717g1df5g49a5ga514g99fcad9e4e4e",
+                        "DescriptionHandle": "hd4bac12agbca8g4654gb6a5gd124c1229551"
+                    }
+                }
+			]
+		},
+		{
+			"TabName": "RAW (Rules as Written) Adjustments",
+			"TabId": "5e_spells_raw",
+			"Settings": [
+				{
+					"Id": "SparetheDying",
+					"Name": "Spare the Dying",
+					"Type": "checkbox",
+					"Default": false,
+					"Description": "Enable to modify the Help action to require a Medicine ability check to stabilize creatures, giving Spare the Dying cantrip a use case.",
+					"Handles": {"DescriptionHandle": "h0978dc80geca7g4d50ga7e5g25c632b24508",
+					"NameHandle": "hb7ff98b4g1308g4099gb903g7eb14677f19a"}
+				},
+				{
+					"Id": "RaiseDead",
+					"Name": "Raise Dead",
+					"Type": "checkbox",
+					"Default": false,
+					"Description": "Enable to allow creatures to be affected by the Revivify spell only if they've been dead for 10 turns, giving Raise Dead a use case.",
+					"Handles": {"DescriptionHandle": "hf29e4443g7dbfg4d66gbdacgb9d38bbd726e",
+					"NameHandle": "h396a28ddgc292g426ag9932g2e362bf2b111"}
+				},
+				{
+					"Id": "RitualSpells",
+					"Name": "Ritual Spells",
+					"Type": "checkbox",
+					"Default": false,
+					"Description": "Enable to modify all non-ritual spells and have only the appropriate base game classes able to cast ritual spells.",
+					"Handles": {"DescriptionHandle": "hc7277ae3g56b0g4ceag8316g2db96a95e576",
+					"NameHandle": "h55452035g9fa6g47b2g8f29g9647aa572a31"}
+				}
+			]
+		},
+		{
+			"TabName": "Miscellaneous Changes",
+			"TabId": "5e_spells_miscellaneous",
+			"Settings": [
+				{
+					"Id": "BoomingBladeChange",
+					"Name": "Booming Blade Modification",
+					"Type": "checkbox",
+					"Default": false,
+					"Description": "Enable to remove Larian's version of Booming Blade or disable to remove 5e Spells' version of Booming Blade.",
+					"Handles": {"DescriptionHandle": "hae7a8dc7g1249g4444g9078gaf14d4b2c104",
+					"NameHandle": "h23d1a1acg0bd7g4b11ga01bg8fdf6e4de0bb"}
+				}
+			]
+		}
+	]
+}

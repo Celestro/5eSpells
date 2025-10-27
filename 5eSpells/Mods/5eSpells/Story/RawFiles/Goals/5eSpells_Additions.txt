@@ -78,6 +78,41 @@ DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_e8e427ac-9078-4471-85f2-4b8bbc3e00
 DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_6f5abf98-cca0-43a7-a064-10c17643bb72);
 DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a);
 DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_cb2e851f-8a75-4899-b705-0f079e8e55bc);
+
+DB_S5E_ChaosBoltSpell("Target_ChaosBolt");
+DB_S5E_ChaosBoltSpell("Target_ChaosBolt_2");
+DB_S5E_ChaosBoltSpell("Target_ChaosBolt_3");
+DB_S5E_ChaosBoltSpell("Target_ChaosBolt_4");
+DB_S5E_ChaosBoltSpell("Target_ChaosBolt_5");
+DB_S5E_ChaosBoltSpell("Target_ChaosBolt_6");
+DB_S5E_ChaosBoltSpell("Target_ChaosBolt_7");
+DB_S5E_ChaosBoltSpell("Target_ChaosBolt_8");
+DB_S5E_ChaosBoltSpell("Target_ChaosBolt_9");
+
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_ACID");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_COLD");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FIRE");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FORCE");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_LIGHTNING");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_POISON");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_PSYCHIC");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_THUNDER");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_ACID_2");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_COLD_2");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FIRE_2");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FORCE_2");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_LIGHTNING_2");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_POISON_2");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_PSYCHIC_2");
+DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_THUNDER_2");
+
+DB_LifeTransferenceSpells("Target_LifeTransference");
+DB_LifeTransferenceSpells("Target_LifeTransference_4");
+DB_LifeTransferenceSpells("Target_LifeTransference_5");
+DB_LifeTransferenceSpells("Target_LifeTransference_6");
+DB_LifeTransferenceSpells("Target_LifeTransference_7");
+DB_LifeTransferenceSpells("Target_LifeTransference_8");
+DB_LifeTransferenceSpells("Target_LifeTransference_9");
 KBSECTION
 // Ceremony
 
@@ -227,6 +262,397 @@ THEN
 TemplateAddTo((ITEMROOT)_edabfdca-3371-405f-8358-850718a61fdb,_Character,1,1);
 TemplateRemoveFromUser(_Template,_Character,1);
 
+// Chaos Bolt
+
+IF
+StartedPreviewingSpell(_Character,_Spell,_,_)
+AND
+DB_S5E_ChaosBoltSpell(_Spell)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_TECHNICAL",0)
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_TECHNICAL",-1.0,1);
+
+IF
+StartedPreviewingSpell(_Character,_Spell,_,_)
+AND
+DB_S5E_ChaosBoltSpell(_Spell)
+AND
+Random(8,_Ran)
+AND
+Random(8,_Ran2)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_ACID",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_COLD",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_FIRE",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_FORCE",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_LIGHTNING",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_POISON",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_PSYCHIC",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_THUNDER",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_ACID_2",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_COLD_2",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_FIRE_2",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_FORCE_2",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_LIGHTNING_2",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_POISON_2",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_PSYCHIC_2",0)
+AND
+HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_THUNDER_2",0)
+THEN
+SetVarInteger(_Character,"ChaosBoltNumber",_Ran);
+SetVarInteger(_Character,"ChaosBoltNumber2",_Ran2);
+SetEntityEvent(_Character, "ChaosBolt", 0);
+
+IF
+StartedPreviewingSpell(_Character,_Spell,_,_)
+AND NOT
+DB_S5E_ChaosBoltSpell(_Spell)
+AND
+DB_ChaosBoltInterruptStatuses(_Status)
+THEN
+RemoveStatus(_Character, _Status);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
+AND
+_Ran == 0
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_ACID",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
+AND
+_Ran == 1
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_COLD",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
+AND
+_Ran == 2
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_FIRE",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
+AND
+_Ran == 3
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_FORCE",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
+AND
+_Ran == 4
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_LIGHTNING",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
+AND
+_Ran == 5
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_POISON",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
+AND
+_Ran == 6
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_PSYCHIC",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
+AND
+_Ran == 7
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_THUNDER",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
+AND
+_Ran2 == 0
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_ACID_2",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
+AND
+_Ran2 == 1
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_COLD_2",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
+AND
+_Ran2 == 2
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_FIRE_2",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
+AND
+_Ran2 == 3
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_FORCE_2",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
+AND
+_Ran2 == 4
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_LIGHTNING_2",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
+AND
+_Ran2 == 5
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_POISON_2",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
+AND
+_Ran2 == 6
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_PSYCHIC_2",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
+AND
+_Ran2 == 7
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_THUNDER_2",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBolt")
+AND
+GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
+AND
+GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
+AND
+_Ran == _Ran2
+AND
+Random(8,_SecondRan)
+AND
+Random(8,_SecondRan2)
+THEN
+SetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan);
+SetVarInteger(_Character,"ChaosBoltSecondNumber2",_SecondRan2);
+SetEntityEvent(_Character, "ChaosBoltSecond", 0);
+
+IF
+EntityEvent(_Character,"ChaosBoltSecond")
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
+AND
+_SecondRan == 0
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_ACID_SECOND",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltSecond")
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
+AND
+_SecondRan == 1
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_COLD_SECOND",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltSecond")
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
+AND
+_SecondRan == 2
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_FIRE_SECOND",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltSecond")
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
+AND
+_SecondRan == 3
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_FORCE_SECOND",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltSecond")
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
+AND
+_SecondRan == 4
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_LIGHTNING_SECOND",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltSecond")
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
+AND
+_SecondRan == 5
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_POISON_SECOND",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltSecond")
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
+AND
+_SecondRan == 6
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_PSYCHIC_SECOND",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltSecond")
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
+AND
+_SecondRan == 7
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_THUNDER_SECOND",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltSecond")
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
+AND
+GetVarInteger(_Character,"ChaosBoltSecondNumber2",_SecondRan2)
+AND
+_SecondRan == _SecondRan2
+AND
+Random(8,_ThirdRan)
+THEN
+SetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan);
+SetEntityEvent(_Character, "ChaosBoltThird", 0);
+
+IF
+EntityEvent(_Character,"ChaosBoltThird")
+AND
+GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
+AND
+_ThirdRan == 0
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_ACID_THIRD",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltThird")
+AND
+GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
+AND
+_ThirdRan == 1
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_COLD_THIRD",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltThird")
+AND
+GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
+AND
+_ThirdRan == 2
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_FIRE_THIRD",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltThird")
+AND
+GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
+AND
+_ThirdRan == 3
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_FORCE_THIRD",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltThird")
+AND
+GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
+AND
+_ThirdRan == 4
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_LIGHTNING_THIRD",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltThird")
+AND
+GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
+AND
+_ThirdRan == 5
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_POISON_THIRD",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltThird")
+AND
+GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
+AND
+_ThirdRan == 6
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_PSYCHIC_THIRD",6.0,1,_Character);
+
+IF
+EntityEvent(_Character,"ChaosBoltThird")
+AND
+GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
+AND
+_ThirdRan == 7
+THEN
+ApplyStatus(_Character,"CHAOS_BOLT_THUNDER_THIRD",6.0,1,_Character);
+
+IF
+UsingSpellOnTarget(_Character,_Target,_Spell,_,_,_)
+AND
+DB_S5E_ChaosBoltSpell(_Spell)
+THEN
+ApplyStatus(_Target,"CHAOS_BOLT_ADDITIONAL",6.0,1,_Character);
+
 // Dominate Monster
 
 IF
@@ -342,6 +768,137 @@ AND
 HasActiveStatus(_Character,"KINETIC_JAUNT_WALKTHROUGH",1)
 THEN
 RemoveStatus(_Character,"KINETIC_JAUNT_WALKTHROUGH");
+
+// Life Transference
+
+IF
+StartedPreviewingSpell(_Character,_Spell,_,_)
+AND
+DB_LifeTransferenceSpells(_Spell)
+AND
+GetHitpoints(_Character,_HP)
+THEN
+SetVarInteger(_Character,"LFBeforeHP",_HP);
+DebugText(_Character,"First check");
+
+IF
+StatusApplied(_Character,"LIFE_TRANSFERENCE",_Causee,_)
+AND
+GetVarInteger(_Causee,"LFBeforeHP",_BeforeHP)
+AND
+GetHitpoints(_Causee,_HP)
+AND
+IntegerSubtract(_BeforeHP,_HP,_Damage)
+AND
+IntegerProduct(_Damage,2,_Heal)
+AND
+IntegerToString(_Heal,_String)
+AND
+Concatenate("LIFE_TRANSFERENCE_HP_",_String,_Status)
+THEN
+ApplyStatus(_Character,_Status,0.0,1,_Causee);
+
+IF
+StatusApplied(_Character,"LIFE_TRANSFERENCE_4",_Causee,_)
+AND
+GetVarInteger(_Causee,"LFBeforeHP",_BeforeHP)
+AND
+GetHitpoints(_Causee,_HP)
+AND
+IntegerSubtract(_BeforeHP,_HP,_Damage)
+AND
+IntegerProduct(_Damage,2,_Heal)
+AND
+IntegerToString(_Heal,_String)
+AND
+Concatenate("LIFE_TRANSFERENCE_HP_LEVEL4_",_String,_Status)
+THEN
+ApplyStatus(_Character,_Status,0.0,1,_Causee);
+
+IF
+StatusApplied(_Character,"LIFE_TRANSFERENCE_5",_Causee,_)
+AND
+GetVarInteger(_Causee,"LFBeforeHP",_BeforeHP)
+AND
+GetHitpoints(_Causee,_HP)
+AND
+IntegerSubtract(_BeforeHP,_HP,_Damage)
+AND
+IntegerProduct(_Damage,2,_Heal)
+AND
+IntegerToString(_Heal,_String)
+AND
+Concatenate("LIFE_TRANSFERENCE_HP_LEVEL5_",_String,_Status)
+THEN
+ApplyStatus(_Character,_Status,0.0,1,_Causee);
+
+IF
+StatusApplied(_Character,"LIFE_TRANSFERENCE_6",_Causee,_)
+AND
+GetVarInteger(_Causee,"LFBeforeHP",_BeforeHP)
+AND
+GetHitpoints(_Causee,_HP)
+AND
+IntegerSubtract(_BeforeHP,_HP,_Damage)
+AND
+IntegerProduct(_Damage,2,_Heal)
+AND
+IntegerToString(_Heal,_String)
+AND
+Concatenate("LIFE_TRANSFERENCE_HP_LEVEL6_",_String,_Status)
+THEN
+ApplyStatus(_Character,_Status,0.0,1,_Causee);
+
+IF
+StatusApplied(_Character,"LIFE_TRANSFERENCE_7",_Causee,_)
+AND
+GetVarInteger(_Causee,"LFBeforeHP",_BeforeHP)
+AND
+GetHitpoints(_Causee,_HP)
+AND
+IntegerSubtract(_BeforeHP,_HP,_Damage)
+AND
+IntegerProduct(_Damage,2,_Heal)
+AND
+IntegerToString(_Heal,_String)
+AND
+Concatenate("LIFE_TRANSFERENCE_HP_LEVEL7_",_String,_Status)
+THEN
+ApplyStatus(_Character,_Status,0.0,1,_Causee);
+
+IF
+StatusApplied(_Character,"LIFE_TRANSFERENCE_8",_Causee,_)
+AND
+GetVarInteger(_Causee,"LFBeforeHP",_BeforeHP)
+AND
+GetHitpoints(_Causee,_HP)
+AND
+IntegerSubtract(_BeforeHP,_HP,_Damage)
+AND
+IntegerProduct(_Damage,2,_Heal)
+AND
+IntegerToString(_Heal,_String)
+AND
+Concatenate("LIFE_TRANSFERENCE_HP_LEVEL8_",_String,_Status)
+THEN
+ApplyStatus(_Character,_Status,0.0,1,_Causee);
+
+IF
+StatusApplied(_Character,"LIFE_TRANSFERENCE_9",_Causee,_)
+AND
+GetVarInteger(_Causee,"LFBeforeHP",_BeforeHP)
+AND
+GetHitpoints(_Causee,_HP)
+AND
+IntegerSubtract(_BeforeHP,_HP,_Damage)
+AND
+IntegerProduct(_Damage,2,_Heal)
+AND
+IntegerToString(_Heal,_String)
+AND
+Concatenate("LIFE_TRANSFERENCE_HP_LEVEL9_",_String,_Status)
+THEN
+ApplyStatus(_Character,_Status,0.0,1,_Causee);
 
 // Nathair's Mischief
 
@@ -534,7 +1091,6 @@ THEN
 SetVarFloat(_Character,"X",_X);
 SetVarFloat(_Character,"Y",_Y);
 SetVarFloat(_Character,"Z",_Z);
-DebugText(_Character,"First part");
 
 IF
 CastSpell((CHARACTER)_Character, _Spell, _, _, _)
@@ -548,9 +1104,414 @@ AND
 GetVarFloat(_Character,"Z",_Z)
 THEN
 CreateExplosionAtPosition(_X,_Y,_Z,_Explosion,-1,_Character);
-DebugText(_Character,"Is this part working");
 
-// Test
+// Teleportation Circle
+
+IF
+EnteredLevel(_TeleCircle,(ROOT)PUZ_TeleportationCircle_66f3ced9-76f3-43c4-a1ad-b5440088fc2c,_Level)
+AND
+DB_CurrentLevel(_Level)
+THEN
+RealtimeObjectTimerLaunch(_TeleCircle, "GLO_Spells_TeleportationCircle_WaitForOwnerToGetSet", 0);
+
+IF
+ObjectTimerFinished(_TeleportationCircle, "GLO_Spells_TeleportationCircle_WaitForOwnerToGetSet")
+AND
+GetOwner((ITEM)_TeleportationCircle,_Character)
+AND
+_Character != NULL_00000000-0000-0000-0000-000000000000
+THEN
+DB_GLO_Spells_SpawningTeleportationCircle(_TeleportationCircle,_Character);
+
+IF
+DB_GLO_Spells_SpawningTeleportationCircle(_TeleportationCircleOne,_Character)
+AND
+DB_GLO_Spells_SpawningTeleportationCircle(_TeleportationCircleTwo,_Character)
+AND
+_TeleportationCircleOne != _TeleportationCircleTwo
+AND
+// Make them face each other for vfx reasons
+GetPosition(_TeleportationCircleOne,_X1,_Y1,_Z1)
+AND
+GetPosition(_TeleportationCircleTwo,_X2,_Y2,_Z2)
+AND
+GetAngleXToDirection(_X1,_Z1,_X2,_Z2,_NewAngleOne)
+AND
+GetAngleXToDirection(_X2,_Z2,_X1,_Z1,_NewAngleTwo)
+AND
+IntegerSubtract(270,_NewAngleOne,_NewAngleOnePatched)
+AND
+IntegerSubtract(270,_NewAngleTwo,_NewAngleTwoPatched)
+AND
+IntegerModulo(_NewAngleOnePatched,360,_NewAngleOneNormalised)
+AND
+IntegerModulo(_NewAngleTwoPatched,360,_NewAngleTwoNormalised)
+AND
+IntegerToReal(_NewAngleOneNormalised, _NewAngleOneReal)
+AND
+IntegerToReal(_NewAngleTwoNormalised, _NewAngleTwoReal)
+THEN
+SetTeleportTargetOverride(_TeleportationCircleOne, _TeleportationCircleTwo);
+SetTeleportTargetOverride(_TeleportationCircleTwo, _TeleportationCircleOne);
+ItemRotateYToAngle(_TeleportationCircleOne,_NewAngleOneReal,100000.0);
+ItemRotateYToAngle(_TeleportationCircleTwo,_NewAngleTwoReal,100000.0);
+NOT DB_GLO_Spells_SpawningTeleportationCircle(_TeleportationCircleOne,_Character);
+NOT DB_GLO_Spells_SpawningTeleportationCircle(_TeleportationCircleTwo,_Character);
+
+// Mislead Equipment and Transformation
+
+IF
+StatusApplied((CHARACTER)_Character,"MISLEAD_ILLUSION",(CHARACTER)_Causee,_)
+THEN
+CopyCharacterEquipment((CHARACTER)_Character,(CHARACTER)_Causee);
+DB_StoreMisleadIllusion((CHARACTER)_Character,(CHARACTER)_Causee);
+RealtimeObjectTimerLaunch((CHARACTER)_Character, "MisleadIllusion", 100);
+
+IF
+ObjectTimerFinished((CHARACTER)_Character,"MisleadIllusion")
+AND
+DB_StoreMisleadIllusion((CHARACTER)_Character,(CHARACTER)_Causee)
+THEN
+Transform((CHARACTER)_Character, (CHARACTER)_Causee, c7c3381e-b901-416e-a0c4-bc745e1ff54a);
+
+// Find Traps
+
+IF
+StatusApplied((ITEM)_Item, "FIND_TRAPS_TECHNICAL", _Causee, _)
+AND
+IsTrap(_Item,1)
+THEN
+ApplyStatus((ITEM)_Item,"FIND_TRAPS",-1.0,1,_Causee);
+
+// Detect Magic
+
+IF
+StatusApplied((CHARACTER)_Character, "DETECTED_MAGIC_INVENTORY", _Causee, _)
+THEN
+IterateInventory(_Character,"DetectMagicItems","DetectMagicItemsComplete");
+
+IF
+EntityEvent((ITEM)_Item, "DetectMagicItems")
+AND
+IsItem(_Item,1)
+AND
+GetOwner(_Item,_Character)
+THEN
+ApplyStatus(_Item,"DETECTED_MAGIC_ITEM_IN_INVENTORY_TECHNICAL",-1.0,1);
+DB_DetectMagic_OwnerAndItem(_Character,_Item);
+
+QRY
+QRY_IsItemTaggedWith((ITEM)_Item)
+AND
+IsTagged(_Item,POTION_56c99a77-8f6a-4584-8e41-2a3b9f6b5261,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsItemTaggedWith((ITEM)_Item)
+AND
+IsTagged(_Item,HEALING_POTION_1879a93d-2edf-4f54-85dd-81a3724d677f,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsItemTaggedWith((ITEM)_Item)
+AND
+IsTagged(_Item,ALCH_SOLUTION_POTION_8798a644-4720-4487-bc1a-6a4bf8f3a126,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsItemTaggedWith((ITEM)_Item)
+AND
+IsTagged(_Item,SCROLL_dd86c045-0370-4ec9-b7c5-b0b160706f09,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsItemTaggedWith((ITEM)_Item)
+AND
+IsTagged(_Item,ORI_GALE_CONSUMABLEARTEFACT_7b96246c-54ba-43ea-b01d-4e0b20ad35f1,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsItemTaggedWith((ITEM)_Item)
+AND
+IsTagged(_Item,ACT3_LOW_TRESSYMTRADE_MAGICITEM_983087c8-c9d3-4a87-bc69-65f9329666c8,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsItemTaggedWith((ITEM)_Item)
+AND
+IsTagged(_Item,MAGIC_ITEM_DETECT_MAGIC_e6cc448b-0615-4459-860a-af50bf64aa0e,1)
+THEN
+DB_NOOP(1);
+
+IF
+StatusRemoved((CHARACTER)_Character, "DETECT_MAGIC_INVENTORY", _Causee, _)
+AND
+DB_DetectMagic_OwnerAndItem(_Character,_Item)
+THEN
+RemoveStatus(_Item,"DETECTED_MAGIC_ITEM");
+NOT DB_DetectMagic_OwnerAndItem(_Character,_Item);
+
+// Dragon's Breath & Magic Stone
+
+IF
+StatusApplied((CHARACTER)_Character,_Status,(CHARACTER)_Causee,_)
+AND
+QRY_IsMagicStoneStatus(_Character,_Status)
+THEN
+DB_MagicStone_StoreSource(_Character,_Causee);
+
+QRY
+QRY_IsMagicStoneStatus((CHARACTER)_Character,(STRING)_Status)
+AND
+_Status == "MAGIC_STONE_INTELLIGENCE"
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsMagicStoneStatus((CHARACTER)_Character,(STRING)_Status)
+AND
+_Status == "MAGIC_STONE_WISDOM"
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsMagicStoneStatus((CHARACTER)_Character,(STRING)_Status)
+AND
+_Status == "MAGIC_STONE_CHARISMA"
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsMagicStoneStatus((CHARACTER)_Character,(STRING)_Status)
+AND
+_Status == "MAGIC_STONE"
+THEN
+DB_NOOP(1);
+
+
+IF
+StatusApplied((CHARACTER)_Character,_Status,(CHARACTER)_Causee,_)
+AND
+_Character != _Causee
+AND
+QRY_HasDragonsBreathStatus(_Character,_Status)
+THEN
+SetVarObject(_Character,"StoreSource",_Causee);
+
+QRY
+QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
+AND
+_Status == "DRAGONS_BREATH_FIRE"
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
+AND
+_Status == "DRAGONS_BREATH_COLD"
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
+AND
+_Status == "DRAGONS_BREATH_ACID"
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
+AND
+_Status == "DRAGONS_BREATH_LIGHTNING"
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
+AND
+_Status == "DRAGONS_BREATH_POISON"
+THEN
+DB_NOOP(1);
+
+IF
+StartedPreviewingSpell((CHARACTER)_Character,"Target_MagicStone",_,_)
+AND
+QRY_IsIntelligenceCaster(_Character)
+THEN
+ApplyStatus(_Character,"MAGIC_STONE_OWNER_INTELLIGENCE",60.0,1,_Character);
+
+IF
+StartedPreviewingSpell((CHARACTER)_Character,"Target_MagicStone",_,_)
+AND
+QRY_IsWisdomCaster(_Character)
+THEN
+ApplyStatus(_Character,"MAGIC_STONE_OWNER_WISDOM",60.0,1,_Character);
+
+IF
+StartedPreviewingSpell((CHARACTER)_Character,"Target_MagicStone",_,_)
+AND
+QRY_IsCharismaCaster(_Character)
+THEN
+ApplyStatus(_Character,"MAGIC_STONE_OWNER_CHARISMA",60.0,1,_Character);
+
+QRY
+QRY_IsIntelligenceCaster((CHARACTER)_Character)
+AND
+IsTagged(_Character,WIZARD_6fe3ae27-dc6c-4fc9-9245-710c790c396c,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsIntelligenceCaster((CHARACTER)_Character)
+AND
+IsTagged(_Character,ARTIFICER_7773ae27-dc6c-4fc9-4592-0c710c796c39,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsWisdomCaster((CHARACTER)_Character)
+AND
+IsTagged(_Character,CLERIC_1671b4bf-4f47-4bb7-9cb9-80bb1f6009d5,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsWisdomCaster((CHARACTER)_Character)
+AND
+IsTagged(_Character,DRUID_44ac4317-4d38-4d28-80e2-94024c6e42f0,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsWisdomCaster((CHARACTER)_Character)
+AND
+IsTagged(_Character,RANGER_37a733c1-a862-4157-b92a-9cff46232c6a,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsCharismaCaster((CHARACTER)_Character)
+AND
+IsTagged(_Character,BARD_d93434bd-6b71-4789-b128-ee24156057cc,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsCharismaCaster((CHARACTER)_Character)
+AND
+IsTagged(_Character,WARLOCK_5804f55a-93f7-4281-9512-8d548a9e2a22,1)
+THEN
+DB_NOOP(1);
+
+QRY
+QRY_IsCharismaCaster((CHARACTER)_Character)
+AND
+IsTagged(_Character,PALADIN_6d85ab2d-5c23-498c-a61e-98f05a00177a,1)
+THEN
+DB_NOOP(1);
+
+IF
+StartedPreviewingSpell((CHARACTER)_Character,"Projectile_MagicStone",_,_)
+THEN
+PROC_AbilityCheckCalculations(_Character);
+
+IF
+StartedPreviewingSpell((CHARACTER)_Character,"Projectile_MagicStone_Wisdom",_,_)
+THEN
+PROC_AbilityCheckCalculations(_Character);
+
+IF
+StartedPreviewingSpell((CHARACTER)_Character,"Projectile_MagicStone_Charisma",_,_)
+THEN
+PROC_AbilityCheckCalculations(_Character);
+
+PROC
+PROC_AbilityCheckCalculations((CHARACTER)_Character)
+AND
+DB_MagicStone_StoreSource(_Character,(CHARACTER)_Causee)
+AND
+HasActiveStatus(_Causee,"MAGIC_STONE_OWNER_INTELLIGENCE",1)
+AND
+GetAbility(_Character,"Intelligence",_CharInt)
+AND
+GetAbility(_Causee,"Intelligence",_CauseInt)
+AND
+IntegerSubtract(_CharInt,_CauseInt,_Diff)
+AND
+_Diff != 0
+AND
+IntegerToString(_Diff,_Result)
+AND
+Concatenate("MAGIC_STONE_MODIFIER_",_Result,_Status)
+AND
+HasActiveStatus(_Character,_Status,0)
+THEN
+ApplyStatus(_Character,_Status,60.0,1,_Causee);
+
+PROC
+PROC_AbilityCheckCalculations((CHARACTER)_Character)
+AND
+DB_MagicStone_StoreSource(_Character,(CHARACTER)_Causee)
+AND
+HasActiveStatus(_Causee,"MAGIC_STONE_OWNER_WISDOM",1)
+AND
+GetAbility(_Character,"Wisdom",_CharWis)
+AND
+GetAbility(_Causee,"Wisdom",_CauseWis)
+AND
+IntegerSubtract(_CharWis,_CauseWis,_Diff)
+AND
+_Diff != 0
+AND
+IntegerToString(_Diff,_Result)
+AND
+Concatenate("MAGIC_STONE_MODIFIER_",_Result,_Status)
+AND
+HasActiveStatus(_Character,_Status,0)
+THEN
+ApplyStatus(_Character,_Status,60.0,1,_Causee);
+
+PROC
+PROC_AbilityCheckCalculations((CHARACTER)_Character)
+AND
+DB_MagicStone_StoreSource(_Character,(CHARACTER)_Causee)
+AND
+HasActiveStatus(_Causee,"MAGIC_STONE_OWNER_CHARISMA",1)
+AND
+GetAbility(_Character,"Charisma",_CharCha)
+AND
+GetAbility(_Causee,"Charisma",_CauseCha)
+AND
+IntegerSubtract(_CharCha,_CauseCha,_Diff)
+AND
+_Diff != 0
+AND
+IntegerToString(_Diff,_Result)
+AND
+Concatenate("MAGIC_STONE_MODIFIER_",_Result,_Status)
+AND
+HasActiveStatus(_Character,_Status,0)
+THEN
+ApplyStatus(_Character,_Status,60.0,1,_Causee);
+
+IF
+StartedPreviewingSpell((CHARACTER)_Character,_Spell,_,_)
+AND
+_Spell != "Projectile_MagicStone"
+AND
+_Spell != "Projectile_MagicStone_Wisdom"
+AND
+_Spell != "Projectile_MagicStone_Charisma"
+THEN
+ApplyStatus(_Character,"MAGIC_STONE_MODIFIER_REMOVAL",0.0,1);
+
+// Debug Test
 
 IF
 StatusApplied((CHARACTER)_Character, "GENERATE_GOLD", _, _)

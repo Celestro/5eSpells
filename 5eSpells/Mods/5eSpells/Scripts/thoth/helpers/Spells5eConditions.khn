@@ -496,7 +496,8 @@ function EXP_CanSeeInvisible(source, target, sourceObserver, targetObserver)
 
     return Tagged('BLINDSIGHT', source) 
        |  (HasStatus('MIND_SPIKE_OWNER', source) & HasStatus('MIND_SPIKE', target, source))
-       |  (HasStatus('TRUESIGHT', source) & ~DistanceToGreaterThan(sourcePosition, targetPosition, 36.5)) 
+       |  (HasStatus('TRUESIGHT', source) & ~DistanceToGreaterThan(sourcePosition, targetPosition, 36.5))
+       |  (HasStatus('TRUESIGHT_BOON_OF_THE_NIGHT_SPIRIT', source) & ~DistanceToGreaterThan(sourcePosition, targetPosition, 18.5))
        | ((HasStatus('SEE_INVISIBILITY', source) | HasStatus('MAG_SEE_INVISIBILITY_HIDDEN_IGNORE_RESTING', source) | HasPassive('AllSeeingEye', source)) & ~DistanceToGreaterThan(sourcePosition, targetPosition, 18.5)) 
        | ((HasPassive('FightingStyle_BlindFighting', source) | (HasPassive('Blindsense', source) & ~(HasPassive('Deafness',source) | HasStatus('SG_Deafened',source)))) & ~DistanceToGreaterThan(sourcePosition, targetPosition, 3))
 end
@@ -513,9 +514,172 @@ function NotDeadLongerThanAMinute(entity)
 end
 
 function BoomingBladeSpellCheck()
-    return ~(SpellId('Target_BoomingBlade') | SpellId('Target_BoomingBlade_Default') | SpellId('Target_BoomingBlade_SneakAttack') | SpellId('Target_BoomingBlade_DivineStrike_Life') | SpellId('Target_BoomingBlade_DivineStrike_Cold') | SpellId('Target_BoomingBlade_DivineStrike_Fire') | SpellId('Target_BoomingBlade_DivineStrike_Lightning') | SpellId('Target_BoomingBlade_DivineStrike_Thunder') | SpellId('Target_BoomingBlade_DivineStrike_Poison') | SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon'))
+    return (SpellId('Target_BoomingBlade') | SpellId('Target_BoomingBlade_Default') | SpellId('Target_BoomingBlade_SneakAttack') | SpellId('Target_BoomingBlade_DivineStrike_Life') | SpellId('Target_BoomingBlade_DivineStrike_Cold') | SpellId('Target_BoomingBlade_DivineStrike_Fire') | SpellId('Target_BoomingBlade_DivineStrike_Lightning') | SpellId('Target_BoomingBlade_DivineStrike_Thunder') | SpellId('Target_BoomingBlade_DivineStrike_Poison') | SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') | SpellId('Target_BoomingBlade_DivineStrike_Necrotic') | SpellId('Target_BoomingBlade_DivineStrike_Psychic'))
 end
 
 function GreenFlameBladeSpellCheck()
-    return ~(SpellId('Target_GreenFlameBlade') | SpellId('Target_GreenFlameBlade_Default') | SpellId('Target_GreenFlameBlade_SneakAttack') | SpellId('Target_GreenFlameBlade_DivineStrike_Life') | SpellId('Target_GreenFlameBlade_DivineStrike_Cold') | SpellId('Target_GreenFlameBlade_DivineStrike_Fire') | SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') | SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') | SpellId('Target_GreenFlameBlade_DivineStrike_Poison') | SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon'))
+    return (SpellId('Target_GreenFlameBlade') | SpellId('Target_GreenFlameBlade_Default') | SpellId('Target_GreenFlameBlade_SneakAttack') | SpellId('Target_GreenFlameBlade_DivineStrike_Life') | SpellId('Target_GreenFlameBlade_DivineStrike_Cold') | SpellId('Target_GreenFlameBlade_DivineStrike_Fire') | SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') | SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') | SpellId('Target_GreenFlameBlade_DivineStrike_Poison') | SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon') | SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic') | SpellId('Target_GreenFlameBlade_DivineStrike_Psychic'))
+end
+
+function IsHumanM(entity)
+	local entity = entity or context.Source
+	return Tagged('HUMAN',entity) & Tagged('MALE',entity)
+end
+
+function IsElfM(entity)
+	local entity = entity or context.Source
+	return Tagged('ELF',entity) & Tagged('MALE',entity)
+end
+
+function IsDrowM(entity)
+	local entity = entity or context.Source
+	return Tagged('DROWELF',entity) & Tagged('MALE',entity)
+end
+
+function IsDwarfM(entity)
+	local entity = entity or context.Source
+	return Tagged('DWARF',entity) & Tagged('MALE',entity)
+end
+
+function IsHalfElfM(entity)
+	local entity = entity or context.Source
+	return Tagged('HALFELF',entity) & Tagged('MALE',entity)
+end
+
+function IsGnomeM(entity)
+	local entity = entity or context.Source
+	return Tagged('GNOME',entity) & Tagged('MALE',entity)
+end
+
+function IsHalflingM(entity)
+	local entity = entity or context.Source
+	return Tagged('HALFLING',entity) & Tagged('MALE',entity)
+end
+
+function IsTieflingM(entity)
+	local entity = entity or context.Source
+	return Tagged('TIEFLING',entity) & Tagged('MALE',entity)
+end
+
+function IsGithyankiM(entity)
+	local entity = entity or context.Source
+	return Tagged('GITHYANKI',entity) & Tagged('MALE',entity)
+end
+
+function IsDragonbornM(entity)
+	local entity = entity or context.Source
+	return Tagged('DRAGONBORN',entity) & Tagged('MALE',entity)
+end
+
+function IsHalfOrcM(entity)
+	local entity = entity or context.Source
+	return Tagged('HALFORC',entity) & Tagged('MALE',entity)
+end
+
+function IsHumanF(entity)
+	local entity = entity or context.Source
+	return Tagged('HUMAN',entity) & Tagged('FEMALE',entity)
+end
+
+function IsElfF(entity)
+	local entity = entity or context.Source
+	return Tagged('ELF',entity) & Tagged('FEMALE',entity)
+end
+
+function IsDrowF(entity)
+	local entity = entity or context.Source
+	return Tagged('DROWELF',entity) & Tagged('FEMALE',entity)
+end
+
+function IsDwarfF(entity)
+	local entity = entity or context.Source
+	return Tagged('DWARF',entity) & Tagged('FEMALE',entity)
+end
+
+function IsHalfElfF(entity)
+	local entity = entity or context.Source
+	return Tagged('HALFELF',entity) & Tagged('FEMALE',entity)
+end
+
+function IsGnomeF(entity)
+	local entity = entity or context.Source
+	return Tagged('GNOME',entity) & Tagged('FEMALE',entity)
+end
+
+function IsHalflingF(entity)
+	local entity = entity or context.Source
+	return Tagged('HALFLING',entity) & Tagged('FEMALE',entity)
+end
+
+function IsTieflingF(entity)
+	local entity = entity or context.Source
+	return Tagged('TIEFLING',entity) & Tagged('FEMALE',entity)
+end
+
+function IsGithyankiF(entity)
+	local entity = entity or context.Source
+	return Tagged('GITHYANKI',entity) & Tagged('FEMALE',entity)
+end
+
+function IsDragonbornF(entity)
+	local entity = entity or context.Source
+	return Tagged('DRAGONBORN',entity) & Tagged('FEMALE',entity)
+end
+
+function IsHalfOrcF(entity)
+	local entity = entity or context.Source
+	return Tagged('HALFORC',entity) & Tagged('FEMALE',entity)
+end
+
+function IsCircleofPowerInterruptInteresting()
+    local rollSuccess = false
+    if context.InterruptedRoll.RollCritical == RollCritical.None then
+        rollSuccess = context.InterruptedRoll.Total >= context.InterruptedRoll.Difficulty
+    else
+        rollSuccess = context.InterruptedRoll.RollCritical == RollCritical.Success
+    end
+    
+	return ConditionResult(rollSuccess)
+end
+
+function RitualSpellsInCombat(entity)
+    entity = entity or context.Source
+    result = ~(Combat(entity) & HasStatus('S5E_RITUAL_CASTING',entity))
+    return ConditionResult(result.Result,{ConditionError("RitualSpellsNotInCombat")})
+end
+
+function RitualSpells()
+    return (SpellId('Shout_DetectMagic') & (ClassLevelHigherOrEqualThan(2,'Artificer') | ClassLevelHigherOrEqualThan(1,'Bard') | ClassLevelHigherOrEqualThan(1,'Cleric') | ClassLevelHigherOrEqualThan(1,'Druid')))
+	|  (SpellId('Target_UnseenServant') & ClassLevelHigherOrEqualThan(1,'Bard'))
+	|  ((SpellId('Target_Ceremony') | SpellId('Target_Ceremony_BlessWater') | SpellId('Target_Ceremony_ComingOfAge') | SpellId('Target_Ceremony_Dedication')) & ClassLevelHigherOrEqualThan(1,'Cleric'))
+	|  (SpellId('Shout_WaterWalk') & (ClassLevelHigherOrEqualThan(9,'Artificer') | ClassLevelHigherOrEqualThan(5,'Cleric') | ClassLevelHigherOrEqualThan(5,'Druid')))
+	|  (SpellId('Shout_CommuneWithNature') & ClassLevelHigherOrEqualThan(9,'Druid'))
+	|  (SpellId('Shout_SpeakWithAnimals') & (ClassLevelHigherOrEqualThan(1,'Druid') | ClassLevelHigherOrEqualThan(1,'Bard')))
+	|  (SpellId('Target_Silence') & ClassLevelHigherOrEqualThan(3,'Cleric'))
+	|  (SpellId('Target_FeignDeath') & (ClassLevelHigherOrEqualThan(5,'Druid') | ClassLevelHigherOrEqualThan(5,'Bard') | ClassLevelHigherOrEqualThan(5,'Cleric')))
+	|  SpellId('Target_GentleRepose') & ClassLevelHigherOrEqualThan(3,'Cleric')
+end
+
+function WarlockLearnRitualSpells()
+    return HasPassive('PactOfTheTome',context.Source) and HasPassive('BookOfAncientSecrets',context.Source)
+end
+
+function NotGentleReposed(entity)
+    entity = entity or context.Target
+    result = ~HasStatus('GENTLE_REPOSE',entity)
+    return ConditionResult(result.Result,{ConditionError("GentleReposed")})
+end
+
+function HasMagicWeaponInInventory(target)
+    local entity = entity or context.Target
+    local items = GetItemsInInventory(target)
+    if items ~= nil then
+        for _, entity in ipairs(items.Items) do
+            if HasWeaponProperty(WeaponProperties.Magical, entity).Result then
+                return ConditionResult(true)
+            end
+        end
+    end
+
+    return ConditionResult(false)
 end

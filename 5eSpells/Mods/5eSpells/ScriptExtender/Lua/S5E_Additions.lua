@@ -45,391 +45,7 @@ local function GetEntityStatus(entity, statusId)
     end
 end
 
--- Chaos Bolt Self
-Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, _, _, _)
-	local number = Random(8)
-	if	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_ACID",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 1 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_COLD",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 2 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_FIRE",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 3 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_FORCE",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 4 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_LIGHTNING",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 5 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_POISON",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 6 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_PSYCHIC",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 7 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_THUNDER",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 0 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_ACID",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 1 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_COLD",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 2 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_FIRE",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 3 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_FORCE",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 4 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_LIGHTNING",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 5 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_POISON",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 6 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_PSYCHIC",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number == 7 and (HasActiveStatus(caster,"CHAOS_BOLT_ACID") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_COLD") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(caster,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(caster,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(caster, "CHAOS_BOLT_THUNDER",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumber",number)
-    end
-end)
-
--- Chaos Bolt Target
-Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
-	local ran = Random(8)
-	if	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(target, "CHAOS_BOLT_ACID",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(target, "CHAOS_BOLT_COLD",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 2 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(target, "CHAOS_BOLT_FIRE",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 3 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(target, "CHAOS_BOLT_FORCE",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 4 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(target, "CHAOS_BOLT_LIGHTNING",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 5 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(target, "CHAOS_BOLT_POISON",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 6 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(target, "CHAOS_BOLT_PSYCHIC",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 7 and Osi.HasActiveStatus(target,"CHAOS_BOLT_ACID") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 0 and Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 0 then
-		Osi.ApplyStatus(target, "CHAOS_BOLT_THUNDER",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 0 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(target, "CHAOS_BOLT_ACID",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 1 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(target, "CHAOS_BOLT_COLD",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 2 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(target, "CHAOS_BOLT_FIRE",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 3 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(target, "CHAOS_BOLT_FORCE",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 4 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(target, "CHAOS_BOLT_LIGHTNING",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 5 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(target, "CHAOS_BOLT_POISON",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 6 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(target, "CHAOS_BOLT_PSYCHIC",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-	elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and ran == 7 and (HasActiveStatus(target,"CHAOS_BOLT_ACID") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_COLD") == 1 and Osi.HasActiveStatus(target,"CHAOS_BOLT_FIRE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_FORCE") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_LIGHTNING") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_POISON") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_PSYCHIC") == 1 or Osi.HasActiveStatus(target,"CHAOS_BOLT_THUNDER") == 1) then
-		Osi.RemoveStatus(target,"CHAOS_BOLT_ACID")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_COLD")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FIRE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_FORCE")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_LIGHTNING")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_POISON")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_PSYCHIC")
-		Osi.RemoveStatus(target,"CHAOS_BOLT_THUNDER")
-		Osi.ApplyStatus(target, "CHAOS_BOLT_THUNDER",6.0,1,caster)
-		Osi.SetVarInteger(caster,"RandomNumbe2r",ran)
-    end
-end)
-
--- Chaos Bolt Leap
-Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
-	local number = GetVarInteger(caster, "RandomNumber")
-	local number2 = Random(8)
-	if	number == number2 then
-		Osi.ApplyStatus(target,"CHAOS_BOLT_ADDITIONAL",6.0,1,caster)
-		local number3 = Random(8)
-		if	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number3 == 0 then
-			Osi.ApplyStatus(target, "CHAOS_BOLT_ACID_SECOND",6.0,1,caster)
-		elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number3 == 1 then
-			Osi.ApplyStatus(target, "CHAOS_BOLT_COLD_SECOND",6.0,1,caster)
-		elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number3 == 2 then
-			Osi.ApplyStatus(target, "CHAOS_BOLT_FIRE_SECOND",6.0,1,caster)
-		elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number3 == 3 then
-			Osi.ApplyStatus(target, "CHAOS_BOLT_FORCE_SECOND",6.0,1,caster)
-		elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number3 == 4 then
-			Osi.ApplyStatus(target, "CHAOS_BOLT_LIGHTNING_SECOND",6.0,1,caster)
-		elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number3 == 5 then
-			Osi.ApplyStatus(target, "CHAOS_BOLT_POISON_SECOND",6.0,1,caster)
-		elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number3 == 6 then
-			Osi.ApplyStatus(target, "CHAOS_BOLT_PSYCHIC_SECOND",6.0,1,caster)
-		elseif	(spell == "Target_ChaosBolt" or spell == "Target_ChaosBolt_2" or spell == "Target_ChaosBolt_3" or spell == "Target_ChaosBolt_4" or spell == "Target_ChaosBolt_5" or spell == "Target_ChaosBolt_6" or spell == "Target_ChaosBolt_7" or spell == "Target_ChaosBolt_8" or spell == "Target_ChaosBolt_9") and number3 == 7 then
-			Osi.ApplyStatus(target, "CHAOS_BOLT_THUNDER_SECOND",6.0,1,caster)
-		end
-    end
-end)
-
---[[ Gold Tracking
-Ext.Osiris.RegisterListener("GoldChanged", 2, "after", function (_, _)
-	local party = Osi.DB_Players:Get(nil)
-	for _,p in pairs(party) do
-		local amt = Osi.PartyGetGold(p[1])
-		if amt ~= nil and amt > 24 and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
-			Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
-		elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
-			Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
-		end
-    end
-end)
-
--- Gold Tracking 2
-Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function(level, _)
-    if level ~= "SYS_CC_I" then
-		local party = Osi.DB_Players:Get(nil)
-		for _,p in pairs(party) do
-			local amt = Osi.PartyGetGold(p[1])
-			if amt ~= nil and amt > 24 and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
-				Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
-			elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
-				Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
-			end
-		end
-    end
-end)
-
--- Gold Tracking 3
-Ext.Osiris.RegisterListener("LeveledUp", 1, "after", function (_)
-	local party = Osi.DB_Players:Get(nil)
-	for _,p in pairs(party) do
-		local amt = Osi.PartyGetGold(p[1])
-		if amt ~= nil and amt > 24 and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
-			Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
-		elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
-			Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
-		end
-    end
-end)
-
--- Gold Removal
-Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function (caster, spell, _, _, _)
-	if spell == "Target_Ceremony_BlessWater" or spell == "Target_Ceremony_ComingOfAge" or spell == "Target_Ceremony_Dedication" or spell == "Target_Ceremony_BlessWater_2" or spell == "Target_Ceremony_ComingOfAge_2" or spell == "Target_Ceremony_Dedication_2" or spell == "Target_Ceremony_BlessWater_3" or spell == "Target_Ceremony_ComingOfAge_3" or spell == "Target_Ceremony_Dedication_3" or spell == "Target_Ceremony_BlessWater_4" or spell == "Target_Ceremony_ComingOfAge_4" or spell == "Target_Ceremony_Dedication_4" or spell == "Target_Ceremony_BlessWater_5" or spell == "Target_Ceremony_ComingOfAge_5" or spell == "Target_Ceremony_Dedication_5" or spell == "Target_Ceremony_BlessWater_6" or spell == "Target_Ceremony_ComingOfAge_6" or spell == "Target_Ceremony_Dedication_6" or spell == "Target_Ceremony_BlessWater_7" or spell == "Target_Ceremony_ComingOfAge_7" or spell == "Target_Ceremony_Dedication_7" or spell == "Target_Ceremony_BlessWater_8" or spell == "Target_Ceremony_ComingOfAge_8" or spell == "Target_Ceremony_Dedication_8" or spell == "Target_Ceremony_BlessWater_9" or spell == "Target_Ceremony_ComingOfAge_9" or spell == "Target_Ceremony_Dedication_9" then
-		Osi.PartyAddGold(caster, -25)
-		Osi.ApplyStatus(caster,"GOLD_COST_PROC",6.0,0)
-    end
-end)
-
--- Gold Check after Removal
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (_, status, _, _)
-	local party = Osi.DB_Players:Get(nil)
-	if status == "GOLD_COST_PROC" then
-		for _,p in pairs(party) do
-			local amt = Osi.PartyGetGold(p[1])
-			if amt > 24 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 0 then
-				Osi.ApplyStatus(p[1],"CEREMONY_GOLD_COST",-1.0,1,p[1])
-			elseif amt < 25 and amt ~= nil and Osi.HasActiveStatus(p[1],"CEREMONY_GOLD_COST") == 1 then
-				Osi.RemoveStatus(p[1],"CEREMONY_GOLD_COST")
-			end
-		end
-    end
-end)
-
--- Ceremony Bless Water Part 1
-Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", function (template, _, character, _)
-	if	(template == "CONS_Drink_Water_A_640302a8-d841-44d6-996d-2addda644306" or template == "CONS_Drink_Water_A_Wicker_00253e1b-375c-4ef4-8808-974cab615ff7" or template == "CONS_Drink_Water_Bottle_A_d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c" or template == "CONS_Drink_Water_B_Wicker_e8e427ac-9078-4471-85f2-4b8bbc3e00b5" or template == "CONS_Drink_Water_Bottle_B_6f5abf98-cca0-43a7-a064-10c17643bb72" or template == "CONS_Drink_Water_B_94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a" or template == "CONS_Drink_Water_Jug_A_cb2e851f-8a75-4899-b705-0f079e8e55bc") and Osi.HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 0 then
-		Osi.ApplyStatus(character, "CEREMONY_BLESSED_WATER_TECHNICAL", -1.0, 1, character)
-    end
-end)
-
-]]-- Ceremony Bless Water Part 2
-Ext.Osiris.RegisterListener("TemplateRemovedFrom", 3, "after", function (_, _, character)
-	local item = GetItemByTemplateInInventory("640302a8-d841-44d6-996d-2addda644306", character)
-	local item2 = GetItemByTemplateInInventory("00253e1b-375c-4ef4-8808-974cab615ff7", character)
-	local item3 = GetItemByTemplateInInventory("d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c", character)
-	local item4 = GetItemByTemplateInInventory("e8e427ac-9078-4471-85f2-4b8bbc3e00b5",character)
-	local item5 = GetItemByTemplateInInventory("6f5abf98-cca0-43a7-a064-10c17643bb72",character)
-	local item6 = GetItemByTemplateInInventory("94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a",character)
-	local item7 = GetItemByTemplateInInventory("cb2e851f-8a75-4899-b705-0f079e8e55bc",character)
-	if	Osi.HasActiveStatus(character,"CEREMONY_BLESSED_WATER_TECHNICAL") == 1 and not (item or item2 or item3 or item4 or item5 or item6 or item7) then
-		Osi.RemoveStatus(character, "CEREMONY_BLESSED_WATER_TECHNICAL")
-		_D("Water was removed so removing status")
-    end
-end)
-
--- Ceremony
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, _, _)
-	local item = GetItemByTemplateInInventory("640302a8-d841-44d6-996d-2addda644306", character)
-	local item2 = GetItemByTemplateInInventory("00253e1b-375c-4ef4-8808-974cab615ff7", character)
-	local item3 = GetItemByTemplateInInventory("d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c", character)
-	local item4 = GetItemByTemplateInInventory("e8e427ac-9078-4471-85f2-4b8bbc3e00b5",character)
-	local item5 = GetItemByTemplateInInventory("6f5abf98-cca0-43a7-a064-10c17643bb72",character)
-	local item6 = GetItemByTemplateInInventory("94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a",character)
-	local item7 = GetItemByTemplateInInventory("cb2e851f-8a75-4899-b705-0f079e8e55bc",character)
-	if	status == "CEREMONY_BLESSED_WATER" and item then
-		Osi.TemplateAddTo("edabfdca-3371-405f-8358-850718a61fdb", character, 1, 1)
-		Osi.TemplateRemoveFromUser("640302a8-d841-44d6-996d-2addda644306", character, 1)
-	elseif	status == "CEREMONY_BLESSED_WATER" and item2 then
-		Osi.TemplateAddTo("edabfdca-3371-405f-8358-850718a61fdb", character, 1, 1)
-		Osi.TemplateRemoveFromUser("00253e1b-375c-4ef4-8808-974cab615ff7", character, 1)
-	elseif	status == "CEREMONY_BLESSED_WATER" and item3 then
-		Osi.TemplateAddTo("edabfdca-3371-405f-8358-850718a61fdb", character, 1, 1)
-		Osi.TemplateRemoveFromUser("d8fff9cf-05b9-4aeb-b5b4-0f6bb98b7f2c", character, 1)
-	elseif	status == "CEREMONY_BLESSED_WATER" and item4 then
-		Osi.TemplateAddTo("edabfdca-3371-405f-8358-850718a61fdb", character, 1, 1)
-		Osi.TemplateRemoveFromUser("e8e427ac-9078-4471-85f2-4b8bbc3e00b5", character, 1)
-	elseif	status == "CEREMONY_BLESSED_WATER" and item5 then
-		Osi.TemplateAddTo("edabfdca-3371-405f-8358-850718a61fdb", character, 1, 1)
-		Osi.TemplateRemoveFromUser("6f5abf98-cca0-43a7-a064-10c17643bb72", character, 1)
-	elseif	status == "CEREMONY_BLESSED_WATER" and item6 then
-		Osi.TemplateAddTo("edabfdca-3371-405f-8358-850718a61fdb", character, 1, 1)
-		Osi.TemplateRemoveFromUser("94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a", character, 1)
-	elseif	status == "CEREMONY_BLESSED_WATER" and item7 then
-		Osi.TemplateAddTo("edabfdca-3371-405f-8358-850718a61fdb", character, 1, 1)
-		Osi.TemplateRemoveFromUser("cb2e851f-8a75-4899-b705-0f079e8e55bc", character, 1)
-	elseif	status == "CEREMONY_BLESSED_WATER" and not item1 and not item2 and not item3 and not item4 and not item5 and not item6 and not item7 then
-		Osi.ApplyStatus(character, "CEREMONY_BLESSED_WATER_NONE", 6.0, 1, character)
-    end
-end)--]]
-
-local lifeTransference = {
+--[[local lifeTransference = {
   "Projectile_LifeTransference_2",
   "Projectile_LifeTransference_4",
   "Projectile_LifeTransference_6",
@@ -518,7 +134,6 @@ Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "before", function (cas
 		local hp = GetHitpoints(caster)
 --		local num = IntegerToString(hp)
 --		Osi.ShowNotification(caster,num)
-		_D("First part works")
 		Osi.SetVarInteger(caster,"BeforeHP",hp)
     end
 
@@ -580,12 +195,9 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "before", function (character, s
 	elseif status == "LIFE_TRANSFERENCE_4" then
 		local previoushp = GetVarInteger(causee, "BeforeHP")
 		local currenthp = GetHitpoints(causee)
-		_D(previoushp)
-		_D(currenthp)
 		local hp = 0
 		hp = previoushp - currenthp
 		hp = hp * 2
-		_D(hp)
 		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
 		Osi.ApplyStatus(character,ltstatus,0.0,1,causee)
 	elseif status == "LIFE_TRANSFERENCE_5" then
@@ -629,253 +241,141 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "before", function (character, s
 		local ltstatus = "LIFE_TRANSFERENCE_HP_" .. hp
 		Osi.ApplyStatus(character,ltstatus,0.0,1,causee)
 	end
-end)
-
---[[ Thunder Step
-Ext.Osiris.RegisterListener("UsingSpell", 5, "before", function (caster, spell, _, _, _)
-	local x, y, z = GetPosition(caster)
-	if spell == "Teleportation_ThunderStep" or spell == "Teleportation_ThunderStep_4" or spell == "Teleportation_ThunderStep_5" or spell == "Teleportation_ThunderStep_6" or spell == "Teleportation_ThunderStep_7" or spell == "Teleportation_ThunderStep_8" or spell == "Teleportation_ThunderStep_9" then
-		Osi.SetVarFloat(caster,"X",x)
-		Osi.SetVarFloat(caster,"Y",y)
-		Osi.SetVarFloat(caster,"Z",z)
-	end
-end)
-
--- Thunder Step Explosion
-Ext.Osiris.RegisterListener("CastSpell", 5, "after", function (caster, spell, _, _, _)
-	local x = GetVarFloat(caster,"X")
-	local y = GetVarFloat(caster,"Y")
-	local z = GetVarFloat(caster,"Z")
-	if spell == "Teleportation_ThunderStep" then
-		Osi.CreateExplosionAtPosition(x, y, z, "Projectile_ThunderStep_Explosion", -1, caster)
-	elseif spell == "Teleportation_ThunderStep_4" then
-		Osi.CreateExplosionAtPosition(x, y, z, "Projectile_ThunderStep_4_Explosion", -1, caster)
-	elseif spell == "Teleportation_ThunderStep_5" then
-		Osi.CreateExplosionAtPosition(x, y, z, "Projectile_ThunderStep_5_Explosion", -1, caster)
-	elseif spell == "Teleportation_ThunderStep_6" then
-		Osi.CreateExplosionAtPosition(x, y, z, "Projectile_ThunderStep_6_Explosion", -1, caster)
-	elseif spell == "Teleportation_ThunderStep_7" then
-		Osi.CreateExplosionAtPosition(x, y, z, "Projectile_ThunderStep_7_Explosion", -1, caster)
-	elseif spell == "Teleportation_ThunderStep_8" then
-		Osi.CreateExplosionAtPosition(x, y, z, "Projectile_ThunderStep_8_Explosion", -1, caster)
-	elseif spell == "Teleportation_ThunderStep_9" then
-		Osi.CreateExplosionAtPosition(x, y, z, "Projectile_ThunderStep_9_Explosion", -1, caster)
-	end
 end)--]]
 
---[[ Kinetic Jaunt
-Ext.Osiris.RegisterListener("GainedControl", 1, "after", function(character)
-	if	Osi.HasActiveStatus(character,"KINETIC_JAUNT") == 1 then
-		Osi.ApplyStatus(character,"KINETIC_JAUNT_AURA",6.0,0,character)
-	elseif	Osi.HasActiveStatus(character,"KINETIC_JAUNT_WALKTHROUGH") == 1 then
-		Osi.RemoveStatus(character,"KINETIC_JAUNT_WALKTHROUGH")
-	end
+--[[ Magic Stone & Dragon's Breath
+local MAGIC_STONE = "MAGIC_STONE"
+local DRAGONS_BREATH_PREFIX = "DRAGONS_BREATH"
+local NULL_GUID = "NULL_00000000-0000-0000-0000-000000000000"
+
+local dragonsBreathTypes = { "FIRE", "COLD", "ACID", "LIGHTNING", "POISON" }
+
+local function SafeGetEntity(guid)
+    local success, entity = pcall(Ext.Entity.Get, guid)
+    if success and entity then return entity end
+end
+
+local function NormalizeAbility(ability)
+    if type(ability) == "number" then
+        return AbilityNames[ability] or "Intelligence" -- default fallback
+    end
+    return tostring(ability)
+end
+
+local function GetSpellcastingAbility(entity, spellPrototype)
+    if not entity or not entity.SpellBook then return nil end
+    for _, spell in pairs(entity.SpellBook.Spells) do
+        if spell.Id.Prototype == spellPrototype then
+            return spell.SpellCastingAbility
+        end
+    end
+end
+
+local function ApplyAbilityModifierStatus(target, source, ability, prefix)
+    ability = NormalizeAbility(ability)
+    local diff = Osi.GetAbility(target, ability) - Osi.GetAbility(source, ability)
+    if diff == 0 then return end
+    local status = string.format("%s_MODIFIER_%d", prefix, diff)
+    if Osi.HasActiveStatus(target, status) == 0 then
+        Osi.ApplyStatus(target, status, -1.0, 1, source)
+    end
+end
+
+local function RemoveAssociatedBonuses(character, prefix)
+    for i = -10, 10 do
+        Osi.RemoveStatus(character, string.format("%s_MODIFIER_%d", prefix, i))
+    end
+end
+
+-- Track Source for Targets
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(character, status, causee, _)
+    if not character or not causee then return end
+    if Osi.GetUUID(character) == Osi.GetUUID(causee) then return end
+
+    if status == MAGIC_STONE then
+        Osi.SetVarObject(character, "StoreSource", causee)
+        return
+    end
+
+    for _, dtype in ipairs(dragonsBreathTypes) do
+        if status:find(DRAGONS_BREATH_PREFIX .. "_" .. dtype) then
+            Osi.SetVarObject(character, "StoreSource", causee)
+            return
+        end
+    end
+end)
+
+-- Apply Spellcasting Ability Statuses
+Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function(character, spell, _, _)
+    if spell == "Target_MagicStone" then
+        local ability = GetSpellcastingAbility(sourceEntity, "Target_MagicStone")
+        if ability then
+			if ability == "Intelligence" then
+				Osi.ApplyStatus(character,"MAGIC_STONE_OWNER_INTELLIGENCE",60.0,1,character)
+			elseif ability == "Wisdom" then
+				Osi.ApplyStatus(character,"MAGIC_STONE_OWNER_WISDOM",60.0,1,character)
+			elseif ability == "Charisma" then
+				Osi.ApplyStatus(character,"MAGIC_STONE_OWNER_CHARISMA",60.0,1,character)
+			end
+        end
+    end
+end)
+
+-- Apply or Remove Modifiers
+Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function(caster, spell, _, _)
+    local source = Osi.GetVarObject(caster, "StoreSource")
+    if not source or source == NULL_GUID or source == caster then return end
+    local sourceEntity = SafeGetEntity(source)
+    if not sourceEntity then return end
+
+    if spell == "Projectile_MagicStone" or spell == "Projectile_MagicStone_Wisdom" or spell == "Projectile_MagicStone_Charisma" then
+        local ability = GetSpellcastingAbility(sourceEntity, "Target_MagicStone")
+        if ability then
+            ApplyAbilityModifierStatus(caster, source, ability, "MAGIC_STONE")
+			_D(caster)
+			_D(source)
+			_D(ability)
+        end
+        return
+	else
+        RemoveAssociatedBonuses(character, "MAGIC_STONE")
+    end
+
+    for _, dtype in ipairs(dragonsBreathTypes) do
+        if spell:find("Zone_DragonsBreath_" .. dtype) then
+            local base = "Target_DragonsBreath_" .. dtype
+            local ability = GetSpellcastingAbility(sourceEntity, base)
+            if ability then
+                ApplyAbilityModifierStatus(caster, source, ability, "DRAGONS_BREATH")
+            end
+            return
+        end
+	else
+        for _, dtype in ipairs(dragonsBreathTypes) do
+            if status:find(DRAGONS_BREATH_PREFIX .. "_" .. dtype) then
+                RemoveAssociatedBonuses(character, "DRAGONS_BREATH")
+                break
+            end
+        end
+    end
+end)
+
+-- Clear any linked bonus statuses
+Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function(character, status, cause, _)
+    if status == MAGIC_STONE then
+        RemoveAssociatedBonuses(character, "MAGIC_STONE")
+    else
+        for _, dtype in ipairs(dragonsBreathTypes) do
+            if status:find(DRAGONS_BREATH_PREFIX .. "_" .. dtype) then
+                RemoveAssociatedBonuses(character, "DRAGONS_BREATH")
+                break
+            end
+        end
+    end
 end)--]]
 
-local dragonsBreathStatuses = {
-  "DRAGONS_BREATH_FIRE",
-  "DRAGONS_BREATH_COLD",
-  "DRAGONS_BREATH_ACID",
-  "DRAGONS_BREATH_LIGHTNING",
-  "DRAGONS_BREATH_POISON",
-  "DRAGONS_BREATH_FIRE_3",
-  "DRAGONS_BREATH_COLD_3",
-  "DRAGONS_BREATH_ACID_3",
-  "DRAGONS_BREATH_LIGHTNING_3",
-  "DRAGONS_BREATH_POISON_3",
-  "DRAGONS_BREATH_FIRE_4",
-  "DRAGONS_BREATH_COLD_4",
-  "DRAGONS_BREATH_ACID_4",
-  "DRAGONS_BREATH_LIGHTNING_4",
-  "DRAGONS_BREATH_POISON_4",
-  "DRAGONS_BREATH_FIRE_5",
-  "DRAGONS_BREATH_COLD_5",
-  "DRAGONS_BREATH_ACID_5",
-  "DRAGONS_BREATH_LIGHTNING_5",
-  "DRAGONS_BREATH_POISON_5",
-  "DRAGONS_BREATH_FIRE_6",
-  "DRAGONS_BREATH_COLD_6",
-  "DRAGONS_BREATH_ACID_6",
-  "DRAGONS_BREATH_LIGHTNING_6",
-  "DRAGONS_BREATH_POISON_6",
-  "DRAGONS_BREATH_FIRE_7",
-  "DRAGONS_BREATH_COLD_7",
-  "DRAGONS_BREATH_ACID_7",
-  "DRAGONS_BREATH_LIGHTNING_7",
-  "DRAGONS_BREATH_POISON_7",
-  "DRAGONS_BREATH_FIRE_8",
-  "DRAGONS_BREATH_COLD_8",
-  "DRAGONS_BREATH_ACID_8",
-  "DRAGONS_BREATH_LIGHTNING_8",
-  "DRAGONS_BREATH_POISON_8",
-  "DRAGONS_BREATH_FIRE_9",
-  "DRAGONS_BREATH_COLD_9",
-  "DRAGONS_BREATH_ACID_9",
-  "DRAGONS_BREATH_LIGHTNING_9",
-  "DRAGONS_BREATH_POISON_9"
-}
-
-local dragonsBreathSpells = {
-  Zone_DragonsBreath_Fire = "Target_DragonsBreath_Fire",
-  Zone_DragonsBreath_Cold = "Target_DragonsBreath_Cold",
-  Zone_DragonsBreath_Lightning = "Target_DragonsBreath_Lightning",
-  Zone_DragonsBreath_Poison = "Target_DragonsBreath_Poison",
-  Zone_DragonsBreath_Acid = "Target_DragonsBreath_Acid",
-  Zone_DragonsBreath_Fire_3 = "Target_DragonsBreath_Fire_3",
-  Zone_DragonsBreath_Cold_3 = "Target_DragonsBreath_Cold_3",
-  Zone_DragonsBreath_Lightning_3 = "Target_DragonsBreath_Lightning_3",
-  Zone_DragonsBreath_Poison_3 = "Target_DragonsBreath_Poison_3",
-  Zone_DragonsBreath_Acid_3 = "Target_DragonsBreath_Acid_3",
-  Zone_DragonsBreath_Fire_4 = "Target_DragonsBreath_Fire_4",
-  Zone_DragonsBreath_Cold_4 = "Target_DragonsBreath_Cold_4",
-  Zone_DragonsBreath_Lightning_4 = "Target_DragonsBreath_Lightning_4",
-  Zone_DragonsBreath_Poison_4 = "Target_DragonsBreath_Poison_4",
-  Zone_DragonsBreath_Acid_4 = "Target_DragonsBreath_Acid_4",
-  Zone_DragonsBreath_Fire_5 = "Target_DragonsBreath_Fire_5",
-  Zone_DragonsBreath_Cold_5 = "Target_DragonsBreath_Cold_5",
-  Zone_DragonsBreath_Lightning_5 = "Target_DragonsBreath_Lightning_5",
-  Zone_DragonsBreath_Poison_5 = "Target_DragonsBreath_Poison_5",
-  Zone_DragonsBreath_Acid_5 = "Target_DragonsBreath_Acid_5",
-  Zone_DragonsBreath_Fire_6 = "Target_DragonsBreath_Fire_6",
-  Zone_DragonsBreath_Cold_6 = "Target_DragonsBreath_Cold_6",
-  Zone_DragonsBreath_Lightning_6 = "Target_DragonsBreath_Lightning_6",
-  Zone_DragonsBreath_Poison_6 = "Target_DragonsBreath_Poison_6",
-  Zone_DragonsBreath_Acid_6 = "Target_DragonsBreath_Acid_6",
-  Zone_DragonsBreath_Fire_7 = "Target_DragonsBreath_Fire_7",
-  Zone_DragonsBreath_Cold_7 = "Target_DragonsBreath_Cold_7",
-  Zone_DragonsBreath_Lightning_7 = "Target_DragonsBreath_Lightning_7",
-  Zone_DragonsBreath_Poison_7 = "Target_DragonsBreath_Poison_7",
-  Zone_DragonsBreath_Acid_7 = "Target_DragonsBreath_Acid_7",
-  Zone_DragonsBreath_Fire_8 = "Target_DragonsBreath_Fire_8",
-  Zone_DragonsBreath_Cold_8 = "Target_DragonsBreath_Cold_8",
-  Zone_DragonsBreath_Lightning_8 = "Target_DragonsBreath_Lightning_8",
-  Zone_DragonsBreath_Poison_8 = "Target_DragonsBreath_Poison_8",
-  Zone_DragonsBreath_Acid_8 = "Target_DragonsBreath_Acid_8",
-  Zone_DragonsBreath_Fire_9 = "Target_DragonsBreath_Fire_9",
-  Zone_DragonsBreath_Cold_9 = "Target_DragonsBreath_Cold_9",
-  Zone_DragonsBreath_Lightning_9 = "Target_DragonsBreath_Lightning_9",
-  Zone_DragonsBreath_Poison_9 = "Target_DragonsBreath_Poison_9",
-  Zone_DragonsBreath_Acid_9 = "Target_DragonsBreath_Acid_9"
-}
-
--- Magic Stone & Dragon's Breath
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
-	if string.sub(character,-36) ~= causee and status == "MAGIC_STONE" then
-		Osi.SetVarObject(string.sub(character,-36),"StoreSource",causee)
-	elseif string.sub(character,-36) ~= causee and status ~= "MAGIC_STONE" then
-		for _, dbstatus in pairs(dragonsBreathStatuses) do
-			if status == dbstatus then
-        		Osi.SetVarObject(string.sub(character,-36),"StoreSource",causee)
-			end
-    	end
-	end
-
-	for _, dbstatus in pairs(dragonsBreathStatuses) do
-		if string.sub(character,-36) == causee and status == dbstatus then
-			for _, dbstatus in pairs(Ext.Entity.Get(causee).ServerCharacter.StatusManager.Statuses) do
-				if dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 4 then
-					Osi.ApplyStatus(character,"DRAGONS_BREATH_INTELLIGENCE",60.0,1,causee)
-				elseif dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 5 then
-					Osi.ApplyStatus(character,"DRAGONS_BREATH_WISDOM",60.0,1,causee)
-				elseif dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 6 then
-					Osi.ApplyStatus(character,"DRAGONS_BREATH_CHARISMA",60.0,1,causee)
-				end
-			end
-		elseif string.sub(character,-36) ~= causee and status == dbstatus then
-			for _, dbstatus in pairs(Ext.Entity.Get(character).ServerCharacter.StatusManager.Statuses) do
-				if dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 4 then
-					Osi.ApplyStatus(character,"DRAGONS_BREATH_INTELLIGENCE",60.0,1,causee)
-				elseif dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 5 then
-					Osi.ApplyStatus(character,"DRAGONS_BREATH_WISDOM",60.0,1,causee)
-				elseif dbstatus.StatusId == status and dbstatus.SpellCastingAbility == 6 then
-					Osi.ApplyStatus(character,"DRAGONS_BREATH_CHARISMA",60.0,1,causee)
-				end
-			end
-		end
-	end
-end)
-
-Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (caster, spell, _, _)
-	local source = Osi.GetVarObject(caster,"StoreSource")
-	if spell == "Projectile_MagicStone" and caster ~= source and source ~= "NULL_00000000-0000-0000-0000-000000000000" then
-		_D("Check")
-		for _, spell in pairs(Ext.Entity.Get(source).SpellBook.Spells) do
-			if spell.Id.Prototype == "Target_MagicStone" and spell.SpellCastingAbility == "Intelligence" then
-				local int = Osi.GetAbility(caster,"Intelligence") - Osi.GetAbility(source,"Intelligence")
-				local scastatus = "MAGIC_STONE_MODIFIER_" .. int
-				if Osi.HasActiveStatus(caster,scastatus) == 0 then
-					Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
-				end
-			elseif spell.Id.Prototype == "Target_MagicStone" and spell.SpellCastingAbility == "Wisdom" then
-				local wis = Osi.GetAbility(caster,"Wisdom") - Osi.GetAbility(source,"Wisdom")
-				local scastatus = "MAGIC_STONE_MODIFIER_" .. wis
-				if Osi.HasActiveStatus(caster,scastatus) == 0 then
-					Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
-				end
-			elseif spell.Id.Prototype == "Target_MagicStone" and spell.SpellCastingAbility == "Charisma" then
-				local cha = Osi.GetAbility(caster,"Charisma") - Osi.GetAbility(source,"Charisma")
-				local scastatus = "MAGIC_STONE_MODIFIER_" .. cha
-				if Osi.HasActiveStatus(caster,scastatus) == 0 then
-					Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
-				end
-			end
-		local pb = Ext.Entity.Get(source).Stats.ProficiencyBonus
-		local pbstatus = "MAGIC_STONE_PROFICIENCY_BONUS_" .. pb
-		Osi.ApplyStatus(caster,pbstatus,-1.0,1,source)
-		end
-	elseif (spell == "Zone_DragonsBreath_Fire" or spell == "Zone_DragonsBreath_Cold" or spell == "Zone_DragonsBreath_Lightning" or spell == "Zone_DragonsBreath_Poison" or spell == "Zone_DragonsBreath_Acid" or spell == "Zone_DragonsBreath_Fire_3" or spell == "Zone_DragonsBreath_Cold_3" or spell == "Zone_DragonsBreath_Lightning_3" or spell == "Zone_DragonsBreath_Poison_3" or spell == "Zone_DragonsBreath_Acid_3" or spell == "Zone_DragonsBreath_Fire_4" or spell == "Zone_DragonsBreath_Cold_4" or spell == "Zone_DragonsBreath_Lightning_4" or spell == "Zone_DragonsBreath_Poison_4" or spell == "Zone_DragonsBreath_Acid_4" or spell == "Zone_DragonsBreath_Fire_5" or spell == "Zone_DragonsBreath_Cold_5" or spell == "Zone_DragonsBreath_Lightning_5" or spell == "Zone_DragonsBreath_Poison_5" or spell == "Zone_DragonsBreath_Acid_5" or spell == "Zone_DragonsBreath_Fire_6" or spell == "Zone_DragonsBreath_Cold_6" or spell == "Zone_DragonsBreath_Lightning_6" or spell == "Zone_DragonsBreath_Poison_6" or spell == "Zone_DragonsBreath_Acid_6" or spell == "Zone_DragonsBreath_Fire_7" or spell == "Zone_DragonsBreath_Cold_7" or spell == "Zone_DragonsBreath_Lightning_7" or spell == "Zone_DragonsBreath_Poison_7" or spell == "Zone_DragonsBreath_Acid_7" or spell == "Zone_DragonsBreath_Fire_8" or spell == "Zone_DragonsBreath_Cold_8" or spell == "Zone_DragonsBreath_Lightning_8" or spell == "Zone_DragonsBreath_Poison_8" or spell == "Zone_DragonsBreath_Acid_8" or spell == "Zone_DragonsBreath_Fire_9" or spell == "Zone_DragonsBreath_Cold_9" or spell == "Zone_DragonsBreath_Lightning_9" or spell == "Zone_DragonsBreath_Poison_9" or spell == "Zone_DragonsBreath_Acid_9") and caster ~= source and source ~= "NULL_00000000-0000-0000-0000-000000000000" then
-		for _, spell in pairs(Ext.Entity.Get(source).SpellBook.Spells) do
-			for dbaction, dbspell in pairs(dragonsBreathSpells) do
-				if spell.Id.Prototype == dbspell and spell.SpellCastingAbility == "Intelligence" then
-					local int = Osi.GetAbility(caster,"Intelligence") - Osi.GetAbility(source,"Intelligence")
-					local scastatus = "DRAGONS_BREATH_MODIFIER_" .. int
-					if Osi.HasActiveStatus(caster,scastatus) == 0 and  Osi.HasActiveStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL") == 0 then
-							Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
-					end
-				elseif spell.Id.Prototype == dbspell and spell.SpellCastingAbility == "Wisdom" then
-					local wis = Osi.GetAbility(caster,"Wisdom") - Osi.GetAbility(source,"Wisdom")
-					local scastatus = "DRAGONS_BREATH_MODIFIER_" .. wis
-					if Osi.HasActiveStatus(caster,scastatus) == 0 and  Osi.HasActiveStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL") == 0 then
-							Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
-					end
-				elseif spell.Id.Prototype == dbspell and spell.SpellCastingAbility == "Charisma" then
-					local cha = Osi.GetAbility(caster,"Charisma") - Osi.GetAbility(source,"Charisma")
-					local scastatus = "DRAGONS_BREATH_MODIFIER_" .. cha
-					if Osi.HasActiveStatus(caster,scastatus) == 0 and  Osi.HasActiveStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL") == 0 then
-							Osi.ApplyStatus(caster,scastatus,-1.0,1,source)
-					end
-				end
-			end
-		end
-		local pb = Ext.Entity.Get(source).Stats.ProficiencyBonus
-		local pbstatus = "DRAGONS_BREATH_PROFICIENCY_BONUS_" .. pb
-		Osi.ApplyStatus(caster,pbstatus,-1.0,1,source)			
-	elseif (spell ~= "Projectile_MagicStone" and spell ~= "Zone_DragonsBreath_Fire" and spell ~= "Zone_DragonsBreath_Cold" and spell ~= "Zone_DragonsBreath_Lightning" and spell ~= "Zone_DragonsBreath_Poison" and spell ~= "Zone_DragonsBreath_Acid" and spell ~= "Zone_DragonsBreath_Fire_3" and spell ~= "Zone_DragonsBreath_Cold_3" and spell ~= "Zone_DragonsBreath_Lightning_3" and spell ~= "Zone_DragonsBreath_Poison_3" and spell ~= "Zone_DragonsBreath_Acid_3" and spell ~= "Zone_DragonsBreath_Fire_4" and spell ~= "Zone_DragonsBreath_Cold_4" and spell ~= "Zone_DragonsBreath_Lightning_4" and spell ~= "Zone_DragonsBreath_Poison_4" and spell ~= "Zone_DragonsBreath_Acid_4" and spell ~= "Zone_DragonsBreath_Fire_5" and spell ~= "Zone_DragonsBreath_Cold_5" and spell ~= "Zone_DragonsBreath_Lightning_5" and spell ~= "Zone_DragonsBreath_Poison_5" and spell ~= "Zone_DragonsBreath_Acid_5" and spell ~= "Zone_DragonsBreath_Fire_6" and spell ~= "Zone_DragonsBreath_Cold_6" and spell ~= "Zone_DragonsBreath_Lightning_6" and spell ~= "Zone_DragonsBreath_Poison_6" and spell ~= "Zone_DragonsBreath_Acid_6" and spell ~= "Zone_DragonsBreath_Fire_7" and spell ~= "Zone_DragonsBreath_Cold_7" and spell ~= "Zone_DragonsBreath_Lightning_7" and spell ~= "Zone_DragonsBreath_Poison_7" and spell ~= "Zone_DragonsBreath_Acid_7" and spell ~= "Zone_DragonsBreath_Fire_8" and spell ~= "Zone_DragonsBreath_Cold_8" and spell ~= "Zone_DragonsBreath_Lightning_8" and spell ~= "Zone_DragonsBreath_Poison_8" and spell ~= "Zone_DragonsBreath_Acid_8" and spell ~= "Zone_DragonsBreath_Fire_9" and spell ~= "Zone_DragonsBreath_Cold_9" and spell ~= "Zone_DragonsBreath_Lightning_9" and spell ~= "Zone_DragonsBreath_Poison_9" and spell ~= "Zone_DragonsBreath_Acid_9") and caster ~= source and source ~= "NULL_00000000-0000-0000-0000-000000000000" then
-		for dbaction, dbspell in pairs(dragonsBreathSpells) do
-			if Osi.HasSpell(caster,"Projectile_MagicStone") == 1 or Osi.HasSpell(caster,dbaction) == 1 then
-				Osi.ApplyStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL",0.0,1,source)
-				Osi.ApplyStatus(caster,"DRAGONS_BREATH_PROFICIENCY_BONUS_REMOVAL",0.0,1,source)
-				Osi.ApplyStatus(caster,"MAGIC_STONE_PROFICIENCY_BONUS_REMOVAL",0.0,1)
-				Osi.ApplyStatus(caster,"MAGIC_STONE_MODIFIER_REMOVAL",0.0,1)
-			end
-		end
-	end
-end)
-
-Ext.Osiris.RegisterListener("CastedSpell", 5, "after", function (caster, spell, _, _, _)
-	if spell == "Projectile_MagicStone" then
-		Osi.ApplyStatus(caster,"MAGIC_STONE_MODIFIER_REMOVAL",0.0,1)
-		Osi.ApplyStatus(caster,"MAGIC_STONE_PROFICIENCY_BONUS_REMOVAL",0.0,1)
-	elseif spell ~= "Projectile_MagicStone" then
-		for dbaction, _ in pairs(dragonsBreathSpells) do
-			for _, dbstatus in pairs(dragonsBreathStatuses) do
-				if spell == dbaction and Osi.HasActiveStatus(caster,dbstatus) == 1 then
-					Osi.ApplyStatus(caster,"DRAGONS_BREATH_MODIFIER_REMOVAL",0.0,1)
-					Osi.ApplyStatus(caster,"DRAGONS_BREATH_PROFICIENCY_BONUS_REMOVAL",0.0,1)
-				end
-			end
-		end
-	end
+Ext.Osiris.RegisterListener("PROC_AbilityCheckCalculations", 1, "after", function(character)
+	_D("This part is working at least")
 end)
 
 local invisStatuses = {
@@ -949,23 +449,6 @@ Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, st
     end
 end)
 
---[[ Heal
-Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
-	if (spell == "Target_Heal" or spell == "Target_Heal_7" or spell == "Target_Heal_8" or spell == "Target_Heal_9" or spell == "Target_GreaterRestoration" or spell == "Target_GreaterRestoration_6" or spell == "Target_GreaterRestoration_7" or spell == "Target_GreaterRestoration_8" or spell == "Target_GreaterRestoration_9") and Osi.HasActiveStatus(target,"FEEBLEMIND") == 1 then
-		Osi.RemoveStatus(target,"FEEBLEMIND")
-    end
-end)--]]
-
---[[ Power Word Heal
-Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "before", function (caster, target, spell, _, _, _)
-	if spell == "Target_PowerWordHeal" and (Osi.HasActiveStatusWithGroup(target,"SG_Prone") == 1 or Osi.HasActiveStatus(target,"SG_RAW_Prone") == 1) then
-		Osi.ApplyStatus(target,"POWER_WORD_HEAL_INTERRUPT",6.0,1)
-	elseif spell ~= "Target_PowerWordHeal" and (Osi.HasActiveStatusWithGroup(target,"SG_Prone") == 1 or Osi.HasActiveStatus(target,"SG_RAW_Prone") == 1) then
-		Osi.RemoveStatus(target,"POWER_WORD_HEAL_INTERRUPT")
-		Osi.RemoveStatus(target,"POWER_WORD_HEAL_TECHNICAL")
-    end
-end)--]]
-
 ---@param diceAmount integer
 ---@param faces integer
 ---@param minDieValue? integer
@@ -980,75 +463,6 @@ function RollDice(diceAmount, faces, minDieValue, maxDieValue)
     end
     return total
 end
-
---[[ Infestation
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
-	if status == "INFESTATION" then
-		local x, y, z = Osi.GetPosition(character)
-		local vx, vy, vz = Osi.FindValidPosition(x, y, z, 2, character, 1)
-		local roll = RollDice(1, 4, 1, 4)
-		if roll == 1 then
-			vz = vz + 1.5
-			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 5)
-		elseif roll == 2 then
-			vz = vz - 1.5
-			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 10)
-		elseif roll == 3 then
-			vx = vx + 1.5
-			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 15)
-		elseif roll == 4 then
-			vx = vx - 1.5
-			Osi.CharacterMoveToPosition(character, vx, vy, vz, "Run", "Infestation", 20)
-		end
-    end
-end)--]]
-
---[[ Storm Sphere Setup
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
-	if status == "STORM_SPHERE_AURA" or status == "STORM_SPHERE_AURA_5" or status == "STORM_SPHERE_AURA_6" or status == "STORM_SPHERE_AURA_7" or status == "STORM_SPHERE_AURA_8" or status == "STORM_SPHERE_AURA_9" then
-		Osi.SetVarObject(causee,"StoreStormSphere",character)
-	end
-end)
-
--- Storm Sphere SE Status
-Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function (caster, target, spell, _, _, _)
-	if spell == "Target_StormSphere_BoltOfLightning" or spell == "Target_StormSphere_BoltOfLightning_5" or spell == "Target_StormSphere_BoltOfLightning_6" or spell == "Target_StormSphere_BoltOfLightning_7" or spell == "Target_StormSphere_BoltOfLightning_8" or spell == "Target_StormSphere_BoltOfLightning_9" then
-		Osi.ApplyStatus(target,"STORM_SPHERE_SE",6.0,1)
-	end
-end)
-
--- Storm Sphere Projectile
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
-	local summon = Osi.GetVarObject(causee,"StoreStormSphere")
-	if status == "STORM_SPHERE_PROJECTILE" then
-		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning", -1, summon)
-	elseif status == "STORM_SPHERE_PROJECTILE_5" then
-		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_5", -1, summon)
-	elseif status == "STORM_SPHERE_PROJECTILE_6" then
-		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_6", -1, summon)
-	elseif status == "STORM_SPHERE_PROJECTILE_7" then
-		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_7", -1, summon)
-	elseif status == "STORM_SPHERE_PROJECTILE_8" then
-		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_8", -1, summon)
-	elseif status == "STORM_SPHERE_PROJECTILE_9" then
-		Osi.CreateExplosion(character, "Projectile_StormSphere_BoltOfLightning_9", -1, summon)
-	end
-end)--]]
-
---[[ Shadowspawn Teleport
-Ext.Osiris.RegisterListener("UsingSpell", 5, "after", function (caster, spell, _, _, _)
-	if spell == "Shout_Shadowspawn_Teleport" then
-		local summoner = Osi.CharacterGetOwner(caster)
-		Osi.TeleportTo(caster, summoner, "Event", 0, 0, 0, 0, 0)
-	end
-end)--]]
-
---[[ Toll the Dead
-Ext.Osiris.RegisterListener("CastedSpell",5, "before",function (character, spell, _, _, _)
-	if spell == "Target_TollTheDead" then
-		Osi.MusicPlayGeneral("II_Gong")
-	end
-end)--]]
 
 -- Spellcasting Ability Status
 Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function(level, _)
@@ -1118,23 +532,7 @@ Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (cast
 	end
 end)
 
---[[ Dominate Monster Full Control
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
-	if status == "DOMINATE_MONSTER_TOTAL_CONTROL" then
-		Osi.AddPartyFollower(character,causee)
-		Osi.SetVarObject(character,"DominatedSource",causee)
-	end
-end)
-
--- Dominate Monster Full Control Removal
-Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function (character, status, causee, _)
-	if status == "DOMINATE_MONSTER_TOTAL_CONTROL" then
-		local source = Osi.GetVarObject(character,"DominatedSource")
-		Osi.RemovePartyFollower(character,source)
-	end
-end)--]]
-
--- Weapon Equipping
+--[[ Weapon Equipping
 Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", function (item, object2, character, addtype)
 	if Osi.HasSpell(character,"Shout_ShadowBlade") == 1 and item == "UNI_HUM_ShadowBlade_66d6cbd5-c231-4fc4-a3b7-80f781b579f7" then
 	local mainwep = Osi.GetEquippedItem(character, "Melee Main Weapon")
@@ -1146,13 +544,193 @@ Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", function (item, objec
 			end)
 		end
 	end
-end)
+end)--]]
 
---[[ Dispel Magic
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function(character, status, causee, _)
-	if status == "DISPEL_MAGIC" then
-		local spell = Ext.Entity.Get(character).ServerCharacter:GetStatus(statuses).SourceSpell.Prototype)
+function S5E_IsNullUUID(uuid)
+	return (uuid == nil) or uuid:find('00000000[-]0000[-]0000[-]0000[-]000000000000$')
+end
+
+function S5E_ShareInitiative(owner, summon)
+	if (Debug) then
+		print("S5E_ShareInitiative: " .. owner .. ", " .. summon)
 	end
+	
+	local ownerCombat = Osi.CombatGetGuidFor(owner)
+	local summonCombat = Osi.CombatGetGuidFor(summon)
+	
+	if not ownerCombat or ownerCombat ~= summonCombat then
+		return
+	end
+
+	local ownerEntity = Ext.Entity.Get(owner)
+	local summonEntity = Ext.Entity.Get(summon)
+	local ownerRoll = ownerEntity.CombatParticipant.InitiativeRoll
+	local summonRoll = summonEntity.CombatParticipant.InitiativeRoll
+	
+	if ownerRoll ~= summonRoll then
+		print("Adjusting initiative roll from " .. summonRoll .. " to " .. ownerRoll .. " for " .. summon)
+		summonEntity.CombatParticipant.InitiativeRoll = ownerRoll
+		summonEntity:Replicate("CombatParticipant")
+	end
+end
+
+local function S5E_Mislead_EnteredCombat(object, combatGuid)
+
+	local caster = ""
+	local byTagTable = ""
+	local casterUuid = ""
+	local doubleUuid = ""
+	local casterUuid = ""
+	
+	if not S5E_IsNullUUID(object) and Osi.IsPartyMember(object, 0) == 1 and Osi.HasActiveStatus(object, "MISLEAD_TECHNICAL") == 1 then 
+		local caster = Ext.Entity.Get(object)
+		
+		if caster.SummonContainer ~= nil and caster.SummonContainer.ByTag ~= nil then 
+			local byTagTable = caster.SummonContainer.ByTag
+			
+			for key, entityList in pairs(byTagTable) do
+				if key == "'MisleadStack'" then
+					for i,entity in ipairs(entityList) do
+						
+						local doubleUuid = Ext.Entity.HandleToUuid(entity)
+						local casterUuid = string.sub(object, -36)
+						
+						S5E_ShareInitiative(casterUuid, doubleUuid)
+					end
+				end
+			end
+		end
+		
+	elseif not S5E_IsNullUUID(object) then
+		if Osi.IsSummon(object) == 1 and Osi.HasActiveStatus(object, "MISLEAD_ILLUSION") == 1 then
+		
+			local casterUuid = Osi.CharacterGetOwner(object)
+			local doubleUuid = string.sub(object, -36)	
+
+			S5E_ShareInitiative(casterUuid, doubleUuid)	
+		end
+	end
+end	
+
+Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", S5E_Mislead_EnteredCombat)
+
+--[[ -- Dispel Magic
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (object, status, causee, _)
+    if status == "DISPEL_MAGIC" and Osi.IsCharacter(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerCharacter.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 4 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+    elseif status == "DISPEL_MAGIC" and Osi.IsItem(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerItem.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 4 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+	elseif status == "DISPEL_MAGIC" and Osi.IsSurface(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerSurface.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 4 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end	
+    end
+
+    if status == "DISPEL_MAGIC_4" and Osi.IsCharacter(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerCharacter.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 5 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+    elseif status == "DISPEL_MAGIC_4" and Osi.IsItem(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerItem.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 5 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+	elseif status == "DISPEL_MAGIC_4" and Osi.IsSurface(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerSurface.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 5 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+    end
+	
+	if status == "DISPEL_MAGIC_5" and Osi.IsCharacter(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerCharacter.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 6 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+    elseif status == "DISPEL_MAGIC_5" and Osi.IsItem(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerItem.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 6 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+	elseif status == "DISPEL_MAGIC_5" and Osi.IsSurface(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerSurface.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 6 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end	
+    end
+	
+	if status == "DISPEL_MAGIC_6" and Osi.IsCharacter(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerCharacter.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 7 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+    elseif status == "DISPEL_MAGIC_6" and Osi.IsItem(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerItem.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 7 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+	elseif status == "DISPEL_MAGIC_6" and Osi.IsSurface(object) == 1 then
+        for _, esvStatus in pairs(Ext.Entity.Get(object).ServerSurface.StatusManager.Statuses) do
+            if Osi.SpellHasSpellFlag(esvStatus.SourceSpell.Prototype, "IsSpell") == 1 then
+                local spell = Ext.Stats.Get(esvStatus.SourceSpell.Prototype)
+                if spell.PowerLevel < 7 then
+                    Osi.RemoveStatus(object,esvStatus.StatusId)
+                end
+            end
+        end
+    end
 end)
 
 -- Status Debug Text
@@ -1161,7 +739,6 @@ Ext.Osiris.RegisterListener("StatusApplied",4, "after",function (character, stat
 	local disname = Osi.GetDisplayName(character)
 	local name = Osi.ResolveTranslatedString(disname)
 	local str = status .. " status applied to " .. name
-	_D(str)
 	end
 end)
 
@@ -1171,11 +748,78 @@ Ext.Osiris.RegisterListener("StatusRemoved",4, "after",function (character, stat
 	local disname = Osi.GetDisplayName(character)
 	local name = Osi.ResolveTranslatedString(disname)
 	local str = status .. " status removed from " .. name .. " by " .. causee
-	_D(str)
+	end
+end)--]]
+
+-- Death Modification Entered Combat
+Ext.Osiris.RegisterListener("EnteredCombat", 2, "after", function (character, combatguid)
+	if Osi.IsPlayer(character) == 1 and Osi.HasPassive(character,"S5E_NoInstantDeath") == 1 then
+		local dead = Osi.DB_Dead:Get(nil)
+		for _,d in pairs(dead) do
+			if d[1] ~= nil and d[1] ~= "NULL_00000000-0000-0000-0000-000000000000" and Osi.IsAlly(d[1],character) == 1 and Osi.HasActiveStatus(d[1],"DEAD_TECHNICAL") == 1 then
+				Osi.ApplyStatus(d[1],"DEAD_COMBAT_BLOCK",-1.0,1)
+				Osi.SetVarString(character,"Combatant",combatguid)
+			end
+		end
 	end
 end)
 
--- Spell Casting Debug
-Ext.Osiris.RegisterListener("UsingSpell",5, "before",function (caster, spell, _, _, _)
-	_D(spell)
-end)--]]
+-- Death Modification Left Combat
+Ext.Osiris.RegisterListener("CombatEnded", 1, "after", function (combatguid)
+	local dead = Osi.DB_Dead:Get(nil)
+	for _,d in pairs(dead) do
+		if d[1] ~= nil and d[1] ~= "NULL_00000000-0000-0000-0000-000000000000" then
+			Osi.RemoveStatus(d[1],"DEAD_COMBAT_BLOCK")
+		end
+	end
+end)
+
+-- Death Modification Died
+Ext.Osiris.RegisterListener("Died", 1, "after", function (character)
+	if Osi.IsPlayer(character) == 1 and Osi.HasPassive(character,"S5E_NoInstantDeath") == 1 then
+		Osi.ApplyStatus(character,"DEAD_TECHNICAL",60.0,1)
+	end
+end)
+
+-- Death Modification Combat Round Start
+Ext.Osiris.RegisterListener("CombatRoundStarted", 2, "after", function (combatguid, round)
+	local character = Osi.CombatGetInvolvedPartyMember(combatguid, 1)
+	local dead = Osi.DB_Dead:Get(nil)
+	for _,d in pairs(dead) do
+		if d[1] ~= nil and d[1] ~= "NULL_00000000-0000-0000-0000-000000000000" and Osi.HasActiveStatus(d[1],"DEAD_TECHNICAL") == 1 and Osi.HasActiveStatus(d[1],"GENTLE_REPOSE") == 0 then
+			Osi.ApplyStatus(d[1],"DEAD_COMBAT_BLOCK",-1.0,1)
+			local turns = Osi.GetStatusTurns(d[1],"DEAD_TECHNICAL")
+			turns = turns - 1.0
+			if turns > 0.0 then
+				Osi.RemoveStatus(d[1],"DEAD_TECHNICAL")
+				Osi.ApplyStatus(d[1],"DEAD_TECHNICAL",turns*6,1)
+			else
+				Osi.RemoveStatus(d[1],"DEAD_TECHNICAL")
+				Osi.ApplyStatus(d[1],"DEAD_ONE_TIME",-1.0,1)
+			end
+		end
+	end
+end)
+
+-- Death Modification Resurrected
+Ext.Osiris.RegisterListener("Resurrected", 1, "after", function (character)
+	Osi.RemoveStatus(character,"DEAD_TECHNICAL")
+end)
+
+-- Detect Magic
+Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, cause, _)
+	if status == "DETECTED_MAGIC_INVENTORY" then
+		Osi.IterateInventory(character,"DetectMagicItems_SE","")
+	end
+end)
+
+-- Detect Magic
+Ext.Osiris.RegisterListener("EntityEvent", 2, "after", function (item, event)
+	if event == "DetectMagicItems_SE" then
+		if Osi.IsItem(item) == 1 and Osi.IsTagged(item,"MAGIC_ITEM_DETECT_MAGIC_e6cc448b-0615-4459-860a-af50bf64aa0e") == 1 then
+			local owner = Osi.GetOwner(item)
+			Osi.ApplyStatus(character,"PRONE",-1.0,1)
+		end
+	end
+end)
+
