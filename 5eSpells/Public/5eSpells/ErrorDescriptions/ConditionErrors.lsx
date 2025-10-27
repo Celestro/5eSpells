@@ -22,6 +22,18 @@
                     <attribute id="Identifier" type="FixedString" value="DeadLongerThanAMinute"/>
                     <attribute id="UUID" type="guid" value="5636d972-d971-4935-8c3b-1c3dfc2ceafa"/>
                 </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h5151be4bg1756g48f1g8a0cg676e8502d493" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="RitualSpellsNotInCombat"/>
+                    <attribute id="UUID" type="guid" value="ba986380-ad51-4fc5-b031-f20b5352d544"/>
+                </node>
+                <node id="ConditionErrors">
+                    <attribute id="DisplayName" type="TranslatedString" handle="h2f57e8c4ge48eg4c30gb809g5f7fe2c08b05" version="1"/>
+                    <attribute id="ErrorDescriptionType" type="uint8" value="0"/>
+                    <attribute id="Identifier" type="FixedString" value="GentleReposed"/>
+                    <attribute id="UUID" type="guid" value="c076d78c-d3e9-4fd2-bcd8-4ba1eba68d67"/>
+                </node>
             </children>
         </node>
     </region>

@@ -13,7 +13,7 @@
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="64784e08-e31e-4850-a743-ecfb3fd434d7"/>
                     <attribute id="Name" type="FixedString" value="5eSpells SpellSniperAttackSpells"/>
-                    <attribute id="Spells" type="LSString" value="Target_BoomingBlade;Target_GreenFlameBlade;Target_PrimalSavagery"/>
+                    <attribute id="Spells" type="LSString" value="Target_GreenFlameBlade;Target_PrimalSavagery"/>
                     <attribute id="UUID" type="guid" value="451a982f-8a71-4261-b38a-da8916ccecbb"/>
                 </node>
                 <node id="SpellList">
@@ -24,500 +24,855 @@
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="dcb45167-86bd-4297-9b9d-c295be51af5b"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Bard spells level 1"/>
+                    <attribute id="Spells" type="LSString" value="Zone_ColorSpray;Target_Command_Container"/>
+                    <attribute id="UUID" type="guid" value="7042b2a8-c7d7-471d-b43a-d1bf9c76e444"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="dcb45167-86bd-4297-9b9d-c295be51af5b"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Bard spells level 1"/>
-                    <attribute id="Spells" type="LSString" value="Zone_ColorSpray;Target_Command_Container;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="Spells" type="LSString" value="Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="2ffb1916-7af2-4899-8e60-2b08cdd5c492"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="7ea8f476-97a1-4256-8f10-afa76a845cce"/>
-                    <attribute id="Name" type="FixedString" value="5eSpells Bard spells level 2"/>
-                    <attribute id="Spells" type="LSString" value="Shout_Aid;Shout_BorrowedKnowledge;Target_EnlargeReduce;Shout_KineticJaunt;Target_Knock;Shout_MirrorImage;Target_NathairsMischief;Shout_WardingWind;Zone_ColorSpray;Target_Command_Container;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Bard spells level 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Aid;Target_EnlargeReduce;Target_Knock;Shout_MirrorImage;Zone_ColorSpray;Target_Command_Container"/>
                     <attribute id="UUID" type="guid" value="dd255f0a-b524-4070-944e-20a09701e2a0"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="7ea8f476-97a1-4256-8f10-afa76a845cce"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Bard spells level 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_BorrowedKnowledge;Shout_KineticJaunt;Target_NathairsMischief;Shout_WardingWind;Target_ZoneofTruth;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="31dd13a5-4970-49e2-959b-14f00bffa45f"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="c213ca01-3767-457b-a5c8-fd4c1dd656e2"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Bard SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Shout_HealingWord_Mass;Target_Slow;Shout_Aid;Target_EnlargeReduce;Target_Knock;Shout_MirrorImage;Zone_ColorSpray;Target_Command_Container"/>
+                    <attribute id="UUID" type="guid" value="7315dde5-2265-4fc9-8cde-b7ec5d7a0e8b"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="c213ca01-3767-457b-a5c8-fd4c1dd656e2"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Bard SLevel 3"/>
-                    <attribute id="Spells" type="LSString" value="Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Shout_HealingWord_Mass;Target_MotivationalSpeech;Target_Nondetection;Target_Slow;Shout_Aid;Shout_BorrowedKnowledge;Target_EnlargeReduce;Shout_KineticJaunt;Target_Knock;Shout_MirrorImage;Target_NathairsMischief;Shout_WardingWind;Zone_ColorSpray;Target_Command_Container;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
-                    <attribute id="UUID" type="guid" value="7315dde5-2265-4fc9-8cde-b7ec5d7a0e8b"/>
+                    <attribute id="Spells" type="LSString" value="Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Target_MotivationalSpeech;Target_Nondetection;Shout_BorrowedKnowledge;Shout_KineticJaunt;Target_NathairsMischief;Shout_WardingWind;Target_ZoneofTruth;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="388b39fc-1c45-4504-87d3-0909fc010399"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="75e04c40-be8f-40a5-9acc-0b5d59d5f3a6"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Bard SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_PhantasmalKiller;Shout_HealingWord_Mass;Target_Slow;Shout_Aid;Target_EnlargeReduce;Target_Knock;Shout_MirrorImage;Zone_ColorSpray;Target_Command_Container"/>
+                    <attribute id="UUID" type="guid" value="594987a5-0416-4722-8606-e62cd69681da"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="75e04c40-be8f-40a5-9acc-0b5d59d5f3a6"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Bard SLevel 4"/>
-                    <attribute id="Spells" type="LSString" value="Target_CharmMonster;Target_PhantasmalKiller;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Shout_HealingWord_Mass;Target_MotivationalSpeech;Target_Nondetection;Target_Slow;Shout_Aid;Shout_BorrowedKnowledge;Target_EnlargeReduce;Shout_KineticJaunt;Target_Knock;Shout_MirrorImage;Target_NathairsMischief;Shout_WardingWind;Zone_ColorSpray;Target_Command_Container;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
-                    <attribute id="UUID" type="guid" value="594987a5-0416-4722-8606-e62cd69681da"/>
+                    <attribute id="Spells" type="LSString" value="Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Target_MotivationalSpeech;Target_Nondetection;Shout_BorrowedKnowledge;Shout_KineticJaunt;Target_NathairsMischief;Shout_WardingWind;Target_ZoneofTruth;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="90eef240-b319-4b9e-9f43-18aabb0a272e"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="bd71fffb-e4d2-4233-9a31-13d43fba36e3"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Bard SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Shout_HealingWord_Mass;Target_Slow;Shout_Aid;Target_EnlargeReduce;Target_Knock;Shout_MirrorImage;Zone_ColorSpray;Target_Command_Container"/>
+                    <attribute id="UUID" type="guid" value="04f115cb-ab71-4ba7-bd6f-63e962e37c47"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="bd71fffb-e4d2-4233-9a31-13d43fba36e3"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Bard SLevel 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_RaiseDead;Target_SkillEmpowerment;Target_SynapticStatic;Target_CharmMonster;Target_PhantasmalKiller;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Shout_HealingWord_Mass;Target_MotivationalSpeech;Target_Nondetection;Target_Slow;Shout_Aid;Shout_BorrowedKnowledge;Target_EnlargeReduce;Shout_KineticJaunt;Target_Knock;Shout_MirrorImage;Target_NathairsMischief;Shout_WardingWind;Zone_ColorSpray;Target_Command_Container;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
-                    <attribute id="UUID" type="guid" value="04f115cb-ab71-4ba7-bd6f-63e962e37c47"/>
+                    <attribute id="Spells" type="LSString" value="Target_Mislead;Target_RaiseDead;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Target_MotivationalSpeech;Target_Nondetection;Shout_BorrowedKnowledge;Shout_KineticJaunt;Target_NathairsMischief;Shout_WardingWind;Target_ZoneofTruth;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="d024320c-9307-45c8-b424-4f4cd2a06e98"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="586a8796-34f4-41f5-a3ef-95738561d55d"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Bard SLevel 6"/>
+                    <attribute id="Spells" type="LSString" value="Shout_HeroesFeast;Shout_HealingWord_Mass;Target_Slow;Shout_Aid;Target_EnlargeReduce;Target_Knock;Shout_MirrorImage;Zone_ColorSpray;Target_Command_Container"/>
+                    <attribute id="UUID" type="guid" value="9f49d8f3-dc28-48a9-9786-a81accb1b38c"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="586a8796-34f4-41f5-a3ef-95738561d55d"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Bard SLevel 6"/>
-                    <attribute id="Spells" type="LSString" value="Shout_HeroesFeast;Target_TrueSeeing;Target_RaiseDead;Target_SkillEmpowerment;Target_SynapticStatic;Target_CharmMonster;Target_PhantasmalKiller;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Shout_HealingWord_Mass;Target_MotivationalSpeech;Target_Nondetection;Target_Slow;Shout_Aid;Shout_BorrowedKnowledge;Target_EnlargeReduce;Shout_KineticJaunt;Target_Knock;Shout_MirrorImage;Target_NathairsMischief;Shout_WardingWind;Zone_ColorSpray;Target_Command_Container;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
-                    <attribute id="UUID" type="guid" value="9f49d8f3-dc28-48a9-9786-a81accb1b38c"/>
+                    <attribute id="Spells" type="LSString" value="Target_TrueSeeing;Target_Mislead;Target_RaiseDead;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Target_MotivationalSpeech;Target_Nondetection;Shout_BorrowedKnowledge;Shout_KineticJaunt;Target_NathairsMischief;Shout_WardingWind;Target_ZoneofTruth;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="41c81e95-d3f0-4895-a616-fe14b63c7ba0"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="MergedInto" type="guid" value="65ad9f94-0cbf-4c79-9ffb-7fb9c19f9a50"/>
-                    <attribute id="Name" type="FixedString" value="5eSpells Bard Magical Secrets SLevel 3"/>
-                    <attribute id="Spells" type="LSString" value="Shout_BeaconOfHope;Target_BestowCurse;Target_Smite_Blinding;Shout_Blink;Zone_ConjureBarrage;Shout_CrusadersMantle;Target_ElementalWeapon;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HungerOfHadar;Target_HypnoticPattern;Projectile_LightningArrow;Target_PlantGrowth;Target_ProtectionFromEnergy;Target_SpeakWithDead;Target_StinkingCloud;Target_VampiricTouch;Projectile_AcidArrow;Shout_Aid;Target_Barkskin;Target_Blindness;Target_Smite_Branding_Container;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Target_Enthrall;Shout_FlameBlade;Target_FlamingSphere;Zone_GustOfWind;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_MagicWeapon;Shout_MirrorImage;Target_Moonbeam;Target_PhantasmalForce;Shout_PrayerOfHealing;Target_ProtectionFromPoison;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_WardingBond;Target_AnimalFriendship;Shout_ArmsOfHadar;Target_Bane;Zone_BurningHands;Target_CharmPerson;Zone_ColorSpray;Target_CreateDestroyWater;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Projectile_EnsnaringStrike_Container;Shout_ExpeditiousRetreat;Target_FaerieFire;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Goodberry;Target_Grease;Projectile_HailOfThorns;Target_HealingWord;Target_Heroism;Target_HideousLaughter;Target_HuntersMark;Target_InflictWounds;Target_Jump;Target_Longstrider;Target_MageArmor;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Shout_Shield_Sorcerer;Target_ShieldOfFaith;Target_Sleep;Target_Smite_Searing;Target_Smite_Wrathful;Shout_SpeakWithAnimals;Zone_Thunderwave;Projectile_WitchBolt;Projectile_AcidSplash;Shout_BladeWard;Target_ChillTouch;Target_DancingLights;Target_Friends;Target_Guidance;Target_Light;Target_MageHand;Target_MinorIllusion;Projectile_PoisonSpray;Shout_ProduceFlame;Target_Resistance;Shout_Shillelagh;Target_ShockingGrasp;Shout_Thaumaturgy;Target_ThornWhip;Target_TrueStrike"/>
+                    <attribute id="MergedInto" type="guid" value="f923e058-b1d9-4b02-98ef-9daaa82a71b6"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Bard SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Shout_HeroesFeast;Shout_HealingWord_Mass;Target_Slow;Shout_Aid;Target_EnlargeReduce;Target_Knock;Shout_MirrorImage;Zone_ColorSpray;Target_Command_Container"/>
+                    <attribute id="UUID" type="guid" value="6814e662-bf38-452a-9aa0-efd75ae179d7"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="f923e058-b1d9-4b02-98ef-9daaa82a71b6"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Bard SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_Regenerate;Target_TrueSeeing;Target_Mislead;Target_RaiseDead;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Target_MotivationalSpeech;Target_Nondetection;Shout_BorrowedKnowledge;Shout_KineticJaunt;Target_NathairsMischief;Shout_WardingWind;Target_ZoneofTruth;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="e12f6be3-553e-4284-9f72-a10780af2c6e"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="073c09e5-ccb9-4153-a210-001225a30cbb"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Bard SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Shout_HeroesFeast;Shout_HealingWord_Mass;Target_Slow;Shout_Aid;Target_EnlargeReduce;Target_Knock;Shout_MirrorImage;Zone_ColorSpray;Target_Command_Container"/>
+                    <attribute id="UUID" type="guid" value="c4daf169-6c4e-4a19-be94-f682a52f2c8c"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="073c09e5-ccb9-4153-a210-001225a30cbb"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Bard SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster;Target_Feeblemind;Target_MindBlank;Target_Regenerate;Target_TrueSeeing;Target_Mislead;Target_RaiseDead;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Target_MotivationalSpeech;Target_Nondetection;Shout_BorrowedKnowledge;Shout_KineticJaunt;Target_NathairsMischief;Shout_WardingWind;Target_ZoneofTruth;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="ade7ee72-c3fb-479b-aca7-4f09ec909829"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="2bbd99d0-21b4-41cc-836e-e386a96fc8e6"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Bard SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Shout_HeroesFeast;Shout_HealingWord_Mass;Target_Slow;Shout_Aid;Target_EnlargeReduce;Target_Knock;Shout_MirrorImage;Zone_ColorSpray;Target_Command_Container"/>
+                    <attribute id="UUID" type="guid" value="d0e9ca0a-fd52-403e-833c-d8c3ad6d5d1c"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="2bbd99d0-21b4-41cc-836e-e386a96fc8e6"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Bard SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_Foresight;Target_PowerWordHeal;Target_PowerWordKill;Target_DominateMonster;Target_Feeblemind;Target_MindBlank;Target_Regenerate;Target_TrueSeeing;Target_Mislead;Target_RaiseDead;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_IntellectFortress;Target_MotivationalSpeech;Target_Nondetection;Shout_BorrowedKnowledge;Shout_KineticJaunt;Target_NathairsMischief;Shout_WardingWind;Target_ZoneofTruth;Shout_DetectMagic;Shout_EarthTremor;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="427ec2dc-2989-4b4a-acc1-18b700fc529a"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="175ceed7-5a53-4f48-823c-41c4f72d18ae"/>
+                    <attribute id="Name" type="FixedString" value="Expanded (TCoE) Lore Bard Magical Secrets 6"/>
+                    <attribute id="Spells" type="LSString" value="Shout_BeaconOfHope;Target_BestowCurse;Target_Smite_Blinding;Shout_Blink;Zone_ConjureBarrage;Shout_CrusadersMantle;Target_ElementalWeapon;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HungerOfHadar;Target_HypnoticPattern;Projectile_LightningArrow;Target_PlantGrowth;Target_ProtectionFromEnergy;Target_SpeakWithDead;Target_StinkingCloud;Target_VampiricTouch;Projectile_AcidArrow;Shout_Aid;Target_Barkskin;Target_Blindness;Target_Smite_Branding_Container;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Target_Enthrall;Shout_FlameBlade;Target_FlamingSphere;Zone_GustOfWind;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_MagicWeapon;Shout_MirrorImage;Target_Moonbeam;Target_PhantasmalForce;Shout_PrayerOfHealing;Target_ProtectionFromPoison;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_WardingBond;Target_AnimalFriendship;Shout_ArmsOfHadar;Target_Bane;Zone_BurningHands;Target_CharmPerson;Zone_ColorSpray;Target_CreateDestroyWater;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Projectile_EnsnaringStrike_Container;Shout_ExpeditiousRetreat;Target_FaerieFire;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Goodberry;Target_Grease;Projectile_HailOfThorns;Target_HealingWord;Target_Heroism;Target_HideousLaughter;Target_HuntersMark;Target_InflictWounds;Target_Jump;Target_Longstrider;Target_MageArmor;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Shout_Shield_Wizard;Target_ShieldOfFaith;Target_Sleep;Target_Smite_Searing;Target_Smite_Wrathful;Shout_SpeakWithAnimals;Zone_Thunderwave;Projectile_WitchBolt;Projectile_AcidSplash;Shout_BladeWard;Target_ChillTouch;Target_DancingLights;Target_Friends;Target_Guidance;Target_Light;Target_MageHand;Target_MinorIllusion;Projectile_PoisonSpray;Shout_ProduceFlame;Target_Resistance;Shout_Shillelagh;Target_ShockingGrasp;Shout_Thaumaturgy;Target_ThornWhip;Target_TrueStrike"/>
+                    <attribute id="UUID" type="guid" value="65fb0dbc-d2c8-452a-a858-2c31656eb2e0"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="175ceed7-5a53-4f48-823c-41c4f72d18ae"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Lore Bard Magical Secrets 6"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AshardalonsStride;Target_Antagonize;Target_Catnap;Target_ConjureAnimals_Container;Target_CreateFoodAndWater;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_MotivationalSpeech;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Shout_EarthTremor;Shout_FindTraps;Target_FlockOfFamiliars;Target_GentleRepose;Zone_GustOfWind;Target_HealingSpirit;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_NathairsMischief;Target_SummonBeast;Target_TashasMindWhip;Target_MindSpike;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Target_ZoneofTruth;Shout_AbsorbElements;Target_BeastBond;Throw_Catapult;Target_CauseFear;Target_Ceremony;Target_ChaosBolt;Shout_DetectEvilAndGood;Shout_DetectMagic;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant;Shout_ZephyrStrike;Target_ControlFlames;Target_CreateBonfire;Shout_Druidcraft;Target_Frostbite;Target_GreenFlameBlade;Target_Gust;Target_Infestation;Target_LightningLure;Target_MagicStone;Target_MindSliver;Target_MoldEarth;Target_Prestidigitation;Target_PrimalSavagery;Target_ShapeWater;Target_SpareTheDying;Shout_SwordBurst;Shout_Thunderclap;Shout_WordOfRadiance"/>
                     <attribute id="UUID" type="guid" value="253795e6-2062-4395-88e7-a65af5ab6233"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="858d4322-9e9f-4aa4-aada-9c68835dc6fe"/>
+                    <attribute id="Name" type="FixedString" value="Expanded (TCoE) Bard Magical Secrets 10"/>
+                    <attribute id="Spells" type="LSString" value="Target_Cloudkill;Shout_DestructiveWave;Target_DominatePerson;Target_FlameStrike;Target_GreaterRestoration;Target_InsectPlague;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Throw_Telekinesis;Target_Confusion;Target_ConjureElementals_Minor_Container;Target_ConjureWoodlandBeings;Teleportation_DimensionDoor;Target_BlackTentacles;Target_FreedomOfMovement;Target_GraspingVine;Target_Invisibility_Greater;Target_PhantasmalKiller;Target_Polymorph;Target_ResilientSphere;Target_Stoneskin;Shout_BeaconOfHope;Target_BestowCurse;Target_Smite_Blinding;Shout_Blink;Zone_ConjureBarrage;Shout_CrusadersMantle;Target_ElementalWeapon;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HungerOfHadar;Target_HypnoticPattern;Projectile_LightningArrow;Target_PlantGrowth;Target_ProtectionFromEnergy;Target_SpeakWithDead;Target_StinkingCloud;Target_VampiricTouch;Projectile_AcidArrow;Shout_Aid;Target_Barkskin;Target_Blindness;Target_Smite_Branding_Container;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Target_Enthrall;Shout_FlameBlade;Target_FlamingSphere;Zone_GustOfWind;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_MagicWeapon;Shout_MirrorImage;Target_Moonbeam;Target_PhantasmalForce;Shout_PrayerOfHealing;Target_ProtectionFromPoison;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_WardingBond;Target_AnimalFriendship;Shout_ArmsOfHadar;Target_Bane;Zone_BurningHands;Target_CharmPerson;Zone_ColorSpray;Target_CreateDestroyWater;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Projectile_EnsnaringStrike_Container;Shout_ExpeditiousRetreat;Target_FaerieFire;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Goodberry;Target_Grease;Projectile_HailOfThorns;Target_HealingWord;Target_Heroism;Target_HideousLaughter;Target_HuntersMark;Target_InflictWounds;Target_Jump;Target_Longstrider;Target_MageArmor;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Shout_Shield_Wizard;Target_ShieldOfFaith;Target_Sleep;Target_Smite_Searing;Target_Smite_Wrathful;Shout_SpeakWithAnimals;Zone_Thunderwave;Projectile_WitchBolt;Projectile_AcidSplash;Shout_BladeWard;Target_ChillTouch;Target_DancingLights;Target_Friends;Target_Guidance;Target_Light;Target_MageHand;Target_MinorIllusion;Projectile_PoisonSpray;Shout_ProduceFlame;Target_Resistance;Shout_Shillelagh;Target_ShockingGrasp;Shout_Thaumaturgy;Target_ThornWhip;Target_TrueStrike"/>
+                    <attribute id="UUID" type="guid" value="3709f3c1-f93d-49ff-b234-d2e2e91ae34c"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="858d4322-9e9f-4aa4-aada-9c68835dc6fe"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Bard Magical Secrets 10"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AntilifeShell;Shout_CircleOfPower;Shout_CommuneWithNature;ProjectileStrike_ConjureVolley;Target_Dawn;Target_FarStep;Target_HoldMonster;Target_HolyWeapon;Target_Maelstrom;Target_Mislead;Projectile_NegativeEnergyFlood;Target_RaiseDead;Target_SkillEmpowerment;Target_SteelWindStrike;Shout_SwiftQuiver;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_ArcaneEye;Shout_AuraOfLife;Shout_GuardianOfNature;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_StormSphere;Target_SummonBeholderkin;Target_SummonConstruct;Target_SummonElemental;Projectile_VitriolicSphere;Shout_AshardalonsStride;Target_Antagonize;Target_Catnap;Target_ConjureAnimals_Container;Target_CreateFoodAndWater;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_MotivationalSpeech;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Shout_EarthTremor;Shout_FindTraps;Target_FlockOfFamiliars;Target_GentleRepose;Zone_GustOfWind;Target_HealingSpirit;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_NathairsMischief;Target_SummonBeast;Target_TashasMindWhip;Target_MindSpike;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Target_ZoneofTruth;Shout_AbsorbElements;Target_BeastBond;Throw_Catapult;Target_CauseFear;Target_Ceremony;Target_ChaosBolt;Shout_DetectEvilAndGood;Shout_DetectMagic;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant;Shout_ZephyrStrike;Target_ControlFlames;Target_CreateBonfire;Shout_Druidcraft;Target_Frostbite;Target_GreenFlameBlade;Target_Gust;Target_Infestation;Target_LightningLure;Target_MagicStone;Target_MindSliver;Target_MoldEarth;Target_Prestidigitation;Target_PrimalSavagery;Target_ShapeWater;Target_SpareTheDying;Shout_SwordBurst;Shout_Thunderclap;Shout_WordOfRadiance"/>
                     <attribute id="UUID" type="guid" value="d9ef5f47-5a00-4e8e-907d-f8ab29a64c73"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="95f80109-32b7-43f8-a99a-7ee2286a993a"/>
+                    <attribute id="Name" type="FixedString" value="Expanded (TCoE) Bard Magical Secrets 14"/>
+                    <attribute id="Spells" type="LSString" value="Wall_BladeBarrier;Projectile_ChainLightning;Target_CircleOfDeath;Target_CreateUndead;Projectile_Disintegrate;Target_Eyebite;Target_FreezingSphere;Target_GlobeOfInvulnerability;Target_FleshToStone;Target_IrresistibleDance;Target_Heal;Target_Harm;Shout_HeroesFeast;Target_PlanarAlly_Container;Wall_WallOfIce;Wall_WallOfThorns;Shout_WindWalk;Zone_Sunbeam;Target_Cloudkill;Shout_DestructiveWave;Target_DominatePerson;Target_FlameStrike;Target_GreaterRestoration;Target_InsectPlague;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Throw_Telekinesis;Target_Confusion;Target_ConjureElementals_Minor_Container;Target_ConjureWoodlandBeings;Teleportation_DimensionDoor;Target_BlackTentacles;Target_FreedomOfMovement;Target_GraspingVine;Target_Invisibility_Greater;Target_PhantasmalKiller;Target_Polymorph;Target_ResilientSphere;Target_Stoneskin;Shout_BeaconOfHope;Target_BestowCurse;Target_Smite_Blinding;Shout_Blink;Zone_ConjureBarrage;Shout_CrusadersMantle;Target_ElementalWeapon;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HungerOfHadar;Target_HypnoticPattern;Projectile_LightningArrow;Target_PlantGrowth;Target_ProtectionFromEnergy;Target_SpeakWithDead;Target_StinkingCloud;Target_VampiricTouch;Projectile_AcidArrow;Shout_Aid;Target_Barkskin;Target_Blindness;Target_Smite_Branding_Container;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Target_Enthrall;Shout_FlameBlade;Target_FlamingSphere;Zone_GustOfWind;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_MagicWeapon;Shout_MirrorImage;Target_Moonbeam;Target_PhantasmalForce;Shout_PrayerOfHealing;Target_ProtectionFromPoison;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_WardingBond;Target_AnimalFriendship;Shout_ArmsOfHadar;Target_Bane;Zone_BurningHands;Target_CharmPerson;Zone_ColorSpray;Target_CreateDestroyWater;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Projectile_EnsnaringStrike_Container;Shout_ExpeditiousRetreat;Target_FaerieFire;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Goodberry;Target_Grease;Projectile_HailOfThorns;Target_HealingWord;Target_Heroism;Target_HideousLaughter;Target_HuntersMark;Target_InflictWounds;Target_Jump;Target_Longstrider;Target_MageArmor;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Shout_Shield_Wizard;Target_ShieldOfFaith;Target_Sleep;Target_Smite_Searing;Target_Smite_Wrathful;Shout_SpeakWithAnimals;Zone_Thunderwave;Projectile_WitchBolt;Projectile_AcidSplash;Shout_BladeWard;Target_ChillTouch;Target_DancingLights;Target_Friends;Target_Guidance;Target_Light;Target_MageHand;Target_MinorIllusion;Projectile_PoisonSpray;Shout_ProduceFlame;Target_Resistance;Shout_Shillelagh;Target_ShockingGrasp;Shout_Thaumaturgy;Target_ThornWhip;Target_TrueStrike"/>
+                    <attribute id="UUID" type="guid" value="c526dac1-b290-4f11-86b1-52d18e33e601"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="95f80109-32b7-43f8-a99a-7ee2286a993a"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Bard Magical Secrets 14"/>
+                    <attribute id="Spells" type="LSString" value="Target_FingerOfDeath;Target_Regenerate;Teleportation_ArcaneGate;Shout_TensersTransformation;Target_TrueSeeing;Shout_AntilifeShell;Shout_CircleOfPower;Shout_CommuneWithNature;ProjectileStrike_ConjureVolley;Target_Dawn;Target_FarStep;Target_HoldMonster;Target_HolyWeapon;Target_Maelstrom;Target_Mislead;Projectile_NegativeEnergyFlood;Target_RaiseDead;Target_SkillEmpowerment;Target_SteelWindStrike;Shout_SwiftQuiver;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_ArcaneEye;Shout_AuraOfLife;Shout_GuardianOfNature;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_StormSphere;Target_SummonBeholderkin;Target_SummonConstruct;Target_SummonElemental;Projectile_VitriolicSphere;Shout_AshardalonsStride;Target_Antagonize;Target_Catnap;Target_ConjureAnimals_Container;Target_CreateFoodAndWater;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_MotivationalSpeech;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Shout_EarthTremor;Shout_FindTraps;Target_FlockOfFamiliars;Target_GentleRepose;Zone_GustOfWind;Target_HealingSpirit;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_NathairsMischief;Target_SummonBeast;Target_TashasMindWhip;Target_MindSpike;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Target_ZoneofTruth;Shout_AbsorbElements;Target_BeastBond;Throw_Catapult;Target_CauseFear;Target_Ceremony;Target_ChaosBolt;Shout_DetectEvilAndGood;Shout_DetectMagic;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant;Shout_ZephyrStrike;Target_ControlFlames;Target_CreateBonfire;Shout_Druidcraft;Target_Frostbite;Target_GreenFlameBlade;Target_Gust;Target_Infestation;Target_LightningLure;Target_MagicStone;Target_MindSliver;Target_MoldEarth;Target_Prestidigitation;Target_PrimalSavagery;Target_ShapeWater;Target_SpareTheDying;Shout_SwordBurst;Shout_Thunderclap;Shout_WordOfRadiance"/>
+                    <attribute id="UUID" type="guid" value="334b42de-ccd7-44a6-bf2d-77674e1fd2ef"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="cd83187f-c886-45c2-be81-34083981f240"/>
+                    <attribute id="Name" type="FixedString" value="Expanded (TCoE) Bard Magical Secrets 18"/>
+                    <attribute id="Spells" type="LSString" value="Wall_BladeBarrier;Projectile_ChainLightning;Target_CircleOfDeath;Target_CreateUndead;Projectile_Disintegrate;Target_Eyebite;Target_FreezingSphere;Target_GlobeOfInvulnerability;Target_FleshToStone;Target_IrresistibleDance;Target_Heal;Target_Harm;Shout_HeroesFeast;Target_PlanarAlly_Container;Wall_WallOfIce;Wall_WallOfThorns;Shout_WindWalk;Zone_Sunbeam;Target_Cloudkill;Shout_DestructiveWave;Target_DominatePerson;Target_FlameStrike;Target_GreaterRestoration;Target_InsectPlague;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Throw_Telekinesis;Target_Confusion;Target_ConjureElementals_Minor_Container;Target_ConjureWoodlandBeings;Teleportation_DimensionDoor;Target_BlackTentacles;Target_FreedomOfMovement;Target_GraspingVine;Target_Invisibility_Greater;Target_PhantasmalKiller;Target_Polymorph;Target_ResilientSphere;Target_Stoneskin;Shout_BeaconOfHope;Target_BestowCurse;Target_Smite_Blinding;Shout_Blink;Zone_ConjureBarrage;Shout_CrusadersMantle;Target_ElementalWeapon;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HungerOfHadar;Target_HypnoticPattern;Projectile_LightningArrow;Target_PlantGrowth;Target_ProtectionFromEnergy;Target_SpeakWithDead;Target_StinkingCloud;Target_VampiricTouch;Projectile_AcidArrow;Shout_Aid;Target_Barkskin;Target_Blindness;Target_Smite_Branding_Container;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Target_Enthrall;Shout_FlameBlade;Target_FlamingSphere;Zone_GustOfWind;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_MagicWeapon;Shout_MirrorImage;Target_Moonbeam;Target_PhantasmalForce;Shout_PrayerOfHealing;Target_ProtectionFromPoison;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_WardingBond;Target_AnimalFriendship;Shout_ArmsOfHadar;Target_Bane;Zone_BurningHands;Target_CharmPerson;Zone_ColorSpray;Target_CreateDestroyWater;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Projectile_EnsnaringStrike_Container;Shout_ExpeditiousRetreat;Target_FaerieFire;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Goodberry;Target_Grease;Projectile_HailOfThorns;Target_HealingWord;Target_Heroism;Target_HideousLaughter;Target_HuntersMark;Target_InflictWounds;Target_Jump;Target_Longstrider;Target_MageArmor;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Shout_Shield_Wizard;Target_ShieldOfFaith;Target_Sleep;Target_Smite_Searing;Target_Smite_Wrathful;Shout_SpeakWithAnimals;Zone_Thunderwave;Projectile_WitchBolt;Projectile_AcidSplash;Shout_BladeWard;Target_ChillTouch;Target_DancingLights;Target_Friends;Target_Guidance;Target_Light;Target_MageHand;Target_MinorIllusion;Projectile_PoisonSpray;Shout_ProduceFlame;Target_Resistance;Shout_Shillelagh;Target_ShockingGrasp;Shout_Thaumaturgy;Target_ThornWhip;Target_TrueStrike"/>
+                    <attribute id="UUID" type="guid" value="14bb08d0-3e1e-4769-adc5-83d092931a78"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="cd83187f-c886-45c2-be81-34083981f240"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Bard Magical Secrets 18"/>
+                    <attribute id="Spells" type="LSString" value="Target_Foresight;Target_PowerWordHeal;Target_PowerWordKill;Target_DominateMonster;Target_Feeblemind;Shout_HolyAura;Target_MindBlank;Target_FingerOfDeath;Target_Regenerate;Teleportation_ArcaneGate;Shout_TensersTransformation;Target_TrueSeeing;Shout_AntilifeShell;Shout_CircleOfPower;Shout_CommuneWithNature;ProjectileStrike_ConjureVolley;Target_Dawn;Target_FarStep;Target_HoldMonster;Target_HolyWeapon;Target_Maelstrom;Target_Mislead;Projectile_NegativeEnergyFlood;Target_RaiseDead;Target_SkillEmpowerment;Target_SteelWindStrike;Shout_SwiftQuiver;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_ArcaneEye;Shout_AuraOfLife;Shout_GuardianOfNature;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_StormSphere;Target_SummonBeholderkin;Target_SummonConstruct;Target_SummonElemental;Projectile_VitriolicSphere;Shout_AshardalonsStride;Target_Antagonize;Target_Catnap;Target_ConjureAnimals_Container;Target_CreateFoodAndWater;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_MotivationalSpeech;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Shout_EarthTremor;Shout_FindTraps;Target_FlockOfFamiliars;Target_GentleRepose;Zone_GustOfWind;Target_HealingSpirit;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_NathairsMischief;Target_SummonBeast;Target_TashasMindWhip;Target_MindSpike;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Target_ZoneofTruth;Shout_AbsorbElements;Target_BeastBond;Throw_Catapult;Target_CauseFear;Target_Ceremony;Target_ChaosBolt;Shout_DetectEvilAndGood;Shout_DetectMagic;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant;Shout_ZephyrStrike;Target_ControlFlames;Target_CreateBonfire;Shout_Druidcraft;Target_Frostbite;Target_GreenFlameBlade;Target_Gust;Target_Infestation;Target_LightningLure;Target_MagicStone;Target_MindSliver;Target_MoldEarth;Target_Prestidigitation;Target_PrimalSavagery;Target_ShapeWater;Target_SpareTheDying;Shout_SwordBurst;Shout_Thunderclap;Shout_WordOfRadiance"/>
+                    <attribute id="UUID" type="guid" value="9d72e511-ece5-47d6-af29-285002f42b0b"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="2f43a103-5bf1-4534-b14f-663decc0c525"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Cleric cantrips (Wisdom)"/>
+                    <attribute id="Spells" type="LSString" value="Target_SpareTheDying;Shout_WordOfRadiance"/>
                     <attribute id="UUID" type="guid" value="3d4a1681-abd7-47ef-bb71-ebdf0ec61ebb"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="269d1a3b-eed8-4131-8901-a562238f5289"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Cleric SLevel 1"/>
+                    <attribute id="Spells" type="LSString" value="Target_Ceremony;Shout_DetectEvilAndGood;Shout_DetectMagic"/>
                     <attribute id="UUID" type="guid" value="7015fe5b-666f-49a3-8432-bb3a5edf3fd3"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="2968a3e6-6c8a-4c2e-882a-ad295a2ad8ac"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Cleric SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_BorrowedKnowledge;Target_ContinualFlame;Shout_FindTraps;Target_GentleRepose;Target_ZoneofTruth"/>
                     <attribute id="UUID" type="guid" value="5cc93d69-b221-4ceb-8f92-e9e4019b6d8c"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="21be0992-499f-4c7a-a77a-4430085e947a"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Cleric SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AuraOfVitality"/>
+                    <attribute id="UUID" type="guid" value="a6e4dd41-3343-45f8-8df2-faf3ca8c54c5"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="21be0992-499f-4c7a-a77a-4430085e947a"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Cleric SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_CreateFoodAndWater;Target_LifeTransference;Target_MagicCircle;Target_MotivationalSpeech;Shout_SpiritShroud;Shout_WaterWalk"/>
                     <attribute id="UUID" type="guid" value="26034e1c-cb8e-4e23-ac09-8f0f89d49857"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="37e9b20b-5fd1-45c5-b1c5-159c42397c83"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Cleric SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AuraOfLife"/>
                     <attribute id="UUID" type="guid" value="e032347c-dcd2-4f7d-b98f-741905102736"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="b73aeea5-1ff9-4cac-b61d-b5aa6dfe31c2"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Cleric SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_Dawn;Target_HolyWeapon;Target_RaiseDead"/>
                     <attribute id="UUID" type="guid" value="e292faa8-4dff-401f-be99-d33426604b2b"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="f8ba7b05-1237-4eaa-97fa-1d3623d5862b"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Cleric SLevel 6"/>
+                    <attribute id="Spells" type="LSString" value="Zone_Sunbeam"/>
+                    <attribute id="UUID" type="guid" value="ea25c6cc-230e-43a6-ba1c-124b6d7f65fd"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="f8ba7b05-1237-4eaa-97fa-1d3623d5862b"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Cleric SLevel 6"/>
+                    <attribute id="Spells" type="LSString" value="Target_TrueSeeing"/>
                     <attribute id="UUID" type="guid" value="61e191fc-a521-4a93-acdd-200a7a225cb8"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="11862b36-c2d6-4d2f-b2d7-4af29f8fe31a"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Cleric SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_Regenerate"/>
+                    <attribute id="UUID" type="guid" value="3800b2c7-5538-4fc3-b682-dbaa4ee2542a"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="a0df1e32-1c61-4017-939f-44cc7695a924"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Cleric SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Shout_HolyAura"/>
+                    <attribute id="UUID" type="guid" value="de6ad5dd-ce50-49fa-8955-0af2ef90c14b"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="9ea2891d-f0f9-42d0-b13d-7f1a5df154c3"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Cleric SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordHeal"/>
+                    <attribute id="UUID" type="guid" value="85271bbf-45a6-4cfe-becd-23e9fb0b33e7"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="b8faf12f-ca42-45c0-84f8-6951b526182a"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Druid Cantrips"/>
+                    <attribute id="Spells" type="LSString" value="Target_ControlFlames;Target_CreateBonfire;Shout_Druidcraft;Target_Frostbite;Target_Gust;Target_Infestation;Target_MagicStone;Target_MoldEarth;Target_PrimalSavagery;Target_ShapeWater;Shout_Thunderclap"/>
                     <attribute id="UUID" type="guid" value="7e6dd8e0-a7a9-4907-8167-6c15d02e4265"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="2cd54137-2fe5-4100-aad3-df64735a8145"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Druid SLevel 1 expanded"/>
+                    <attribute id="Spells" type="LSString" value="Target_ProtectionFromEvilAndGood"/>
+                    <attribute id="UUID" type="guid" value="51a05c72-ead3-432b-a420-6668eec6acd3"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="2cd54137-2fe5-4100-aad3-df64735a8145"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Druid SLevel 1 expanded"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AbsorbElements;Target_BeastBond;Shout_DetectMagic;Shout_EarthTremor;Target_Snare"/>
                     <attribute id="UUID" type="guid" value="49580223-016f-4da6-8a6c-9f2761e8ee7e"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="92126d17-7f1a-41d2-ae6c-a8d254d2b135"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Druid spells level 2"/>
+                    <attribute id="Spells" type="LSString" value="Target_EnlargeReduce"/>
+                    <attribute id="UUID" type="guid" value="e26ebe32-383e-4666-9de7-b7212c5bc205"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="92126d17-7f1a-41d2-ae6c-a8d254d2b135"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Druid spells level 2"/>
+                    <attribute id="Spells" type="LSString" value="Target_ContinualFlame;Target_DustDevil;Shout_FindTraps;Target_HealingSpirit;Target_SummonBeast;Shout_WardingWind;Target_WitherAndBloom"/>
                     <attribute id="UUID" type="guid" value="bd4881f4-14ef-4a83-8be2-b1945f49ac91"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="3156daf5-9266-41d0-b52c-5bc559a98654"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Druid SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AuraOfVitality;Target_ElementalWeapon;Teleportation_Revivify"/>
+                    <attribute id="UUID" type="guid" value="71f5fbd0-0840-4f3b-b962-28bcc31c1456"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="3156daf5-9266-41d0-b52c-5bc559a98654"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Druid SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_ConjureAnimals_Container;Target_EruptingEarth;Target_FlameArrows;Target_SummonFey;Shout_WaterWalk"/>
                     <attribute id="UUID" type="guid" value="227c584f-ddca-4a2c-87e5-a77688539789"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="09c326c9-672c-4198-a4c0-6f07323bde27"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Druid SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Shout_FireShield"/>
+                    <attribute id="UUID" type="guid" value="67a849c3-1cc3-4de6-98d7-fe532cbf5ce5"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="09c326c9-672c-4198-a4c0-6f07323bde27"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Druid SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_CharmMonster;Shout_GuardianOfNature;Target_SummonElemental"/>
                     <attribute id="UUID" type="guid" value="96c45fa5-d371-4d9b-b766-9ac33522df6b"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="ff711c12-b59f-4fde-b9ea-6e5c38ec8f23"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Druid SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Zone_ConeOfCold"/>
+                    <attribute id="UUID" type="guid" value="0c1e128c-86a4-4629-ac13-daa7776d4190"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="ff711c12-b59f-4fde-b9ea-6e5c38ec8f23"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Druid SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AntilifeShell;Shout_CommuneWithNature;Target_Maelstrom"/>
                     <attribute id="UUID" type="guid" value="3465cab2-9453-4733-a1d4-c408f858fbc2"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="6a4e2167-55f3-4ba8-900f-14666b293e93"/>
-                    <attribute id="Name" type="FixedString" value="5eSpells Druid SLevel 6"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Druid SLevel 6"/>
+                    <attribute id="Spells" type="LSString" value="Target_FleshToStone"/>
                     <attribute id="UUID" type="guid" value="ab896a32-a35a-42fb-9fe8-ca2acbc7af76"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="29c9cf78-3bd6-47dc-88b4-2dce54710124"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Druid SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_Regenerate"/>
+                    <attribute id="UUID" type="guid" value="b9940219-5efb-4801-b64e-3888567deef0"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="bdff0cba-d631-4b83-9562-63c0187df380"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Druid SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Target_Feeblemind"/>
+                    <attribute id="UUID" type="guid" value="f45ca17d-4060-4ad9-89b2-56d00f4af197"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="9e388f0f-7432-4f29-bfe5-5358ebde4491"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Druid SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_Foresight"/>
+                    <attribute id="UUID" type="guid" value="c2c27eaa-a992-488b-881b-057a5a2233c1"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="32aeba85-13bd-4a6f-8e06-cd4447b746d8"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Fighter (Eldritch Knight) spells level 1"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AbsorbElements;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew"/>
                     <attribute id="UUID" type="guid" value="9aa68cf1-036b-4daf-af76-33820bbb9a31"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="4a86443c-6a21-4b8d-b1bf-55a99e021354"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Fighter (Eldritch Knight) spells level 2"/>
+                    <attribute id="Spells" type="LSString" value="Zone_AganazzarsScorcher;Target_ContinualFlame;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Shout_WardingWind;Shout_AbsorbElements;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew"/>
                     <attribute id="UUID" type="guid" value="39fa0861-8a1a-4c1f-a475-1608256e2d23"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="9ca503db-0e4b-4325-b1eb-e2f794a075d6"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Fighter (Eldritch Knight) spells level 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_IntellectFortress;Target_MagicCircle;Projectile_MinuteMeteors;Target_Nondetection;Zone_AganazzarsScorcher;Target_ContinualFlame;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Shout_WardingWind;Shout_AbsorbElements;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew"/>
+                    <attribute id="UUID" type="guid" value="6a6c3d81-5a3c-4bb5-96f2-42f44ac9b738"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="5798e5a8-da36-40bc-acf5-2b736cf607a2"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Fighter (Eldritch Knight) spells level 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_StormSphere;Projectile_VitriolicSphere;Target_IntellectFortress;Target_MagicCircle;Projectile_MinuteMeteors;Target_Nondetection;Zone_AganazzarsScorcher;Target_ContinualFlame;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Shout_WardingWind;Shout_AbsorbElements;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew"/>
+                    <attribute id="UUID" type="guid" value="acb44a6a-ca24-4ee0-9e6d-583c9ab0157c"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="c6288ac5-c68b-40ed-bbdd-2ff388575831"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Paladin SLevel 1"/>
+                    <attribute id="Spells" type="LSString" value="Target_Ceremony;Shout_DetectEvilAndGood;Shout_DetectMagic"/>
                     <attribute id="UUID" type="guid" value="f9c4d953-9080-41c7-8da5-f3e7be65678b"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="c14c9564-1503-47a1-be19-98e77f22ff59"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Paladin SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_PrayerOfHealing;Target_WardingBond"/>
+                    <attribute id="UUID" type="guid" value="c082969c-c84b-4abe-8895-5c9f67adbef0"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="c14c9564-1503-47a1-be19-98e77f22ff59"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Paladin SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Target_GentleRepose;Target_ZoneofTruth"/>
                     <attribute id="UUID" type="guid" value="a45ee3d1-874e-440e-9be7-09fd2123ab44"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="d18dec04-478f-41c3-b816-239d5cfcf2a2"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Paladin SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_CreateFoodAndWater;Target_MagicCircle;Shout_SpiritShroud"/>
                     <attribute id="UUID" type="guid" value="5b1c6a5e-4c26-4238-879e-b5067809f816"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="11d0c2a0-41c6-4ec0-98fe-5d987f7e1665"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Paladin SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AuraOfLife"/>
+                    <attribute id="UUID" type="guid" value="3122a944-18ee-4bcc-9496-7999d29642ec"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="f351595c-90f7-4804-9e55-18c4d624593c"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Paladin SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Shout_CircleOfPower;Target_HolyWeapon;Target_RaiseDead"/>
+                    <attribute id="UUID" type="guid" value="0ccd1ca9-2cdb-4fe8-93a1-51e40aa870c0"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="458be063-60d4-4548-ae7d-50117fa0226f"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Ranger spells level 1"/>
+                    <attribute id="Spells" type="LSString" value="Target_Entangle;Target_Smite_Searing"/>
+                    <attribute id="UUID" type="guid" value="28927bde-197f-4dc0-8cf0-ecdd7239aeeb"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="458be063-60d4-4548-ae7d-50117fa0226f"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Ranger spells level 1"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AbsorbElements;Target_BeastBond;Shout_DetectMagic;Target_Snare;Shout_ZephyrStrike"/>
                     <attribute id="UUID" type="guid" value="3609c044-4628-410f-929c-674eaca4ea56"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="e7cfb80a-f5c2-4304-8446-9b00ea6a9814"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Ranger SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_Aid;Target_EnhanceAbility;Zone_GustOfWind;Target_MagicWeapon;Target_Entangle;Target_Smite_Searing"/>
+                    <attribute id="UUID" type="guid" value="a0d94599-081a-4abb-886e-21d803c64e8c"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="e7cfb80a-f5c2-4304-8446-9b00ea6a9814"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Ranger SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Target_HealingSpirit;Shout_AbsorbElements;Target_BeastBond;Shout_DetectMagic;Shout_FindTraps;Target_Snare;Shout_ZephyrStrike"/>
                     <attribute id="UUID" type="guid" value="45001f68-dea4-414e-a90f-c57dec0a4079"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="9a60f649-7f82-4152-90b1-0499c5c9f3e2"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Ranger SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_ElementalWeapon;Teleportation_Revivify;Shout_Aid;Target_EnhanceAbility;Zone_GustOfWind;Target_MagicWeapon;Target_Entangle;Target_Smite_Searing"/>
+                    <attribute id="UUID" type="guid" value="fd9371c2-ac6f-482d-b476-b1e21c4d0ae9"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="9a60f649-7f82-4152-90b1-0499c5c9f3e2"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Ranger SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AshardalonsStride;Target_ConjureAnimals_Container;Target_FlameArrows;Target_Nondetection;Target_SummonFey;Shout_WaterWalk;Target_HealingSpirit;Shout_AbsorbElements;Target_BeastBond;Shout_DetectMagic;Shout_FindTraps;Target_Snare;Shout_ZephyrStrike"/>
                     <attribute id="UUID" type="guid" value="a3760d5c-9aa5-46fd-9444-669dbe0af532"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="MergedInto" type="guid" value="4b629bbb-203b-4382-9786-755bf897567f"/>
-                    <attribute id="Name" type="FixedString" value="5eSpells Rogue (Arcane Trickster) spells"/>
-                    <attribute id="UUID" type="guid" value="946fea99-acb0-4ec4-8912-5735ad3b0b73"/>
+                    <attribute id="MergedInto" type="guid" value="7022d937-b2e4-4b6e-a3c5-e168f5c00194"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Ranger SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateBeast;Target_ElementalWeapon;Teleportation_Revivify;Shout_Aid;Target_EnhanceAbility;Zone_GustOfWind;Target_MagicWeapon;Target_Entangle;Target_Smite_Searing"/>
+                    <attribute id="UUID" type="guid" value="fc9a905e-5d77-4494-a7b4-fa1304caec7f"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="7022d937-b2e4-4b6e-a3c5-e168f5c00194"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Ranger SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Shout_GuardianOfNature;Target_SummonElemental;Shout_AshardalonsStride;Target_ConjureAnimals_Container;Target_FlameArrows;Target_Nondetection;Target_SummonFey;Shout_WaterWalk;Target_HealingSpirit;Shout_AbsorbElements;Target_BeastBond;Shout_DetectMagic;Shout_FindTraps;Target_Snare;Shout_ZephyrStrike"/>
+                    <attribute id="UUID" type="guid" value="fc9a905e-5d77-4494-a7b4-fa1304caec7f"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="412d77e1-4aa2-4149-aa0e-c835b8c79f32"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Ranger SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_GreaterRestoration;Target_DominateBeast;Target_ElementalWeapon;Teleportation_Revivify;Shout_Aid;Target_EnhanceAbility;Zone_GustOfWind;Target_MagicWeapon;Target_Entangle;Target_Smite_Searing"/>
+                    <attribute id="UUID" type="guid" value="aa4f3f00-b5d5-44b0-9534-922e3a19973f"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="412d77e1-4aa2-4149-aa0e-c835b8c79f32"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Ranger SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Shout_CommuneWithNature;ProjectileStrike_ConjureVolley;Target_SteelWindStrike;Shout_SwiftQuiver;Shout_GuardianOfNature;Target_SummonElemental;Shout_AshardalonsStride;Target_ConjureAnimals_Container;Target_FlameArrows;Target_Nondetection;Target_SummonFey;Shout_WaterWalk;Target_HealingSpirit;Shout_AbsorbElements;Target_BeastBond;Shout_DetectMagic;Shout_FindTraps;Target_Snare;Shout_ZephyrStrike"/>
+                    <attribute id="UUID" type="guid" value="7e310264-3882-4df3-9a7c-e76f657c3331"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="f9fd64f1-f417-4544-94a9-51d8876d68df"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Rogue Arcane Trickster SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Target_TashasMindWhip;Target_NathairsMischief;Shout_ShadowBlade_Class"/>
                     <attribute id="UUID" type="guid" value="07ad14af-517e-4121-8f86-5bfa1b53bc48"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="c707cc1f-e5ed-4798-909a-3652ad497d24"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Rogue Arcane Trickster SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_TashasMindWhip;Target_NathairsMischief;Shout_ShadowBlade_Class"/>
+                    <attribute id="UUID" type="guid" value="c1c84daa-42db-4ff7-905c-3c02ab176b7b"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="0329cc67-3e67-409c-9b22-fb510a564c98"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Rogue Arcane Trickster SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_Antagonize;Target_Catnap;Target_EnemiesAbound;Target_TashasMindWhip;Target_NathairsMischief;Shout_ShadowBlade_Class"/>
+                    <attribute id="UUID" type="guid" value="b026beea-e92f-4147-9e4c-b5c81789da53"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="485a68b4-c678-4888-be63-4a702efbe391"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Sorcerer cantrips"/>
+                    <attribute id="Spells" type="LSString" value="Target_ControlFlames;Target_CreateBonfire;Target_Frostbite;Target_GreenFlameBlade;Target_Gust;Target_Infestation;Target_LightningLure;Target_MindSliver;Target_MoldEarth;Target_Prestidigitation;Target_ShapeWater;Shout_SwordBurst;Shout_Thunderclap"/>
                     <attribute id="UUID" type="guid" value="3a585213-c055-48d7-9621-ace04e698840"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="92c4751f-6255-4f67-822c-a75d53830b27"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Sorcerer SLevel 1 expanded"/>
+                    <attribute id="Spells" type="LSString" value="Target_Grease"/>
+                    <attribute id="UUID" type="guid" value="9a440c13-99d4-4be8-8397-74e10c9966db"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="92c4751f-6255-4f67-822c-a75d53830b27"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Sorcerer SLevel 1 expanded"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AbsorbElements;Throw_Catapult;Target_ChaosBolt;Shout_DetectMagic;Shout_EarthTremor;Zone_TashasCausticBrew"/>
                     <attribute id="UUID" type="guid" value="a070ee3b-f5b3-41e1-a040-7e773d0539be"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="f80396e2-cb76-4694-b0db-5c34da61a478"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Sorcerer SLevel 2 expanded"/>
+                    <attribute id="Spells" type="LSString" value="Shout_FlameBlade;Target_FlamingSphere;Target_MagicWeapon;Target_Grease"/>
+                    <attribute id="UUID" type="guid" value="46cf2528-c804-4aff-a6c4-9d2eda12285e"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="f80396e2-cb76-4694-b0db-5c34da61a478"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Sorcerer SLevel 2 expanded"/>
+                    <attribute id="Spells" type="LSString" value="Zone_AganazzarsScorcher;Shout_AlterSelf;Target_DragonsBreath;Target_DustDevil;Shout_KineticJaunt;Target_MindSpike;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_ChaosBolt;Shout_DetectMagic;Shout_EarthTremor;Zone_TashasCausticBrew"/>
                     <attribute id="UUID" type="guid" value="5a2f49da-5be7-4512-8309-b866147830c2"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="dcbaf2ae-1f45-453e-ab83-cd154f8277a4"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Sorcerer SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_VampiricTouch;Shout_FlameBlade;Target_FlamingSphere;Target_MagicWeapon;Target_Grease"/>
+                    <attribute id="UUID" type="guid" value="6ab20363-872a-405b-b344-24070f5eab98"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="dcbaf2ae-1f45-453e-ab83-cd154f8277a4"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Sorcerer SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Projectile_MinuteMeteors;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Target_DragonsBreath;Target_DustDevil;Shout_KineticJaunt;Target_MindSpike;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_ChaosBolt;Shout_DetectMagic;Shout_EarthTremor;Zone_TashasCausticBrew"/>
                     <attribute id="UUID" type="guid" value="44d23add-80da-4005-a3ca-302f1196ec35"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Sorcerer SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Shout_FireShield;Target_VampiricTouch;Shout_FlameBlade;Target_FlamingSphere;Target_MagicWeapon;Target_Grease"/>
+                    <attribute id="UUID" type="guid" value="bba5fab0-02ef-46df-83c7-8b1b7079f207"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="5fe40622-1d3e-4cc1-8d89-e66fe51d8c5c"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Sorcerer SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Projectile_MinuteMeteors;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Target_DragonsBreath;Target_DustDevil;Shout_KineticJaunt;Target_MindSpike;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_ChaosBolt;Shout_DetectMagic;Shout_EarthTremor;Zone_TashasCausticBrew"/>
                     <attribute id="UUID" type="guid" value="6d30f7b2-b403-4426-bd0f-9d1165314006"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="3276fcfe-e143-4559-b6e0-7d7aa0ffcb53"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Sorcerer SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Shout_FireShield;Target_VampiricTouch;Shout_FlameBlade;Target_FlamingSphere;Target_MagicWeapon;Target_Grease"/>
+                    <attribute id="UUID" type="guid" value="d38a98bb-d682-4de0-a07c-8311fec69e4e"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="3276fcfe-e143-4559-b6e0-7d7aa0ffcb53"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Sorcerer SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_FarStep;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Projectile_MinuteMeteors;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Target_DragonsBreath;Target_DustDevil;Shout_KineticJaunt;Target_MindSpike;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_ChaosBolt;Shout_DetectMagic;Shout_EarthTremor;Zone_TashasCausticBrew"/>
                     <attribute id="UUID" type="guid" value="f414d040-294a-4eb4-9cac-af8bdea795ee"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="1270a6db-980b-4e3b-bf26-2924da61dfd5"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Sorcerer SLevel 6"/>
+                    <attribute id="Spells" type="LSString" value="Target_FleshToStone;Target_FreezingSphere;Shout_FireShield;Target_VampiricTouch;Shout_FlameBlade;Target_FlamingSphere;Target_MagicWeapon;Target_Grease"/>
+                    <attribute id="UUID" type="guid" value="9c653405-e9c5-44a9-9aa7-81598c044903"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="1270a6db-980b-4e3b-bf26-2924da61dfd5"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Sorcerer SLevel 6"/>
+                    <attribute id="Spells" type="LSString" value="Target_TrueSeeing;Target_FarStep;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Projectile_MinuteMeteors;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Target_DragonsBreath;Target_DustDevil;Shout_KineticJaunt;Target_MindSpike;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_ChaosBolt;Shout_DetectMagic;Shout_EarthTremor;Zone_TashasCausticBrew"/>
                     <attribute id="UUID" type="guid" value="5c4dc21c-0b25-41df-95b8-26c192df5782"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="9e38e5ae-51e8-4dd4-aad5-869a571b1519"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Sorcerer SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_FleshToStone;Target_FreezingSphere;Shout_FireShield;Target_VampiricTouch;Shout_FlameBlade;Target_FlamingSphere;Target_MagicWeapon;Target_Grease"/>
+                    <attribute id="UUID" type="guid" value="9d38f7d6-92e3-496c-9513-ca880e6ed445"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="9e38e5ae-51e8-4dd4-aad5-869a571b1519"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Sorcerer SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_FingerOfDeath;Target_FleshToStone;Target_FreezingSphere;Target_TrueSeeing;Target_FarStep;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Projectile_MinuteMeteors;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Target_DragonsBreath;Target_DustDevil;Shout_KineticJaunt;Target_MindSpike;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_ChaosBolt;Shout_DetectMagic;Shout_EarthTremor;Zone_TashasCausticBrew"/>
+                    <attribute id="UUID" type="guid" value="cbec9990-db15-44be-a2d2-4d9955f94a04"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="5a8a002c-352b-44e9-8233-da7e6112f4b0"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Sorcerer SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Target_FleshToStone;Target_FreezingSphere;Shout_FireShield;Target_VampiricTouch;Shout_FlameBlade;Target_FlamingSphere;Target_MagicWeapon;Target_Grease"/>
+                    <attribute id="UUID" type="guid" value="cda34144-83bc-4460-9406-feba8e1a3a3e"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="5a8a002c-352b-44e9-8233-da7e6112f4b0"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Sorcerer SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster;Target_FingerOfDeath;Target_FleshToStone;Target_FreezingSphere;Target_TrueSeeing;Target_FarStep;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Projectile_MinuteMeteors;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Target_DragonsBreath;Target_DustDevil;Shout_KineticJaunt;Target_MindSpike;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_ChaosBolt;Shout_DetectMagic;Shout_EarthTremor;Zone_TashasCausticBrew"/>
+                    <attribute id="UUID" type="guid" value="27b45438-726b-4d94-8a48-5b9ce1100571"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="d58ac072-e079-410b-b167-a5e43723b59f"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Sorcerer SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_FleshToStone;Target_FreezingSphere;Shout_FireShield;Target_VampiricTouch;Shout_FlameBlade;Target_FlamingSphere;Target_MagicWeapon;Target_Grease"/>
+                    <attribute id="UUID" type="guid" value="717d968d-f449-40e3-ad2e-855f5b2c26a3"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="d58ac072-e079-410b-b167-a5e43723b59f"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Sorcerer SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_PowerWordKill;Target_FingerOfDeath;Target_FleshToStone;Target_FreezingSphere;Target_TrueSeeing;Target_FarStep;Target_SkillEmpowerment;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Projectile_MinuteMeteors;Teleportation_ThunderStep;Shout_WaterWalk;Zone_AganazzarsScorcher;Shout_AlterSelf;Target_DragonsBreath;Target_DustDevil;Shout_KineticJaunt;Target_MindSpike;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_ChaosBolt;Shout_DetectMagic;Shout_EarthTremor;Zone_TashasCausticBrew"/>
+                    <attribute id="UUID" type="guid" value="d19529af-3603-41d9-a03d-5eb0fbdcba6d"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="f5c4af9c-5d8d-4526-9057-94a4b243cd40"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock cantrips (Charisma)"/>
+                    <attribute id="Spells" type="LSString" value="Target_CreateBonfire;Target_Frostbite;Target_GreenFlameBlade;Target_Gust;Target_Infestation;Target_LightningLure;Target_MagicStone;Target_MindSliver;Target_Prestidigitation;Target_ShapeWater;Shout_SwordBurst;Shout_Thunderclap"/>
                     <attribute id="UUID" type="guid" value="77d74d0c-4d34-4b7c-a37e-ecdbd4c10756"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="e0099b15-2599-4cba-a54b-b25ae03d6519"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Archfey SLevel 1"/>
+                    <attribute id="Spells" type="LSString" value="Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="93f0f5b5-a2c5-4ac4-8598-db0e3e37a865"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="0cc2c8ab-9bbc-43a7-a66d-08e47da4c172"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Archfey SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="59c5f14c-b5f1-4043-8213-f30ab68140d3"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="f18ad912-e2f4-47a9-8744-73d6a51c2941"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Archfey SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="81c58e19-4d4b-4cc8-8beb-b293879c1897"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="c3d8a4a5-9dae-4193-8322-a5d1c5b89f47"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Archfey SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_CharmMonster;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_SummonBeholderkin;Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="86a55902-fa28-4612-94c3-0663cc0bd443"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="0a9b924f-64fb-4f22-b975-5eeedc99b2fd"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Warlock Archfey SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_PlanarBinding"/>
+                    <attribute id="UUID" type="guid" value="f1a137c8-f550-4687-a477-638592edbdf6"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="0a9b924f-64fb-4f22-b975-5eeedc99b2fd"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Archfey SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_FarStep;Target_Mislead;Projectile_NegativeEnergyFlood;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_SummonBeholderkin;Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="a03f89cd-461a-4a3e-9193-bd117152c897"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="4823a292-f584-4f7f-8434-6630c72e5411"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Fiend SLevel 1"/>
+                    <attribute id="Spells" type="LSString" value="Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="db5b931f-91ff-474f-ba76-60d8e1747874"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="835aeca7-c64a-4aaa-a25c-143aa14a5cec"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Fiend SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="794aec25-3b8c-4a43-8b84-0fd3a19b413b"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="5dec41aa-f16a-434e-b209-50c07e64e4ed"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Fiend SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="67d1e5c1-ddb4-4a69-8d54-4a19450b958d"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="7ad7dbd0-751b-4bcd-8034-53bcc7bfb19d"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Fiend SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_CharmMonster;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_SummonBeholderkin;Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="b9f423a8-a7e2-4fa3-897b-2d2eed29398e"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="deab57bf-4eec-4085-82f7-87335bce3f5d"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Warlock Fiend SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_PlanarBinding"/>
+                    <attribute id="UUID" type="guid" value="2c1e2e70-eb9a-4429-9a60-be43a09a9562"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="deab57bf-4eec-4085-82f7-87335bce3f5d"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock Fiend SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_FarStep;Target_Mislead;Projectile_NegativeEnergyFlood;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_SummonBeholderkin;Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="e491a6b7-35ce-49eb-96e4-a0a701e0bcbf"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="65952d48-bb16-4ad7-b173-532182bf7770"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock The Great Old One SLevel 1"/>
+                    <attribute id="Spells" type="LSString" value="Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="2ccf281d-5904-41cc-99f8-15687c12fe03"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="fe101a94-8619-49b2-859d-a68c2c291054"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock The Great Old One SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="77c15b77-789c-42ad-8bf6-a0abf5e6aa2f"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="30e9b761-6be0-418e-bb28-5103c00c663b"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock The Great Old One SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="1c07eb9f-ddf1-483e-91d9-6ef9dc83e72a"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="b64e527e-1f97-4125-84f7-78376ab1440b"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock The Great Old One SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_CharmMonster;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_SummonBeholderkin;Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="8f5c5e93-97dd-4ed3-9fe4-5a3c85e3523c"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="6d2edca9-71a7-4f3f-89f0-fccfff0bdee5"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Warlock The Great Old One SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_PlanarBinding"/>
+                    <attribute id="UUID" type="guid" value="6382b909-5937-4fdc-8e28-523717abe5a7"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="6d2edca9-71a7-4f3f-89f0-fccfff0bdee5"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Warlock The Great Old One SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_FarStep;Target_Mislead;Projectile_NegativeEnergyFlood;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_SummonBeholderkin;Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="aa22781d-bd7f-4984-adf9-928bbb5af523"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="d90e88eb-e5f9-4db2-b7ef-1dccb044839a"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Warlock Hexblade SLevel 1"/>
+                    <attribute id="Spells" type="LSString" value="Target_CauseFear;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="31de1f72-5f46-4cb8-b426-3b86fdeab087"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="4a3bf687-91c1-4dad-821c-ad32171c7552"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Warlock Hexblade SLevel 2"/>
+                    <attribute id="Spells" type="LSString" value="Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="d18d6a64-8a26-4f4c-ae64-42a5ed098e0c"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="58b8c82e-8ab3-4fd7-aa0a-3f2b831187f5"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Warlock Hexblade SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="a6430726-fd55-4612-ba19-0ed94a3406d0"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="39750075-781e-4ce2-a033-f8a288e47b8e"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Warlock Hexblade SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_CharmMonster;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_SummonBeholderkin;Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="42857572-0381-499f-9c02-a3afa5d97a60"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="88fafaeb-8b59-4319-9841-b9e6043f4636"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Warlock Hexblade SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_PlanarBinding"/>
+                    <attribute id="UUID" type="guid" value="d2e8bcbc-45f6-49a2-bb03-88b6ce26cbfa"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="88fafaeb-8b59-4319-9841-b9e6043f4636"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Warlock Hexblade SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_FarStep;Target_Mislead;Projectile_NegativeEnergyFlood;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Shout_ShadowOfMoil;Target_SummonBeholderkin;Target_Antagonize;Target_EnemiesAbound;Target_IntellectFortress;Target_MagicCircle;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Shout_BorrowedKnowledge;Target_FlockOfFamiliars;Target_MindSpike;Target_CauseFear;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="e6171a5e-8476-446a-9e81-f793b9132de1"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="e6ccab5e-3b3b-4b34-8fa2-1058dff2b3e6"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Warlock Mysic Arcanum SLevel 6"/>
+                    <attribute id="Spells" type="LSString" value="Target_TrueSeeing"/>
+                    <attribute id="UUID" type="guid" value="7ace20e7-d605-417a-b36e-31935c357232"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="388cd3b0-914a-44b6-a828-1315323b9fd7"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Warlock Mysic Arcanum SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_FingerOfDeath"/>
+                    <attribute id="UUID" type="guid" value="6592028e-1863-45a3-bf37-be50413f0592"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="070495e1-ccf4-4c05-9add-61c5010b8204"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Warlock Mysic Arcanum SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster;Target_Feeblemind"/>
+                    <attribute id="UUID" type="guid" value="db601d20-e572-4275-a1f5-09717974348a"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="47766c27-e791-4e6e-9b3d-2bb379106e62"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Warlock Mysic Arcanum SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_Foresight;Target_PowerWordKill"/>
+                    <attribute id="UUID" type="guid" value="8a8d732e-abf3-4cf2-9a40-b73230ee1662"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="3cae2e56-9871-4cef-bba6-96845ea765fa"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Wizard cantrips (Intelligence)"/>
+                    <attribute id="Spells" type="LSString" value="Target_ControlFlames;Target_CreateBonfire;Target_Frostbite;Target_GreenFlameBlade;Target_Gust;Target_Infestation;Target_LightningLure;Target_MindSliver;Target_MoldEarth;Target_Prestidigitation;Target_ShapeWater;Shout_SwordBurst;Shout_Thunderclap"/>
                     <attribute id="UUID" type="guid" value="a5117087-fa75-4c1e-ac8c-1e578c8da2b3"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="11f331b0-e8b7-473b-9d1f-19e8e4178d7d"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Wizard SLevel 1 expanded"/>
+                    <attribute id="Spells" type="LSString" value="Shout_AbsorbElements;Throw_Catapult;Target_CauseFear;Shout_DetectMagic;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="aa4c5ec3-58c5-4da3-a525-3ae6d01ee953"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="80c6b070-c3a6-4864-84ca-e78626784eb4"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Wizard SLevel 2 expanded"/>
+                    <attribute id="Spells" type="LSString" value="Target_EnhanceAbility"/>
+                    <attribute id="UUID" type="guid" value="67376922-2118-46b4-bf89-ae3def034e7b"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="80c6b070-c3a6-4864-84ca-e78626784eb4"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Wizard SLevel 2 expanded"/>
+                    <attribute id="Spells" type="LSString" value="Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Target_FlockOfFamiliars;Target_GentleRepose;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_MindSpike;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_CauseFear;Shout_DetectMagic;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="4e2d4d3f-859e-489c-817b-31d44b9d1c74"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="22755771-ca11-49f4-b772-13d8b8fecd93"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Wizard SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_SpeakWithDead;Target_EnhanceAbility"/>
+                    <attribute id="UUID" type="guid" value="a4a3a25f-8e8f-490c-aabf-5fe0ffc9839b"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="22755771-ca11-49f4-b772-13d8b8fecd93"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Wizard SLevel 3"/>
+                    <attribute id="Spells" type="LSString" value="Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Target_FlockOfFamiliars;Target_GentleRepose;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_MindSpike;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_CauseFear;Shout_DetectMagic;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="c489d104-c6f2-4dc5-9d41-cdaf9d8baae2"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="820b1220-0385-426d-ae15-458dc8a6f5c0"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Wizard SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_SpeakWithDead;Target_EnhanceAbility"/>
+                    <attribute id="UUID" type="guid" value="8f6f8270-ee0f-4b08-8ac6-f61a3a2a0b84"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="820b1220-0385-426d-ae15-458dc8a6f5c0"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Wizard SLevel 4"/>
+                    <attribute id="Spells" type="LSString" value="Target_ArcaneEye;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Target_SummonBeholderkin;Target_SummonConstruct;Target_SummonElemental;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Target_FlockOfFamiliars;Target_GentleRepose;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_MindSpike;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_CauseFear;Shout_DetectMagic;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="9eb6e06c-ce8a-4902-871f-1c663e02928f"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="f781a25e-d288-43b4-bf5d-3d8d98846687"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Wizard SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_SpeakWithDead;Target_EnhanceAbility"/>
+                    <attribute id="UUID" type="guid" value="100acfd3-1473-4348-bdfb-4a2f3193fbc5"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="f781a25e-d288-43b4-bf5d-3d8d98846687"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Wizard SLevel 5"/>
+                    <attribute id="Spells" type="LSString" value="Target_Dawn;Target_FarStep;Target_Mislead;Projectile_NegativeEnergyFlood;Target_SkillEmpowerment;Target_SteelWindStrike;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_ArcaneEye;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Target_SummonBeholderkin;Target_SummonConstruct;Target_SummonElemental;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Target_FlockOfFamiliars;Target_GentleRepose;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_MindSpike;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_CauseFear;Shout_DetectMagic;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="f66bae85-a922-423b-82a8-58635b367139"/>
                 </node>
                 <node id="SpellList">
                     <attribute id="MergedInto" type="guid" value="bc917f22-7f71-4a25-9a77-7d2f91a96a65"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Wizard SLevel 6"/>
+                    <attribute id="Spells" type="LSString" value="Target_SpeakWithDead;Target_EnhanceAbility"/>
+                    <attribute id="UUID" type="guid" value="4f8b2f55-e25f-48c1-acac-a8ae290110b6"/>
+                </node>
+                <node id="SpellList">
+                    <attribute id="MergedInto" type="guid" value="bc917f22-7f71-4a25-9a77-7d2f91a96a65"/>
                     <attribute id="Name" type="FixedString" value="5eSpells Wizard SLevel 6"/>
+                    <attribute id="Spells" type="LSString" value="Shout_TensersTransformation;Target_TrueSeeing;Target_Dawn;Target_FarStep;Target_Mislead;Projectile_NegativeEnergyFlood;Target_SkillEmpowerment;Target_SteelWindStrike;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_ArcaneEye;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Target_SummonBeholderkin;Target_SummonConstruct;Target_SummonElemental;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Target_FlockOfFamiliars;Target_GentleRepose;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_MindSpike;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_CauseFear;Shout_DetectMagic;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant"/>
                     <attribute id="UUID" type="guid" value="c3fc49b1-01b0-4c98-8924-472c09611a04"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Bard SLevel 7"/>
-                    <attribute id="Spells" type="LSString" value="Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
-                    <attribute id="UUID" type="guid" value="f923e058-b1d9-4b02-98ef-9daaa82a71b6"/>
+                    <attribute id="MergedInto" type="guid" value="dff7917a-0abc-4671-b68f-c03e56212549"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Wizard SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_SpeakWithDead;Target_EnhanceAbility"/>
+                    <attribute id="UUID" type="guid" value="250134ee-d389-4e5e-9711-d609c877ffa4"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Bard SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value="Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
-                    <attribute id="UUID" type="guid" value="073c09e5-ccb9-4153-a210-001225a30cbb"/>
+                    <attribute id="MergedInto" type="guid" value="dff7917a-0abc-4671-b68f-c03e56212549"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Wizard SLevel 7"/>
+                    <attribute id="Spells" type="LSString" value="Target_FingerOfDeath;Shout_TensersTransformation;Target_TrueSeeing;Target_Dawn;Target_FarStep;Target_Mislead;Projectile_NegativeEnergyFlood;Target_SkillEmpowerment;Target_SteelWindStrike;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_ArcaneEye;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Target_SummonBeholderkin;Target_SummonConstruct;Target_SummonElemental;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Target_FlockOfFamiliars;Target_GentleRepose;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_MindSpike;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_CauseFear;Shout_DetectMagic;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="5b2bb676-ddb6-4d48-87ba-cc0c27704a1b"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Bard SLevel 9"/>
-                    <attribute id="Spells" type="LSString" value="Target_Eyebite;Target_IrresistibleDance;Target_DominatePerson;Target_GreaterRestoration;Target_HoldMonster;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Target_Confusion;Teleportation_DimensionDoor;Target_FreedomOfMovement;Target_Invisibility_Greater;Target_Polymorph;Target_BestowCurse;Zone_Fear;Target_FeignDeath;Target_GlyphOfWarding;Target_HypnoticPattern;Target_PlantGrowth;Target_SpeakWithDead;Target_StinkingCloud;Target_Blindness;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Shout_DetectThoughts;Target_EnhanceAbility;Target_Enthrall;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_PhantasmalForce;Shout_SeeInvisibility;Target_Shatter;Target_Silence;Target_AnimalFriendship;Target_Bane;Target_CharmPerson;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Target_FaerieFire;Shout_FeatherFall;Target_HealingWord;Target_Heroism;Target_Longstrider;Target_Sleep;Shout_SpeakWithAnimals;Target_HideousLaughter;Zone_Thunderwave"/>
-                    <attribute id="UUID" type="guid" value="2bbd99d0-21b4-41cc-836e-e386a96fc8e6"/>
+                    <attribute id="MergedInto" type="guid" value="f27a2d0a-0d6c-4c01-98a5-60081abf4807"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Wizard SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Target_SpeakWithDead;Target_EnhanceAbility"/>
+                    <attribute id="UUID" type="guid" value="9436160d-df0f-48d0-badf-7d9a9d75f86d"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Bard Magical Secrets SLevel 7"/>
-                    <attribute id="Spells" type="LSString" value="Teleportation_ArcaneGate;Wall_BladeBarrier;Projectile_ChainLightning;Target_CircleOfDeath;Target_CreateUndead;Shout_DestructiveWave;Projectile_Disintegrate;Target_Eyebite;Target_FreezingSphere;Target_GlobeOfInvulnerability;Target_FleshToStone;Target_IrresistibleDance;Target_Heal;Target_Harm;Shout_HeroesFeast;Target_PlanarAlly_Container;Wall_WallOfIce;Wall_WallOfThorns;Shout_WindWalk;Zone_Sunbeam;Projectile_Smite_Banishing_Container;Target_Cloudkill;Zone_ConeOfCold;Target_ConjureElemental_Container;Target_Contagion;Target_DominatePerson;Target_FarStep;Target_FlameStrike;Target_GreaterRestoration;Target_HoldMonster;Target_InsectPlague;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Throw_Telekinesis;Wall_WallOfStone;Target_Banishment;Target_Blight;Target_Confusion;Target_ConjureElementals_Minor_Container;Target_ConjureWoodlandBeings;Target_DeathWard;Teleportation_DimensionDoor;Target_DominateBeast;Target_BlackTentacles;Shout_FireShield;Target_FreedomOfMovement;Target_GraspingVine;Target_Invisibility_Greater;Target_GuardianOfFaith;Target_IceStorm;Target_PhantasmalKiller;Target_Polymorph;Target_ResilientSphere;Target_Stoneskin;Wall_WallOfFire;Target_AnimateDead;Shout_AuraOfVitality;Shout_BeaconOfHope;Target_BestowCurse;Target_Smite_Blinding;Shout_Blink;Target_CallLightning;Zone_ConjureBarrage;Target_Counterspell;Shout_CrusadersMantle;Target_Daylight_Container;Target_ElementalWeapon;Target_EnemiesAbound;Zone_Fear;Target_FeignDeath;Projectile_Fireball;Target_Fly;Target_GaseousForm;Target_GlyphOfWarding;Target_Haste;Target_HungerOfHadar;Target_HypnoticPattern;Projectile_LightningArrow;Zone_LightningBolt;Shout_HealingWord_Mass;Target_PlantGrowth;Target_ProtectionFromEnergy;Target_RemoveCurse;Teleportation_Revivify;Target_SleetStorm;Target_Slow;Target_SpeakWithDead;Shout_SpiritGuardians;Target_StinkingCloud;Target_VampiricTouch;Shout_WaterWalk;Projectile_AcidArrow;Shout_Aid;Target_ArcaneLock;Target_Barkskin;Target_Blindness;Shout_Blur;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Target_Darkness;Target_Darkvision;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Target_Enthrall;Shout_FlameBlade;Target_FlamingSphere;Zone_GustOfWind;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_MagicWeapon;Shout_MirrorImage;Target_MistyStep;Target_Moonbeam;Shout_PassWithoutTrace;Target_PhantasmalForce;Shout_PrayerOfHealing;Target_ProtectionFromPoison;Projectile_RayOfEnfeeblement;Projectile_ScorchingRay;Shout_SeeInvisibility;Shout_ShadowBlade;Target_Shatter;Target_Silence;Target_Smite_Branding_Container;Target_SpikeGrowth;Target_SpiritualWeapon;Target_WardingBond;Target_Web;Target_AnimalFriendship;Shout_ArmorOfAgathys;Shout_ArmsOfHadar;Target_Bane;Target_Bless;Zone_BurningHands;Target_CharmPerson;Projectile_ChromaticOrb;Zone_ColorSpray;Target_Command_Container;Target_CreateDestroyWater;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Projectile_EnsnaringStrike_Container;Target_Entangle;Shout_ExpeditiousRetreat;Target_FaerieFire;Shout_FalseLife;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Goodberry;Target_Grease;Projectile_GuidingBolt;Projectile_HailOfThorns;Target_HealingWord;Shout_HellishRebuke;Target_Heroism;Target_Hex;Target_HideousLaughter;Target_HuntersMark;Projectile_IceKnife;Target_InflictWounds;Target_Jump;Target_Longstrider;Target_MageArmor;Projectile_MagicMissile;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Target_Sanctuary;Shout_Shield_Wizard;Target_ShieldOfFaith;Target_Sleep;Target_Smite_Searing;Target_Smite_Thunderous;Target_Smite_Wrathful;Shout_SpeakWithAnimals;Zone_Thunderwave;Projectile_WitchBolt;Projectile_AcidSplash;Shout_BladeWard;Target_ChillTouch;Target_ControlFlames;Target_DancingLights;Projectile_EldritchBlast;Projectile_FireBolt;Target_Friends;Target_Guidance;Target_Light;Target_LightningLure;Target_MageHand;Target_MinorIllusion;Projectile_PoisonSpray;Shout_ProduceFlame;Projectile_RayOfFrost;Target_Resistance;Target_SacredFlame;Shout_Shillelagh;Target_ShockingGrasp;Shout_Thaumaturgy;Target_ThornWhip;Target_TrueStrike"/>
-                    <attribute id="UUID" type="guid" value="95f80109-32b7-43f8-a99a-7ee2286a993a"/>
+                    <attribute id="MergedInto" type="guid" value="f27a2d0a-0d6c-4c01-98a5-60081abf4807"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Wizard SLevel 8"/>
+                    <attribute id="Spells" type="LSString" value="Target_DominateMonster;Target_Feeblemind;Target_MindBlank;Target_FingerOfDeath;Shout_TensersTransformation;Target_TrueSeeing;Target_Dawn;Target_FarStep;Target_Mislead;Projectile_NegativeEnergyFlood;Target_SkillEmpowerment;Target_SteelWindStrike;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_ArcaneEye;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Target_SummonBeholderkin;Target_SummonConstruct;Target_SummonElemental;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Target_FlockOfFamiliars;Target_GentleRepose;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_MindSpike;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_CauseFear;Shout_DetectMagic;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="3f13c7dc-77fc-4f47-985d-3be0342ea368"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Bard Magical Secrets SLevel 9"/>
-                    <attribute id="Spells" type="LSString" value="Target_Foresight;Target_PowerWordHeal;Target_PowerWordKill;Target_DominateMonster;Target_Feeblemind;Shout_HolyAura;Target_MindBlank;Teleportation_ArcaneGate;Wall_BladeBarrier;Projectile_ChainLightning;Target_CircleOfDeath;Target_CreateUndead;Shout_DestructiveWave;Projectile_Disintegrate;Target_Eyebite;Target_FreezingSphere;Target_GlobeOfInvulnerability;Target_FleshToStone;Target_IrresistibleDance;Target_Heal;Target_Harm;Shout_HeroesFeast;Target_PlanarAlly_Container;Wall_WallOfIce;Wall_WallOfThorns;Shout_WindWalk;Zone_Sunbeam;Projectile_Smite_Banishing_Container;Target_Cloudkill;Zone_ConeOfCold;Target_ConjureElemental_Container;Target_Contagion;Target_DominatePerson;Target_FarStep;Target_FlameStrike;Target_GreaterRestoration;Target_HoldMonster;Target_InsectPlague;Target_CureWounds_Mass;Target_PlanarBinding;Target_Seeming;Throw_Telekinesis;Wall_WallOfStone;Target_Banishment;Target_Blight;Target_Confusion;Target_ConjureElementals_Minor_Container;Target_ConjureWoodlandBeings;Target_DeathWard;Teleportation_DimensionDoor;Target_DominateBeast;Target_BlackTentacles;Shout_FireShield;Target_FreedomOfMovement;Target_GraspingVine;Target_Invisibility_Greater;Target_GuardianOfFaith;Target_IceStorm;Target_PhantasmalKiller;Target_Polymorph;Target_ResilientSphere;Target_Stoneskin;Wall_WallOfFire;Target_AnimateDead;Shout_AuraOfVitality;Shout_BeaconOfHope;Target_BestowCurse;Target_Smite_Blinding;Shout_Blink;Target_CallLightning;Zone_ConjureBarrage;Target_Counterspell;Shout_CrusadersMantle;Target_Daylight_Container;Target_ElementalWeapon;Target_EnemiesAbound;Zone_Fear;Target_FeignDeath;Projectile_Fireball;Target_Fly;Target_GaseousForm;Target_GlyphOfWarding;Target_Haste;Target_HungerOfHadar;Target_HypnoticPattern;Projectile_LightningArrow;Zone_LightningBolt;Shout_HealingWord_Mass;Target_PlantGrowth;Target_ProtectionFromEnergy;Target_RemoveCurse;Teleportation_Revivify;Target_SleetStorm;Target_Slow;Target_SpeakWithDead;Shout_SpiritGuardians;Target_StinkingCloud;Target_VampiricTouch;Shout_WaterWalk;Projectile_AcidArrow;Shout_Aid;Target_ArcaneLock;Target_Barkskin;Target_Blindness;Shout_Blur;Target_CalmEmotions;Target_CloudOfDaggers;Target_CrownOfMadness;Target_Darkness;Target_Darkvision;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Target_Enthrall;Shout_FlameBlade;Target_FlamingSphere;Zone_GustOfWind;Target_HeatMetal;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_LesserRestoration;Target_MagicWeapon;Shout_MirrorImage;Target_MistyStep;Target_Moonbeam;Shout_PassWithoutTrace;Target_PhantasmalForce;Shout_PrayerOfHealing;Target_ProtectionFromPoison;Projectile_RayOfEnfeeblement;Projectile_ScorchingRay;Shout_SeeInvisibility;Shout_ShadowBlade;Target_Shatter;Target_Silence;Target_Smite_Branding_Container;Target_SpikeGrowth;Target_SpiritualWeapon;Target_WardingBond;Target_Web;Target_AnimalFriendship;Shout_ArmorOfAgathys;Shout_ArmsOfHadar;Target_Bane;Target_Bless;Zone_BurningHands;Target_CharmPerson;Projectile_ChromaticOrb;Zone_ColorSpray;Target_Command_Container;Target_CreateDestroyWater;Target_CureWounds;Shout_DisguiseSelf;Target_DissonantWhispers;Projectile_EnsnaringStrike_Container;Target_Entangle;Shout_ExpeditiousRetreat;Target_FaerieFire;Shout_FalseLife;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Goodberry;Target_Grease;Projectile_GuidingBolt;Projectile_HailOfThorns;Target_HealingWord;Shout_HellishRebuke;Target_Heroism;Target_Hex;Target_HideousLaughter;Target_HuntersMark;Projectile_IceKnife;Target_InflictWounds;Target_Jump;Target_Longstrider;Target_MageArmor;Projectile_MagicMissile;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Target_Sanctuary;Shout_Shield_Wizard;Target_ShieldOfFaith;Target_Sleep;Target_Smite_Searing;Target_Smite_Thunderous;Target_Smite_Wrathful;Shout_SpeakWithAnimals;Zone_Thunderwave;Projectile_WitchBolt;Projectile_AcidSplash;Shout_BladeWard;Target_ChillTouch;Target_ControlFlames;Target_DancingLights;Projectile_EldritchBlast;Projectile_FireBolt;Target_Friends;Target_Guidance;Target_Light;Target_LightningLure;Target_MageHand;Target_MinorIllusion;Projectile_PoisonSpray;Shout_ProduceFlame;Projectile_RayOfFrost;Target_Resistance;Target_SacredFlame;Target_ShapeWater;Shout_Shillelagh;Target_ShockingGrasp;Shout_Thaumaturgy;Target_ThornWhip;Target_TrueStrike"/>
-                    <attribute id="UUID" type="guid" value="cd83187f-c886-45c2-be81-34083981f240"/>
+                    <attribute id="MergedInto" type="guid" value="cb123d97-8809-4d71-a0cb-0ecb66177d15"/>
+                    <attribute id="Name" type="FixedString" value="TCoE Wizard SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_SpeakWithDead;Target_EnhanceAbility"/>
+                    <attribute id="UUID" type="guid" value="a8109217-2e03-42f9-9774-93f1cad29776"/>
                 </node>
                 <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Cleric SLevel 7"/>
-                    <attribute id="Spells" type="LSString" value=""/>
-                    <attribute id="UUID" type="guid" value="11862b36-c2d6-4d2f-b2d7-4af29f8fe31a"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Cleric SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value=""/>
-                    <attribute id="UUID" type="guid" value="a0df1e32-1c61-4017-939f-44cc7695a924"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Cleric SLevel 9"/>
-                    <attribute id="Spells" type="LSString" value=""/>
-                    <attribute id="UUID" type="guid" value="9ea2891d-f0f9-42d0-b13d-7f1a5df154c3"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Druid SLevel 7"/>
-                    <attribute id="Spells" type="LSString" value=""/>
-                    <attribute id="UUID" type="guid" value="29c9cf78-3bd6-47dc-88b4-2dce54710124"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Druid SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value=""/>
-                    <attribute id="UUID" type="guid" value="bdff0cba-d631-4b83-9562-63c0187df380"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Druid SLevel 9"/>
-                    <attribute id="Spells" type="LSString" value=""/>
-                    <attribute id="UUID" type="guid" value="9e388f0f-7432-4f29-bfe5-5358ebde4491"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Paladin SLevel 4"/>
-                    <attribute id="Spells" type="LSString" value="Target_Banishment;Target_DeathWard;Target_StaggeringSmite"/>
-                    <attribute id="UUID" type="guid" value="11d0c2a0-41c6-4ec0-98fe-5d987f7e1665"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Paladin SLevel 5"/>
-                    <attribute id="Spells" type="LSString" value="Projectile_Smite_Banishing_Container;Shout_DestructiveWave;Shout_DispelEvilAndGood"/>
-                    <attribute id="UUID" type="guid" value="f351595c-90f7-4804-9e55-18c4d624593c"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Ancient Paladin SLevel 4"/>
-                    <attribute id="Spells" type="LSString" value="Target_IceStorm;Target_Stoneskin"/>
-                    <attribute id="UUID" type="guid" value="e119674f-37d0-49f5-8c6e-426f65a254bc"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Ancient Paladin SLevel 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_InsectPlague;Wall_WallOfStone"/>
-                    <attribute id="UUID" type="guid" value="8c33c86e-e3e4-4ea2-838e-0823bef06061"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Devotion Paladin SLevel 4"/>
-                    <attribute id="Spells" type="LSString" value="Target_FreedomOfMovement;Target_GuardianOfFaith"/>
-                    <attribute id="UUID" type="guid" value="592ad940-48a6-4835-a147-84d0a237b9bf"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Devotion Paladin SLevel 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_FlameStrike;Target_GreaterRestoration"/>
-                    <attribute id="UUID" type="guid" value="70ee3e4a-536f-485d-882a-94de6fbf7c65"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Oathbreaker Paladin SLevel 4"/>
-                    <attribute id="Spells" type="LSString" value="Target_Blight;Target_Confusion"/>
-                    <attribute id="UUID" type="guid" value="243663d7-7662-49bc-83cc-f99284138761"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Oathbreaker Paladin SLevel 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_Contagion;Target_DominatePerson"/>
-                    <attribute id="UUID" type="guid" value="5054ddf0-e093-4228-8c62-6ed98667c4f7"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Vengeance Paladin SLevel 4"/>
-                    <attribute id="Spells" type="LSString" value="Target_Banishment;Teleportation_DimensionDoor"/>
-                    <attribute id="UUID" type="guid" value="47d6a1a8-eacc-4355-ac2d-dac73ff01490"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Vengeance Paladin SLevel 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_HoldMonster;Projectile_Smite_Banishing_Container"/>
-                    <attribute id="UUID" type="guid" value="e8fce689-c836-45b3-9666-fb45d57ab1f9"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Ranger SLevel 4"/>
-                    <attribute id="Spells" type="LSString" value="Target_ConjureWoodlandBeings;Target_DominateBeast;Target_FreedomOfMovement;Target_GraspingVine;Target_Stoneskin;Zone_ConjureBarrage;Target_Daylight_Container;Target_ElementalWeapon;Projectile_LightningArrow;Target_PlantGrowth;Target_ProtectionFromEnergy;Teleportation_Revivify;Target_Barkskin;Target_Darkvision;Zone_GustOfWind;Target_LesserRestoration;Target_MagicWeapon;Shout_PassWithoutTrace;Target_ProtectionFromPoison;Target_Silence;Target_SpikeGrowth;Target_AnimalFriendship;Target_CureWounds;Projectile_EnsnaringStrike_Container;Target_FogCloud;Target_Goodberry;Projectile_HailOfThorns;Target_HuntersMark;Target_Jump;Target_Longstrider;Shout_SpeakWithAnimals"/>
-                    <attribute id="UUID" type="guid" value="7022d937-b2e4-4b6e-a3c5-e168f5c00194"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Ranger SLevel 5"/>
-                    <attribute id="Spells" type="LSString" value="Target_GreaterRestoration;Target_ConjureWoodlandBeings;Target_DominateBeast;Target_FreedomOfMovement;Target_GraspingVine;Target_Stoneskin;Zone_ConjureBarrage;Target_Daylight_Container;Target_ElementalWeapon;Projectile_LightningArrow;Target_PlantGrowth;Target_ProtectionFromEnergy;Teleportation_Revivify;Target_Barkskin;Target_Darkvision;Zone_GustOfWind;Target_LesserRestoration;Target_MagicWeapon;Shout_PassWithoutTrace;Target_ProtectionFromPoison;Target_Silence;Target_SpikeGrowth;Target_AnimalFriendship;Target_CureWounds;Projectile_EnsnaringStrike_Container;Target_FogCloud;Target_Goodberry;Projectile_HailOfThorns;Target_HuntersMark;Target_Jump;Target_Longstrider;Shout_SpeakWithAnimals"/>
-                    <attribute id="UUID" type="guid" value="412d77e1-4aa2-4149-aa0e-c835b8c79f32"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Sorcerer SLevel 7"/>
-                    <attribute id="Spells" type="LSString" value="Teleportation_ArcaneGate;Projectile_ChainLightning;Target_CircleOfDeath;Projectile_Disintegrate;Target_Eyebite;Target_GlobeOfInvulnerability;Zone_Sunbeam;Target_Cloudkill;Zone_ConeOfCold;Target_DominatePerson;Target_HoldMonster;Target_InsectPlague;Target_Seeming;Throw_Telekinesis;Wall_WallOfStone;Target_Banishment;Target_Blight;Target_Confusion;Teleportation_DimensionDoor;Target_DominateBeast;Target_Invisibility_Greater;Target_IceStorm;Target_Polymorph;Target_Stoneskin;Wall_WallOfFire;Shout_Blink;Target_Counterspell;Target_Daylight_Container;Zone_Fear;Projectile_Fireball;Target_Fly;Target_GaseousForm;Target_Haste;Target_HypnoticPattern;Zone_LightningBolt;Target_ProtectionFromEnergy;Target_SleetStorm;Target_Slow;Target_StinkingCloud;Target_Blindness;Shout_Blur;Target_CloudOfDaggers;Target_CrownOfMadness;Target_Darkness;Target_Darkvision;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Zone_GustOfWind;Target_HoldPerson;Target_Invisibility;Target_Knock;Shout_MirrorImage;Target_MistyStep;Target_PhantasmalForce;Projectile_ScorchingRay;Shout_SeeInvisibility;Target_Shatter;Target_Web;Zone_BurningHands;Target_CharmPerson;Projectile_ChromaticOrb;Zone_ColorSpray;Shout_DisguiseSelf;Shout_ExpeditiousRetreat;Shout_FalseLife;Shout_FeatherFall;Target_FogCloud;Projectile_IceKnife;Target_Jump;Target_MageArmor;Projectile_MagicMissile;Projectile_RayOfSickness;Shout_Shield_Sorcerer;Target_Sleep;Zone_Thunderwave;Projectile_WitchBolt"/>
-                    <attribute id="UUID" type="guid" value="9e38e5ae-51e8-4dd4-aad5-869a571b1519"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Sorcerer SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value="Teleportation_ArcaneGate;Projectile_ChainLightning;Target_CircleOfDeath;Projectile_Disintegrate;Target_Eyebite;Target_GlobeOfInvulnerability;Zone_Sunbeam;Target_Cloudkill;Zone_ConeOfCold;Target_DominatePerson;Target_HoldMonster;Target_InsectPlague;Target_Seeming;Throw_Telekinesis;Wall_WallOfStone;Target_Banishment;Target_Blight;Target_Confusion;Teleportation_DimensionDoor;Target_DominateBeast;Target_Invisibility_Greater;Target_IceStorm;Target_Polymorph;Target_Stoneskin;Wall_WallOfFire;Shout_Blink;Target_Counterspell;Target_Daylight_Container;Zone_Fear;Projectile_Fireball;Target_Fly;Target_GaseousForm;Target_Haste;Target_HypnoticPattern;Zone_LightningBolt;Target_ProtectionFromEnergy;Target_SleetStorm;Target_Slow;Target_StinkingCloud;Target_Blindness;Shout_Blur;Target_CloudOfDaggers;Target_CrownOfMadness;Target_Darkness;Target_Darkvision;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Zone_GustOfWind;Target_HoldPerson;Target_Invisibility;Target_Knock;Shout_MirrorImage;Target_MistyStep;Target_PhantasmalForce;Projectile_ScorchingRay;Shout_SeeInvisibility;Target_Shatter;Target_Web;Zone_BurningHands;Target_CharmPerson;Projectile_ChromaticOrb;Zone_ColorSpray;Shout_DisguiseSelf;Shout_ExpeditiousRetreat;Shout_FalseLife;Shout_FeatherFall;Target_FogCloud;Projectile_IceKnife;Target_Jump;Target_MageArmor;Projectile_MagicMissile;Projectile_RayOfSickness;Shout_Shield_Sorcerer;Target_Sleep;Zone_Thunderwave;Projectile_WitchBolt"/>
-                    <attribute id="UUID" type="guid" value="5a8a002c-352b-44e9-8233-da7e6112f4b0"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Sorcerer SLevel 9"/>
-                    <attribute id="Spells" type="LSString" value="Teleportation_ArcaneGate;Projectile_ChainLightning;Target_CircleOfDeath;Projectile_Disintegrate;Target_Eyebite;Target_GlobeOfInvulnerability;Zone_Sunbeam;Target_Cloudkill;Zone_ConeOfCold;Target_DominatePerson;Target_HoldMonster;Target_InsectPlague;Target_Seeming;Throw_Telekinesis;Wall_WallOfStone;Target_Banishment;Target_Blight;Target_Confusion;Teleportation_DimensionDoor;Target_DominateBeast;Target_Invisibility_Greater;Target_IceStorm;Target_Polymorph;Target_Stoneskin;Wall_WallOfFire;Shout_Blink;Target_Counterspell;Target_Daylight_Container;Zone_Fear;Projectile_Fireball;Target_Fly;Target_GaseousForm;Target_Haste;Target_HypnoticPattern;Zone_LightningBolt;Target_ProtectionFromEnergy;Target_SleetStorm;Target_Slow;Target_StinkingCloud;Target_Blindness;Shout_Blur;Target_CloudOfDaggers;Target_CrownOfMadness;Target_Darkness;Target_Darkvision;Shout_DetectThoughts;Target_EnhanceAbility;Target_EnlargeReduce;Zone_GustOfWind;Target_HoldPerson;Target_Invisibility;Target_Knock;Shout_MirrorImage;Target_MistyStep;Target_PhantasmalForce;Projectile_ScorchingRay;Shout_SeeInvisibility;Target_Shatter;Target_Web;Zone_BurningHands;Target_CharmPerson;Projectile_ChromaticOrb;Zone_ColorSpray;Shout_DisguiseSelf;Shout_ExpeditiousRetreat;Shout_FalseLife;Shout_FeatherFall;Target_FogCloud;Projectile_IceKnife;Target_Jump;Target_MageArmor;Projectile_MagicMissile;Projectile_RayOfSickness;Shout_Shield_Sorcerer;Target_Sleep;Zone_Thunderwave;Projectile_WitchBolt"/>
-                    <attribute id="UUID" type="guid" value="d58ac072-e079-410b-b167-a5e43723b59f"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Eldritch Knight Fighter SLevel 3"/>
-                    <attribute id="Spells" type="LSString" value="Target_Counterspell;Projectile_Fireball;Target_GlyphOfWarding;Zone_LightningBolt;Target_ProtectionFromEnergy;Target_RemoveCurse;Target_Seeming;Target_SleetStorm;Projectile_AcidArrow;Target_ArcaneLock;Target_Darkness;Zone_GustOfWind;Projectile_ScorchingRay;Target_Shatter;Zone_BurningHands;Projectile_ChromaticOrb;Projectile_MagicMissile;Target_MageArmor;Target_ProtectionFromEvilAndGood;Shout_Shield_Wizard;Zone_Thunderwave;Projectile_WitchBolt"/>
-                    <attribute id="UUID" type="guid" value="9ca503db-0e4b-4325-b1eb-e2f794a075d6"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Eldritch Knight Fighter SLevel 4"/>
-                    <attribute id="Spells" type="LSString" value="Target_Banishment;Shout_FireShield;Target_IceStorm;Target_ResilientSphere;Target_Stoneskin;Wall_WallOfFire;Target_Counterspell;Projectile_Fireball;Target_GlyphOfWarding;Zone_LightningBolt;Target_ProtectionFromEnergy;Target_RemoveCurse;Target_Seeming;Target_SleetStorm;Projectile_AcidArrow;Target_ArcaneLock;Target_Darkness;Zone_GustOfWind;Projectile_ScorchingRay;Target_Shatter;Zone_BurningHands;Projectile_ChromaticOrb;Projectile_MagicMissile;Target_MageArmor;Target_ProtectionFromEvilAndGood;Shout_Shield_Wizard;Zone_Thunderwave;Projectile_WitchBolt"/>
-                    <attribute id="UUID" type="guid" value="5798e5a8-da36-40bc-acf5-2b736cf607a2"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Arcane Trickster Rogue SLevel 3"/>
-                    <attribute id="Spells" type="LSString" value="Zone_Fear;Target_HypnoticPattern;Shout_Blur;Target_CrownOfMadness;Target_HoldPerson;Target_Invisibility;Shout_MirrorImage;Target_PhantasmalForce;Target_CharmPerson;Zone_ColorSpray;Shout_DisguiseSelf;Target_HideousLaughter;Target_Sleep"/>
-                    <attribute id="UUID" type="guid" value="c707cc1f-e5ed-4798-909a-3652ad497d24"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Arcane Trickster Rogue SLevel 4"/>
-                    <attribute id="Spells" type="LSString" value="Target_Confusion;Target_Invisibility_Greater;Target_PhantasmalKiller;Zone_Fear;Target_HypnoticPattern;Shout_Blur;Target_CrownOfMadness;Target_HoldPerson;Target_Invisibility;Shout_MirrorImage;Target_PhantasmalForce;Target_CharmPerson;Zone_ColorSpray;Shout_DisguiseSelf;Target_HideousLaughter;Target_Sleep"/>
-                    <attribute id="UUID" type="guid" value="0329cc67-3e67-409c-9b22-fb510a564c98"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Warlock Mystic Arcanum SLevel 7"/>
-                    <attribute id="Spells" type="LSString" value=""/>
-                    <attribute id="UUID" type="guid" value="388cd3b0-914a-44b6-a828-1315323b9fd7"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Warlock Mystic Arcanum SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value=""/>
-                    <attribute id="UUID" type="guid" value="070495e1-ccf4-4c05-9add-61c5010b8204"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Warlock Mystic Arcanum SLevel 9"/>
-                    <attribute id="Spells" type="LSString" value=""/>
-                    <attribute id="UUID" type="guid" value="47766c27-e791-4e6e-9b3d-2bb379106e62"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Wizard SLevel 7"/>
-                    <attribute id="Spells" type="LSString" value="Teleportation_ArcaneGate;Projectile_ChainLightning;Target_CircleOfDeath;Target_CreateUndead;Projectile_Disintegrate;Target_Eyebite;Target_FleshToStone;Target_GlobeOfInvulnerability;Target_FreezingSphere;Target_IrresistibleDance;Zone_Sunbeam;Wall_WallOfIce;Target_Cloudkill;Zone_ConeOfCold;Target_ConjureElemental_Container;Target_DominatePerson;Target_HoldMonster;Target_PlanarBinding;Target_Seeming;Throw_Telekinesis;Wall_WallOfStone;Target_Banishment;Target_Blight;Target_Confusion;Target_ConjureElementals_Minor_Container;Teleportation_DimensionDoor;Target_BlackTentacles;Shout_FireShield;Target_Invisibility_Greater;Target_IceStorm;Target_ResilientSphere;Target_PhantasmalKiller;Target_Polymorph;Target_Stoneskin;Wall_WallOfFire;Target_AnimateDead;Target_BestowCurse;Shout_Blink;Target_Counterspell;Zone_Fear;Target_FeignDeath;Projectile_Fireball;Target_Fly;Target_GaseousForm;Target_GlyphOfWarding;Target_Haste;Target_HypnoticPattern;Zone_LightningBolt;Target_ProtectionFromEnergy;Target_RemoveCurse;Target_SleetStorm;Target_Slow;Target_StinkingCloud;Target_VampiricTouch;Target_ArcaneLock;Target_Blindness;Shout_Blur;Target_CloudOfDaggers;Target_CrownOfMadness;Target_Darkness;Target_Darkvision;Shout_DetectThoughts;Target_EnlargeReduce;Target_FlamingSphere;Zone_GustOfWind;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_MagicWeapon;Projectile_AcidArrow;Shout_MirrorImage;Target_MistyStep;Target_PhantasmalForce;Projectile_RayOfEnfeeblement;Projectile_ScorchingRay;Shout_SeeInvisibility;Target_Shatter;Target_Web;Zone_BurningHands;Target_CharmPerson;Projectile_ChromaticOrb;Zone_ColorSpray;Shout_DisguiseSelf;Shout_ExpeditiousRetreat;Shout_FalseLife;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Grease;Projectile_IceKnife;Target_Jump;Target_Longstrider;Target_MageArmor;Projectile_MagicMissile;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Shout_Shield_Wizard;Target_Sleep;Target_HideousLaughter;Zone_Thunderwave;Projectile_WitchBolt"/>
-                    <attribute id="UUID" type="guid" value="dff7917a-0abc-4671-b68f-c03e56212549"/>
-                </node>
-               <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Wizard SLevel 8"/>
-                    <attribute id="Spells" type="LSString" value="Teleportation_ArcaneGate;Projectile_ChainLightning;Target_CircleOfDeath;Target_CreateUndead;Projectile_Disintegrate;Target_Eyebite;Target_FleshToStone;Target_GlobeOfInvulnerability;Target_FreezingSphere;Target_IrresistibleDance;Zone_Sunbeam;Wall_WallOfIce;Target_Cloudkill;Zone_ConeOfCold;Target_ConjureElemental_Container;Target_DominatePerson;Target_HoldMonster;Target_PlanarBinding;Target_Seeming;Throw_Telekinesis;Wall_WallOfStone;Target_Banishment;Target_Blight;Target_Confusion;Target_ConjureElementals_Minor_Container;Teleportation_DimensionDoor;Target_BlackTentacles;Shout_FireShield;Target_Invisibility_Greater;Target_IceStorm;Target_ResilientSphere;Target_PhantasmalKiller;Target_Polymorph;Target_Stoneskin;Wall_WallOfFire;Target_AnimateDead;Target_BestowCurse;Shout_Blink;Target_Counterspell;Zone_Fear;Target_FeignDeath;Projectile_Fireball;Target_Fly;Target_GaseousForm;Target_GlyphOfWarding;Target_Haste;Target_HypnoticPattern;Zone_LightningBolt;Target_ProtectionFromEnergy;Target_RemoveCurse;Target_SleetStorm;Target_Slow;Target_StinkingCloud;Target_VampiricTouch;Target_ArcaneLock;Target_Blindness;Shout_Blur;Target_CloudOfDaggers;Target_CrownOfMadness;Target_Darkness;Target_Darkvision;Shout_DetectThoughts;Target_EnlargeReduce;Target_FlamingSphere;Zone_GustOfWind;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_MagicWeapon;Projectile_AcidArrow;Shout_MirrorImage;Target_MistyStep;Target_PhantasmalForce;Projectile_RayOfEnfeeblement;Projectile_ScorchingRay;Shout_SeeInvisibility;Target_Shatter;Target_Web;Zone_BurningHands;Target_CharmPerson;Projectile_ChromaticOrb;Zone_ColorSpray;Shout_DisguiseSelf;Shout_ExpeditiousRetreat;Shout_FalseLife;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Grease;Projectile_IceKnife;Target_Jump;Target_Longstrider;Target_MageArmor;Projectile_MagicMissile;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Shout_Shield_Wizard;Target_Sleep;Target_HideousLaughter;Zone_Thunderwave;Projectile_WitchBolt"/>
-                    <attribute id="UUID" type="guid" value="f27a2d0a-0d6c-4c01-98a5-60081abf4807"/>
-                </node>
-                <node id="SpellList">
-                    <attribute id="Comment" type="LSString" value="Wizard SLevel 9"/>
-                    <attribute id="Spells" type="LSString" value="Teleportation_ArcaneGate;Projectile_ChainLightning;Target_CircleOfDeath;Target_CreateUndead;Projectile_Disintegrate;Target_Eyebite;Target_FleshToStone;Target_GlobeOfInvulnerability;Target_FreezingSphere;Target_IrresistibleDance;Zone_Sunbeam;Wall_WallOfIce;Target_Cloudkill;Zone_ConeOfCold;Target_ConjureElemental_Container;Target_DominatePerson;Target_HoldMonster;Target_PlanarBinding;Target_Seeming;Throw_Telekinesis;Wall_WallOfStone;Target_Banishment;Target_Blight;Target_Confusion;Target_ConjureElementals_Minor_Container;Teleportation_DimensionDoor;Target_BlackTentacles;Shout_FireShield;Target_Invisibility_Greater;Target_IceStorm;Target_ResilientSphere;Target_PhantasmalKiller;Target_Polymorph;Target_Stoneskin;Wall_WallOfFire;Target_AnimateDead;Target_BestowCurse;Shout_Blink;Target_Counterspell;Zone_Fear;Target_FeignDeath;Projectile_Fireball;Target_Fly;Target_GaseousForm;Target_GlyphOfWarding;Target_Haste;Target_HypnoticPattern;Zone_LightningBolt;Target_ProtectionFromEnergy;Target_RemoveCurse;Target_SleetStorm;Target_Slow;Target_StinkingCloud;Target_VampiricTouch;Target_ArcaneLock;Target_Blindness;Shout_Blur;Target_CloudOfDaggers;Target_CrownOfMadness;Target_Darkness;Target_Darkvision;Shout_DetectThoughts;Target_EnlargeReduce;Target_FlamingSphere;Zone_GustOfWind;Target_HoldPerson;Target_Invisibility;Target_Knock;Target_MagicWeapon;Projectile_AcidArrow;Shout_MirrorImage;Target_MistyStep;Target_PhantasmalForce;Projectile_RayOfEnfeeblement;Projectile_ScorchingRay;Shout_SeeInvisibility;Target_Shatter;Target_Web;Zone_BurningHands;Target_CharmPerson;Projectile_ChromaticOrb;Zone_ColorSpray;Shout_DisguiseSelf;Shout_ExpeditiousRetreat;Shout_FalseLife;Shout_FeatherFall;Target_FindFamiliar;Target_FogCloud;Target_Grease;Projectile_IceKnife;Target_Jump;Target_Longstrider;Target_MageArmor;Projectile_MagicMissile;Target_ProtectionFromEvilAndGood;Projectile_RayOfSickness;Shout_Shield_Wizard;Target_Sleep;Target_HideousLaughter;Zone_Thunderwave;Projectile_WitchBolt"/>
-                    <attribute id="UUID" type="guid" value="cb123d97-8809-4d71-a0cb-0ecb66177d15"/>
+                    <attribute id="MergedInto" type="guid" value="cb123d97-8809-4d71-a0cb-0ecb66177d15"/>
+                    <attribute id="Name" type="FixedString" value="5eSpells Wizard SLevel 9"/>
+                    <attribute id="Spells" type="LSString" value="Target_Foresight;Target_PowerWordKill;Target_DominateMonster;Target_Feeblemind;Target_MindBlank;Target_FingerOfDeath;Shout_TensersTransformation;Target_TrueSeeing;Target_Dawn;Target_FarStep;Target_Mislead;Projectile_NegativeEnergyFlood;Target_SkillEmpowerment;Target_SteelWindStrike;Target_SynapticStatic;Teleportation_TeleportationCircle;Target_ArcaneEye;Target_CharmMonster;Projectile_RaulothimsPsychicLance;Target_StormSphere;Target_SummonBeholderkin;Target_SummonConstruct;Target_SummonElemental;Projectile_VitriolicSphere;Target_Antagonize;Shout_AshardalonsStride;Target_Catnap;Target_EnemiesAbound;Target_EruptingEarth;Target_FlameArrows;Target_IntellectFortress;Target_LifeTransference;Target_MagicCircle;Projectile_MinuteMeteors;Target_Nondetection;Shout_SpiritShroud;Target_SummonFey;Target_SummonShadowspawn;Teleportation_ThunderStep;Zone_AganazzarsScorcher;Shout_AlterSelf;Shout_BorrowedKnowledge;Target_ContinualFlame;Target_DragonsBreath;Target_DustDevil;Target_FlockOfFamiliars;Target_GentleRepose;Shout_KineticJaunt;Target_MaximiliansEarthenGrasp;Target_TashasMindWhip;Target_MindSpike;Target_NathairsMischief;Zone_RimesBindingIce;Target_SnillocsSnowballStorm;Target_VortexWarp;Shout_WardingWind;Target_WitherAndBloom;Shout_AbsorbElements;Throw_Catapult;Target_CauseFear;Shout_DetectMagic;Shout_EarthTremor;Zone_FrostFingers;Target_Snare;Zone_TashasCausticBrew;Target_UnseenServant"/>
+                    <attribute id="UUID" type="guid" value="8fecd894-7a73-44b7-b00c-20b44377f452"/>
                 </node>
             </children>
         </node>

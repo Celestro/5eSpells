@@ -5,18 +5,16 @@
         <node id="root">
             <children>
                 <node id="ActionResourceDefinition">
-                    <attribute id="Description" type="TranslatedString" handle="h61f81fefg8405g4ac1g8bcbgb60766ec1d8a" version="2"/>
-                    <attribute id="DiceType" type="uint32" value="6"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="hf9c0c9cbg6271g4959gb9d0g141ad19b1d6a" version="2"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h72de0034gb927g48f5g93cag76299a90b2de" version="1"/>
                     <attribute id="MaxLevel" type="uint32" value="0"/>
-                    <attribute id="Name" type="FixedString" value="HitDice"/>
-                    <attribute id="ReplenishType" type="FixedString" value="Never"/>
-                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
+                    <attribute id="Name" type="FixedString" value="RitualSpellResource"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Turn"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="false"/>
                     <attribute id="UUID" type="guid" value="d59999b2-3e77-42f6-96e8-b021a17a9e1c"/>
                 </node>
                 <node id="ActionResourceDefinition">
-                    <attribute id="Description" type="TranslatedString" handle="4ca7c3de83ce4f899772656eb42e9053" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="7b1f02860f9e46b9b1e25500276d446f" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h9ec3de39gfedbg46c5g8e2fg06794a9b1dc7" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="hd8373cb4g9c03g46f8gb759g133b39f277a5" version="1"/>
                     <attribute id="IsSpellResource" type="bool" value="false"/>
                     <attribute id="MaxLevel" type="uint32" value="0"/>
                     <attribute id="Name" type="FixedString" value="HealingSpiritPoint"/>
@@ -27,9 +25,9 @@
                     <attribute id="UpdatesSpellPowerLevel" type="bool" value="false"/>
                 </node>
                 <node id="ActionResourceDefinition">
-                    <attribute id="Description" type="TranslatedString" handle="c97efed3f85f47e28d8673d747421ef2" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h099bc203g4807g43b6g9f63gafb633f28c44" version="1"/>
                     <attribute id="DiceType" type="uint32" value="0" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="84778cbc-d7a6-4895-ae48-fd63e63df756" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="h84778cbcgd7a6g4895gae48gfd63e63df756" version="1"/>
                     <attribute id="IsSpellResource" type="bool" value="false"/>
                     <attribute id="MaxLevel" type="uint32" value="0"/>
                     <attribute id="Name" type="FixedString" value="MinuteMeteors"/>
@@ -40,8 +38,8 @@
                     <attribute id="UpdatesSpellPowerLevel" type="bool" value="false"/>
                 </node>
                 <node id="ActionResourceDefinition">
-                    <attribute id="Description" type="TranslatedString" handle="f588083033e249c4aa82a687106cbeb4" version="1"/>
-                    <attribute id="DisplayName" type="TranslatedString" handle="bd8664f8-0061-4283-bcb3-7835805f57a3" version="1"/>
+                    <attribute id="Description" type="TranslatedString" handle="h6ad98a23gbd9ag4ba4gbf35g1d353cae8bca" version="1"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="hbd8664f8g0061g4283gbcb3g7835805f57a3" version="1"/>
                     <attribute id="IsSpellResource" type="bool" value="false"/>
                     <attribute id="MaxLevel" type="uint32" value="0"/>
                     <attribute id="Name" type="FixedString" value="FlameArrows"/>
@@ -54,14 +52,24 @@
                 <node id="ActionResourceDefinition">
                     <attribute id="Description" type="TranslatedString" handle="h62b3c5a0g9c4cg4020g886ege0b178bec4b6" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="hefe792bbgeb6ag434bg8f22g4eac3fa5d126" version="1"/>
-                    <attribute id="IsHidden" type="bool" value="true"/>
                     <attribute id="IsSpellResource" type="bool" value="false"/>
                     <attribute id="MaxLevel" type="uint32" value="0"/>
                     <attribute id="Name" type="FixedString" value="MagicStones"/>
                     <attribute id="PartyActionResource" type="bool" value="false"/>
                     <attribute id="ReplenishType" type="FixedString" value="Never"/>
-                    <attribute id="ShowOnActionResourcePanel" type="bool" value="false"/>
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="true"/>
                     <attribute id="UUID" type="guid" value="c12836e6-0f4e-44a2-b84d-da7b1bcc9986"/>
+                </node>
+				<node id="ActionResourceDefinition">
+                    <attribute id="Description" type="TranslatedString" handle="hfcd95fc3g4707g4262g80f7gacb371aa8e92" version="3" />
+                    <attribute id="DisplayName" type="TranslatedString" handle="hba0d4fd0ga762g43bfgb86fg1c9c8982c6b2" version="3" />
+                    <attribute id="Error" type="TranslatedString" handle="hea9d4496g788ag4a57gb9degb995324381b7" version="1" />
+                    <attribute id="IsHidden" type="bool" value="true" />
+                    <attribute id="MaxLevel" type="uint32" value="0" />
+                    <attribute id="Name" type="FixedString" value="MisleadActionPoint" />
+                    <attribute id="ReplenishType" type="FixedString" value="Turn" />
+                    <attribute id="ShowOnActionResourcePanel" type="bool" value="false" />
+                    <attribute id="UUID" type="guid" value="215421e0-fe7b-4281-a481-5a449b5ed42d" />
                 </node>
             </children>
         </node>

@@ -3154,6 +3154,827 @@
 						</node>
 					</children>
 				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="6 6 6" />
+					<attribute id="BoundsMin" type="fvec3" value="-6 -6 -6" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="0.3" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_ZoneofTruth_Aura_Root_01" />
+					<attribute id="ID" type="FixedString" value="47654cf6-6a72-41e7-a216-42025d5d68cd" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="VFX_Status_ZoneofTruth_Aura_Root_01" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_ZoneofTruth_Aura_Root_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209023" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="0304ee2e-6c7b-498b-2e84-02ce96eec15c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="305c04c6-b37c-d841-2d96-c18d92741777" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="402b6075-2365-4009-b655-005121f722af" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="39f6fbef-4b40-0bdb-e513-aff7232349a8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b542a58f-8e05-7660-62f0-52cf1a90c972" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="3f61ae2b-fe45-87cc-8572-dc81974041aa" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="58fcf6ba-8008-a7a7-d233-42149dac0505" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e7b55705-01cd-edbd-7a8d-25321c31904d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="09507f13-8b48-c991-2f7e-46e2958f3344" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="34d56d7b-ce5a-4ad3-a404-843aabd14084" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a371dab0-820b-4aa4-8997-6288dbc30d07" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6c97dcb3-6424-4831-b444-b5052af0261f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="19076350-5f29-28aa-cfdf-9be3ed36dc63" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="65040a33-f751-4518-82fd-338956c74fb0" />
+					<attribute id="Name" type="LSString" value="VFX_Status_TeleportationCircle_Root_02" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_TeleportationCircle_Root_02.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_TeleportationCircle_Root_02" />
+					<attribute id="BoundsMin" type="fvec3" value="-5 -5 -5" />
+					<attribute id="BoundsMax" type="fvec3" value="5 5 5" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="4.001213" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="d63c9aec-8580-3b65-f43d-63a84726629c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="97ad0a7d-175b-dce0-d4fa-f44cf849fd6e" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9cb82748-818b-eb58-80d8-1997f0e8eab4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="4e859608-e8e5-5c80-118d-f91d5313fa1b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="de3b9844-515c-d3f7-9a3d-59a67c6bbc3e" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ebfbf452-11ae-460a-96e5-5d1afaae10c3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ea1b6f61-7c1e-e0b8-7987-f7528fd27ecc" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="44192e18-75cf-4d16-1747-81ed534b8247" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="d5f87828-7bd2-2ad0-f056-a4bed753c649" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="317bf423-2205-46f1-6932-c1e980336040" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="37d57802-deb2-20c9-c1a4-539fd8a6e6bb" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="8b0eb410-d9ee-2df5-a271-d2d98dbfedf2" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5e1b3b30-8ca9-ea66-5346-d2a89dbf79fc" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7f8c1efc-5218-1416-6478-4f2b79ee92e5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e1867c13-ff9e-465a-5c77-2eeaa04b9202" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="10 10 10" />
+					<attribute id="BoundsMin" type="fvec3" value="-10 -10 -10" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="2.499919" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_CircleofPower_01" />
+					<attribute id="ID" type="FixedString" value="0a8b3a8f-3824-4568-889f-77cc15b6d202" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="VFX_Status_CircleofPower_01" />
+					<attribute id="Radius" type="float" value="17.320509" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_CircleofPower_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115205255725656" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="970df91b-ce6e-db7d-ea26-b9c4eb206954" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="15981e87-bc8a-9f68-ae3d-0a3c2c802d25" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6ffad76a-8d5f-38cf-95bf-7f24d5e63545" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="30e17083-9341-c17f-1993-4301d74f2152" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="cc49a7a8-870b-9f07-5ebe-da6441442f19" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="d78326cf-2a9b-28c4-e77c-54f9daefe4e0" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b4c92036-3733-5b15-f86d-1a02855d0144" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="97b12629-982f-c7b4-7807-1ca4cd35e0aa" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9a302312-9494-c5fd-b56f-cb8957303617" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a0d29f47-e0d4-0151-d747-1a0bb8688512" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="13416b34-9867-0546-a9d7-2c248e7ce290" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="39f6fbef-4b40-0bdb-e513-aff7232349a8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="920df051-7d30-cfbc-b765-1de87b225a61" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="2a164945-93f6-a132-bf7a-27ded4da2132" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c7f72b8a-1f0f-d868-c79f-b629bd55b11f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="09507f13-8b48-c991-2f7e-46e2958f3344" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="83fe3c2c-7557-b45f-e7c2-c988dc149799" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="34b65cc9-a586-f5bb-d1af-2d723a3ba860" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="fa9fee75-c6ba-b2e0-203b-abbd4ba3b10d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="22913db7-c16d-8259-8539-311f6c14aa27" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="2beeca98-1183-c931-2f1d-b182359e7d2b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="11b7b087-60cf-2e14-367d-f1c60d9b91b3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5b41e147-af6d-e473-c1a5-275863787776" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="5 5 5" />
+					<attribute id="BoundsMin" type="fvec3" value="-5 -5 -5" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="3" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Spells_Cast_AntilifeShell_Root_Textkey_01" />
+					<attribute id="ID" type="FixedString" value="c6d82cae-5a1f-4f57-8da0-8fe7c59e0b5b" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="VFX_Spells_Cast_AntilifeShell_Root_Textkey_01" />
+					<attribute id="Radius" type="float" value="5" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Cast/VFX_Spells_Cast_AntilifeShell_Root_Textkey_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115203108241608" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="be3d97ad-8e40-58ab-6abe-6d3c44b20678" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="39f6fbef-4b40-0bdb-e513-aff7232349a8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f6db11f4-c563-6173-245b-23e6910c5b83" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="3 3 3" />
+					<attribute id="BoundsMin" type="fvec3" value="-3 -3 -3" />
+					<attribute id="Center" type="fvec3" value="0 0 0" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="4" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Spells_Prepare_AntilifeShell_R_HandFX_Textkey_01" />
+					<attribute id="ID" type="FixedString" value="233a8542-cca3-44b5-97cd-c94ef143279c" />
+					<attribute id="Initialized" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="0" />
+					<attribute id="Localized" type="bool" value="False" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="VFX_Spells_Prepare_AntilifeShell_R_HandFX_Textkey_01" />
+					<attribute id="Radius" type="float" value="5.196152" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Prepare/VFX_Spells_Prepare_AntilifeShell_R_HandFX_Textkey_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115200960758062" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9c15f129-f070-7a2b-e66d-d728aaea2383" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f6db11f4-c563-6173-245b-23e6910c5b83" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="88ab1c5e-5bcd-e4a5-7249-9c6a439a18d6" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f51d4ea9-e053-382a-31b6-7d2458e4aab3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9acfb87b-b0b3-50a7-7408-414d4246d2b4" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="183a9f56-814d-a677-b7b9-8f818428708c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="09507f13-8b48-c991-2f7e-46e2958f3344" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6d1997f3-03c7-a813-7efa-7f7e1edac10b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="27f4f916-9341-0e44-72f6-34f79e42848e" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7bdafec7-27dd-539a-e30b-3a3fb9311196" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="19c24792-a865-5490-9e83-c7e90e3d04fb" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="5 5 5" />
+					<attribute id="BoundsMin" type="fvec3" value="-5 -5 -5" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="3.000001" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_AntilifeShell_Root_Textkey_01" />
+					<attribute id="ID" type="FixedString" value="1ab7421d-9e65-4e31-a8a0-8f8f170a74c5" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="Name" type="LSString" value="VFX_Status_AntilifeShell_Root_Textkey_01" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_AntilifeShell_Root_Textkey_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403209024" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="0c25e230-8b97-13ff-7431-a3060b1e2b51" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="4cd36fac-3820-fb76-ea5d-60a1dd84070e" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="BoundsMax" type="fvec3" value="3 6 3" />
+					<attribute id="BoundsMin" type="fvec3" value="-3 0 -3" />
+					<attribute id="Center" type="fvec3" value="0 3 0" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="2.969086" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_AntilifeShell_TargetFX_Textkey_01" />
+					<attribute id="ID" type="FixedString" value="1b7efc52-b241-4d7c-a44f-cb6699b7a6fe" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="Name" type="LSString" value="VFX_Status_AntilifeShell_TargetFX_Textkey_01" />
+					<attribute id="Radius" type="float" value="5.196152" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_AntilifeShell_TargetFX_Textkey_01.lsfx" />
+					<attribute id="_OriginalFileVersion_" type="int64" value="144115207403208706" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="975e8492-eb51-85d6-6a0b-d9d7358865b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b4c92036-3733-5b15-f86d-1a02855d0144" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b2994464-b4ca-240e-923d-1ee4cf370ad3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="02132535-26c4-42d7-9ca0-c81081255fe1" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="e1ef79a8-5333-69dc-ff2b-af48fa60f62f" />
+					<attribute id="Name" type="LSString" value="VFX_Status_Druidcraft_Distraction" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_Druidcraft_Distraction.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_Druidcraft_Distraction" />
+					<attribute id="BoundsMin" type="fvec3" value="-2.8867514 -1.3867514 -2.8867514" />
+					<attribute id="BoundsMax" type="fvec3" value="2.8867514 4.386751 2.8867514" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="5" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="196875bd-bcef-fa26-36b1-7e4ba7b89e24" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ba61f4ec-4faf-1f46-9461-62f9d326aabc" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="706c6118-b534-ecc1-051c-6699673cca6a" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="8ea24cf5-224d-4704-4fa6-69b18f9c067b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c6fda780-caf8-aeec-f9ee-9e03d82da56b" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="450ad8aa-b20e-68da-f2b5-728eddd78534" />
+					<attribute id="Name" type="LSString" value="S5E_ShadowOfMoil_01" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/S5E_ShadowOfMoil_01.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="S5E_ShadowOfMoil_01" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.7320509 -1.7320509 -1.7320509" />
+					<attribute id="BoundsMax" type="fvec3" value="1.7320509 1.7320509 1.7320509" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="7" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="09507f13-8b48-c991-2f7e-46e2958f3344" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="917462b4-5ddb-2f37-3d71-61b632e58e47" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a0998003-12c2-93ef-c686-797451ed2d9b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ca9ebf9e-60bd-79b1-b14e-3aa4c5f163b1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="43f3b710-66ea-4c8a-aca2-21365d549ca8" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="aae37e9a-1e60-ef34-98cf-d562cc87453c" />
+					<attribute id="Name" type="LSString" value="VFX_Status_MagicCircle_Aura_Root_01" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_MagicCircle_Aura_Root_01.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_MagicCircle_Aura_Root_01" />
+					<attribute id="BoundsMin" type="fvec3" value="-2.309401 -2.309401 -2.309401" />
+					<attribute id="BoundsMax" type="fvec3" value="2.309401 2.309401 2.309401" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="1.00053" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="dd344c5d-31e9-2360-fb49-8431aeaa97fb" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e3df079f-7b02-be0f-2ee0-00183d3ce84e" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="797f38c2-4bf4-4654-8e05-36e4a04494d8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a869dccd-afe8-4100-eb01-d7dc025ca450" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="b35929eb-43e1-0da6-5b69-aca1663f56b0" />
+					<attribute id="Name" type="LSString" value="VFX_Status_MisleadIllusion_01" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_MisleadIllusion_01.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_MisleadIllusion_01" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.1547005 -1.1547005 -1.1547005" />
+					<attribute id="BoundsMax" type="fvec3" value="1.1547005 1.1547005 1.1547005" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="6.5" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ab03166b-87b3-9527-c2da-06845d16e732" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="3d73596f-5507-8d1c-3f53-a7a22dc7911d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="97b95e07-3023-36f0-3ce9-1151e5bf12d3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a68bd18b-838f-b43e-4398-c9504a47f6ef" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="e1ef79a8-5333-69dc-ff2b-af48fa60f62f" />
+					<attribute id="Name" type="LSString" value="VFX_Status_Druidcraft_Distraction" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_Druidcraft_Distraction.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_Druidcraft_Distraction" />
+					<attribute id="BoundsMin" type="fvec3" value="-5 -3.5 -5" />
+					<attribute id="BoundsMax" type="fvec3" value="5 6.5 5" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="5" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="196875bd-bcef-fa26-36b1-7e4ba7b89e24" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ba61f4ec-4faf-1f46-9461-62f9d326aabc" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="706c6118-b534-ecc1-051c-6699673cca6a" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="8ea24cf5-224d-4704-4fa6-69b18f9c067b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c6fda780-caf8-aeec-f9ee-9e03d82da56b" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="de013fb9-d607-0f8c-660e-e7f1e2970461" />
+					<attribute id="Name" type="LSString" value="VFX_Status_OnApplication_Dawn_BodyFX" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_OnApplication_Dawn_BodyFX.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_OnApplication_Dawn_BodyFX" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.1547005 0.8452995 -1.1547005" />
+					<attribute id="BoundsMax" type="fvec3" value="1.1547005 3.1547005 1.1547005" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="2" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="908ef4c9-450f-218f-4799-1abe64990314" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a6eaac6d-f16c-e710-4365-e700612e3db6" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b4c92036-3733-5b15-f86d-1a02855d0144" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="c49f3313-f63b-57b2-3b73-066193d95b99" />
+					<attribute id="Name" type="LSString" value="VFX_Status_Dawn_BodyFX" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_Dawn_BodyFX.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_Dawn_BodyFX" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.1547005 -0.6547005 -1.1547005" />
+					<attribute id="BoundsMax" type="fvec3" value="1.1547005 1.6547005 1.1547005" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="1" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="91bcdda5-afef-22b0-894c-1c2ead59f2d5" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="9195f89c-1a32-1d51-a676-c8d0d090f2b2" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a3547ebd-b005-b8eb-cd6a-b7395f1f8d68" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e861c0c8-a4f4-b18f-0dcb-34f1fcaa371b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="1bdae43f-0f25-2f52-7eab-51b6b78c6e9c" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="9cc7ced4-daad-9969-e851-b9641ff0fd70" />
+					<attribute id="Name" type="LSString" value="VFX_Status_DetectMagic_BodyFX" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_DetectMagic_BodyFX.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_DetectMagic_BodyFX" />
+					<attribute id="BoundsMin" type="fvec3" value="-2.309401 -2.309401 -2.309401" />
+					<attribute id="BoundsMax" type="fvec3" value="2.309401 2.309401 2.309401" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="1" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7b510443-a02d-3082-95ad-781d57021043" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b7428929-37f4-3fd2-401d-efc2c00a4343" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="1a1a7099-9c46-4d5f-8f00-a249af1dc519" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f7fc084b-d098-0d9a-8033-1cb61c3beb37" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="5e993dc9-b01e-1543-b969-5a320e2a5d2d" />
+					<attribute id="Name" type="LSString" value="VFX_LightSources_Dawn" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/VFX_LightSources_Dawn.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_LightSources_Dawn" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.7320509 -1.7320509 -1.7320509" />
+					<attribute id="BoundsMax" type="fvec3" value="1.7320509 1.7320509 1.7320509" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="5" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5a2b3e39-68ab-bd30-5792-9ebe10bcba1c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5ef2e915-187a-2db7-9695-0e3b2dc04c3d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="11b7b087-60cf-2e14-367d-f1c60d9b91b3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="70148014-3c4e-8afa-af1e-9bc00dda86bf" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="54087b8b-1633-f41d-ebcd-861f97ccff3c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="4f5b525d-cdf7-1d04-2db5-d1f6e28c013b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="1310b096-a67d-2e41-7782-a73cebd1a24f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="fdf74102-57b4-2924-d5f5-d364a481c291" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="13416b34-9867-0546-a9d7-2c248e7ce290" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="215c0ffc-2b7a-93aa-e6a7-b8e6fd8e9696" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="20e8ebc1-eacb-beeb-7606-4a3fc8126c06" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="1cdd06e9-4dbf-976a-31e7-7fcafcd68cd9" />
+					<attribute id="Name" type="LSString" value="VFX_Spells_Cast_Damage_Radiant_TargetAoE_Dawn" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Cast/VFX_Spells_Cast_Damage_Radiant_TargetAoE_Dawn.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Spells_Cast_Damage_Radiant_TargetAoE_Dawn" />
+					<attribute id="BoundsMin" type="fvec3" value="-17.320509 -17.320509 -17.320509" />
+					<attribute id="BoundsMax" type="fvec3" value="17.320509 17.320509 17.320509" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="2" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="97b12629-982f-c7b4-7807-1ca4cd35e0aa" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="43c7417a-d000-f06d-acc0-a48824ac7735" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6124abea-f19b-225e-c033-01f268a4d873" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f392274d-c27c-cc6a-6645-f8ca4875f05d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="96b9c771-49b1-f6b3-f4ad-2ade98066132" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="b4c92036-3733-5b15-f86d-1a02855d0144" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="4e566c94-fe54-2476-5f5e-25f66ebfacbc" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f2173d4a-db43-f58d-b7f0-eef97e66931a" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="39f6fbef-4b40-0bdb-e513-aff7232349a8" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="6ed9bfc0-ce2f-e27c-803d-9cd217ec7dae" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="ac4f0e21-c25b-751f-baed-7bff3ebe9faf" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="e2b1cc24-7274-5520-377d-3e2baa11ac98" />
+					<attribute id="Name" type="LSString" value="VFX_Status_Dawn_Aura" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_Dawn_Aura.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_Dawn_Aura" />
+					<attribute id="BoundsMin" type="fvec3" value="-5.1961527 -5.1961527 -5.1961527" />
+					<attribute id="BoundsMax" type="fvec3" value="5.1961527 5.1961527 5.1961527" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="5" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="222a1f22-0851-8e25-8b82-dcb71634ebb1" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5c7d2d15-21b6-d474-6f28-4b81be12c701" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5a2b3e39-68ab-bd30-5792-9ebe10bcba1c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5ef2e915-187a-2db7-9695-0e3b2dc04c3d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="11b7b087-60cf-2e14-367d-f1c60d9b91b3" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="54087b8b-1633-f41d-ebcd-861f97ccff3c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="1310b096-a67d-2e41-7782-a73cebd1a24f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="fdf74102-57b4-2924-d5f5-d364a481c291" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="13416b34-9867-0546-a9d7-2c248e7ce290" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="215c0ffc-2b7a-93aa-e6a7-b8e6fd8e9696" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="20e8ebc1-eacb-beeb-7606-4a3fc8126c06" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="1ba599ef-6a06-7531-49fa-1ede0b94da2e" />
+					<attribute id="Name" type="LSString" value="VFX_Status_DetectMagic_HeadFX" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Status/VFX_Status_DetectMagic_HeadFX.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Status_DetectMagic_HeadFX" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.1547005 -0.15470052 -1.1547005" />
+					<attribute id="BoundsMax" type="fvec3" value="1.1547005 2.1547005 1.1547005" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="4" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="1d12fba0-f1b1-aa71-bed5-4b98e5362f17" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
 			</children>
 		</node>
 	</region>
