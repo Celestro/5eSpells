@@ -1,0 +1,3 @@
+new spellset "MisleadIllusionActions"
+add spell "Projectile_Jump"
+add spell "Shout_Distract_Mislead_Summon"

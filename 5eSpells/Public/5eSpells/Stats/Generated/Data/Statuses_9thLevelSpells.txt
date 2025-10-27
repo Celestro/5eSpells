@@ -7,6 +7,7 @@ data "Icon" "Spell_Divination_Foresight"
 data "StackId" "FORESIGHT"
 data "Boosts" "StatusImmunity(SURPRISED);Advantage(AllSavingThrows);Advantage(AllAbilities);Advantage(AttackRoll);Disadvantage(AttackTarget)"
 data "StatusEffect" "941e7e30-7989-4229-b240-1d88d467c047"
+data "StatusGroups" "SG_RemoveOnRespec"
 
 new entry "FORESIGHT_REMOVAL_AURA"
 type "StatusData"
