@@ -13,6 +13,14 @@
                     <attribute id="UUID" type="guid" value="d59999b2-3e77-42f6-96e8-b021a17a9e1c"/>
                 </node>
                 <node id="ActionResourceDefinition">
+                    <attribute id="DiceType" type="uint32" value="6"/>
+                    <attribute id="DisplayName" type="TranslatedString" handle="hf9c0c9cbg6271g4959gb9d0g141ad19b1d6a" version="2"/>
+                    <attribute id="MaxLevel" type="uint32" value="0"/>
+                    <attribute id="Name" type="FixedString" value="HitDice"/>
+                    <attribute id="ReplenishType" type="FixedString" value="Rest"/>
+                    <attribute id="UUID" type="guid" value="d59999b2-3e77-42f6-96e8-b021a17a9e1c"/>
+                </node>
+                <node id="ActionResourceDefinition">
                     <attribute id="Description" type="TranslatedString" handle="h9ec3de39gfedbg46c5g8e2fg06794a9b1dc7" version="1"/>
                     <attribute id="DisplayName" type="TranslatedString" handle="hd8373cb4g9c03g46f8gb759g133b39f277a5" version="1"/>
                     <attribute id="IsSpellResource" type="bool" value="false"/>

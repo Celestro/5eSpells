@@ -3136,7 +3136,7 @@
 				<node id="GameObjects">
 					<attribute id="CanBeMoved" type="bool" value="False" />
 					<attribute id="CanShootThrough" type="bool" value="True" />
-					<attribute id="DisplayName" type="TranslatedString" handle="eb313ea6-89cc-4dd4-a16d-c8a0eb08636d" version="2" />
+					<attribute id="DisplayName" type="TranslatedString" handle="h5082090fgcc22g4890g9d4egc06805bf64bb" version="1" />
 					<attribute id="FreezeGravity" type="bool" value="False" />
 					<attribute id="Icon" type="FixedString" value="Item_Unknown" />
 					<attribute id="LevelName" type="FixedString" value="" />
