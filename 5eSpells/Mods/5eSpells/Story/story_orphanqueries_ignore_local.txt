@@ -1,1 +1,1 @@
-DB_S5E_Ceremony_BlessWater 1
+DB_S5E_Ceremony_BlessWater 1DB_DetectMagic_ObjectAndItem 2DB_DragonsBreath_StoreSource 2

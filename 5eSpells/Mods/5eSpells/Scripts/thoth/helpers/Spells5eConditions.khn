@@ -242,28 +242,91 @@ function HasFamiliarBond()
     return (HasPassive('Coven_BlackCoven',context.Source) | HasPassive('Coven_GreenCoven',context.Source) | HasPassive('Coven_WhiteCoven',context.Source) | HasPassive('RedCoven',context.Source)) & ConditionResult(context.Source.Level > 2)
 end
 
-function HasHitDice6()
-    return ClassLevelHigherOrEqualThan(1,'Wizard',context.Source) | ClassLevelHigherOrEqualThan(1,'Sorcerer',context.Source) | ClassLevelHigherOrEqualThan(1,'Psion',context.Source) | ClassLevelHigherOrEqualThan(1,'Occultist',context.Source) | ClassLevelHigherOrEqualThan(1,'Spellcaster',context.Source)
+function HasHitDice6(entity)
+    entity = entity or context.Target
+    return ClassLevelHigherOrEqualThan(1,'Wizard',entity) | ClassLevelHigherOrEqualThan(1,'Sorcerer',entity) | ClassLevelHigherOrEqualThan(1,'Psion',entity) | ClassLevelHigherOrEqualThan(1,'Occultist',entity) | ClassLevelHigherOrEqualThan(1,'Spellcaster',entity)
 end
 
-function HasHitDice8()
-    return ClassLevelHigherOrEqualThan(1,'Bard',context.Source) | ClassLevelHigherOrEqualThan(1,'Cleric',context.Source) | ClassLevelHigherOrEqualThan(1,'Druid',context.Source) | ClassLevelHigherOrEqualThan(1,'Rogue',context.Source) | ClassLevelHigherOrEqualThan(1,'Warlock',context.Source) | ClassLevelHigherOrEqualThan(1,'Monk',context.Source) | ClassLevelHigherOrEqualThan(1,'Ninja',context.Source) | ClassLevelHigherOrEqualThan(1,'Troubadour',context.Source) | ClassLevelHigherOrEqualThan(1,'Expert',context.Source) | ClassLevelHigherOrEqualThan(1,'Artificer',context.Source)
+function HasHitDice8(entity)
+    entity = entity or context.Target
+    return ClassLevelHigherOrEqualThan(1,'Bard',entity) | ClassLevelHigherOrEqualThan(1,'Cleric',entity) | ClassLevelHigherOrEqualThan(1,'Druid',entity) | ClassLevelHigherOrEqualThan(1,'Rogue',entity) | ClassLevelHigherOrEqualThan(1,'Warlock',entity) | ClassLevelHigherOrEqualThan(1,'Monk',entity) | ClassLevelHigherOrEqualThan(1,'Ninja',entity) | ClassLevelHigherOrEqualThan(1,'Troubadour',entity) | ClassLevelHigherOrEqualThan(1,'Expert',entity) | ClassLevelHigherOrEqualThan(1,'Artificer',entity)
 end
 
-function HasHitDice10()
-    return ClassLevelHigherOrEqualThan(1,'Fighter',context.Source) | ClassLevelHigherOrEqualThan(1,'Ranger',context.Source) | ClassLevelHigherOrEqualThan(1,'DragonKnight',context.Source) | ClassLevelHigherOrEqualThan(1,'Paladin',context.Source) | ClassLevelHigherOrEqualThan(1,'Warrior',context.Source)
+function HasHitDice10(entity)
+    entity = entity or context.Target
+    return ClassLevelHigherOrEqualThan(1,'Fighter',entity) | ClassLevelHigherOrEqualThan(1,'Ranger',entity) | ClassLevelHigherOrEqualThan(1,'DragonKnight',entity) | ClassLevelHigherOrEqualThan(1,'Paladin',entity) | ClassLevelHigherOrEqualThan(1,'Warrior',entity)
 end
 
-function HasHitDice12()
-    return ClassLevelHigherOrEqualThan(1,'Barbarian',context.Source)
+function HasHitDice12(entity)
+    entity = entity or context.Target
+    return ClassLevelHigherOrEqualThan(1,'Barbarian',entity)
 end
 
-function NoClassHitDice()
-    return ~(HasHitDice6() or HasHitDice8() or HasHitDice10() or HasHitDice12())
+function NoClassHitDice(entity)
+    entity = entity or context.Target
+    return ~(HasHitDice6(entity) | HasHitDice8(entity) | HasHitDice10(entity) | HasHitDice12(entity))
+end
+
+function UpToHitDie6()
+    return HasHitDice6(context.Target) & ~(HasHitDice8(context.Target) | HasHitDice10(context.Target) | HasHitDice12(context.Target))
+end
+
+function UpToHitDie8()
+    return (HasHitDice8(context.Target) & ~(HasHitDice6(context.Target) | HasHitDice10(context.Target) | HasHitDice12(context.Target)))
+	| (HasHitDice8(context.Target) & HasHitDice6(context.Target) & ~(HasHitDice10(context.Target) | HasHitDice12(context.Target)))
+	| (NoClassHitDice(context.Target))
+end
+
+function UpToHitDie10()
+    return (HasHitDice10(context.Target) & ~(HasHitDice6(context.Target) | HasHitDice8(context.Target) | HasHitDice12(context.Target)))
+	| (HasHitDice10(context.Target) & HasHitDice(8) & ~(HasHitDice6(context.Target) | HasHitDice12(context.Target))) 
+	| (HasHitDice10(context.Target) & HasHitDice6(context.Target) & ~(HasHitDice8(context.Target) | HasHitDice12(context.Target)))
+	| (HasHitDice10(context.Target) & HasHitDice6(context.Target) & HasHitDice8(context.Target) & ~HasHitDice12(context.Target))
+end
+
+function UpToHitDie12()
+    return (HasHitDice12(context.Target) & ~(HasHitDice6(context.Target) | HasHitDice8(context.Target) | HasHitDice10(context.Target))) 
+	| (HasHitDice12(context.Target) & HasHitDice6(context.Target) & ~(HasHitDice8(context.Target) | HasHitDice10(context.Target))) 
+	| (HasHitDice12(context.Target) & HasHitDice8(context.Target) & ~(HasHitDice6(context.Target) | HasHitDice10(context.Target))) 
+	| (HasHitDice12(context.Target) & HasHitDice10(context.Target) & ~(HasHitDice6(context.Target) | HasHitDice8(context.Target))) 
+	| (HasHitDice12(context.Target) & HasHitDice6(context.Target) & HasHitDice8(context.Target) & ~HasHitDice10(context.Target)) 
+	| (HasHitDice12(context.Target) & HasHitDice8(context.Target) & HasHitDice10(context.Target) & ~HasHitDice6(context.Target)) 
+	| (HasHitDice12(context.Target) & HasHitDice6(context.Target) & HasHitDice10(context.Target) & ~HasHitDice8(context.Target)) 
+	| (HasHitDice12(context.Target) & HasHitDice10(context.Target) & HasHitDice8(context.Target) & HasHitDice6(context.Target))
+end
+
+function HasDurable()
+    entity = entity or context.Source
+    return HasPassive('Durable',entity)
+end
+
+function HasRAWMod()
+    entity = entity or context.Source
+    return HasPassive('RAW_OnTurnTracker',entity)
 end
 
 function HasHitDice()
-    return HasStatus('HIT_DICE_LEVEL_0',context.Source) | HasStatus('HIT_DICE_LEVEL_1',context.Source) | HasStatus('HIT_DICE_LEVEL_2',context.Source) | HasStatus('HIT_DICE_LEVEL_3',context.Source) | HasStatus('HIT_DICE_LEVEL_4',context.Source) | HasStatus('HIT_DICE_LEVEL_5',context.Source) | HasStatus('HIT_DICE_LEVEL_6',context.Source) | HasStatus('HIT_DICE_LEVEL_7',context.Source) | HasStatus('HIT_DICE_LEVEL_8',context.Source) | HasStatus('HIT_DICE_LEVEL_9',context.Source) | HasStatus('HIT_DICE_LEVEL_10',context.Source) | HasStatus('HIT_DICE_LEVEL_11',context.Source) | HasStatus('HIT_DICE_LEVEL_12',context.Source) | HasStatus('HIT_DICE_LEVEL_13',context.Source) | HasStatus('HIT_DICE_LEVEL_14',context.Source) | HasStatus('HIT_DICE_LEVEL_15',context.Source) | HasStatus('HIT_DICE_LEVEL_16',context.Source) | HasStatus('HIT_DICE_LEVEL_17',context.Source) | HasStatus('HIT_DICE_LEVEL_18',context.Source) | HasStatus('HIT_DICE_LEVEL_19',context.Source) | HasStatus('HIT_DICE_LEVEL_20',context.Source)
+    return HasStatus('RAW_HIT_DICE_6_LEFT_0',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_1',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_2',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_3',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_4',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_5',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_6',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_7',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_8',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_9',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_10',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_11',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_12',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_13',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_14',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_15',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_16',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_17',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_18',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_19',context.Source) | HasStatus('RAW_HIT_DICE_6_LEFT_20',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_0',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_1',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_2',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_3',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_4',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_5',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_6',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_7',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_8',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_9',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_10',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_11',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_12',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_13',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_14',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_15',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_16',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_17',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_18',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_19',context.Source) | HasStatus('RAW_HIT_DICE_8_LEFT_20',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_0',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_1',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_2',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_3',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_4',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_5',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_6',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_7',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_8',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_9',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_10',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_11',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_12',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_13',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_14',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_15',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_16',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_17',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_18',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_19',context.Source) | HasStatus('RAW_HIT_DICE_10_LEFT_20',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_0',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_1',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_2',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_3',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_4',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_5',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_6',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_7',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_8',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_9',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_10',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_11',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_12',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_13',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_14',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_15',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_16',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_17',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_18',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_19',context.Source) | HasStatus('RAW_HIT_DICE_12_LEFT_20',context.Source)
+end
+
+function HasHitDiceRAW6(entity)
+    entity = entity or context.Source
+    return HasStatus('RAW_HIT_DICE_6_LEFT_1',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_2',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_3',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_4',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_5',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_6',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_7',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_8',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_9',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_10',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_11',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_12',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_13',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_14',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_15',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_16',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_17',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_18',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_19',entity) | HasStatus('RAW_HIT_DICE_6_LEFT_20',entity)
+end
+
+function HasHitDiceRAW8(entity)
+    entity = entity or context.Source
+    return HasStatus('RAW_HIT_DICE_8_LEFT_1',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_2',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_3',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_4',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_5',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_6',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_7',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_8',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_9',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_10',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_11',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_12',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_13',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_14',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_15',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_16',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_17',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_18',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_19',entity) | HasStatus('RAW_HIT_DICE_8_LEFT_20',entity)
+end
+
+function HasHitDiceRAW10(entity)
+    entity = entity or context.Source
+    return HasStatus('RAW_HIT_DICE_10_LEFT_1',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_2',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_3',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_4',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_5',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_6',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_7',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_8',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_9',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_10',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_11',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_12',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_13',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_14',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_15',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_16',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_17',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_18',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_19',entity) | HasStatus('RAW_HIT_DICE_10_LEFT_20',entity)
+end
+
+function HasHitDiceRAW12(entity)
+    entity = entity or context.Source
+    return HasStatus('RAW_HIT_DICE_12_LEFT_1',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_2',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_3',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_4',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_5',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_6',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_7',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_8',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_9',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_10',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_11',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_12',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_13',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_14',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_15',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_16',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_17',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_18',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_19',entity) | HasStatus('RAW_HIT_DICE_12_LEFT_20',entity)
 end
 
 function LevelGreater(value, entity)
@@ -471,37 +534,6 @@ function IsLastAttackRollSuccess()
     return ConditionResult(false)
 end
 
-function IsElusive(entity)
-    local entity = entity or context.Source
-
-    return HasPassive('Elusive', entity) & ~HasStatus('SG_Incapacitated', entity)
-end
-
-function EXP_CanSeeInvisible(source, target, sourceObserver, targetObserver)
-    local source = source or context.Source
-    local target = target or context.Target
-    local sourceObserver = sourceObserver or false
-    local targetObserver = targetObserver or false
-
-    local sourcePosition = context.SourcePosition
-    local targetPosition = context.TargetPosition
-
-    if sourceObserver then
-        sourcePosition = context.ObserverPosition
-    end
-
-    if targetObserver then
-        targetPosition = context.ObserverPosition
-    end
-
-    return Tagged('BLINDSIGHT', source) 
-       |  (HasStatus('MIND_SPIKE_OWNER', source) & HasStatus('MIND_SPIKE', target, source))
-       |  (HasStatus('TRUESIGHT', source) & ~DistanceToGreaterThan(sourcePosition, targetPosition, 36.5))
-       |  (HasStatus('TRUESIGHT_BOON_OF_THE_NIGHT_SPIRIT', source) & ~DistanceToGreaterThan(sourcePosition, targetPosition, 18.5))
-       | ((HasStatus('SEE_INVISIBILITY', source) | HasStatus('MAG_SEE_INVISIBILITY_HIDDEN_IGNORE_RESTING', source) | HasPassive('AllSeeingEye', source)) & ~DistanceToGreaterThan(sourcePosition, targetPosition, 18.5)) 
-       | ((HasPassive('FightingStyle_BlindFighting', source) | (HasPassive('Blindsense', source) & ~(HasPassive('Deafness',source) | HasStatus('SG_Deafened',source)))) & ~DistanceToGreaterThan(sourcePosition, targetPosition, 3))
-end
-
 function MagicCircleFoe(entity)
     entity = entity or context.Target
     return Tagged('ELEMENTAL', entity) | Tagged('FEY', entity) | Tagged('FIEND', entity) | Tagged('CELESTIAL', entity) | Tagged('UNDEAD', entity)
@@ -682,4 +714,133 @@ function HasMagicWeaponInInventory(target)
     end
 
     return ConditionResult(false)
+end
+
+function HasMagicItemInInventory(target)
+    target = target or context.Target
+    local items = GetItemsInInventory(target)
+    if items ~= nil then
+        for _, item in ipairs(items.Items) do
+            if  Tagged('ORI_GALE_CONSUMABLEARTEFACT', item).Result
+            or  Tagged('POTION', item).Result
+            or  Tagged('HEALING_POTION', item).Result
+            or  Tagged('ALCH_SOLUTION_POTION', item).Result
+            or  Tagged('SCROLL', item).Result
+            or  Tagged('ACT3_LOW_TRESSYMTRADE_MAGICITEM', item).Result
+            then
+                return ConditionResult(true)
+            end
+        end
+    end
+    return ConditionResult(false)
+end
+
+function HasMagicalItemInInventoryInContainer(target)
+    local entity = entity or context.Target
+    local items = GetItemsInInventory(target)
+    if items ~= nil then
+        for _, entity in ipairs(items.Items) do
+            if HasStatus('DETECTED_MAGIC_ITEM_INVENTORY', entity).Result then
+                return ConditionResult(true)
+            end
+        end
+    end
+
+    return ConditionResult(false)
+end
+
+function IsMagicItem()
+    return Tagged('ORI_GALE_CONSUMABLEARTEFACT') | Tagged('POTION') | Tagged('HEALING_POTION') | Tagged('ALCH_SOLUTION_POTION') | Tagged('SCROLL') | Tagged('ACT3_LOW_TRESSYMTRADE_MAGICITEM')
+end
+
+function IsIntelligenceCaster(entity)
+    local entity = entity or context.Source
+    local ability = context.PreferredCastingAbility
+    return ConditionResult(
+        ability == Ability.Intelligence 
+    )
+end
+
+function IsWisdomCaster(entity)
+    local entity = entity or context.Source
+    local ability = context.PreferredCastingAbility
+    return ConditionResult(
+        ability == Ability.Wisdom 
+    )
+end
+
+function IsCharismaCaster(entity)
+    local entity = entity or context.Source
+    local ability = context.PreferredCastingAbility
+    return ConditionResult(
+        ability == Ability.Charisma 
+    )
+end
+
+function HasDragonsBreathStatus()
+	return HasStatus('DRAGONS_BREATH_FIRE') | HasStatus('DRAGONS_BREATH_COLD') | HasStatus('DRAGONS_BREATH_LIGHTNING') | HasStatus('DRAGONS_BREATH_POISON') | HasStatus('DRAGONS_BREATH_ACID') | HasStatus('DRAGONS_BREATH_FIRE_3') | HasStatus('DRAGONS_BREATH_COLD_3') | HasStatus('DRAGONS_BREATH_LIGHTNING_3') | HasStatus('DRAGONS_BREATH_POISON_3') | HasStatus('DRAGONS_BREATH_ACID_3') | HasStatus('DRAGONS_BREATH_FIRE_4') | HasStatus('DRAGONS_BREATH_COLD_4') | HasStatus('DRAGONS_BREATH_LIGHTNING_4') | HasStatus('DRAGONS_BREATH_POISON_4') | HasStatus('DRAGONS_BREATH_ACID_4') | HasStatus('DRAGONS_BREATH_FIRE_5') | HasStatus('DRAGONS_BREATH_COLD_5') | HasStatus('DRAGONS_BREATH_LIGHTNING_5') | HasStatus('DRAGONS_BREATH_POISON_5') | HasStatus('DRAGONS_BREATH_ACID_5') | HasStatus('DRAGONS_BREATH_FIRE_6') | HasStatus('DRAGONS_BREATH_COLD_6') | HasStatus('DRAGONS_BREATH_LIGHTNING_6') | HasStatus('DRAGONS_BREATH_POISON_6') | HasStatus('DRAGONS_BREATH_ACID_6') | HasStatus('DRAGONS_BREATH_FIRE_7') | HasStatus('DRAGONS_BREATH_COLD_7') | HasStatus('DRAGONS_BREATH_LIGHTNING_7') | HasStatus('DRAGONS_BREATH_POISON_7') | HasStatus('DRAGONS_BREATH_ACID_7') | HasStatus('DRAGONS_BREATH_FIRE_8') | HasStatus('DRAGONS_BREATH_COLD_8') | HasStatus('DRAGONS_BREATH_LIGHTNING_8') | HasStatus('DRAGONS_BREATH_POISON_8') | HasStatus('DRAGONS_BREATH_ACID_8') | HasStatus('DRAGONS_BREATH_FIRE_9') | HasStatus('DRAGONS_BREATH_COLD_9') | HasStatus('DRAGONS_BREATH_LIGHTNING_9') | HasStatus('DRAGONS_BREATH_POISON_9') | HasStatus('DRAGONS_BREATH_ACID_9')
+end
+
+function WitherAndBloomHPSpells()
+	return SpellId('Shout_WitherAndBloom_RegainHP_d6') | SpellId('Shout_WitherAndBloom_RegainHP_d8') | SpellId('Shout_WitherAndBloom_RegainHP_d10') | SpellId('Shout_WitherAndBloom_RegainHP_d12') | SpellId('Shout_WitherAndBloom_RegainHP_3_d6') | SpellId('Shout_WitherAndBloom_RegainHP_3_d8') | SpellId('Shout_WitherAndBloom_RegainHP_3_d10') | SpellId('Shout_WitherAndBloom_RegainHP_3_d12') | SpellId('Shout_WitherAndBloom_RegainHP_4_d6') | SpellId('Shout_WitherAndBloom_RegainHP_4_d8') | SpellId('Shout_WitherAndBloom_RegainHP_4_d10') | SpellId('Shout_WitherAndBloom_RegainHP_4_d12') | SpellId('Shout_WitherAndBloom_RegainHP_5_d6') | SpellId('Shout_WitherAndBloom_RegainHP_5_d8') | SpellId('Shout_WitherAndBloom_RegainHP_5_d10') | SpellId('Shout_WitherAndBloom_RegainHP_5_d12') | SpellId('Shout_WitherAndBloom_RegainHP_6_d6') | SpellId('Shout_WitherAndBloom_RegainHP_6_d8') | SpellId('Shout_WitherAndBloom_RegainHP_6_d10') | SpellId('Shout_WitherAndBloom_RegainHP_6_d12') | SpellId('Shout_WitherAndBloom_RegainHP_7_d6') | SpellId('Shout_WitherAndBloom_RegainHP_7_d8') | SpellId('Shout_WitherAndBloom_RegainHP_7_d10') | SpellId('Shout_WitherAndBloom_RegainHP_7_d12') | SpellId('Shout_WitherAndBloom_RegainHP_8_d6') | SpellId('Shout_WitherAndBloom_RegainHP_8_d8') | SpellId('Shout_WitherAndBloom_RegainHP_8_d10') | SpellId('Shout_WitherAndBloom_RegainHP_8_d12') | SpellId('Shout_WitherAndBloom_RegainHP_9_d6') | SpellId('Shout_WitherAndBloom_RegainHP_9_d8') | SpellId('Shout_WitherAndBloom_RegainHP_9_d10') | SpellId('Shout_WitherAndBloom_RegainHP_9_d12')
+end
+
+function S5E_StatusDoesNotInterruptPerform()
+    return StatusId('MAGIC_STONE_MODIFIER_REMOVAL') | StatusId('DRAGONS_BREATH_MODIFIER_REMOVAL')
+end
+
+function MagicStoneThrowAttack()
+    return Attack(AttackType.RangedSpellAttack)
+end
+
+function GetCasterDC(fallbackDC)
+    if context.Source == nil then
+        return fallbackDC
+    end
+
+    ability = context.Source.SpellCastingAbility
+
+    if ability == Ability.Intelligence then
+        return 8 + context.Source.IntelligenceModifier + context.Source.ProficiencyBonus
+    end
+
+    if ability == Ability.Wisdom then
+        return 8 + context.Source.WisdomModifier + context.Source.ProficiencyBonus
+    end
+
+    if ability == Ability.Charisma then
+        return 8 + context.Source.CharismaModifier + context.Source.ProficiencyBonus
+    end
+
+    return fallbackDC
+end
+
+function DisadvantageOnParalyzed(target)
+    target = target or context.Target
+
+    return Tagged('PARALYZED_DISADV', target)
+end
+
+function AdvantageOnStunned(target)
+    target = target or context.Target
+
+    return Tagged('STUNNED_ADV', target)
+end
+
+function DisadvantageOnStunned(target)
+    target = target or context.Target
+
+    return Tagged('STUNNED_DISADV', target)
+end
+
+function AdvantageOnFrightenedOrStunned(target)
+    target = target or context.Target
+
+    return Tagged('STUNNED_ADV', target) | Tagged('FRIGHTENED_ADV', target)
+end
+
+function DisadvantageOnFrightenedOrStunned(target)
+    target = target or context.Target
+
+    return Tagged('STUNNED_DISADV', target) | Tagged('FRIGHTENED_DISADV', target)
 end

@@ -169,7 +169,7 @@ local function RemoveSpellsFromUUID(spellSet, uuid)
 end
 
 
--- Add specific spells to a single SpellList stat by UUID (skip if already present)
+-- Add specific spells to a single SpellList stat by UUID
 local function AddSpellsToUUID(spellArray, uuid)
   if uuid ~= nil then
     local sd   = Ext.StaticData.Get(uuid, "SpellList")
@@ -230,8 +230,6 @@ local function NormalizeMagicalSecrets()
 end
 NormalizeMagicalSecrets()
 
--- === Builder overrides: route MS & MagicalSecrets to top-level ===
-
 -- Cantrips: treat any MS or MagicalSecrets key as class "MagicalSecrets"
 local function BuildCantripIndex(map)
   local idx = {}
@@ -263,7 +261,7 @@ local function LevelIdxFromKey(key)
   return nil
 end
 
--- TCoE: remove level N only from targets whose own list is GREATER than N
+-- TCoE: remove level N only from targets whose own list is greater than N
 local function BuildTCoEIndex(map, level)
   local idx, levelKey = {}, Ord(level)
   local currentIdx = _lvl_to_idx[levelKey]
@@ -285,7 +283,7 @@ local function BuildTCoEIndex(map, level)
   return idx
 end
 
--- Other (mod-specific) levels: same GREATER-than-N rule
+-- Other (mod-specific) levels
 local function BuildOtherIndex(map, level)
   local idx, levelKey = {}, Ord(level)
   local currentIdx = _lvl_to_idx[levelKey]
@@ -311,10 +309,6 @@ local function BuildOtherIndex(map, level)
   return idx
 end
 
--- ============================================
--- High-level runners per bucket
--- ============================================
-
 local function RemoveByIndex(indexEntries)
   -- De-dupe by UUID, compute spell set per UUID
   for _, ent in ipairs(indexEntries) do
@@ -331,7 +325,41 @@ local function RemoveByIndex(indexEntries)
   end
 end
 
--- Get the table of exempt spell IDs (nil or empty if none)
+local function prependInterruptConditions(name, change)
+    local stat = Ext.Stats.Get(name)
+
+    local cond = stat.Conditions or ""
+
+    cond = cond:gsub("%s*;%s*$", "")
+
+    if cond:find(change, 1, true) then
+        return
+    end
+
+    if cond == "" then
+        stat.Conditions = change
+    else
+        stat.Conditions = change .. " and " .. cond
+    end
+end
+
+local function prependTargetConditions(name, change)
+    local stat = Ext.Stats.Get(name)
+
+    local cond = stat.TargetConditions or ""
+
+    cond = cond:gsub("%s*;%s*$", "")
+
+    if cond:find(change, 1, true) then
+        return
+    end
+
+    if cond == "" then
+        stat.TargetConditions = change
+    else
+        stat.TargetConditions = change .. " and " .. cond
+    end
+end
 
 -- ============================================
 -- 5e Spells Changes
@@ -356,58 +384,31 @@ function S5E_Changes()
 		deathclericprogression["PassivesAdded"] = deathclericprogression["PassivesAdded"] .. ";S5E_SCAGtrips_DivineStrike_Death"
 	end
 
-	local sneakAttack = Ext.Stats.Get("Interrupt_SneakAttack")
-	local sneakAttackCritical = Ext.Stats.Get("Interrupt_SneakAttack_Critical")
-	local intdscold = Ext.Stats.Get("Interrupt_DivineStrike_Cold")
-	local intdscoldcrit = Ext.Stats.Get("Interrupt_DivineStrike_Cold_Critical")
-	local intdsfire = Ext.Stats.Get("Interrupt_DivineStrike_Fire")
-	local intdsfirecrit = Ext.Stats.Get("Interrupt_DivineStrike_Fire_Critical")
-	local intdslightning = Ext.Stats.Get("Interrupt_DivineStrike_Lightning")
-	local intdslightningcrit = Ext.Stats.Get("Interrupt_DivineStrike_Lightning_Critical")
-	local intdspoison = Ext.Stats.Get("Interrupt_DivineStrike_Poison")
-	local intdspoisoncrit = Ext.Stats.Get("Interrupt_DivineStrike_Poison_Critical")
-	local intdsradiant = Ext.Stats.Get("Interrupt_DivineStrike_Radiant")
-	local intdsradiantcrit = Ext.Stats.Get("Interrupt_DivineStrike_Radiant_Critical")
-	local intdsthunder = Ext.Stats.Get("Interrupt_DivineStrike_Thunder")
-	local intdsthundercrit = Ext.Stats.Get("Interrupt_DivineStrike_Thunder_Critical")
-	local intdsmelee = Ext.Stats.Get("Interrupt_DivineStrike_MeleeWeapon")
-	local intdsmeleecrit = Ext.Stats.Get("Interrupt_DivineStrike_MeleeWeapon_Critical")
-	local intdsnecro = Ext.Stats.Get("Interrupt_DivineStrike_Necrotic")
-	local intdsnecrocrit = Ext.Stats.Get("Interrupt_DivineStrike_Necrotic_Critical")
-	sneakAttack.Conditions = "not SpellId('Target_BoomingBlade_SneakAttack') and not SpellId('Target_GreenFlameBlade_SneakAttack') and " .. sneakAttack.Conditions
-	sneakAttackCritical.Conditions = "not SpellId('Target_BoomingBlade_SneakAttack') and not SpellId('Target_GreenFlameBlade_SneakAttack') and " .. sneakAttackCritical.Conditions
-	intdscold.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Cold') and not SpellId('Target_GreenFlameBlade_DivineStrike_Cold') and " .. intdscold.Conditions
-	intdscoldcrit.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Cold') and not SpellId('Target_GreenFlameBlade_DivineStrike_Cold') and " .. intdscoldcrit.Conditions
-	intdsfire.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Fire') and not SpellId('Target_GreenFlameBlade_DivineStrike_Fire') and " .. intdsfire.Conditions
-	intdsfirecrit.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Fire') and not SpellId('Target_GreenFlameBlade_DivineStrike_Fire') and " .. intdsfirecrit.Conditions
-	intdslightning.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Lightning') and not SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') and " .. intdslightning.Conditions
-	intdslightningcrit.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Lightning') and not SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') and " .. intdslightningcrit.Conditions
-	intdspoison.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Poison') and not SpellId('Target_GreenFlameBlade_DivineStrike_Poison') and " .. intdspoison.Conditions
-	intdspoisoncrit.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Poison') and not SpellId('Target_GreenFlameBlade_DivineStrike_Poison') and " .. intdspoisoncrit.Conditions
-	intdsradiant.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Radiant') and not SpellId('Target_GreenFlameBlade_DivineStrike_Radiant') and " .. intdsradiant.Conditions
-	intdsradiantcrit.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Radiant') and not SpellId('Target_GreenFlameBlade_DivineStrike_Radiant') and " .. intdsradiantcrit.Conditions
-	intdsthunder.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Thunder') and not SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') and " .. intdsthunder.Conditions
-	intdsthundercrit.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Thunder') and not SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') and " .. intdsthundercrit.Conditions
-	intdsmelee.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') and not SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon') and " .. intdsmelee.Conditions
-	intdsmeleecrit.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') and not SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon') and " .. intdsmeleecrit.Conditions
-	intdsnecro.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Necrotic') and not SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic') and " .. intdsmelee.Conditions
-	intdsnecrocrit.Conditions = "not SpellId('Target_BoomingBlade_DivineStrike_Necrotic') and not SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic') and " .. intdsmeleecrit.Conditions
-
-	local aoo = Ext.Stats.Get("Interrupt_AttackOfOpportunity")
-	local pam = Ext.Stats.Get("Interrupt_PolearmMaster")
-	local warc = Ext.Stats.Get("Interrupt_WarCaster")
-	aoo.Conditions = "(not S5E_IsInvisibleSeen() or EXP_CanSeeInvisible()) and " .. aoo.Conditions
-	pam.Conditions = "(not S5E_IsInvisibleSeen() or EXP_CanSeeInvisible()) and " .. pam.Conditions
-	warc.Conditions = "(not S5E_IsInvisibleSeen() or EXP_CanSeeInvisible()) and " .. warc.Conditions
-
-	local guidance = Ext.Stats.Get("Target_Guidance")
-	local huntersMark = Ext.Stats.Get("Target_HuntersMark")
-	local huntersMarkReapply = Ext.Stats.Get("Target_HuntersMark_Reapply")
-	local trueStrike = Ext.Stats.Get("Target_TrueStrike")
-	guidance.TargetConditions = guidance.TargetConditions .. " and not IsImmuneToStatus('GUIDANCE')"
-	huntersMark.TargetConditions = huntersMark.TargetConditions .. " and not IsImmuneToStatus('HUNTERS_MARK')"
-	huntersMarkReapply.TargetConditions = huntersMarkReapply.TargetConditions .. " and not IsImmuneToStatus('HUNTERS_MARK')"
-	trueStrike.TargetConditions = trueStrike.TargetConditions .. " and not IsImmuneToStatus('TRUE_STRIKE')"
+	prependInterruptConditions("Interrupt_SneakAttack", "not SpellId('Target_BoomingBlade_SneakAttack') and not SpellId('Target_GreenFlameBlade_SneakAttack')")
+	prependInterruptConditions("Interrupt_SneakAttack_Critical", "not SpellId('Target_BoomingBlade_SneakAttack') and not SpellId('Target_GreenFlameBlade_SneakAttack')")
+	prependInterruptConditions("Interrupt_DivineStrike_Cold", "not SpellId('Target_BoomingBlade_DivineStrike_Cold') and not SpellId('Target_GreenFlameBlade_DivineStrike_Cold')")
+	prependInterruptConditions("Interrupt_DivineStrike_Cold_Critical", "not SpellId('Target_BoomingBlade_DivineStrike_Cold') and not SpellId('Target_GreenFlameBlade_DivineStrike_Cold')")
+	prependInterruptConditions("Interrupt_DivineStrike_Fire", "not SpellId('Target_BoomingBlade_DivineStrike_Fire') and not SpellId('Target_GreenFlameBlade_DivineStrike_Fire')")
+	prependInterruptConditions("Interrupt_DivineStrike_Fire_Critical", "not SpellId('Target_BoomingBlade_DivineStrike_Fire') and not SpellId('Target_GreenFlameBlade_DivineStrike_Fire')")
+	prependInterruptConditions("Interrupt_DivineStrike_Lightning", "not SpellId('Target_BoomingBlade_DivineStrike_Lightning') and not SpellId('Target_GreenFlameBlade_DivineStrike_Lightning')")
+	prependInterruptConditions("Interrupt_DivineStrike_Lightning_Critical", "not SpellId('Target_BoomingBlade_DivineStrike_Lightning') and not SpellId('Target_GreenFlameBlade_DivineStrike_Lightning')")
+	prependInterruptConditions("Interrupt_DivineStrike_Poison", "not SpellId('Target_BoomingBlade_DivineStrike_Poison') and not SpellId('Target_GreenFlameBlade_DivineStrike_Poison')")
+	prependInterruptConditions("Interrupt_DivineStrike_Poison_Critical", "not SpellId('Target_BoomingBlade_DivineStrike_Poison') and not SpellId('Target_GreenFlameBlade_DivineStrike_Poison')")
+	prependInterruptConditions("Interrupt_DivineStrike_Radiant", "not SpellId('Target_BoomingBlade_DivineStrike_Radiant') and not SpellId('Target_GreenFlameBlade_DivineStrike_Radiant')")
+	prependInterruptConditions("Interrupt_DivineStrike_Radiant_Critical", "not SpellId('Target_BoomingBlade_DivineStrike_Radiant') and not SpellId('Target_GreenFlameBlade_DivineStrike_Radiant')")
+	prependInterruptConditions("Interrupt_DivineStrike_Thunder", "not SpellId('Target_BoomingBlade_DivineStrike_Thunder') and not SpellId('Target_GreenFlameBlade_DivineStrike_Thunder')")
+	prependInterruptConditions("Interrupt_DivineStrike_Thunder_Critical", "not SpellId('Target_BoomingBlade_DivineStrike_Thunder') and not SpellId('Target_GreenFlameBlade_DivineStrike_Thunder')")
+	prependInterruptConditions("Interrupt_DivineStrike_MeleeWeapon", "not SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') and not SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon')")
+	prependInterruptConditions("Interrupt_DivineStrike_MeleeWeapon_Critical", "not SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') and not SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon')")
+	prependInterruptConditions("Interrupt_DivineStrike_Necrotic", "not SpellId('Target_BoomingBlade_DivineStrike_Necrotic') and not SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic')")
+	prependInterruptConditions("Interrupt_DivineStrike_Necrotic_Critical", "not SpellId('Target_BoomingBlade_DivineStrike_Necrotic') and not SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic')")
+	prependInterruptConditions("Interrupt_AttackOfOpportunity", "not S5E_IsInvisibleSeen()")
+	prependInterruptConditions("Interrupt_PolearmMaster", "not S5E_IsInvisibleSeen()")
+	prependInterruptConditions("Interrupt_WarCaster", "not S5E_IsInvisibleSeen()")
+	prependTargetConditions("Target_Guidance", "not IsImmuneToStatus('GUIDANCE')")
+	prependTargetConditions("Target_HuntersMark", "not IsImmuneToStatus('HUNTERS_MARK')")
+	prependTargetConditions("Target_HuntersMark_Reapply", "not IsImmuneToStatus('HUNTERS_MARK')")
+	prependTargetConditions("Target_TrueStrike", "not IsImmuneToStatus('TRUE_STRIKE')")
 
 	local potentSpellcasting = Ext.Stats.Get("PotentSpellcasting")
 	potentSpellcasting.Boosts = potentSpellcasting.Boosts .. ";IF(SpellId('Target_TollTheDead') or SpellId('Shout_WordOfRadiance')):DamageBonus(max(0, WisdomModifier))"
@@ -419,38 +420,24 @@ function S5E_Changes()
 			invisstatus.Boosts = invisstatus.Boosts .. ";IF(not EXP_CanSeeInvisible() and not IsElusive()):Disadvantage(AttackTarget)"
 		end
 	end--]]
-	
-	local recklessatk = Ext.Stats.Get("Interrupt_RecklessAttack")
-	recklessatk.Conditions = recklessatk.Conditions .. " and not IsElusive(context.Target)"
 
-	local mummymatk = Ext.Stats.Get("Target_Multiattack_Mummy")
-	mummymatk.TargetConditions = "not Self() and not Dead() and HasStatus('SG_Frightened')"
-	local fearray = Ext.Stats.Get("Target_FearRay_Spectator")
-	fearray.TargetConditions = "Character() and Enemy() and not HasStatus('SG_Frightened')"
-	local aotbhb = Ext.Stats.Get("AspectOfTheBeast_HoneyBadger")
-	aotbhb.Conditions = "(HasStatus('SG_Poisoned', context.Source) or HasStatus('SG_Frightened', context.Source) or HasStatus('SG_Charmed', context.Source)) and RollDieAgainstDC(DiceType.d20,10) and not HasStatus('SG_Rage', context.Source)"
-	local cloakeratk = Ext.Stats.Get("Target_Multiattack_Cloaker")
-	cloakeratk.TargetConditions = "not Self() and not Dead() and HasStatus('SG_Frightened',context.Target)"
-	local oskarscon = Ext.Stats.Get("Shout_LOW_OskarsBeloved_Visage_Confusion")
-	oskarscon.TargetConditions = "not Self() and not Dead() and not Item() and not Tagged('UNDEAD') and Enemy() and not Tagged('OSKARSBELOVED_IMMUNITY') and not HasStatus('CONFUSION') and not HasStatus('SG_Frightened')"
-	local oskarspos = Ext.Stats.Get("Target_LOW_OskarsBeloved_Possession")
-	oskarspos.TargetConditions = "Character() and Enemy() and not Dead() and not HasStatus('SG_Frightened') and not HasStatus('CONFUSION') and not Tagged('OSKARSBELOVED_IMMUNITY') and not HasStatus('LOW_OSKARSBELOVED_UNNERVED')"
-	local oskarsmummyatk = Ext.Stats.Get("Target_LOW_OskarsBeloved_Mummy_Multiattack")
-	oskarsmummyatk.TargetConditions = "not Self() and not Dead() and HasStatus('SG_Frightened') and not Tagged('OSKARSBELOVED_IMMUNITY')"
-	local oskarsmummyglare = Ext.Stats.Get("Target_LOW_OskarsBeloved_Mummy_Glare")
-	oskarsmummyglare.TargetConditions = "Character() and IsCrowdControlled(context.Target) and not Tagged('OSKARSBELOVED_IMMUNITY') and not HasStatus('CONFUSION') and not HasStatus('SG_Frightened')"
-	local hogdark = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Darkness")
-	hogdark.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('SG_Frightened') and not Dead() and not HasStatus('CONTAGION_BLINDING_SICKNESS_3')"
-	local hogdisease = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Disease")
-	hogdisease.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('SG_Frightened') and not Dead() and not HasStatus('CONTAGION_FLESH_ROT_3')"
-	local hogpowerless = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Powerless")
-	hogpowerless.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('SG_Frightened') and not Dead() and not HasStatus('RAY_OF_ENFEEBLEMENT')"
-	local hogbetray = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Betrayal")
-	hogbetray.AoEConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not Dead() and not HasStatus('SG_Frightened')"
-	local hogwolf = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Wolf_2")
-	hogwolf.TargetConditions = "Tagged('SHADOWHEART') and not HasStatus('SG_Frightened')"
-	local hogspider = Ext.Stats.Get("Target_LOW_HouseOfGrief_ExploitFear_Spider_2")
-	hogspider.TargetConditions = "Tagged('ACT3_LOW_HOUSEOFGRIEF_VICTIM') and not HasStatus('SG_Frightened')"
+	for _, name in pairs(Ext.Stats.GetStats("SpellData")) do
+		local stat = Ext.Stats.Get(name)
+		if stat.TargetConditions then
+			if stat.TargetConditions:find("HasStatus%('FRIGHTENED'") then
+				stat.TargetConditions = stat.TargetConditions:gsub("HasStatus%('FRIGHTENED'","HasStatus('SG_Frightened'")
+			end
+		end
+	end
+
+	for _, name in pairs(Ext.Stats.GetStats("InterruptData")) do
+		local stat = Ext.Stats.Get(name)
+		if stat.Conditions then
+			if stat.Conditions:find("HasStatus%('FRIGHTENED'") then
+				stat.Conditions = stat.Conditions:gsub("HasStatus%('FRIGHTENED'","HasStatus('SG_Frightened'")
+			end
+		end
+	end
 
 	local elementalaffinity = Ext.Stats.Get("ELEMENTALAFFINITY_FIRE_EXTRA_DAMAGE_TECHNICAL")
     local elementalgish = Ext.Stats.Get("MAG_ElementalGish_CantripBooster_Amulet_Passive")
@@ -460,7 +447,7 @@ function S5E_Changes()
 	if string.find(elementalaffinity.Boosts, "IsSpell%(%) and IsDamageTypeFire%(%)") then
 		elementalaffinity.Boosts = string.gsub(elementalaffinity.Boosts, "IsSpell%(%) and IsDamageTypeFire%(%)", "IsSpell() and IsDamageTypeFire() and not IsWeaponAttack()")
 	end
-    elementalaffinity.Boosts = elementalaffinity.Boosts .. ";IF(SpellDamageTypeIs(DamageType.Fire) and (SpellId('Target_GreenFlameBlade') or SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack') or SpellId('Target_GreenFlameBlade_DivineStrike_Radiant') or SpellId('Target_GreenFlameBlade_DivineStrike_Cold') or SpellId('Target_GreenFlameBlade_DivineStrike_Fire') or SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') or SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') or SpellId('Target_GreenFlameBlade_DivineStrike_Poison') or SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon') or SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic') or SpellId('Target_GreenFlameBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(0, CharismaModifier),Fire)"
+    elementalaffinity.Boosts = "IF(SpellDamageTypeIs(DamageType.Fire) and (SpellId('Target_GreenFlameBlade') or SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack') or SpellId('Target_GreenFlameBlade_DivineStrike_Radiant') or SpellId('Target_GreenFlameBlade_DivineStrike_Cold') or SpellId('Target_GreenFlameBlade_DivineStrike_Fire') or SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') or SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') or SpellId('Target_GreenFlameBlade_DivineStrike_Poison') or SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon') or SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic') or SpellId('Target_GreenFlameBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(0, CharismaModifier),Fire);" .. elementalaffinity.Boosts
 	if string.find(elementalgish.Boosts, "IsCantrip%(%)") then
 		elementalgish.Boosts = string.gsub(elementalgish.Boosts, "IsCantrip%(%)", "IsCantrip() and not IsWeaponAttack()")
 	end
@@ -470,7 +457,7 @@ function S5E_Changes()
 	end
     charismacaster.Boosts = charismacaster.Boosts .. ";IF((SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack') or SpellId('Target_GreenFlameBlade_DivineStrike_Radiant') or SpellId('Target_GreenFlameBlade_DivineStrike_Cold') or SpellId('Target_GreenFlameBlade_DivineStrike_Fire') or SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') or SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') or SpellId('Target_GreenFlameBlade_DivineStrike_Poison') or SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon') or SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic') or SpellId('Target_GreenFlameBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Fire);IF((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack') or SpellId('Target_BoomingBlade_DivineStrike_Radiant') or SpellId('Target_BoomingBlade_DivineStrike_Cold') or SpellId('Target_BoomingBlade_DivineStrike_Fire') or SpellId('Target_BoomingBlade_DivineStrike_Lightning') or SpellId('Target_BoomingBlade_DivineStrike_Thunder') or SpellId('Target_BoomingBlade_DivineStrike_Poison') or SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') or SpellId('Target_BoomingBlade_DivineStrike_Necrotic') or SpellId('Target_BoomingBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Thunder)"
     elementalinfusion.PassivesOnEquip = elementalinfusion.PassivesOnEquip .. ";S5E_ElementalGish_ElementalInfusion_Ring_Passive"
-	revgloves.Conditions = revgloves.Conditions .. " or ((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack') or SpellId('Target_BoomingBlade_DivineStrike_Radiant') or SpellId('Target_BoomingBlade_DivineStrike_Cold') or SpellId('Target_BoomingBlade_DivineStrike_Fire') or SpellId('Target_BoomingBlade_DivineStrike_Lightning') or SpellId('Target_BoomingBlade_DivineStrike_Thunder') or SpellId('Target_BoomingBlade_DivineStrike_Poison') or SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') or SpellId('Target_BoomingBlade_DivineStrike_Necrotic') or SpellId('Target_BoomingBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4))"
+	revgloves.Conditions = "((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack') or SpellId('Target_BoomingBlade_DivineStrike_Radiant') or SpellId('Target_BoomingBlade_DivineStrike_Cold') or SpellId('Target_BoomingBlade_DivineStrike_Fire') or SpellId('Target_BoomingBlade_DivineStrike_Lightning') or SpellId('Target_BoomingBlade_DivineStrike_Thunder') or SpellId('Target_BoomingBlade_DivineStrike_Poison') or SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') or SpellId('Target_BoomingBlade_DivineStrike_Necrotic') or SpellId('Target_BoomingBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)) or " .. revgloves.Conditions
 
 	local mhnp = Ext.Stats.Get("MAG_Heightened_Necromancy_Passive")
 	if string.find(mhnp.Boosts, "HeightenedNecromancySpellCheck%(%)") then
@@ -478,7 +465,6 @@ function S5E_Changes()
 	end
 
 -- SRD's Cleric Subclasses
-
 	if Ext.Mod.IsModLoaded("a6474f89-8efc-443d-cc95-9cdf142f931e") then
 		local dstwilightpassive = Ext.Stats.Get("Divine_Strike_Twilight_Toggle")
 		dstwilightpassive.Boosts = dstwilightpassive.Boosts .. ";UnlockSpell(Target_BoomingBlade_DivineStrike_Radiant);UnlockSpell(Target_GreenFlameBlade_DivineStrike_Radiant)"
@@ -530,14 +516,58 @@ function S5E_Changes()
    for _, name in pairs(Ext.Stats.GetStats("Weapon")) do
         local weapon = Ext.Stats.Get(name)
 		if string.find(weapon.DefaultBoosts, "WeaponProperty%(Magical%)") then
-			weapon.DefaultBoosts = weapon.DefaultBoosts .. ";Tag(MAGIC_ITEM_DETECT_MAGIC)"
+			weapon.DefaultBoosts = "Tag(MAGIC_ITEM_DETECT_MAGIC);" .. weapon.DefaultBoosts
 		end
 	end
 
-   for _, name in pairs(Ext.Stats.GetStats("Armor")) do
-        local armor = Ext.Stats.Get(name)
-		if string.find(armor.Boosts, "AC%(1%)") or string.find(armor.Boosts, "AC%(2%)") or string.find(armor.Boosts, "AC%(3%)") then
-			armor.Boosts = armor.Boosts .. ";Tag(MAGIC_ITEM_DETECT_MAGIC)"
+	for _, name in pairs(Ext.Stats.GetStats("Armor")) do
+		local armor = Ext.Stats.Get(name)
+		if armor.Shield == "Yes" then
+			local armorTemplate = armor.RootTemplate
+			local template = Ext.Template.GetTemplate(armorTemplate)
+			if template and template.Tags and template.Tags.Tags then
+				local tags = template.Tags.Tags
+				local checkTag = "7b96246c-54ba-43ea-b01d-4e0b20ad35f1"
+
+				local hasTag = false
+				for _, tag in pairs(tags) do
+					if type(tag) == "string" and tag == checkTag then
+						hasTag = true
+						break
+					end
+				end
+
+				for k, tag in pairs(tags) do
+					if type(tag) ~= "string" then
+--						_D("Non-string tag entry in " .. name .. ": key=" .. tostring(k) .. " value=" .. tostring(tag))
+					end
+				end
+
+				if hasTag then
+--					_D(name .. " has tag " .. checkTag)
+				end
+			end
+		end
+	end
+
+	if Ext.Mod.IsModLoaded("f19c68ed-70be-4c3d-b610-e94afc5c5103") then
+	   for _, name in pairs(Ext.Stats.GetStats("StatusData")) do
+			local status = Ext.Stats.Get(name)
+			if status.ModId == "f19c68ed-70be-4c3d-b610-e94afc5c5103" and string.find(status.Boosts,"UnlockSpellVariant") and string.find(name,"RAW_HIT_DICE") then
+				status.Boosts = string.gsub(status.Boosts, "UnlockSpellVariant%(", "UnlockSpellVariant(WitherAndBloomHPSpells() | ")
+			end
+		end
+	end
+
+	for _, name in pairs(Ext.Stats.GetStats("StatusData")) do
+		local status = Ext.Stats.Get(name)
+		if name:find("PERFORM_POSITIVE") or name:find("PERFORM_NEGATIVE") then
+			if Ext.Mod.IsModLoaded("f19c68ed-70be-4c3d-b610-e94afc5c5103") then
+				status.RemoveConditions = "not StatusId('MAGIC_STONE_MODIFIER_REMOVAL') and not StatusId('DRAGONS_BREATH_MODIFIER_REMOVAL') and " .. status.RemoveConditions
+--				status.RemoveConditions = status.RemoveConditions:gsub("not IsStatusEvent%(StatusEvent.OnStatusApplied%) or not RAW_StatusDoesNotInterruptPerform%(%)","not IsStatusEvent(StatusEvent.OnStatusApplied) or (not RAW_StatusDoesNotInterruptPerform() or not S5E_StatusDoesNotInterruptPerform())")
+			else
+				status.RemoveConditions = "not StatusId('MAGIC_STONE_MODIFIER_REMOVAL') and not StatusId('DRAGONS_BREATH_MODIFIER_REMOVAL') and " .. status.RemoveConditions
+			end
 		end
 	end
 
@@ -550,14 +580,16 @@ function S5E_Changes()
 end
 
 function S5E_SpareTheDying()
-	local helpact = Ext.Stats.Get("Target_Help")
-	helpact:SetRawAttribute("SpellProperties","RemoveStatus(SG_Helpable_Condition);RemoveStatus(BURNING);RemoveStatus(SG_Prone);RemoveStatus(SG_Restrained);RemoveStatus(PRONE);RemoveStatus(SLEEPING);RemoveStatus(SLEEP);RemoveStatus(ENSNARING_STRIKE);RemoveStatus(WEB);RemoveStatus(HYPNOTIC_PATTERN)")
-	helpact:SetRawAttribute("SpellSuccess","IF(IsDowned()):ApplyStatus(S5E_STABILIZED,100,-1)")
-	helpact.SpellRoll = "not IsDowned() or SkillCheck(Skill.Medicine,10)"
-	helpact:Sync()
+	if not Ext.Mod.IsModLoaded("f19c68ed-70be-4c3d-b610-e94afc5c5103") then
+		local helpact = Ext.Stats.Get("Target_Help")
+		helpact:SetRawAttribute("SpellProperties","RemoveStatus(SG_Helpable_Condition);RemoveStatus(BURNING);RemoveStatus(SG_Prone);RemoveStatus(SG_Restrained);RemoveStatus(PRONE);RemoveStatus(SLEEPING);RemoveStatus(SLEEP);RemoveStatus(ENSNARING_STRIKE);RemoveStatus(WEB);RemoveStatus(HYPNOTIC_PATTERN)")
+		helpact:SetRawAttribute("SpellSuccess","IF(IsDowned()):ApplyStatus(S5E_STABILIZED,100,-1)")
+		helpact.SpellRoll = "not IsDowned() or SkillCheck(Skill.Medicine,10)"
+		helpact:Sync()
+	end
 end
 
-function S5E_SpareTheDyingRevert()
+function S5E_SpareTheDying()
 	if Ext.Mod.IsModLoaded("f19c68ed-70be-4c3d-b610-e94afc5c5103") then
 		local helpact = Ext.Stats.Get("Target_Help")
 		helpact:SetRawAttribute("SpellProperties","RemoveStatus(SG_Helpable_Condition);RemoveStatus(BURNING);RemoveStatus(SG_Prone);RemoveStatus(SG_Restrained);RemoveStatus(PRONE);RemoveStatus(SLEEPING);RemoveStatus(SLEEP);RemoveStatus(ENSNARING_STRIKE);RemoveStatus(WEB);RemoveStatus(HYPNOTIC_PATTERN)")
@@ -594,7 +626,6 @@ function S5E_RaiseDead()
 
 	local dst = Ext.Stats.Get("DeathSavingThrows")
 	dst.Conditions = "StatusId('DYING')"
---	dst:SetRawAttribute("StatsFunctors", "IF(not HasAnyStatus({'DEAD_TECHNICAL_REMOVAL_STATUS','DEAD_TECHNICAL_REMOVAL_STATUS_2','DEAD_TECHNICAL_REMOVAL_STATUS_3','DEAD_TECHNICAL_REMOVAL_STATUS_4','DEAD_TECHNICAL_REMOVAL_STATUS_5','DEAD_TECHNICAL_REMOVAL_STATUS_6','DEAD_TECHNICAL_REMOVAL_STATUS_7','DEAD_TECHNICAL_REMOVAL_STATUS_8','DEAD_TECHNICAL_REMOVAL_STATUS_9','DEAD_TECHNICAL_REMOVAL_STATUS_10'},{},{},context.Source)):ApplyStatus(DEAD_TECHNICAL,100,10);IF(HasAnyStatus({'DEAD_TECHNICAL_REMOVAL_STATUS','DEAD_TECHNICAL_REMOVAL_STATUS_2','DEAD_TECHNICAL_REMOVAL_STATUS_3','DEAD_TECHNICAL_REMOVAL_STATUS_4','DEAD_TECHNICAL_REMOVAL_STATUS_5','DEAD_TECHNICAL_REMOVAL_STATUS_6','DEAD_TECHNICAL_REMOVAL_STATUS_7','DEAD_TECHNICAL_REMOVAL_STATUS_8','DEAD_TECHNICAL_REMOVAL_STATUS_9','DEAD_TECHNICAL_REMOVAL_STATUS_10'},{},{},context.Source)):ApplyStatus(DEAD_TECHNICAL_SECOND,100,10)")
 	dst:SetRawAttribute("StatsFunctors", "IF(not HasAnyStatus({'DEAD_TECHNICAL_REMOVAL_STATUS','DEAD_TECHNICAL_REMOVAL_STATUS_2','DEAD_TECHNICAL_REMOVAL_STATUS_3','DEAD_TECHNICAL_REMOVAL_STATUS_4','DEAD_TECHNICAL_REMOVAL_STATUS_5','DEAD_TECHNICAL_REMOVAL_STATUS_6','DEAD_TECHNICAL_REMOVAL_STATUS_7','DEAD_TECHNICAL_REMOVAL_STATUS_8','DEAD_TECHNICAL_REMOVAL_STATUS_9','DEAD_TECHNICAL_REMOVAL_STATUS_10'},{},{},context.Source)):ApplyStatus(DEAD_TECHNICAL,100,10)")
 	local flags = dst.StatsFunctorContext
 	table.insert(flags, "OnStatusApplied")
