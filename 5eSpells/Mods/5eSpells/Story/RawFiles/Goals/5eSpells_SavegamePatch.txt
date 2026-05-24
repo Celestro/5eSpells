@@ -1,0 +1,139 @@
+Version 1
+SubGoalCombiner SGC_AND
+INITSECTION
+DB_S5E_MigrationVersion(0);
+KBSECTION
+IF
+LevelGameplayStarted(_,_)
+AND
+NOT DB_S5E_MigrationVersion(1)
+THEN
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire","DRAGONS_BREATH_FIRE");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold","DRAGONS_BREATH_COLD");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning","DRAGONS_BREATH_LIGHTNING");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison","DRAGONS_BREATH_POISON");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid","DRAGONS_BREATH_ACID");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_3","DRAGONS_BREATH_FIRE_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_3","DRAGONS_BREATH_COLD_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_3","DRAGONS_BREATH_LIGHTNING_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_3","DRAGONS_BREATH_POISON_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_3","DRAGONS_BREATH_ACID_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_4","DRAGONS_BREATH_FIRE_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_4","DRAGONS_BREATH_COLD_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_4","DRAGONS_BREATH_LIGHTNING_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_4","DRAGONS_BREATH_POISON_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_4","DRAGONS_BREATH_ACID_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_5","DRAGONS_BREATH_FIRE_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_5","DRAGONS_BREATH_COLD_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_5","DRAGONS_BREATH_LIGHTNING_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_5","DRAGONS_BREATH_POISON_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_5","DRAGONS_BREATH_ACID_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_6","DRAGONS_BREATH_FIRE_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_6","DRAGONS_BREATH_COLD_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_6","DRAGONS_BREATH_LIGHTNING_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_6","DRAGONS_BREATH_POISON_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_6","DRAGONS_BREATH_ACID_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_7","DRAGONS_BREATH_FIRE_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_7","DRAGONS_BREATH_COLD_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_7","DRAGONS_BREATH_LIGHTNING_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_7","DRAGONS_BREATH_POISON_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_7","DRAGONS_BREATH_ACID_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_8","DRAGONS_BREATH_FIRE_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_8","DRAGONS_BREATH_COLD_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_8","DRAGONS_BREATH_LIGHTNING_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_8","DRAGONS_BREATH_POISON_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_8","DRAGONS_BREATH_ACID_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_9","DRAGONS_BREATH_FIRE_9");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_9","DRAGONS_BREATH_COLD_9");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_9","DRAGONS_BREATH_LIGHTNING_9");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_9","DRAGONS_BREATH_POISON_9");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_9","DRAGONS_BREATH_ACID_9");
+DB_S5E_MigrationVersion(1);
+
+IF
+LevelGameplayStarted(_,_)
+AND
+NOT DB_S5E_MigrationVersion(2)
+THEN
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_1");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_2");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_3");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_4");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_5");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_6");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_7");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_8");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_9");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_10");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_-1");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_INTELLIGENCE");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_WISDOM");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_CHARISMA");
+DB_S5E_MigrationVersion(2);
+
+IF
+LevelGameplayStarted(_,_)
+AND
+NOT DB_S5E_MigrationVersion(3)
+THEN
+NOT DB_S5E_ChaosBoltSpell("Target_ChaosBolt");
+NOT DB_S5E_ChaosBoltSpell("Target_ChaosBolt_2");
+NOT DB_S5E_ChaosBoltSpell("Target_ChaosBolt_3");
+NOT DB_S5E_ChaosBoltSpell("Target_ChaosBolt_4");
+NOT DB_S5E_ChaosBoltSpell("Target_ChaosBolt_5");
+NOT DB_S5E_ChaosBoltSpell("Target_ChaosBolt_6");
+NOT DB_S5E_ChaosBoltSpell("Target_ChaosBolt_7");
+NOT DB_S5E_ChaosBoltSpell("Target_ChaosBolt_8");
+NOT DB_S5E_ChaosBoltSpell("Target_ChaosBolt_9");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_ACID");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_COLD");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FIRE");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FORCE");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_LIGHTNING");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_POISON");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_PSYCHIC");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_THUNDER");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_ACID_2");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_COLD_2");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FIRE_2");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FORCE_2");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_LIGHTNING_2");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_POISON_2");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_PSYCHIC_2");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_THUNDER_2");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_ACID_SECOND");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_COLD_SECOND");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_FIRE_SECOND");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_FORCE_SECOND");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_LIGHTNING_SECOND");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_POISON_SECOND");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_PSYCHIC_SECOND");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_THUNDER_SECOND");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_ACID_THIRD");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_COLD_THIRD");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_FIRE_THIRD");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_FORCE_THIRD");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_LIGHTNING_THIRD");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_POISON_THIRD");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_PSYCHIC_THIRD");
+NOT DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_THUNDER_THIRD");
+DB_S5E_MigrationVersion(3);
+
+
+IF
+LevelGameplayStarted(_,_)
+AND
+NOT DB_S5E_MigrationVersion(4)
+THEN
+DB_HealingSpiritStatus("HEALING_SPIRIT");
+DB_HealingSpiritStatus("HEALING_SPIRIT_3");
+DB_HealingSpiritStatus("HEALING_SPIRIT_4");
+DB_HealingSpiritStatus("HEALING_SPIRIT_5");
+DB_HealingSpiritStatus("HEALING_SPIRIT_6");
+DB_HealingSpiritStatus("HEALING_SPIRIT_7");
+DB_HealingSpiritStatus("HEALING_SPIRIT_8");
+DB_HealingSpiritStatus("HEALING_SPIRIT_9");
+DB_S5E_MigrationVersion(4);
+EXITSECTION
+
+ENDEXITSECTION

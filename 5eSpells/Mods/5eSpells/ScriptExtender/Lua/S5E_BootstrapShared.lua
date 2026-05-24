@@ -228,7 +228,6 @@ local function NormalizeMagicalSecrets()
     end
   end
 end
-NormalizeMagicalSecrets()
 
 -- Cantrips: treat any MS or MagicalSecrets key as class "MagicalSecrets"
 local function BuildCantripIndex(map)
@@ -274,7 +273,7 @@ local function BuildTCoEIndex(map, level)
         if key:find("^MagicalSecrets") or key:find("MS", 1, true) then
           table.insert(idx, { uuid = uuid, class = "MagicalSecrets", opts = { suffixes = suffixes } })
         else
-          local class = (key:find("^WFiend") or key:find("^WGoO") or key:find("^WArchfey")) and "Warlock" or key:match("^(%a+)")
+          local class = (key:find("^WFiend") or key:find("^WGoO") or key:find("^WArchfey") or key:find("^WHexblade")) and "Warlock" or key:match("^(%a+)")
           if class then table.insert(idx, { uuid = uuid, class = class, opts = { suffixes = suffixes } }) end
         end
       end
@@ -299,7 +298,7 @@ local function BuildOtherIndex(map, level)
           if key:find("^MagicalSecrets") or key:find("MS", 1, true) then
             table.insert(idx, { uuid = uuid, class = "MagicalSecrets", opts = { suffixes = suffixes } })
           else
-            local class = (key:find("^WFiend") or key:find("^WGoO") or key:find("^WArchfey")) and "Warlock" or key:match("^(%a+)")
+            local class = (key:find("^WFiend") or key:find("^WGoO") or key:find("^WArchfey") or key:find("^WHexblade")) and "Warlock" or key:match("^(%a+)")
             if class then table.insert(idx, { uuid = uuid, class = class, opts = { suffixes = suffixes } }) end
           end
         end
@@ -327,15 +326,15 @@ end
 
 local function prependInterruptConditions(name, change)
     local stat = Ext.Stats.Get(name)
-
+    if not stat then
+        Ext.Utils.PrintWarning("5eSpells: prependInterruptConditions - stat not found: " .. tostring(name))
+        return
+    end
     local cond = stat.Conditions or ""
-
     cond = cond:gsub("%s*;%s*$", "")
-
     if cond:find(change, 1, true) then
         return
     end
-
     if cond == "" then
         stat.Conditions = change
     else
@@ -345,15 +344,15 @@ end
 
 local function prependTargetConditions(name, change)
     local stat = Ext.Stats.Get(name)
-
+    if not stat then
+        Ext.Utils.PrintWarning("5eSpells: prependTargetConditions - stat not found: " .. tostring(name))
+        return
+    end
     local cond = stat.TargetConditions or ""
-
     cond = cond:gsub("%s*;%s*$", "")
-
     if cond:find(change, 1, true) then
         return
     end
-
     if cond == "" then
         stat.TargetConditions = change
     else
@@ -447,17 +446,17 @@ function S5E_Changes()
 	if string.find(elementalaffinity.Boosts, "IsSpell%(%) and IsDamageTypeFire%(%)") then
 		elementalaffinity.Boosts = string.gsub(elementalaffinity.Boosts, "IsSpell%(%) and IsDamageTypeFire%(%)", "IsSpell() and IsDamageTypeFire() and not IsWeaponAttack()")
 	end
-    elementalaffinity.Boosts = "IF(SpellDamageTypeIs(DamageType.Fire) and (SpellId('Target_GreenFlameBlade') or SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack') or SpellId('Target_GreenFlameBlade_DivineStrike_Radiant') or SpellId('Target_GreenFlameBlade_DivineStrike_Cold') or SpellId('Target_GreenFlameBlade_DivineStrike_Fire') or SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') or SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') or SpellId('Target_GreenFlameBlade_DivineStrike_Poison') or SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon') or SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic') or SpellId('Target_GreenFlameBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(0, CharismaModifier),Fire);" .. elementalaffinity.Boosts
+    elementalaffinity.Boosts = "IF(SpellDamageTypeIs(DamageType.Fire) and GreenFlameBladeSpellCheck() and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(0, CharismaModifier),Fire);" .. elementalaffinity.Boosts
 	if string.find(elementalgish.Boosts, "IsCantrip%(%)") then
 		elementalgish.Boosts = string.gsub(elementalgish.Boosts, "IsCantrip%(%)", "IsCantrip() and not IsWeaponAttack()")
 	end
-    elementalgish.Boosts = elementalgish.Boosts .. ";IF((SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack') or SpellId('Target_GreenFlameBlade_DivineStrike_Radiant') or SpellId('Target_GreenFlameBlade_DivineStrike_Cold') or SpellId('Target_GreenFlameBlade_DivineStrike_Fire') or SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') or SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') or SpellId('Target_GreenFlameBlade_DivineStrike_Poison') or SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon') or SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic') or SpellId('Target_GreenFlameBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, SpellCastingAbilityModifier),Fire);IF((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack') or SpellId('Target_BoomingBlade_DivineStrike_Radiant') or SpellId('Target_BoomingBlade_DivineStrike_Cold') or SpellId('Target_BoomingBlade_DivineStrike_Fire') or SpellId('Target_BoomingBlade_DivineStrike_Lightning') or SpellId('Target_BoomingBlade_DivineStrike_Thunder') or SpellId('Target_BoomingBlade_DivineStrike_Poison') or SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') or SpellId('Target_BoomingBlade_DivineStrike_Necrotic') or SpellId('Target_BoomingBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, SpellCastingAbilityModifier),Thunder)"
+    elementalgish.Boosts = elementalgish.Boosts .. ";IF(GreenFlameBladeSpellCheck() and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, SpellCastingAbilityModifier),Fire);IF(BoomingBladeSpellCheck() and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, SpellCastingAbilityModifier),Thunder)"
 	if string.find(charismacaster.Boosts, "IsCantrip%(%)") then
 		charismacaster.Boosts = string.gsub(charismacaster.Boosts, "IsCantrip%(%)", "IsCantrip() and not IsWeaponAttack()")
 	end
-    charismacaster.Boosts = charismacaster.Boosts .. ";IF((SpellId('Target_GreenFlameBlade_Default') or SpellId('Target_GreenFlameBlade_SneakAttack') or SpellId('Target_GreenFlameBlade_DivineStrike_Radiant') or SpellId('Target_GreenFlameBlade_DivineStrike_Cold') or SpellId('Target_GreenFlameBlade_DivineStrike_Fire') or SpellId('Target_GreenFlameBlade_DivineStrike_Lightning') or SpellId('Target_GreenFlameBlade_DivineStrike_Thunder') or SpellId('Target_GreenFlameBlade_DivineStrike_Poison') or SpellId('Target_GreenFlameBlade_DivineStrike_MeleeWeapon') or SpellId('Target_GreenFlameBlade_DivineStrike_Necrotic') or SpellId('Target_GreenFlameBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Fire);IF((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack') or SpellId('Target_BoomingBlade_DivineStrike_Radiant') or SpellId('Target_BoomingBlade_DivineStrike_Cold') or SpellId('Target_BoomingBlade_DivineStrike_Fire') or SpellId('Target_BoomingBlade_DivineStrike_Lightning') or SpellId('Target_BoomingBlade_DivineStrike_Thunder') or SpellId('Target_BoomingBlade_DivineStrike_Poison') or SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') or SpellId('Target_BoomingBlade_DivineStrike_Necrotic') or SpellId('Target_BoomingBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Thunder)"
+    charismacaster.Boosts = charismacaster.Boosts .. ";IF(GreenFlameBladeSpellCheck() and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Fire);IF(BoomingBladeSpellCheck() and CharacterLevelGreaterThan(4)):CharacterWeaponDamage(max(1, CharismaModifier),Thunder)"
     elementalinfusion.PassivesOnEquip = elementalinfusion.PassivesOnEquip .. ";S5E_ElementalGish_ElementalInfusion_Ring_Passive"
-	revgloves.Conditions = "((SpellId('Target_BoomingBlade_Default') or SpellId('Target_BoomingBlade_SneakAttack') or SpellId('Target_BoomingBlade_DivineStrike_Radiant') or SpellId('Target_BoomingBlade_DivineStrike_Cold') or SpellId('Target_BoomingBlade_DivineStrike_Fire') or SpellId('Target_BoomingBlade_DivineStrike_Lightning') or SpellId('Target_BoomingBlade_DivineStrike_Thunder') or SpellId('Target_BoomingBlade_DivineStrike_Poison') or SpellId('Target_BoomingBlade_DivineStrike_MeleeWeapon') or SpellId('Target_BoomingBlade_DivineStrike_Necrotic') or SpellId('Target_BoomingBlade_DivineStrike_Psychic')) and CharacterLevelGreaterThan(4)) or " .. revgloves.Conditions
+	revgloves.Conditions = "(BoomingBladeSpellCheck() and CharacterLevelGreaterThan(4)) or " .. revgloves.Conditions
 
 	local mhnp = Ext.Stats.Get("MAG_Heightened_Necromancy_Passive")
 	if string.find(mhnp.Boosts, "HeightenedNecromancySpellCheck%(%)") then
@@ -585,22 +584,6 @@ function S5E_SpareTheDying()
 		helpact:SetRawAttribute("SpellProperties","RemoveStatus(SG_Helpable_Condition);RemoveStatus(BURNING);RemoveStatus(SG_Prone);RemoveStatus(SG_Restrained);RemoveStatus(PRONE);RemoveStatus(SLEEPING);RemoveStatus(SLEEP);RemoveStatus(ENSNARING_STRIKE);RemoveStatus(WEB);RemoveStatus(HYPNOTIC_PATTERN)")
 		helpact:SetRawAttribute("SpellSuccess","IF(IsDowned()):ApplyStatus(S5E_STABILIZED,100,-1)")
 		helpact.SpellRoll = "not IsDowned() or SkillCheck(Skill.Medicine,10)"
-		helpact:Sync()
-	end
-end
-
-function S5E_SpareTheDying()
-	if Ext.Mod.IsModLoaded("f19c68ed-70be-4c3d-b610-e94afc5c5103") then
-		local helpact = Ext.Stats.Get("Target_Help")
-		helpact:SetRawAttribute("SpellProperties","RemoveStatus(SG_Helpable_Condition);RemoveStatus(BURNING);RemoveStatus(SG_Prone);RemoveStatus(SG_Restrained);RemoveStatus(PRONE);RemoveStatus(SLEEPING);RemoveStatus(SLEEP);RemoveStatus(ENSNARING_STRIKE);RemoveStatus(WEB);RemoveStatus(HYPNOTIC_PATTERN)")
-		helpact:SetRawAttribute("SpellSuccess","IF(IsDowned()):ApplyStatus(S5E_STABILIZED,100,-1)")
-		helpact.SpellRoll = "not IsDowned() or SkillCheck(Skill.Medicine,10)"
-		helpact:Sync()
-	else
-		local helpact = Ext.Stats.Get("Target_Help")
-		helpact:SetRawAttribute("SpellProperties","RemoveStatus(SG_Sleeping);RemoveStatus(SG_Helpable_Condition);RemoveStatus(BURNING);RemoveStatus(SG_Prone);RemoveStatus(SG_Restrained);RemoveStatus(PRONE);RemoveStatus(SLEEPING);RemoveStatus(SLEEP);RemoveStatus(ENSNARING_STRIKE);RemoveStatus(WEB);IF(IsDowned()):RegainHitPoints(1);RemoveStatus(HYPNOTIC_PATTERN)")
-		helpact:SetRawAttribute("SpellSuccess","")
-		helpact.SpellRoll = ""
 		helpact:Sync()
 	end
 end
@@ -765,6 +748,7 @@ SpellLists = {
       "Shout_BorrowedKnowledge",
       "Shout_KineticJaunt",
       "Target_NathairsMischief",
+      "Target_Pyrotechnics",
       "Shout_WardingWind",
       "Target_ZoneofTruth"
     },
@@ -993,19 +977,24 @@ SpellLists = {
       },
       SecretSpells1stOther = {
         "Shout_AbsorbElements",
+        "Target_BeastBond",
         "Throw_Catapult",
         "Target_CauseFear",
         "Target_Ceremony",
         "Target_ChaosBolt",
         "Shout_DetectEvilAndGood",
+        "Shout_DetectMagic",
+        "Shout_EarthTremor",
         "Zone_FrostFingers",
         "Target_Snare",
-        "Zone_TashasCausticBrew",
+        "Zone_CausticBrew",
+        "Target_UnseenServant",
         "Shout_ZephyrStrike"
       },
       SecretSpells2ndOther = {
         "Zone_AganazzarsScorcher",
         "Shout_AlterSelf",
+        "Shout_BorrowedKnowledge",
         "Target_ContinualFlame",
         "Target_DragonsBreath",
         "Target_DustDevil",
@@ -1013,24 +1002,35 @@ SpellLists = {
         "Target_FlockOfFamiliars",
         "Target_GentleRepose",
         "Target_HealingSpirit",
+        "Shout_KineticJaunt",
         "Target_MaximiliansEarthenGrasp",
-        "Target_TashasMindWhip",
+        "Target_MindWhip",
         "Target_MindSpike",
-        "Zone_RimesBindingIce",
-        "Target_SnillocsSnowballStorm",
+		"Target_NathairsMischief",
+		"Target_Pyrotechnics",
+        "Zone_BindingIce",
+        "Target_SnowballStorm",
+        "Target_SummonBeast",
         "Target_VortexWarp",
+        "Shout_WardingWind",
         "Target_WitherAndBloom",
         "Target_ZoneofTruth"
       },
       SecretSpells3rdOther = {
+        "Shout_AshardalonsStride",
         "Target_Antagonize",
+        "Target_Catnap",
         "Target_ConjureAnimals_Container",
         "Target_CreateFoodAndWater",
         "Target_EnemiesAbound",
         "Target_EruptingEarth",
         "Target_FlameArrows",
+        "Target_IntellectFortress",
+        "Target_LifeTransference",
         "Target_MagicCircle",
         "Projectile_MinuteMeteors",
+        "Target_MotivationalSpeech",
+        "Target_Nondetection",
         "Shout_SpiritShroud",
         "Target_SummonFey",
         "Target_SummonShadowspawn",
@@ -1041,7 +1041,9 @@ SpellLists = {
         "Target_ArcaneEye",
         "Shout_AuraOfLife",
         "Shout_GuardianOfNature",
+        "Projectile_RaulothimsPsychicLance",
         "Shout_ShadowOfMoil",
+        "Target_StormSphere",
         "Target_SummonBeholderkin",
         "Target_SummonConstruct",
         "Target_SummonElemental",
@@ -1052,15 +1054,18 @@ SpellLists = {
         "Shout_CircleOfPower",
         "Shout_CommuneWithNature",
         "ProjectileStrike_ConjureVolley",
+        "Target_Dawn",
         "Target_FarStep",
         "Target_HoldMonster",
         "Target_HolyWeapon",
         "Target_Maelstrom",
         "Target_Mislead",
         "Projectile_NegativeEnergyFlood",
+        "Target_RaiseDead",
+		"Target_SkillEmpowerment",
         "Target_SteelWindStrike",
-        "Target_StormSphere",
         "Shout_SwiftQuiver",
+        "Target_SynapticStatic",
 		"Teleportation_TeleportationCircle"
       },
       SecretSpells6thOther = {
@@ -1118,6 +1123,7 @@ SpellLists = {
       "Shout_AuraOfLife"
     },
     Spells5thOther = {
+      "Target_DancingLights",
       "Target_HolyWeapon",
       "Target_RaiseDead"
     },
@@ -1222,13 +1228,13 @@ SpellLists = {
       "Shout_EarthTremor",
       "Zone_FrostFingers",
       "Target_Snare",
-      "Zone_TashasCausticBrew"
+      "Zone_CausticBrew"
     },
     Spells2ndOther = {
       "Zone_AganazzarsScorcher",
       "Target_ContinualFlame",
-      "Zone_RimesBindingIce",
-      "Target_SnillocsSnowballStorm",
+      "Zone_BindingIce",
+      "Target_SnowballStorm",
       "Shout_WardingWind"
     },
     Spells3rdOther = {
@@ -1327,7 +1333,7 @@ SpellLists = {
 
   RogueAT = {
     Spells2ndOther = {
-      "Target_TashasMindWhip",
+      "Target_MindWhip",
       "Target_NathairsMischief"
     },
     Spells3rdOther = {
@@ -1366,7 +1372,7 @@ SpellLists = {
       "Target_ChaosBolt",
       "Shout_DetectMagic",
       "Shout_EarthTremor",
-      "Zone_TashasCausticBrew"
+      "Zone_CausticBrew"
     },
     Spells2ndTCoE = {
       "Shout_FlameBlade",
@@ -1380,11 +1386,12 @@ SpellLists = {
       "Target_DustDevil",
       "Shout_KineticJaunt",
       "Target_MaximiliansEarthenGrasp",
-      "Target_TashasMindWhip",
+      "Target_MindWhip",
       "Target_MindSpike",
       "Target_NathairsMischief",
-      "Zone_RimesBindingIce",
-      "Target_SnillocsSnowballStorm",
+      "Target_Pyrotechnics",
+      "Zone_BindingIce",
+      "Target_SnowballStorm",
       "Target_VortexWarp",
       "Shout_WardingWind",
       "Target_WitherAndBloom"
@@ -1416,7 +1423,8 @@ SpellLists = {
     Spells5thOther = {
       "Target_FarStep",
       "Target_SkillEmpowerment",
-      "Target_SynapticStatic"
+      "Target_SynapticStatic",
+      "Teleportation_TeleportationCircle"
     },
     Spells6thTCoE = {
       "Target_FleshToStone",
@@ -1449,8 +1457,7 @@ SpellLists = {
       "Target_Prestidigitation",
       "Target_ShapeWater",
       "Shout_SwordBurst",
-      "Shout_Thunderclap",
-      "Target_TollTheDead"
+      "Shout_Thunderclap"
     },
     Spells1stOther = {
       "Target_CauseFear",
@@ -1479,13 +1486,13 @@ SpellLists = {
     },
     Spells5thTCoE = {
       "Target_Mislead",
-      "Target_PlanarBinding",
-      "Teleportation_TeleportationCircle"
+      "Target_PlanarBinding"
     },
     Spells5thOther = {
       "Target_FarStep",
       "Projectile_NegativeEnergyFlood",
-      "Target_SynapticStatic"
+      "Target_SynapticStatic",
+      "Teleportation_TeleportationCircle"
     },
     Spells6thOther = {
       "Target_TrueSeeing"
@@ -1517,8 +1524,7 @@ SpellLists = {
       "Target_Prestidigitation",
       "Target_ShapeWater",
       "Shout_SwordBurst",
-      "Shout_Thunderclap",
-      "Target_TollTheDead"
+      "Shout_Thunderclap"
     },
     Spells1stOther = {
       "Shout_AbsorbElements",
@@ -1528,7 +1534,7 @@ SpellLists = {
       "Shout_EarthTremor",
       "Zone_FrostFingers",
       "Target_Snare",
-      "Zone_TashasCausticBrew",
+      "Zone_CausticBrew",
       "Target_UnseenServant"
     },
     Spells2ndTCoE = {
@@ -1545,11 +1551,12 @@ SpellLists = {
       "Target_GentleRepose",
       "Shout_KineticJaunt",
       "Target_MaximiliansEarthenGrasp",
-      "Target_TashasMindWhip",
+      "Target_MindWhip",
       "Target_MindSpike",
       "Target_NathairsMischief",
-      "Zone_RimesBindingIce",
-      "Target_SnillocsSnowballStorm",
+      "Target_Pyrotechnics",
+      "Zone_BindingIce",
+      "Target_SnowballStorm",
       "Target_VortexWarp",
       "Shout_WardingWind",
       "Target_WitherAndBloom"
@@ -1585,12 +1592,14 @@ SpellLists = {
       "Projectile_VitriolicSphere"
     },
     Spells5thOther = {
+      "Target_Dawn",
       "Target_FarStep",
       "Target_Mislead",
       "Projectile_NegativeEnergyFlood",
       "Target_SkillEmpowerment",
       "Target_SteelWindStrike",
-      "Target_SynapticStatic"
+      "Target_SynapticStatic",
+      "Teleportation_TeleportationCircle"
     },
     Spells6thOther = {
       "Shout_TensersTransformation",
@@ -1626,7 +1635,7 @@ local cantripList5ES = {
   ClericCantrip = "2f43a103-5bf1-4534-b14f-663decc0c525",
   DruidCantrip = "b8faf12f-ca42-45c0-84f8-6951b526182a",
   SorcererCantrip = "485a68b4-c678-4888-be63-4a702efbe391",
-  WarlockCantrip = "3489b1a5-9f7c-439a-b6e3-8cceb21e34fd",
+  WarlockCantrip = "f5c4af9c-5d8d-4526-9057-94a4b243cd40",
   WizardCantrip = "3cae2e56-9871-4cef-bba6-96845ea765fa"
 }
 
@@ -1777,6 +1786,7 @@ local tcoe5thLevelList5ES = {
   WFiend5thTCoE = "deab57bf-4eec-4085-82f7-87335bce3f5d",
   WGoO5thTCoE = "6d2edca9-71a7-4f3f-89f0-fccfff0bdee5",
   WArchfey5thTCoE = "6d2edca9-71a7-4f3f-89f0-fccfff0bdee5",
+  WHexblade5thOther = "88fafaeb-8b59-4319-9841-b9e6043f4636",
   Wizard5thTCoE = "f781a25e-d288-43b4-bf5d-3d8d98846687",
   Wizard6thTCoE = "bc917f22-7f71-4a25-9a77-7d2f91a96a65",
   Wizard7thTCoE = "dff7917a-0abc-4671-b68f-c03e56212549",
@@ -1885,6 +1895,11 @@ local others1stLevelList5ES = {
   WArchfey3rdOther = "f18ad912-e2f4-47a9-8744-73d6a51c2941",
   WArchfey4thOther = "c3d8a4a5-9dae-4193-8322-a5d1c5b89f47",
   WArchfey5thOther = "0a9b924f-64fb-4f22-b975-5eeedc99b2fd",
+  WHexblade1stOther = "d90e88eb-e5f9-4db2-b7ef-1dccb044839a",
+  WHexblade2ndOther = "4a3bf687-91c1-4dad-821c-ad32171c7552",
+  WHexblade3rdOther = "58b8c82e-8ab3-4fd7-aa0a-3f2b831187f5",
+  WHexblade4thOther = "39750075-781e-4ce2-a033-f8a288e47b8e",
+  WHexblade5thOther = "88fafaeb-8b59-4319-9841-b9e6043f4636",
   Wizard1stOther = "11f331b0-e8b7-473b-9d1f-19e8e4178d7d",
   Wizard2ndOther = "80c6b070-c3a6-4864-84ca-e78626784eb4",
   Wizard3rdOther = "22755771-ca11-49f4-b772-13d8b8fecd93",
@@ -1942,6 +1957,10 @@ local others2ndLevelList5ES = {
   WArchfey3rdOther = "f18ad912-e2f4-47a9-8744-73d6a51c2941",
   WArchfey4thOther = "c3d8a4a5-9dae-4193-8322-a5d1c5b89f47",
   WArchfey5thOther = "0a9b924f-64fb-4f22-b975-5eeedc99b2fd",
+  WHexblade2ndOther = "4a3bf687-91c1-4dad-821c-ad32171c7552",
+  WHexblade3rdOther = "58b8c82e-8ab3-4fd7-aa0a-3f2b831187f5",
+  WHexblade4thOther = "39750075-781e-4ce2-a033-f8a288e47b8e",
+  WHexblade5thOther = "88fafaeb-8b59-4319-9841-b9e6043f4636",
   Wizard2ndOther = "80c6b070-c3a6-4864-84ca-e78626784eb4",
   Wizard3rdOther = "22755771-ca11-49f4-b772-13d8b8fecd93",
   Wizard4thOther = "820b1220-0385-426d-ae15-458dc8a6f5c0",
@@ -1990,6 +2009,9 @@ local others3rdLevelList5ES = {
   WArchfey3rdOther = "f18ad912-e2f4-47a9-8744-73d6a51c2941",
   WArchfey4thOther = "c3d8a4a5-9dae-4193-8322-a5d1c5b89f47",
   WArchfey5thOther = "0a9b924f-64fb-4f22-b975-5eeedc99b2fd",
+  WHexblade3rdOther = "58b8c82e-8ab3-4fd7-aa0a-3f2b831187f5",
+  WHexblade4thOther = "39750075-781e-4ce2-a033-f8a288e47b8e",
+  WHexblade5thOther = "88fafaeb-8b59-4319-9841-b9e6043f4636",
   Wizard3rdOther = "22755771-ca11-49f4-b772-13d8b8fecd93",
   Wizard4thOther = "820b1220-0385-426d-ae15-458dc8a6f5c0",
   Wizard5thOther = "f781a25e-d288-43b4-bf5d-3d8d98846687",
@@ -2028,6 +2050,8 @@ local others4thLevelList5ES = {
   WGoO5thOther = "6d2edca9-71a7-4f3f-89f0-fccfff0bdee5",
   WArchfey4thOther = "c3d8a4a5-9dae-4193-8322-a5d1c5b89f47",
   WArchfey5thOther = "0a9b924f-64fb-4f22-b975-5eeedc99b2fd",
+  WHexblade4thOther = "39750075-781e-4ce2-a033-f8a288e47b8e",
+  WHexblade5thOther = "88fafaeb-8b59-4319-9841-b9e6043f4636",
   Wizard4thOther = "820b1220-0385-426d-ae15-458dc8a6f5c0",
   Wizard5thOther = "f781a25e-d288-43b4-bf5d-3d8d98846687",
   Wizard6thOther = "bc917f22-7f71-4a25-9a77-7d2f91a96a65",
@@ -2057,6 +2081,7 @@ local others5thLevelList5ES = {
   WFiend5thOther = "deab57bf-4eec-4085-82f7-87335bce3f5d",
   WGoO5thOther = "6d2edca9-71a7-4f3f-89f0-fccfff0bdee5",
   WArchfey5thOther = "0a9b924f-64fb-4f22-b975-5eeedc99b2fd",
+  WHexblade5thOther = "88fafaeb-8b59-4319-9841-b9e6043f4636",
   Wizard5thOther = "f781a25e-d288-43b4-bf5d-3d8d98846687",
   Wizard6thOther = "bc917f22-7f71-4a25-9a77-7d2f91a96a65",
   Wizard7thOther = "dff7917a-0abc-4671-b68f-c03e56212549",
@@ -2145,7 +2170,8 @@ local boomingblade5eSpellLists = {
 -- ============================================
 
 local function OnStatsLoaded()
-
+	NormalizeMagicalSecrets()
+	
 	if Ext.Mod.IsModLoaded("755a8a72-407f-4f0d-9a33-274ac0f0b53d") then
 		function MCMGet(settingID)
 			return Mods.BG3MCM.MCMAPI:GetSettingValue(settingID, ModuleUUID)

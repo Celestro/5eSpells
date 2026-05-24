@@ -1,4 +1,5 @@
 <contentList date="26/10/2020 01:10">
+	<content contentuid="hd8f9d711gb31eg48cfg92d5g45c488bc8bed" version="1">A creature has moved into reach.</content>
 	<content contentuid="he5c9654cg8cf6g4647g81a2gf2da4df5eb3f" version="1">The following settings allow you to customize which spells added by 5e Spells are removed with one setting allowing you to add exemptions.</content>
 	<content contentuid="hc8f21b4bg77fcg4ef9g9c25gd1da85946a8e" version="1">5e Spells</content>
 	<content contentuid="h98ba5bfaga7a7g4f6agb424ge350864bb1d5" version="1">Enable to remove the cantrips created by 5e Spells.</content>
@@ -45,7 +46,7 @@
 	<content contentuid="hf28a4b67g666bg4241g9994gcc9d11ca5955" version="1">Spell Exemptions</content>
 	<content contentuid="h0978dc80geca7g4d50ga7e5g25c632b24508" version="1">Enable to modify the Help action to require a Medicine ability check to stabilize creatures, giving the Spare the Dying cantrip a use case.</content>
 	<content contentuid="hb7ff98b4g1308g4099gb903g7eb14677f19a" version="1">Spare the Dying</content>
-	<content contentuid="hf29e4443g7dbfg4d66gbdacgb9d38bbd726e" version="1">Enable to allow creatures to be affected by the Revivify spell only if they've been dead for 10 turns, giving the Raise Dead spell a use case.</content>
+	<content contentuid="hf29e4443g7dbfg4d66gbdacgb9d38bbd726e" version="1">Enable to allow creatures to be affected by the Revivify spell only if they haven't been dead for 10 turns, giving the Raise Dead spell a use case.</content>
 	<content contentuid="h396a28ddgc292g426ag9932g2e362bf2b111" version="1">Raise Dead</content>
 	<content contentuid="ha5d7a492gd1e1g4b56g9dbegdcfc6a4dee75" version="1">Enable to allow the Shadow Blade to be switched to the main hand when summoned while you're dual wielding.</content>
 	<content contentuid="h23d1a1acg0bd7g4b11ga01bg8fdf6e4de0bb" version="1">Booming Blade Change</content>
@@ -64,7 +65,7 @@
 	<content contentuid="hbc0bb015g0663g4f4dg9c50gc46532a0fefe" version="1">Difficult Terrain: Sewer</content>
 	<content contentuid="h395581f6ge613g49eeg9311g5de834fe8cd7" version="1">Spiritual Weapon</content>
 	<content contentuid="6d9c4d1a-ffa6-4057-85e9-b7fb1ee9c568" version="1">Daylight</content>
-	<content contentuid="37723395-de46-4120-8191-28e6506cbc93" version="1">Healing Spirit</content>
+	<content contentuid="h37723395gde46g4120g8191g28e6506cbc93" version="1">Healing Spirit</content>
 	<content contentuid="h9ec3de39gfedbg46c5g8e2fg06794a9b1dc7" version="1">Resource for healing creatures through the &lt;LSTag Type="Spell" Tooltip="Target_HealingSpirit_Heal"&gt;Healing Spirit&lt;/LSTag&gt; spell.</content>
 	<content contentuid="hd8373cb4g9c03g46f8gb759g133b39f277a5" version="1">Healing Spirit Charge</content>
 	<content contentuid="71c5cb3ba57840ed83e162e02b636fb4" version="1">Can be healed through the Healing Spirit.</content>
@@ -271,7 +272,7 @@
 	<content contentuid="hdb5c91b4ge7dbg4f8bg81a4gbb4a026d88e2" version="1">Green-Flame</content>
 	<content contentuid="hdac95e17g7fb6g4ebeg840bg5f92f409431f" version="1">Green-flame leaps from your weapon to strike a nearby foe.</content>
 	<content contentuid="h1e59de7fg2f54g4f51g9304g9aabd84e3f15" version="1">Gust</content>
-	<content contentuid="hc5526a6dg376dg4c65g8036g7b07ccdd38b5" version="1">Seize air and compel it to possibly push a creature up to [1] away from you, an object [2] away from you or clear clouds in a [3] area.</content>
+	<content contentuid="hc5526a6dg376dg4c65g8036g7b07ccdd38b5" version="1">Seize air and compel it to possibly push a creature up to [1] away from you, an object [2] away from you or distract creatures nearby.</content>
 	<content contentuid="hef8c6c1dg46a4g4562gb181ga73663a6abe3" version="1">Gust: Creature</content>
 	<content contentuid="hbd55a6fdg0ddbg4191gbea6gd79de0d894fa" version="1">Seize air and compel it to possibly push a creature up to [1] away from you.</content>
 	<content contentuid="hbf3eb0ccga50bg4391g9decgab4f62c14b85" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; A creature can't be pushed if it is greater than Medium in size.</content>
@@ -452,15 +453,15 @@
 	<content contentuid="h23d80f06g54d4g4af4g938dg8d8648dfa2cd" version="1">Flock of Familiars: Spider</content>
 	<content contentuid="h05172bc9gf42fg4078ga5b2gc050a2ee46e7" version="1">Summon [1] familiars with the form and statistics of a spider.</content>
 	<content contentuid="hc1dd7601g7032g4c76ga56ag7590a829f526" version="1">Healing Spirit</content>
-	<content contentuid="hc627d3feg9fd5g4124g8a05gd2392bd17a5f" version="1">Call forth a nature spirit to soothe the wounded. While a creature is within [1] of the spirit, you can heal it for [2].</content>
+	<content contentuid="hc627d3feg9fd5g4124g8a05gd2392bd17a5f" version="1">Call forth a nature spirit to soothe the wounded. When a creature moves within [1] of the spirit on its turn or starts its turn next to it, you can heal it for [2].</content>
 	<content contentuid="h85b2bbb0g75b2g4110g8caegea1a79be9017" version="1">Healing Spirit: Movement</content>
 	<content contentuid="ha30b410agbc01g455fg8c05g08fc62295eba" version="1">Command the summon to act.</content>
 	<content contentuid="hdb5f9f29g4a1eg4475g8f10gf644ab0cd30f" version="1">Commanded</content>
 	<content contentuid="h59291ac9g6b2dg4020gbafcg278d2883de38" version="1">This summon can act due to its summoner's command.</content>
 	<content contentuid="h138546e5g85c2g49feg8fbegecec21ee79d0" version="1">Healing Spirit: Heal</content>
-	<content contentuid="h083b46a6gf90bg424fgb8a7g4506a74def72" version="1">Heal a creature for [1] through your Healing Spirit.</content>
-	<content contentuid="h567387d1g75f9g4e3dgabcdg4c0367ebe4db" version="1">Creature can be healed.</content>
-	<content contentuid="h74355585gaaecg43eag93a4g0c20e5b6d303" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; Once you've healed through your Healing Spirit six times, the spell ends.</content>
+	<content contentuid="h083b46a6gf90bg424fgb8a7g4506a74def72" version="1">Heal a creature for [1] when it moves within [2] of your &lt;LSTag Type="Spell" Tooltip="Target_HealingSpirit"&gt;Healing Spirit&lt;/LSTag&gt;.</content>
+	<content contentuid="h567387d1g75f9g4e3dgabcdg4c0367ebe4db" version="1">Can regain [1] through caster's &lt;LSTag Type="Spell" Tooltip="Target_HealingSpirit"&gt;Healing Spirit&lt;/LSTag&gt;.</content>
+	<content contentuid="h74355585gaaecg43eag93a4g0c20e5b6d303" version="1">&lt;LSTag Type="Image" Info="SoftWarning"/&gt; Once you've healed through your Healing Spirit a number of times equal to your &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability&lt;/LSTag&gt;, the spell ends.</content>
 	<content contentuid="h6485b8a7g2721g459ag9802g5325ee091396" version="1">Kinetic Jaunt</content>
 	<content contentuid="h6bafd69dgb302g4c16g9223gdb50d531e263" version="1">Magically empower your movement, giving yourself an additional [1] of &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; and the ability to avoid &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;. You can also move through the space of other creatures but you take [2] when ending your turn in their space.</content>
 	<content contentuid="he48a7210g71b5g472egaec2gd2ad3b52f7e5" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; increased by [1] and don't provoke &lt;LSTag Tooltip="OpportunityAttack"&gt;Opportunity Attacks&lt;/LSTag&gt;. Can also move through the space of other creatures.</content>
@@ -486,7 +487,7 @@
 	<content contentuid="hf57092a8ga2f7g4c42gb586g400825440423" version="1">Nathair's Mischief: Move</content>
 	<content contentuid="h069b2728g9089g4cf5gb541gdba69c0bddac" version="1">Move the cube of fey and draconic magic up to [1].</content>
 	<content contentuid="hc7e1510dg268bg41f2ga8f2gca043608daec" version="1">Susceptible to a random, magical effect per turn.</content>
-	<content contentuid="h62101b63gbc40g4545g8309ge899767d5785" version="1">Rime's Binding Ice</content>
+	<content contentuid="h62101b63gbc40g4545g8309ge899767d5785" version="1">Binding Ice</content>
 	<content contentuid="h340ffd19g0677g4c03g9047gb69147a22364" version="1">A burst of cold energy emanates from you, hindering creatures with ice formations that reduces their &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; to [1].</content>
 	<content contentuid="h10ca7a6fgceaag42dbg8e7fg082a009be7fa" version="1">Break the ice hindering a creature.</content>
 	<content contentuid="h076a5bd5ga104g449ag86a6gc5b5374f8284" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; reduced to [1]. Can break ice with &lt;LSTag Tooltip="Action"&gt;action&lt;/LSTag&gt;.</content>
@@ -496,7 +497,7 @@
 	<content contentuid="h8eb9b0a1g8480g4e06g8d24g0c1bb7780fa9" version="1">Suggestion</content>
 	<content contentuid="hde396128g66e7g4ce9gb234g1b591becde0b" version="1">Suggest a course of activity and magically influence a creature to become an ally.</content>
 	<content contentuid="682e2d22b1a542488028dc7555553aae" version="1">Temporary ally of the spellcaster.</content>
-	<content contentuid="h00837fb5ge6ddg414cgad00ga275aedb9c5c" version="1">Snilloc's Snowball Storm</content>
+	<content contentuid="h00837fb5ge6ddg414cgad00ga275aedb9c5c" version="1">Snowball Storm</content>
 	<content contentuid="h67d22d08g716cg4b3dg9753g8d32d8eee91e" version="1">A flurry of magic snowballs erupts the chosen area.</content>
 	<content contentuid="hhf97794c7g36a2g4462gb221ge05553a6ed02" version="1">Summon Beast</content>
 	<content contentuid="h3aece828g6f27g47f5gb167g739ebfeca2d9" version="1">Call forth an allied bestial spirit from an environment of Air or Land.</content>
@@ -694,9 +695,9 @@
 	<content contentuid="h7977779ag34aeg4685g9c5dgf452579af862" version="1">Once this action is used, the &lt;LSTag Type="Spell" Tooltip="Target_HolyWeapon"&gt;Holy Weapon&lt;/LSTag&gt; spell ends.</content>
 	<content contentuid="6ee787e4ab944d5288073d8c1f1fd7b7" version="1">Weapon deals an extra [1], becomes magical and emits light.</content>
 	<content contentuid="h528b9fefg75cbg4c03gba52g1a7b1413a06d" version="1">Negative Energy Flood</content>
-	<content contentuid="h878a9700gfe05g4a2agaa2fg9f7e44fa7794" version="1">Send negative energy at a creature, dealing [1] if they aren't an undead. Targets killed by this damage rise up as a zombie at the start of your next turn and become hostile to all creatures. If the target is an undead, they gain [2] instead.</content>
-	<content contentuid="h11d5fc1dg69e6g4476gbd4fg0afc37a2dce4" version="1">This entity is prone to becoming a zombie.</content>
-	<content contentuid="h000fa154g4c39g4673gbd1dg3d998266ee30" version="1">Gain &lt;LSTag Tooltip="TemporaryHitPoints"&gt;temporary hit points&lt;/LSTag&gt; equal to half of [1].</content>
+	<content contentuid="h878a9700gfe05g4a2agaa2fg9f7e44fa7794" version="1">Send negative energy at a creature, dealing [1] if they aren't an undead. Targets killed by this damage rise up as a hostile zombie at the start of your next turn. If the target is an undead, it gains &lt;LSTag Tooltip="TemporaryHitPoints"&gt;temporary hit points&lt;/LSTag&gt; equal to half of [2] instead.</content>
+	<content contentuid="h11d5fc1dg69e6g4476gbd4fg0afc37a2dce4" version="1">Entity will become a zombie.</content>
+	<content contentuid="h000fa154g4c39g4673gbd1dg3d998266ee30" version="1">Gain [1].</content>
 	<content contentuid="hb05618abg1c48g4a17ga4e2g497d90f44228" version="1">Raise Dead</content>
 	<content contentuid="hb47bd9f3gf7a9g4011g83a9gb46d9a894179" version="1">Touch a creature that has died and return it to life with [1].</content>
 	<content contentuid="hd887bd81g25a2g4088g8f99gbd900dfcfd18" version="1">Coming back from the dead is an ordeal. The creature has a -4 penalty to all &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;, &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt; and &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; and reduces by -1 after a long rest.</content>
@@ -719,7 +720,7 @@
 	<content contentuid="ha3307d8fg6b8ag4837ga938g3ce300f3ad19" version="1">Creature has expertise with Arcana &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.</content>
 	<content contentuid="h65db94a2g96efg4125g8269g13c7ab945096" version="1">Skill Empowerment: Athletics</content>
 	<content contentuid="h4634545egbe56g4a64g95b3ga705d2aadb61" version="1">Deepen a creature’s understanding of its own talent, granting it expertise in &lt;LSTag Tooltip="Athletics"&gt;Athletics&lt;/LSTag&gt;.</content>
-	<content contentuid="d4fd3fffbb764f56a9cbdf01e89923f3" version="1">Creature has expertise with Athletics &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.</content>
+	<content contentuid="h8a8e4b66g6305g4fd0g99ccgea8d1ae301f5" version="1">Creature has expertise with Athletics &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.</content>
 	<content contentuid="hba71cf98g457eg4317gbc0eg60bdf962735f" version="1">Skill Empowerment: Deception</content>
 	<content contentuid="h77b7483ag7f65g4486gafe9g826d53361699" version="1">Deepen a creature’s understanding of its own talent, granting it expertise in &lt;LSTag Tooltip="Deception"&gt;Deception&lt;/LSTag&gt;.</content>
 	<content contentuid="hd487aa2bg65f2g4352gac45g319024b6978e" version="1">Creature has expertise with Deception &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.</content>
@@ -899,7 +900,7 @@
 	<content contentuid="h8ba16f71gc073g414ag8270g509d2fe00666" version="1">Shoot amagical eye ray at a creature.</content>
 	<content contentuid="hb57f94a6g849cg4dcdg825egd6ac258d879d" version="1">Aura of Life</content>
 	<content contentuid="hc44fc7ffg569eg48caga976g6f74ef801569" version="1">An aura of life-preserving energy radiates from you in a [1] radius. Non-hostile creatures in the aura have &lt;LSTag Tooltip="Resistance"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, their hit point maximum cannot be reduced and living creatures regain [2] when starting their turns with [3].</content>
-	<content contentuid="h7092412egf2f7g4bc7ga6f2g43f7d1804d2f" version="1">This entity has &lt;LSTag Tooltip="Resistance"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, its hit point maximum cannot be reduced and it regains [1] at start of turns if it has [2] and is alive.</content>
+	<content contentuid="h7092412egf2f7g4bc7ga6f2g43f7d1804d2f" version="1">Entity has &lt;LSTag Tooltip="Resistance"&gt;Resistance&lt;/LSTag&gt; against Necrotic damage, its hit point maximum cannot be reduced and it regains [1] at start of turns if it has [2] and is alive.</content>
 	<content contentuid="ha7a0e525g11acg4f66ga301g7382ad354066" version="1">Maelstrom</content>
 	<content contentuid="hcda91e65gc241g482dga893gdb9b7d912748" version="1">A swirling mass of [1]-deep water appears in a [2] radius centered on a point you can see within range. Until the spell ends, that area is difficult terrain, and any creature that starts its turn there must succeed on a Strength saving throw or take damage and be pulled [3] toward the center.</content>
 	<content contentuid="h5dc5b718ge8c9g49ddg8ee4gd78fc34055dc" version="1">This entity is caught in the maelstrom, taking damage and being pulled toward the center at the start of its turn.</content>
@@ -966,6 +967,7 @@
 	<content contentuid="h53ab9ebbge744g415fgb2f7g1e5214c50a86" version="1">Fey Slash</content>
 	<content contentuid="h7d81460ag214dg4f54g94b4g8b3eafeed9b4" version="1">Aim an attack at a target.</content>
 	<content contentuid="hf1ed27eagd72ag4132gae53gd7457ab84a41" version="1">Deals extra damage equal to the spell slot level used to cast the summon spell.</content>
+	<content contentuid="hc1c4d77fg0980g46cbgb8c2g35625c00f544" version="1">Can make a number of attacks equal to the spell level used to summon the fey, rounded down.</content>
 	<content contentuid="hc4310343ga33eg4b10ga209ge70b3123cd58" version="1">Summon Fey Bonuses</content>
 	<content contentuid="h30b727aegc64eg4534g9c2fg48e89b9ec059" version="1">Tricksy Darkness</content>
 	<content contentuid="ha32ee917g898cg4457g943eg8ec73d841478" version="1">Create a small patch of darkness.</content>
@@ -1139,10 +1141,12 @@
 	<content contentuid="h2a44a7cagff7cg44f3gbb2bgcaabaf4ef46f" version="1">Relentless</content>
 	<content contentuid="h324410cbg713eg449bgb75egaba9e94bfa1d" version="1">If the killing blow dealt 10 damage or less, this boar comes back to life with 1 &lt;LSTag Tooltip="HitPoints"&gt;hit point&lt;/LSTag&gt;.</content>
 	<content contentuid="hb09c76d6gcdf5g4e3bg832agc700420772a1" version="1">Charge</content>
-	<content contentuid="ha796e9aagf0b8g46a2gba15g9157b7e896cb" version="1">After moving at least [1] and then hitting a creature with your &lt;LSTag Type="Spell" Tooltip="Target_ConjureAnimals_Tusk_Boar"&gt;tusks&lt;/LSTag&gt; on the same turn, the target takes an additional [1] and is possibly knocked &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;.</content>
+	<content contentuid="ha796e9aagf0b8g46a2gba15g9157b7e896cb" version="1">After moving at least [1] and then hitting a creature with your &lt;LSTag Type="Spell" Tooltip="Target_ConjureAnimals_Tusk_Boar"&gt;tusks&lt;/LSTag&gt; on the same turn, the target takes an additional [2] and is possibly knocked &lt;LSTag Type="Status" Tooltip="PRONE"&gt;Prone&lt;/LSTag&gt;.</content>
 	<content contentuid="hf9ae9734g07c2g4538g8b80g703ef74df6ee" version="1">Suffers &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; and &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;. As long as entity is poisoned, it also can't move or take actions, bonus actions, or reactions.&lt;Br&gt;&lt;Br&gt;Also attacks against the entity are always &lt;LSTag Tooltip="CriticalHit"&gt;Critical Hits&lt;/LSTag&gt; if the attacker is within [1].</content>
-	<content contentuid="hae1e5884gaf9ag48e0g9bd9g863e5bc4c91d" version="1">After moving at least [1] and then hitting a creature with a &lt;LSTag Type="Spell" Tooltip="Target_ConjureAnimals_Gore_DeepRothe"&gt;gore&lt;/LSTag&gt; attack on the same turn, the target takes an additional [1].</content>
+	<content contentuid="hae1e5884gaf9ag48e0g9bd9g863e5bc4c91d" version="1">After moving at least [1] and then hitting a creature with a &lt;LSTag Type="Spell" Tooltip="Target_ConjureAnimals_Gore_DeepRothe"&gt;gore&lt;/LSTag&gt; attack on the same turn, the target takes an additional [2].</content>
 	<content contentuid="h0da059f9g4e7fg4a23gb28bg66d20ebd1949" version="1">Find Traps</content>
+	<content contentuid="h9e5d6872g126fg442ega416ga285ec0b1040" version="1">Sense the presence of any trap within [1].</content>
+	<content contentuid="h4d64ff49gd08ag4472g8b95g71973cefcb22" version="1">If a trap is nearby, you become aware of it. While aware of traps within the area of the spell's casting, you gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; made to avoid or resist the area's traps and &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt; to damage dealt by the traps.</content>
 	<content contentuid="h95f9cd2dga7e9g4abcgacd6g223910dd8bb1" version="1">Entity has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt; made to avoid or resist traps and &lt;LSTag Type="Status" Tooltip="RESISTANCE"&gt;Resistance&lt;/LSTag&gt; to damage dealt by traps.</content>
 	<content contentuid="h0dd7a248gf541g48b7gadf0g7eaa0983a3d6" version="1">Location of trap revealed.</content>
 	<content contentuid="h99fd1b12g99a8g4f8ag909dg5d8fcb3dfd09" version="1">Gentle Repose</content>
@@ -1152,4 +1156,11 @@
 	<content contentuid="h2f57e8c4ge48eg4c30gb809g5f7fe2c08b05" version="1">Cannot target corpse under the effects of Gentle Repose.</content>
 	<content contentuid="hab45233bg62b2g4e0bg9b8dg0e4a76574d5a" version="1">Creature cannot become undead.</content>
 	<content contentuid="h2ff60f98g116ag4008ga830ga2b51384f174" version="1">Creature cannot become undead and stops &lt;LSTag Type="Status" Tooltip="DEAD_TECHNICAL"&gt;Recent Death&lt;/LSTag&gt; from progressing to &lt;LSTag Type="Status" Tooltip="DEAD_ONE_MINUTE"&gt;Prolonged Death&lt;/LSTag&gt;.</content>
+	<content contentuid="ha15186dbg4a14g47afgad74ged9991d52686" version="1">Caster's Spellcasting Ability Modifier</content>
+	<content contentuid="h9bc0d75fgc58dg4551g9e0cgcec4b79d112e" version="1">Pyrotechnics</content>
+	<content contentuid="hebc25c1dg8f24g4e13g9d62g76f6fea953ec" version="1">Extinguish a [1] cube of flames in an area and create either &lt;LSTag Type="Spell" Tooltip="Target_Pyrotechnics_Fireworks"&gt;fireworks&lt;/LSTag&gt; or &lt;LSTag Type="Spell" Tooltip="Target_Pyrotechnics_Smoke"&gt;smoke&lt;/LSTag&gt;.</content>
+	<content contentuid="h0868957fg3d96g4162gb0c6gd211d7ce583d" version="1">Pyrotechnics: Fireworks</content>
+	<content contentuid="h6cc5f1afgaa41g4496g955ag8e0576e81882" version="1">Extinguish a [1] cube of flames in an area and create fireworks that possibly &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;blinds&lt;/LSTag&gt; creatures within [2] of the area.</content>
+	<content contentuid="hf7e672edg2d45g4f45g81ffg2f9ea0f4aef2" version="1">Pyrotechnics: Smoke</content>
+	<content contentuid="h2ea87656g2ac9g489agade9g0cf9ecce5898" version="1">Extinguish a [1] cube of flames in an area and create smoke that spreads out in a [2] radius and &lt;LSTag Type="Status" Tooltip="BLINDED"&gt;blinds&lt;/LSTag&gt; and &lt;LSTag Type="Status" Tooltip="SNEAKING_HEAVILY_OBSCURED"&gt;Heavily Obscures&lt;/LSTag&gt; creatures within it.</content>
 </contentList>

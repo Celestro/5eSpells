@@ -45,7 +45,7 @@ local function GetEntityStatus(entity, statusId)
     end
 end
 
-local invisStatuses = {
+--[[local invisStatuses = {
   INVISIBLE = "INVISIBLE_SEEN",
   INVISIBLE_MAGEHAND = "INVISIBLE_MAGEHAND_SEEN",
   INVISIBILITY = "INVISIBILITY_SEEN",
@@ -106,7 +106,7 @@ Ext.Osiris.RegisterListener("StatusRemoved", 4, "after", function (character, st
 			end
 		end
     end
-end)
+end)--]]
 
 -- Catnap Short Resting
 Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
@@ -130,74 +130,6 @@ function RollDice(diceAmount, faces, minDieValue, maxDieValue)
     end
     return total
 end
-
--- Spellcasting Ability Status
-Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function(level, _)
-    if level ~= "SYS_CC_I" then
-		local party = Osi.DB_Players:Get(nil)
-		for _,p in pairs(party) do
-			for _, spell in pairs(Ext.Entity.Get(p[1]).SpellContainer.Spells) do
-				if (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Intelligence") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Intelligence") and Osi.HasActiveStatus(p[1],"INTELLIGENCE_SPELLCASTING") == 0 then
-					Osi.ApplyStatus(p[1],"INTELLIGENCE_SPELLCASTING",-1.0,1)
-				elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Wisdom") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Wisdom") and Osi.HasActiveStatus(p[1],"WISDOM_SPELLCASTING") == 0 then
-					Osi.ApplyStatus(p[1],"WISDOM_SPELLCASTING",-1.0,1)
-				elseif (spell.SpellId.OriginatorPrototype == "Projectile_Jump" and spell.SpellCastingAbility == "Charisma") or (spell.SpellId.OriginatorPrototype == "Shout_Dash_NPC" and spell.SpellCastingAbility == "Charisma") and Osi.HasActiveStatus(p[1],"CHARISMA_SPELLCASTING") == 0 then
-					Osi.ApplyStatus(p[1],"CHARISMA_SPELLCASTING",-1.0,1)
-				end
-			end
-		end
-    end
-end)
-
-local witherAndBloomStatuses = {
-  "WITHER_AND_BLOOM",
-  "WITHER_AND_BLOOM_3",
-  "WITHER_AND_BLOOM_4",
-  "WITHER_AND_BLOOM_5",
-  "WITHER_AND_BLOOM_6",
-  "WITHER_AND_BLOOM_7",
-  "WITHER_AND_BLOOM_8",
-  "WITHER_AND_BLOOM_9"
-}
-
--- Wither And Bloom
-Ext.Osiris.RegisterListener("StatusApplied", 4, "after", function (character, status, causee, _)
-	if string.sub(character,-36) ~= causee and (status == "WITHER_AND_BLOOM" or status == "WITHER_AND_BLOOM_3" or status == "WITHER_AND_BLOOM_4" or status == "WITHER_AND_BLOOM_5" or status == "WITHER_AND_BLOOM_6" or status == "WITHER_AND_BLOOM_7" or status == "WITHER_AND_BLOOM_8" or status == "WITHER_AND_BLOOM_9") then
-		Osi.SetVarObject(string.sub(character,-36),"StoreSourceOfWAB",causee)
-		Osi.ApplyStatus(character,"WITHER_AND_BLOOM_SPELLCASTING",6.0,1,causee)
-	end
-end)
-
-Ext.Osiris.RegisterListener("StartedPreviewingSpell", 4, "after", function (caster, spell, _, _)
-	if spell == "Shout_WitherAndBloom_RegainHP" or spell == "Shout_WitherAndBloom_RegainHP_3_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_3_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_4_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_4_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_4_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_5_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_5_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_5_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_5_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_6_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_6_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_6_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_6_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_6_FiveDie" or spell == "Shout_WitherAndBloom_RegainHP_7_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_7_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_7_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_7_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_7_FiveDie" or spell == "Shout_WitherAndBloom_RegainHP_7_SixDie" or spell == "Shout_WitherAndBloom_RegainHP_8_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_8_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_8_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_8_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_8_FiveDie" or spell == "Shout_WitherAndBloom_RegainHP_8_SixDie" or spell == "Shout_WitherAndBloom_RegainHP_8_SevenDie" or spell == "Shout_WitherAndBloom_RegainHP_9_OneDie" or spell == "Shout_WitherAndBloom_RegainHP_9_TwoDie" or spell == "Shout_WitherAndBloom_RegainHP_9_ThreeDie" or spell == "Shout_WitherAndBloom_RegainHP_9_FourDie" or spell == "Shout_WitherAndBloom_RegainHP_9_FiveDie" or spell == "Shout_WitherAndBloom_RegainHP_9_SixDie" or spell == "Shout_WitherAndBloom_RegainHP_9_SevenDie" or spell == "Shout_WitherAndBloom_RegainHP_9_EightDie" then
-		local source = Osi.GetVarObject(caster,"StoreSourceOfWAB")
-		if string.sub(caster,-36) ~= string.sub(source,-36) and source ~= "NULL_00000000-0000-0000-0000-000000000000" then
-			for _, spell in pairs(Ext.Entity.Get(source).SpellBook.Spells) do
-				if (spell.Id.Prototype == "Target_WitherAndBloom" or spell.Id.Prototype == "Target_WitherAndBloom_3" or spell.Id.Prototype == "Target_WitherAndBloom_4" or spell.Id.Prototype == "Target_WitherAndBloom_5" or spell.Id.Prototype == "Target_WitherAndBloom_6" or spell.Id.Prototype == "Target_WitherAndBloom_7" or spell.Id.Prototype == "Target_WitherAndBloom_8" or spell.Id.Prototype == "Target_WitherAndBloom_9") and spell.SpellCastingAbility == "Intelligence" then
-					local int = Osi.GetAbility(source,"Intelligence")
-					local scastatus = "WITHER_AND_BLOOM_MODIFIER_" .. int
-					if Osi.HasActiveStatus(caster,scastatus) == 0 then
-						Osi.ApplyStatus(caster,scastatus,6.0,1,source)
-					end
-				elseif (spell.Id.Prototype == "Target_WitherAndBloom" or spell.Id.Prototype == "Target_WitherAndBloom_3" or spell.Id.Prototype == "Target_WitherAndBloom_4" or spell.Id.Prototype == "Target_WitherAndBloom_5" or spell.Id.Prototype == "Target_WitherAndBloom_6" or spell.Id.Prototype == "Target_WitherAndBloom_7" or spell.Id.Prototype == "Target_WitherAndBloom_8" or spell.Id.Prototype == "Target_WitherAndBloom_9") and spell.SpellCastingAbility == "Wisdom" then
-					local wis = Osi.GetAbility(source,"Wisdom")
-					local scastatus = "WITHER_AND_BLOOM_MODIFIER_" .. wis
-					if Osi.HasActiveStatus(caster,scastatus) == 0 then
-						Osi.ApplyStatus(caster,scastatus,6.0,1,source)
-					end
-				elseif (spell.Id.Prototype == "Target_WitherAndBloom" or spell.Id.Prototype == "Target_WitherAndBloom_3" or spell.Id.Prototype == "Target_WitherAndBloom_4" or spell.Id.Prototype == "Target_WitherAndBloom_5" or spell.Id.Prototype == "Target_WitherAndBloom_6" or spell.Id.Prototype == "Target_WitherAndBloom_7" or spell.Id.Prototype == "Target_WitherAndBloom_8" or spell.Id.Prototype == "Target_WitherAndBloom_9") and spell.SpellCastingAbility == "Charisma" then
-					local cha = Osi.GetAbility(source,"Charisma")
-					local scastatus = "WITHER_AND_BLOOM_MODIFIER_" .. cha
-					if Osi.HasActiveStatus(caster,scastatus) == 0 then
-						Osi.ApplyStatus(caster,scastatus,6.0,1,source)
-					end
-				end
-			end
-		end
-	elseif spell == "Shout_WitherAndBloom_RegainHP" or spell ~= "Shout_WitherAndBloom_RegainHP_3_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_3_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_4_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_4_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_4_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_5_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_5_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_5_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_5_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_6_FiveDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_FiveDie" or spell ~= "Shout_WitherAndBloom_RegainHP_7_SixDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_FiveDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_SixDie" or spell ~= "Shout_WitherAndBloom_RegainHP_8_SevenDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_OneDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_TwoDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_ThreeDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_FourDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_FiveDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_SixDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_SevenDie" or spell ~= "Shout_WitherAndBloom_RegainHP_9_EightDie" then
-		Osi.ApplyStatus(caster,"WITHER_AND_BLOOM_MODIFIER_REMOVAL",0.0,1)
-	end
-end)
 
 --[[ Weapon Equipping
 Ext.Osiris.RegisterListener("TemplateAddedTo", 4, "after", function (item, object2, character, addtype)
@@ -471,18 +403,4 @@ end)
 -- Death Modification Resurrected
 Ext.Osiris.RegisterListener("Resurrected", 1, "after", function (character)
 	Osi.RemoveStatus(character,"DEAD_TECHNICAL")
-end)
-
--- Detect Magic
-Ext.Osiris.RegisterListener("EntityEvent", 2, "after", function (item, event)
-	if event == "DetectMagicItemsInInventory" then
-		if Osi.IsItem(item) == 1 and Osi.IsTagged(item,"MAGIC_ITEM_DETECT_MAGIC_e6cc448b-0615-4459-860a-af50bf64aa0e") == 1 then
-			local source = Osi.DB_DetectMagicItemSource:Get(nil)
-			for _,s in pairs(source) do
-				if s[1] then
-					Osi.ApplyStatus(item,"DETECTED_MAGIC_ITEM",-1.0,1,s[1])
-				end
-			end
-		end
-	end
 end)

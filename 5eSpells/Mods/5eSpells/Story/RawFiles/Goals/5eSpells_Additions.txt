@@ -79,33 +79,6 @@ DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_6f5abf98-cca0-43a7-a064-10c17643bb
 DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_94f1d6d2-8a70-4ab9-a8cf-376dd0bc294a);
 DB_S5E_Ceremony_BlessWaterTemplate((ITEMROOT)_cb2e851f-8a75-4899-b705-0f079e8e55bc);
 
-DB_S5E_ChaosBoltSpell("Target_ChaosBolt");
-DB_S5E_ChaosBoltSpell("Target_ChaosBolt_2");
-DB_S5E_ChaosBoltSpell("Target_ChaosBolt_3");
-DB_S5E_ChaosBoltSpell("Target_ChaosBolt_4");
-DB_S5E_ChaosBoltSpell("Target_ChaosBolt_5");
-DB_S5E_ChaosBoltSpell("Target_ChaosBolt_6");
-DB_S5E_ChaosBoltSpell("Target_ChaosBolt_7");
-DB_S5E_ChaosBoltSpell("Target_ChaosBolt_8");
-DB_S5E_ChaosBoltSpell("Target_ChaosBolt_9");
-
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_ACID");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_COLD");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FIRE");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FORCE");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_LIGHTNING");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_POISON");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_PSYCHIC");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_THUNDER");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_ACID_2");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_COLD_2");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FIRE_2");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_FORCE_2");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_LIGHTNING_2");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_POISON_2");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_PSYCHIC_2");
-DB_ChaosBoltInterruptStatuses("CHAOS_BOLT_INTERRUPT_THUNDER_2");
-
 DB_LifeTransferenceSpells("Target_LifeTransference");
 DB_LifeTransferenceSpells("Target_LifeTransference_4");
 DB_LifeTransferenceSpells("Target_LifeTransference_5");
@@ -113,6 +86,75 @@ DB_LifeTransferenceSpells("Target_LifeTransference_6");
 DB_LifeTransferenceSpells("Target_LifeTransference_7");
 DB_LifeTransferenceSpells("Target_LifeTransference_8");
 DB_LifeTransferenceSpells("Target_LifeTransference_9");
+
+DB_MagicStoneSpellsAndStatuses("Projectile_MagicStone","INTELLIGENCE_CASTER");
+DB_MagicStoneSpellsAndStatuses("Projectile_MagicStone","WISDOM_CASTER");
+DB_MagicStoneSpellsAndStatuses("Projectile_MagicStone","CHARISMA_CASTER");
+
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire","DRAGONS_BREATH_FIRE");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold","DRAGONS_BREATH_COLD");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning","DRAGONS_BREATH_LIGHTNING");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison","DRAGONS_BREATH_POISON");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid","DRAGONS_BREATH_ACID");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_3","DRAGONS_BREATH_FIRE_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_3","DRAGONS_BREATH_COLD_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_3","DRAGONS_BREATH_LIGHTNING_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_3","DRAGONS_BREATH_POISON_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_3","DRAGONS_BREATH_ACID_3");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_4","DRAGONS_BREATH_FIRE_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_4","DRAGONS_BREATH_COLD_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_4","DRAGONS_BREATH_LIGHTNING_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_4","DRAGONS_BREATH_POISON_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_4","DRAGONS_BREATH_ACID_4");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_5","DRAGONS_BREATH_FIRE_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_5","DRAGONS_BREATH_COLD_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_5","DRAGONS_BREATH_LIGHTNING_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_5","DRAGONS_BREATH_POISON_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_5","DRAGONS_BREATH_ACID_5");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_6","DRAGONS_BREATH_FIRE_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_6","DRAGONS_BREATH_COLD_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_6","DRAGONS_BREATH_LIGHTNING_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_6","DRAGONS_BREATH_POISON_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_6","DRAGONS_BREATH_ACID_6");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_7","DRAGONS_BREATH_FIRE_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_7","DRAGONS_BREATH_COLD_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_7","DRAGONS_BREATH_LIGHTNING_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_7","DRAGONS_BREATH_POISON_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_7","DRAGONS_BREATH_ACID_7");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_8","DRAGONS_BREATH_FIRE_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_8","DRAGONS_BREATH_COLD_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_8","DRAGONS_BREATH_LIGHTNING_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_8","DRAGONS_BREATH_POISON_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_8","DRAGONS_BREATH_ACID_8");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Fire_9","DRAGONS_BREATH_FIRE_9");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Cold_9","DRAGONS_BREATH_COLD_9");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Lightning_9","DRAGONS_BREATH_LIGHTNING_9");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Poison_9","DRAGONS_BREATH_POISON_9");
+DB_DragonsBreathSpellsAndStatuses("Zone_DragonsBreath_Acid_9","DRAGONS_BREATH_ACID_9");
+
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_1");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_2");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_3");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_4");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_5");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_6");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_7");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_8");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_9");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_10");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_-1");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_INTELLIGENCE");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_WISDOM");
+DB_CasterSpellCastingAbilityModifier_Statuses("SPELL_ABILITY_MODIFIER_CHARISMA");
+
+DB_HealingSpiritStatus("HEALING_SPIRIT");
+DB_HealingSpiritStatus("HEALING_SPIRIT_3");
+DB_HealingSpiritStatus("HEALING_SPIRIT_4");
+DB_HealingSpiritStatus("HEALING_SPIRIT_5");
+DB_HealingSpiritStatus("HEALING_SPIRIT_6");
+DB_HealingSpiritStatus("HEALING_SPIRIT_7");
+DB_HealingSpiritStatus("HEALING_SPIRIT_8");
+DB_HealingSpiritStatus("HEALING_SPIRIT_9");
 KBSECTION
 // Ceremony
 
@@ -262,397 +304,6 @@ THEN
 TemplateAddTo((ITEMROOT)_edabfdca-3371-405f-8358-850718a61fdb,_Character,1,1);
 TemplateRemoveFromUser(_Template,_Character,1);
 
-// Chaos Bolt
-
-IF
-StartedPreviewingSpell(_Character,_Spell,_,_)
-AND
-DB_S5E_ChaosBoltSpell((STRING)_Spell)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_TECHNICAL",0)
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_TECHNICAL",-1.0,1);
-
-IF
-StartedPreviewingSpell(_Character,_Spell,_,_)
-AND
-DB_S5E_ChaosBoltSpell((STRING)_Spell)
-AND
-Random(8,_Ran)
-AND
-Random(8,_Ran2)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_ACID",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_COLD",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_FIRE",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_FORCE",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_LIGHTNING",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_POISON",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_PSYCHIC",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_THUNDER",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_ACID_2",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_COLD_2",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_FIRE_2",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_FORCE_2",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_LIGHTNING_2",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_POISON_2",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_PSYCHIC_2",0)
-AND
-HasActiveStatus(_Character,"CHAOS_BOLT_INTERRUPT_THUNDER_2",0)
-THEN
-SetVarInteger(_Character,"ChaosBoltNumber",_Ran);
-SetVarInteger(_Character,"ChaosBoltNumber2",_Ran2);
-SetEntityEvent(_Character, "ChaosBolt", 0);
-
-IF
-StartedPreviewingSpell(_Character,_Spell,_,_)
-AND NOT
-DB_S5E_ChaosBoltSpell((STRING)_Spell)
-AND
-DB_ChaosBoltInterruptStatuses(_Status)
-THEN
-RemoveStatus(_Character, _Status);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
-AND
-_Ran == 0
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_ACID",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
-AND
-_Ran == 1
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_COLD",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
-AND
-_Ran == 2
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_FIRE",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
-AND
-_Ran == 3
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_FORCE",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
-AND
-_Ran == 4
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_LIGHTNING",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
-AND
-_Ran == 5
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_POISON",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
-AND
-_Ran == 6
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_PSYCHIC",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
-AND
-_Ran == 7
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_THUNDER",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
-AND
-_Ran2 == 0
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_ACID_2",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
-AND
-_Ran2 == 1
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_COLD_2",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
-AND
-_Ran2 == 2
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_FIRE_2",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
-AND
-_Ran2 == 3
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_FORCE_2",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
-AND
-_Ran2 == 4
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_LIGHTNING_2",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
-AND
-_Ran2 == 5
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_POISON_2",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
-AND
-_Ran2 == 6
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_PSYCHIC_2",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
-AND
-_Ran2 == 7
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_INTERRUPT_THUNDER_2",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBolt")
-AND
-GetVarInteger(_Character,"ChaosBoltNumber",_Ran)
-AND
-GetVarInteger(_Character,"ChaosBoltNumber2",_Ran2)
-AND
-_Ran == _Ran2
-AND
-Random(8,_SecondRan)
-AND
-Random(8,_SecondRan2)
-THEN
-SetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan);
-SetVarInteger(_Character,"ChaosBoltSecondNumber2",_SecondRan2);
-SetEntityEvent(_Character, "ChaosBoltSecond", 0);
-
-IF
-EntityEvent(_Character,"ChaosBoltSecond")
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
-AND
-_SecondRan == 0
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_ACID_SECOND",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltSecond")
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
-AND
-_SecondRan == 1
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_COLD_SECOND",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltSecond")
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
-AND
-_SecondRan == 2
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_FIRE_SECOND",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltSecond")
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
-AND
-_SecondRan == 3
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_FORCE_SECOND",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltSecond")
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
-AND
-_SecondRan == 4
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_LIGHTNING_SECOND",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltSecond")
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
-AND
-_SecondRan == 5
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_POISON_SECOND",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltSecond")
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
-AND
-_SecondRan == 6
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_PSYCHIC_SECOND",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltSecond")
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
-AND
-_SecondRan == 7
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_THUNDER_SECOND",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltSecond")
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber",_SecondRan)
-AND
-GetVarInteger(_Character,"ChaosBoltSecondNumber2",_SecondRan2)
-AND
-_SecondRan == _SecondRan2
-AND
-Random(8,_ThirdRan)
-THEN
-SetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan);
-SetEntityEvent(_Character, "ChaosBoltThird", 0);
-
-IF
-EntityEvent(_Character,"ChaosBoltThird")
-AND
-GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
-AND
-_ThirdRan == 0
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_ACID_THIRD",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltThird")
-AND
-GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
-AND
-_ThirdRan == 1
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_COLD_THIRD",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltThird")
-AND
-GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
-AND
-_ThirdRan == 2
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_FIRE_THIRD",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltThird")
-AND
-GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
-AND
-_ThirdRan == 3
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_FORCE_THIRD",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltThird")
-AND
-GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
-AND
-_ThirdRan == 4
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_LIGHTNING_THIRD",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltThird")
-AND
-GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
-AND
-_ThirdRan == 5
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_POISON_THIRD",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltThird")
-AND
-GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
-AND
-_ThirdRan == 6
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_PSYCHIC_THIRD",6.0,1,_Character);
-
-IF
-EntityEvent(_Character,"ChaosBoltThird")
-AND
-GetVarInteger(_Character,"ChaosBoltThirdNumber",_ThirdRan)
-AND
-_ThirdRan == 7
-THEN
-ApplyStatus(_Character,"CHAOS_BOLT_THUNDER_THIRD",6.0,1,_Character);
-
-IF
-UsingSpellOnTarget(_Character,_Target,_Spell,_,_,_)
-AND
-DB_S5E_ChaosBoltSpell((STRING)_Spell)
-THEN
-ApplyStatus(_Target,"CHAOS_BOLT_ADDITIONAL",6.0,1,_Character);
-
 // Dominate Monster
 
 IF
@@ -683,6 +334,36 @@ AND
 DB_S5E_RemoveFeeblemind((STRING)_Spell)
 THEN
 RemoveStatus(_Target,"FEEBLEMIND",_Character);
+
+// Healing Spirit
+
+IF
+TurnStarted(_Character)
+AND
+HasActiveStatus(_Character,"HEALING_SPIRIT_HEAL",1)
+THEN
+RealtimeObjectTimerLaunch(_Character, "HealingSpiritHeal", 500);
+
+IF
+ObjectTimerFinished(_Character, "HealingSpiritHeal")
+THEN
+ApplyStatus(_Character,"HEALING_SPIRIT_INTERRUPT",6.0,1);
+
+IF
+GainedControl(_Character)
+AND
+DB_HealingSpiritStatus(_Status)
+AND
+HasActiveStatus(_Character,_Status,1)
+THEN
+ApplyStatus(_Character,"HEALING_SPIRIT_WALKTHROUGH_AURA",6.0,0,_Character);
+
+IF
+GainedControl(_Character)
+AND
+HasActiveStatus(_Character,"HEALING_SPIRIT_WALKTHROUGH",1)
+THEN
+RemoveStatus(_Character,"HEALING_SPIRIT_WALKTHROUGH");
 
 // Infestation
 
@@ -779,7 +460,6 @@ AND
 GetHitpoints(_Character,_HP)
 THEN
 SetVarInteger(_Character,"LFBeforeHP",_HP);
-DebugText(_Character,"First check");
 
 IF
 StatusApplied(_Character,"LIFE_TRANSFERENCE",_Causee,_)
@@ -975,6 +655,45 @@ THEN
 DebugText(_Character,"Rolled 3");
 CreateExplosion(_Item,"Projectile_NathairsMischief_DifficultTerrain", -1, _Character);
 
+// Negative Energy Flood
+
+IF
+StatusApplied((CHARACTER)_Character,"NEGATIVE_ENERGY_FLOOD",_,_)
+AND
+Random(12,_Roll1)
+AND
+Random(12,_Roll2)
+AND
+Random(12,_Roll3)
+AND
+Random(12,_Roll4)
+AND
+Random(12,_Roll5)
+AND
+IntegerSum(_Roll1,1,_Die1)
+AND
+IntegerSum(_Roll2,1,_Die2)
+AND
+IntegerSum(_Roll3,1,_Die3)
+AND
+IntegerSum(_Roll4,1,_Die4)
+AND
+IntegerSum(_Roll5,1,_Die5)
+AND
+IntegerSum(_Die1,_Die2,_Sum1)
+AND
+IntegerSum(_Die3,_Die4,_Sum2)
+AND
+IntegerSum(_Sum1,_Sum2,_Sum3)
+AND
+IntegerSum(_Sum3,_Die5,_Total)
+AND
+IntegerDivide(_Total,2,_TempHP)
+AND
+ConcatenateInteger("NEGATIVE_ENERGY_FLOOD_TEMPHP_",_TempHP,(STRING)_Status)
+THEN
+ApplyStatus(_Character,_Status,-1.0,1,_Character);
+
 // Power Word Heal
 
 IF
@@ -1028,8 +747,19 @@ AND
 DB_S5E_SteelWindStrike((STRING)_Spell)
 AND
 GetPosition(_Character,_X,_Y,_Z)
+AND
+NOT DB_SteelWindStrikePos(_Character,_X,_Y,_Z)
 THEN
 DB_SteelWindStrikePos(_Character,_X,_Y,_Z);
+
+IF
+StartedPreviewingSpell(_Character, _Spell, _, _)
+AND
+NOT DB_S5E_SteelWindStrike((STRING)_Spell)
+AND
+DB_SteelWindStrikePos(_Character,_X,_Y,_Z)
+THEN
+NOT DB_SteelWindStrikePos(_Character,_X,_Y,_Z);
 
 IF
 CastedSpell(_Character, _Spell, _, _, _)
@@ -1046,6 +776,7 @@ AND
 DB_SteelWindStrikePos(_Character,_X,_Y,_Z)
 THEN
 TeleportToPosition(_Character,_X,_Y,_Z,"",0,0,0,0,1);
+NOT DB_SteelWindStrikePos(_Character,_X,_Y,_Z);
 
 // Storm Sphere
 
@@ -1072,13 +803,6 @@ GetVarObject(_Source,"StoreStormSphere",_Summon)
 THEN
 CreateExplosion(_Character, _Projectile, -1, _Summon);
 
-// Toll the Dead
-
-IF
-UsingSpell(_Character, "Target_TolltheDead", _, _, _)
-THEN
-MusicPlayGeneral("II_Gong");
-
 // Thunder Step
 
 IF
@@ -1104,6 +828,7 @@ AND
 GetVarFloat(_Character,"Z",_Z)
 THEN
 CreateExplosionAtPosition(_X,_Y,_Z,_Explosion,-1,_Character);
+NOT DB_S5E_ThunderStep(_Spell, _Explosion);
 
 // Teleportation Circle
 
@@ -1322,6 +1047,24 @@ THEN
 DB_NOOP(1);
 
 IF
+StatusRemoved((CHARACTER)_Character, "DETECT_MAGIC_AURA", _, _)
+AND
+DB_DetectMagic_OwnerAndItem(_Owner,_Item)
+AND
+DB_DetectMagicCharacterSource(_Character)
+THEN
+RemoveStatus(_Item,"DETECTED_MAGIC_ITEM");
+
+IF
+StatusRemoved((CHARACTER)_Character, "DETECT_MAGIC_AURA", _, _)
+AND
+DB_DetectMagic_CharacterContainerAndItem(_Object,_Item,_Owner)
+AND
+DB_DetectMagicCharacterContainerSource(_Character)
+THEN
+RemoveStatus(_Item,"DETECTED_MAGIC_ITEM");
+
+IF
 StatusRemoved((CHARACTER)_Character, "DETECT_MAGIC_CHARACTER", _Causee, _)
 AND
 DB_DetectMagic_OwnerAndItem(_Character,_Item)
@@ -1359,43 +1102,28 @@ NOT DB_DetectMagicItemSource(_Source);
 IF
 StatusApplied((CHARACTER)_Character,_Status,(CHARACTER)_Causee,_)
 AND
-QRY_IsMagicStoneStatus(_Character,_Status)
+DB_MagicStoneSpellsAndStatuses(_Spell,_Status)
 THEN
 DB_MagicStone_StoreSource(_Character,_Causee);
 
-QRY
-QRY_IsMagicStoneStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "MAGIC_STONE_INTELLIGENCE"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_IsMagicStoneStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "MAGIC_STONE_WISDOM"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_IsMagicStoneStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "MAGIC_STONE_CHARISMA"
-THEN
-DB_NOOP(1);
-
 IF
 StartedPreviewingSpell((CHARACTER)_Character,"Projectile_MagicStone",_,_)
+AND
+HasActiveStatus(_Character,"INTELLIGENCE_CASTER",1)
 THEN
 PROC_IntelligenceAbilityCheckCalculations(_Character);
 
 IF
-StartedPreviewingSpell((CHARACTER)_Character,"Projectile_MagicStone_Wisdom",_,_)
+StartedPreviewingSpell((CHARACTER)_Character,"Projectile_MagicStone",_,_)
+AND
+HasActiveStatus(_Character,"WISDOM_CASTER",1)
 THEN
 PROC_WisdomAbilityCheckCalculations(_Character);
 
 IF
-StartedPreviewingSpell((CHARACTER)_Character,"Projectile_MagicStone_Charisma",_,_)
+StartedPreviewingSpell((CHARACTER)_Character,"Projectile_MagicStone",_,_)
+AND
+HasActiveStatus(_Character,"CHARISMA_CASTER",1)
 THEN
 PROC_CharismaAbilityCheckCalculations(_Character);
 
@@ -1404,163 +1132,60 @@ PROC_IntelligenceAbilityCheckCalculations((CHARACTER)_Character)
 AND
 DB_MagicStone_StoreSource(_Character,(CHARACTER)_Causee)
 AND
-GetAbility(_Character,"Intelligence",_CharInt)
-AND
 GetAbility(_Causee,"Intelligence",_CauseInt)
 AND
-IntegerSubtract(_CharInt,_CauseInt,_Diff)
+IntegerSubtract(_CauseInt,10,_SubInt)
 AND
-_Diff != 0
+IntegerDivide(_SubInt,2,_DivInt)
 AND
-IntegerToString(_Diff,_Result)
+IntegerToString(_DivInt,_Result)
 AND
-Concatenate("MAGIC_STONE_MODIFIER_",_Result,_Status)
-AND
-HasActiveStatus(_Character,_Status,0)
+Concatenate("SPELL_ABILITY_MODIFIER_",_Result,_Status)
 THEN
-ApplyStatus(_Character,_Status,60.0,1,_Causee);
+ApplyStatus(_Character,_Status,6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_INTELLIGENCE",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_WISDOM",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_CHARISMA",6.0,1,_Causee);
 
 PROC
 PROC_WisdomAbilityCheckCalculations((CHARACTER)_Character)
 AND
 DB_MagicStone_StoreSource(_Character,(CHARACTER)_Causee)
 AND
-GetAbility(_Character,"Wisdom",_CharWis)
-AND
 GetAbility(_Causee,"Wisdom",_CauseWis)
 AND
-IntegerSubtract(_CharWis,_CauseWis,_Diff)
+IntegerSubtract(_CauseWis,10,_SubWis)
 AND
-_Diff != 0
+IntegerDivide(_SubWis,2,_DivWis)
 AND
-IntegerToString(_Diff,_Result)
+IntegerToString(_DivWis,_Result)
 AND
-Concatenate("MAGIC_STONE_MODIFIER_",_Result,_Status)
-AND
-HasActiveStatus(_Character,_Status,0)
+Concatenate("SPELL_ABILITY_MODIFIER_",_Result,_Status)
 THEN
-ApplyStatus(_Character,_Status,60.0,1,_Causee);
+ApplyStatus(_Character,_Status,6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_INTELLIGENCE",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_WISDOM",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_CHARISMA",6.0,1,_Causee);
 
 PROC
 PROC_CharismaAbilityCheckCalculations((CHARACTER)_Character)
 AND
 DB_MagicStone_StoreSource(_Character,(CHARACTER)_Causee)
 AND
-GetAbility(_Character,"Charisma",_CharCha)
-AND
 GetAbility(_Causee,"Charisma",_CauseCha)
 AND
-IntegerSubtract(_CharCha,_CauseCha,_Diff)
+IntegerSubtract(_CauseCha,10,_SubCha)
 AND
-_Diff != 0
+IntegerDivide(_SubCha,2,_DivCha)
 AND
-IntegerToString(_Diff,_Result)
+IntegerToString(_DivCha,_Result)
 AND
-Concatenate("MAGIC_STONE_MODIFIER_",_Result,_Status)
-AND
-HasActiveStatus(_Character,_Status,0)
+Concatenate("SPELL_ABILITY_MODIFIER_",_Result,_Status)
 THEN
-ApplyStatus(_Character,_Status,60.0,1,_Causee);
-
-IF
-StartedPreviewingSpell((CHARACTER)_Character,(STRING)_Spell,_,_)
-AND
-NOT QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell != "Projectile_MagicStone"
-AND
-_Spell != "Projectile_MagicStone_Wisdom"
-AND
-_Spell != "Projectile_MagicStone_Charisma"
-THEN
-ApplyStatus(_Character,"MAGIC_STONE_MODIFIER_REMOVAL",0.0,1);
-
-IF
-CastedSpell((CHARACTER)_Character,(STRING)_Spell,_,_,_)
-AND
-NOT QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell != "Projectile_MagicStone"
-AND
-_Spell != "Projectile_MagicStone_Wisdom"
-AND
-_Spell != "Projectile_MagicStone_Charisma"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Drum"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Drum"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Drum"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Flute"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Flute"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Flute"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Lute"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Lute"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Lute"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Violin"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Violin"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Violin"
-AND
-_Spell != "Shout_SCL_SpiderLyre_Perform"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Drum"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Drum"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Drum"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Flute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Flute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Flute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Lute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Lute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Lute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Violin"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Violin"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Violin"
-THEN
-ApplyStatus(_Character,"MAGIC_STONE_MODIFIER_REMOVAL",0.0,1);
+ApplyStatus(_Character,_Status,6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_INTELLIGENCE",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_WISDOM",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_CHARISMA",6.0,1,_Causee);
 
 IF
 StatusRemoved((CHARACTER)_Causee,"MAGIC_STONE_OWNER",_,_)
@@ -1568,2184 +1193,122 @@ AND
 DB_MagicStone_StoreSource(_Character,_Causee)
 THEN
 NOT DB_MagicStone_StoreSource(_Character,_Causee);
-ObjectTimerLaunch(_Character,"MagicStoneModifierStatusRemoval",5000,0);
-
-IF
-ObjectTimerFinished((CHARACTER)_Character,"MagicStoneModifierStatusRemoval")
-THEN
-ApplyStatus(_Character,"MAGIC_STONE_MODIFIER_REMOVAL",0.0,1);
 
 // Dragon's Breath
 
 IF
 StatusApplied((CHARACTER)_Character,_Status,(CHARACTER)_Causee,_)
 AND
-QRY_HasDragonsBreathStatus(_Character,_Status)
+DB_DragonsBreathSpellsAndStatuses(_Spell,_Status)
 THEN
 DB_DragonsBreath_StoreSource(_Character,_Causee);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_INTELLIGENCE"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_WISDOM"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_CHARISMA"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_INTELLIGENCE"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_WISDOM"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_CHARISMA"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_INTELLIGENCE"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_WISDOM"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_CHARISMA"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_INTELLIGENCE"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_WISDOM"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_CHARISMA"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_INTELLIGENCE"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_WISDOM"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_CHARISMA"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_INTELLIGENCE_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_WISDOM_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_CHARISMA_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_INTELLIGENCE_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_WISDOM_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_CHARISMA_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_WISDOM_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_CHARISMA_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_INTELLIGENCE_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_WISDOM_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_CHARISMA_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_INTELLIGENCE_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_WISDOM_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_CHARISMA_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_INTELLIGENCE_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_WISDOM_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_CHARISMA_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_INTELLIGENCE_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_WISDOM_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_CHARISMA_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_WISDOM_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_CHARISMA_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_INTELLIGENCE_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_WISDOM_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_CHARISMA_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_INTELLIGENCE_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_WISDOM_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_CHARISMA_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_INTELLIGENCE_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_WISDOM_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_CHARISMA_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_INTELLIGENCE_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_WISDOM_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_CHARISMA_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_WISDOM_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_CHARISMA_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_INTELLIGENCE_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_WISDOM_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_CHARISMA_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_INTELLIGENCE_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_WISDOM_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_CHARISMA_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_INTELLIGENCE_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_WISDOM_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_CHARISMA_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_INTELLIGENCE_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_WISDOM_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_CHARISMA_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_WISDOM_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_CHARISMA_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_INTELLIGENCE_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_WISDOM_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_CHARISMA_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_INTELLIGENCE_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_WISDOM_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_CHARISMA_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_INTELLIGENCE_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_WISDOM_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_CHARISMA_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_INTELLIGENCE_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_WISDOM_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_CHARISMA_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_WISDOM_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_CHARISMA_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_INTELLIGENCE_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_WISDOM_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_CHARISMA_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_INTELLIGENCE_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_WISDOM_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_CHARISMA_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_INTELLIGENCE_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_WISDOM_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_CHARISMA_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_INTELLIGENCE_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_WISDOM_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_CHARISMA_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_WISDOM_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_CHARISMA_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_INTELLIGENCE_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_WISDOM_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_CHARISMA_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_INTELLIGENCE_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_WISDOM_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_CHARISMA_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_INTELLIGENCE_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_WISDOM_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_FIRE_CHARISMA_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_INTELLIGENCE_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_WISDOM_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_COLD_CHARISMA_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_WISDOM_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_LIGHTNING_CHARISMA_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_INTELLIGENCE_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_WISDOM_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_POISON_CHARISMA_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_INTELLIGENCE_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_WISDOM_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasDragonsBreathStatus((CHARACTER)_Character,(STRING)_Status)
-AND
-_Status == "DRAGONS_BREATH_ACID_CHARISMA_9"
-THEN
-DB_NOOP(1);
-
-IF
-StartedPreviewingSpell((CHARACTER)_Character,(STRING)_Spell,_,_)
-AND
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-QRY_HasIntelligenceDragonBreaths(_Character)
-THEN
-PROC_DragonsBreath_IntelligenceAbilityCheckCalculations(_Character);
-
-IF
-StartedPreviewingSpell((CHARACTER)_Character,(STRING)_Spell,_,_)
-AND
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-QRY_HasWisdomDragonBreaths(_Character)
-THEN
-PROC_DragonsBreath_WisdomAbilityCheckCalculations(_Character);
-
-IF
-StartedPreviewingSpell((CHARACTER)_Character,(STRING)_Spell,_,_)
-AND
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-QRY_HasCharismaDragonBreaths(_Character)
-THEN
-PROC_DragonsBreath_CharismaAbilityCheckCalculations(_Character);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Fire"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Cold"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Lightning"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Poison"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Acid"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Fire_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Cold_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Lightning_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Poison_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Acid_3"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Fire_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Cold_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Lightning_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Poison_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Acid_4"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Fire_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Cold_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Lightning_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Poison_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Acid_5"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Fire_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Cold_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Lightning_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Poison_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Acid_6"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Fire_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Cold_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Lightning_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Poison_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Acid_7"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Fire_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Cold_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Lightning_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Poison_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Acid_8"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Fire_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Cold_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Lightning_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Poison_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_DragonBreathActions((STRING)_Spell)
-AND
-_Spell == "Zone_DragonsBreath_Acid_9"
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_INTELLIGENCE",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_INTELLIGENCE",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_INTELLIGENCE",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_INTELLIGENCE",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_INTELLIGENCE",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_INTELLIGENCE_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_INTELLIGENCE_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_INTELLIGENCE_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_INTELLIGENCE_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_INTELLIGENCE_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_INTELLIGENCE_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_INTELLIGENCE_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_INTELLIGENCE_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_INTELLIGENCE_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_INTELLIGENCE_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_INTELLIGENCE_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_INTELLIGENCE_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_INTELLIGENCE_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_INTELLIGENCE_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_INTELLIGENCE_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_INTELLIGENCE_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_INTELLIGENCE_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_INTELLIGENCE_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_INTELLIGENCE_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_INTELLIGENCE_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_INTELLIGENCE_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_INTELLIGENCE_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_INTELLIGENCE_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_INTELLIGENCE_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_INTELLIGENCE_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_INTELLIGENCE_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_INTELLIGENCE_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_INTELLIGENCE_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasIntelligenceDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_INTELLIGENCE_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_WISDOM",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_WISDOM",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_WISDOM",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_WISDOM",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_WISDOM",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_WISDOM_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_WISDOM_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_WISDOM_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_WISDOM_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_WISDOM_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_WISDOM_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_WISDOM_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_WISDOM_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_WISDOM_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_WISDOM_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_WISDOM_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_WISDOM_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_WISDOM_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_WISDOM_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_WISDOM_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_WISDOM_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_WISDOM_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_WISDOM_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_WISDOM_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_WISDOM_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_WISDOM_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_WISDOM_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_WISDOM_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_WISDOM_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_WISDOM_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_WISDOM_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_WISDOM_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_WISDOM_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_WISDOM_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_WISDOM_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_WISDOM_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_WISDOM_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_WISDOM_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_WISDOM_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasWisdomDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_WISDOM_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_CHARISMA",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_CHARISMA",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_CHARISMA",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_CHARISMA",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_CHARISMA",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_CHARISMA_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_CHARISMA_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_CHARISMA_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_CHARISMA_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_CHARISMA_3",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_CHARISMA_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_CHARISMA_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_CHARISMA_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_CHARISMA_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_CHARISMA_4",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_CHARISMA_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_CHARISMA_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_CHARISMA_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_CHARISMA_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_CHARISMA_5",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_CHARISMA_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_CHARISMA_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_CHARISMA_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_CHARISMA_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_CHARISMA_6",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_CHARISMA_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_CHARISMA_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_CHARISMA_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_CHARISMA_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_CHARISMA_7",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_CHARISMA_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_CHARISMA_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_CHARISMA_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_CHARISMA_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_CHARISMA_8",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_FIRE_CHARISMA_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_COLD_CHARISMA_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_LIGHTNING_CHARISMA_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_POISON_CHARISMA_9",1)
-THEN
-DB_NOOP(1);
-
-QRY
-QRY_HasCharismaDragonBreaths((CHARACTER)_Character)
-AND
-HasActiveStatus(_Character,"DRAGONS_BREATH_ACID_CHARISMA_9",1)
-THEN
-DB_NOOP(1);
-
-PROC
-PROC_DragonsBreath_IntelligenceAbilityCheckCalculations((CHARACTER)_Character)
-AND
-DB_DragonsBreath_StoreSource(_Character,(CHARACTER)_Causee)
-AND
-GetAbility(_Character,"Intelligence",_CharInt)
-AND
-GetAbility(_Causee,"Intelligence",_CauseInt)
-AND
-IntegerSubtract(_CharInt,_CauseInt,_Diff)
-AND
-_Diff != 0
-AND
-IntegerToString(_Diff,_Result)
-AND
-Concatenate("DRAGONS_BREATH_MODIFIER_",_Result,_Status)
-AND
-HasActiveStatus(_Character,_Status,0)
-THEN
-ApplyStatus(_Character,_Status,60.0,1,_Causee);
-
-PROC
-PROC_DragonsBreath_WisdomAbilityCheckCalculations((CHARACTER)_Character)
-AND
-DB_DragonsBreath_StoreSource(_Character,(CHARACTER)_Causee)
-AND
-GetAbility(_Character,"Wisdom",_CharWis)
-AND
-GetAbility(_Causee,"Wisdom",_CauseWis)
-AND
-IntegerSubtract(_CharWis,_CauseWis,_Diff)
-AND
-_Diff != 0
-AND
-IntegerToString(_Diff,_Result)
-AND
-Concatenate("DRAGONS_BREATH_MODIFIER_",_Result,_Status)
-AND
-HasActiveStatus(_Character,_Status,0)
-THEN
-ApplyStatus(_Character,_Status,60.0,1,_Causee);
-
-PROC
-PROC_DragonsBreath_CharismaAbilityCheckCalculations((CHARACTER)_Character)
-AND
-DB_DragonsBreath_StoreSource(_Character,(CHARACTER)_Causee)
-AND
-GetAbility(_Character,"Charisma",_CharCha)
-AND
-GetAbility(_Causee,"Charisma",_CauseCha)
-AND
-IntegerSubtract(_CharCha,_CauseCha,_Diff)
-AND
-_Diff != 0
-AND
-IntegerToString(_Diff,_Result)
-AND
-Concatenate("DRAGONS_BREATH_MODIFIER_",_Result,_Status)
-AND
-HasActiveStatus(_Character,_Status,0)
-THEN
-ApplyStatus(_Character,_Status,60.0,1,_Causee);
 
 IF
 StartedPreviewingSpell((CHARACTER)_Character,_Spell,_,_)
 AND
-NOT QRY_DragonBreathActions((STRING)_Spell)
+DB_DragonsBreathSpellsAndStatuses(_Spell,_)
 AND
-_Spell != "Projectile_MagicStone"
-AND
-_Spell != "Projectile_MagicStone_Wisdom"
-AND
-_Spell != "Projectile_MagicStone_Charisma"
+HasActiveStatus(_Character,"INTELLIGENCE_CASTER",1)
 THEN
-ApplyStatus(_Character,"DRAGONS_BREATH_MODIFIER_REMOVAL",0.0,1);
+PROC_IntelligenceAbilityCheckCalculations(_Character);
 
 IF
-CastedSpell((CHARACTER)_Character,(STRING)_Spell,_,_,_)
+StartedPreviewingSpell((CHARACTER)_Character,_Spell,_,_)
 AND
-NOT QRY_DragonBreathActions((STRING)_Spell)
+DB_DragonsBreathSpellsAndStatuses(_Spell,_)
 AND
-_Spell != "Projectile_MagicStone"
-AND
-_Spell != "Projectile_MagicStone_Wisdom"
-AND
-_Spell != "Projectile_MagicStone_Charisma"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Drum"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Drum"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Drum"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Flute"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Flute"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Flute"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Lute"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Lute"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Lute"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_ThePower_Violin"
-AND
-_Spell != "Shout_Bard_Perform_Stargazing_Violin"
-AND
-_Spell != "Shout_Bard_Perform_BardDance_Violin"
-AND
-_Spell != "Shout_SCL_SpiderLyre_Perform"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Whistle"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Drum"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Drum"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Drum"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Flute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Flute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Flute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Lute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Lute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Lute"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Lyre"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_1_Violin"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_2_Violin"
-AND
-_Spell != "Shout_Bard_Perform_DOS2_3_Violin"
+HasActiveStatus(_Character,"WISDOM_CASTER",1)
 THEN
-ApplyStatus(_Character,"DRAGONS_BREATH_MODIFIER_REMOVAL",0.0,1);
+PROC_WisdomAbilityCheckCalculations(_Character);
 
 IF
-StatusRemoved((CHARACTER)_Causee,"DRAGONS_BREATH_OWNER",_,_)
+StartedPreviewingSpell((CHARACTER)_Character,_Spell,_,_)
+AND
+DB_DragonsBreathSpellsAndStatuses(_Spell,_)
+AND
+HasActiveStatus(_Character,"CHARISMA_CASTER",1)
+THEN
+PROC_CharismaAbilityCheckCalculations(_Character);
+
+PROC
+PROC_IntelligenceAbilityCheckCalculations((CHARACTER)_Character)
+AND
+DB_DragonsBreath_StoreSource(_Character,(CHARACTER)_Causee)
+AND
+GetAbility(_Causee,"Intelligence",_CauseInt)
+AND
+IntegerSubtract(_CauseInt,10,_SubInt)
+AND
+IntegerDivide(_SubInt,2,_DivInt)
+AND
+IntegerToString(_DivInt,_Result)
+AND
+Concatenate("SPELL_ABILITY_MODIFIER_",_Result,_Status)
+THEN
+ApplyStatus(_Character,_Status,6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_INTELLIGENCE",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_WISDOM",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_CHARISMA",6.0,1,_Causee);
+
+PROC
+PROC_WisdomAbilityCheckCalculations((CHARACTER)_Character)
+AND
+DB_DragonsBreath_StoreSource(_Character,(CHARACTER)_Causee)
+AND
+GetAbility(_Causee,"Wisdom",_CauseWis)
+AND
+IntegerSubtract(_CauseWis,10,_SubWis)
+AND
+IntegerDivide(_SubWis,2,_DivWis)
+AND
+IntegerToString(_DivWis,_Result)
+AND
+Concatenate("SPELL_ABILITY_MODIFIER_",_Result,_Status)
+THEN
+ApplyStatus(_Character,_Status,6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_INTELLIGENCE",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_WISDOM",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_CHARISMA",6.0,1,_Causee);
+
+PROC
+PROC_CharismaAbilityCheckCalculations((CHARACTER)_Character)
+AND
+DB_DragonsBreath_StoreSource(_Character,(CHARACTER)_Causee)
+AND
+GetAbility(_Causee,"Charisma",_CauseCha)
+AND
+IntegerSubtract(_CauseCha,10,_SubCha)
+AND
+IntegerDivide(_SubCha,2,_DivCha)
+AND
+IntegerToString(_DivCha,_Result)
+AND
+Concatenate("SPELL_ABILITY_MODIFIER_",_Result,_Status)
+THEN
+ApplyStatus(_Character,_Status,6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_INTELLIGENCE",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_WISDOM",6.0,1,_Causee);
+ApplyStatus(_Character,"SPELL_ABILITY_MODIFIER_CHARISMA",6.0,1,_Causee);
+
+IF
+StartedPreviewingSpell((CHARACTER)_Character,(STRING)_Spell,_,_)
+AND
+NOT DB_MagicStoneSpellsAndStatuses(_Spell,_)
+AND
+NOT DB_DragonsBreathSpellsAndStatuses(_Spell,_)
+AND
+DB_CasterSpellCastingAbilityModifier_Statuses(_Status)
+AND
+HasActiveStatus(_Character,_Status,1)
+THEN
+RemoveStatus(_Character,_Status);
+
+IF
+StatusRemoved((CHARACTER)_Causee,"MAGIC_STONE_OWNER",_,_)
 AND
 DB_DragonsBreath_StoreSource(_Character,_Causee)
 THEN
 NOT DB_DragonsBreath_StoreSource(_Character,_Causee);
-ObjectTimerLaunch(_Character,"DragonsBreathModifierStatusRemoval",5000,0);
-
-IF
-ObjectTimerFinished((CHARACTER)_Character,"DragonsBreathModifierStatusRemoval")
-THEN
-ApplyStatus(_Character,"DRAGONS_BREATH_MODIFIER_REMOVAL",0.0,1);
 
 // Debug Test
 
