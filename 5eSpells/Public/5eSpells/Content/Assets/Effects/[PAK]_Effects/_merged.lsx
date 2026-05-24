@@ -4029,6 +4029,129 @@
 						</node>
 					</children>
 				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="884f6417-cc7a-b59b-82d8-4c71a0fa5bf3" />
+					<attribute id="Name" type="LSString" value="VFX_Projectiles_Pyrotechnics_Fireworks" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Projectiles/VFX_Projectiles_Pyrotechnics_Fireworks.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Projectiles_Pyrotechnics_Fireworks" />
+					<attribute id="BoundsMin" type="fvec3" value="-8.6602545 -8.6602545 -8.6602545" />
+					<attribute id="BoundsMax" type="fvec3" value="8.6602545 8.6602545 8.6602545" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="5" />
+					<attribute id="Looping" type="bool" value="False" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e27a06fb-ef00-9e4c-23b4-cd8b5bb75ad6" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="c10956a0-da54-b50b-6882-04ab416014f6" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="4f5b525d-cdf7-1d04-2db5-d1f6e28c013b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="a0998003-12c2-93ef-c686-797451ed2d9b" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7d365265-8eef-0644-e7a6-e194848400ff" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="90173dfc-e31d-3943-22f7-15485b0b91bb" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="1821bf0a-2a37-3254-6ff8-65edcba14b1d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="022413d7-0e40-43f8-ba85-6aeeacb2a13a" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="e7b55705-01cd-edbd-7a8d-25321c31904d" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="8da58aa9-f985-f994-f2eb-b10766de73f7" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="aff310a6-66a3-d439-c77a-0878e1e3a134" />
+					<attribute id="Name" type="LSString" value="VFX_Spells_Prepare_Pyrotechnics_L" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Prepare/5eSpells/VFX_Spells_Prepare_Pyrotechnics_L.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Spells_Prepare_Pyrotechnics_L" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.1547005 -1.1547005 -1.1547005" />
+					<attribute id="BoundsMax" type="fvec3" value="1.1547005 1.1547005 1.1547005" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="2" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="2782d6c2-cc78-7470-d1b8-a2708a603767" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="7442866b-066b-dca9-4189-a1a8560b8234" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="dc51aa91-8595-a03f-3bd2-216bbb6c8f3f" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="83fe3c2c-7557-b45f-e7c2-c988dc149799" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="f7fc084b-d098-0d9a-8033-1cb61c3beb37" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5874a588-b4ad-4a78-a823-8f5f739555be" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="178147e5-42ed-0cb9-af48-4b638cc9c9ae" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="202dbee3-701e-2eca-0642-660f353e8748" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="706c6118-b534-ecc1-051c-6699673cca6a" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="ad98e2b6-d145-f199-f00c-8e2b225730d7" />
+					<attribute id="Name" type="LSString" value="VFX_Spells_Prepare_Pyrotechnics_R" />
+					<attribute id="SourceFile" type="LSString" value="Public/5eSpells/Assets/Effects/Effects_Banks/Spells/Prepare/5eSpells/VFX_Spells_Prepare_Pyrotechnics_R.lsfx" />
+					<attribute id="EffectName" type="FixedString" value="VFX_Spells_Prepare_Pyrotechnics_R" />
+					<attribute id="BoundsMin" type="fvec3" value="-1.1547005 -1.1547005 -1.1547005" />
+					<attribute id="BoundsMax" type="fvec3" value="1.1547005 1.1547005 1.1547005" />
+					<attribute id="CullingDistance" type="float" value="0" />
+					<attribute id="Duration" type="float" value="2.17" />
+					<attribute id="Looping" type="bool" value="True" />
+					<attribute id="InterruptionMode" type="uint32" value="2" />
+					<children>
+						<node id="Dependencies">
+							<children>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="1488bd36-f99c-f427-3bf4-c400792f714c" />
+								</node>
+								<node id="DependentResource">
+									<attribute id="Object" type="FixedString" value="5648d41b-5f6b-2e1c-8e1f-9e69e8094264" />
+								</node>
+							</children>
+						</node>
+					</children>
+				</node>
 			</children>
 		</node>
 	</region>

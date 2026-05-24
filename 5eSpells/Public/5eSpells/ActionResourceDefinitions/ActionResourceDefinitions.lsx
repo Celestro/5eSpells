@@ -10,7 +10,7 @@
                     <attribute id="Name" type="FixedString" value="RitualSpellResource"/>
                     <attribute id="ReplenishType" type="FixedString" value="Turn"/>
                     <attribute id="ShowOnActionResourcePanel" type="bool" value="false"/>
-                    <attribute id="UUID" type="guid" value="d59999b2-3e77-42f6-96e8-b021a17a9e1c"/>
+                    <attribute id="UUID" type="guid" value="586bceed-787b-41c7-8be7-02de66932224"/>
                 </node>
                 <node id="ActionResourceDefinition">
                     <attribute id="DiceType" type="uint32" value="6"/>
